@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing </title>
+        <link href="img/Tansam.png" rel="icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body class="bg-white">
+        <nav class="bg-white shadow-md sticky top-0 z-40">
+            <div
+                class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn"
+                        class="text-[#009999] focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                    <a href="index.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Home</a>
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            About Us
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="index.html#about-us"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">About Us</a>
+                            <a href="board.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Board  Directors</a>                            
+                        </div>
+                    </div>
+                    <a href="index.html#labs"
+                        class="border-b-2 border-[#A21D21] font-medium text-primary hover:text-[#A21D21] hover:border-[#A21D21]">Labs</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            Capabilities
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="Skillinghead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Skilling</a>
+                            <a href="Research_Projecthead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Research
+                                &
+                                Projects</a>
+                        </div>
+                    </div>
+
+                    <a href="index.html#news_events"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">News
+                        & Events</a>
+                    <a href="index.html#team"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Our
+                        Team</a>
+                    <a href="responsive.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Contact</a>
+                    <!-- <a href="Gcc.html"
+                    class="bg-[#A21D21] hover:bg-[#A21D21] text-white font-semibold py-1 px-4 ">GCC</a> -->
+                </div>
+            </div>
+            <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+                <a href="index.html" class="block py-2 text-black ">Home</a>
+                <a href="index.html#about-us"
+                    class="block py-2 hover:text-[#A21D21]">About Us</a>
+                <a href="index.html#labs"
+                    class="block py-2 text-primary font-medium hover:text-[#A21D21]">Labs</a>
+                <div class="block py-2">
+                    <button
+                        class="w-full text-left flex justify-between items-center  text-black hover:text-[#A21D21] focus:outline-none "
+                        onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                        Capabilities
+                        <svg
+                            class="w-4 h-4 ml-1 transition-transform duration-300"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                        <a href="Skillinghead.html"
+                            class="block py-1 hover:text-[#A21D21]">Skilling</a>
+                        <a href="Research_Projecthead.html"
+                            class="block py-1 hover:text-[#A21D21]">Research &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="index.html#news_events"
+                    class="block py-2 hover:text-[#A21D21]">News & Events</a>
+                <a href="index.html#team"
+                    class="block py-2 hover:text-[#A21D21]">Our Team</a>
+                <a href="contact.html"
+                    class="block py-2 hover:text-[#A21D21]">Contact</a>
+                <!-- <a href="Gcc.html"
+                class="block bg-[#A21D21] hover:bg-[#A21D21] text-white font-semibold py-2 px-4 mt-2  w-full text-center">GCC</a> -->
+            </div>
+        </nav>
+        <div class="bg-[#009999] py-4 px-4 md:px-12">
+            <h1
+                class="text-2xl sm:text-4xl font-bold text-white animate-slide-in-left whitespace-nowrap">
+                AR | VR | XR
+            </h1>
+        </div>
+
+        <div class="container mx-auto py-12 px-4">
+            <div
+                class="flex flex-col lg:flex-row bg-white rounded-lg shadow-xl overflow-hidden">
+                <div
+                    class="w-full lg:w-1/4 p-6 lg:p-12 bg-gray-50 flex flex-col space-y-6 order-1 lg:order-2">
+                    <div
+                        class="flex justify-between gap-3 items-center lg:justify-center">
+                        <h4
+                            class="text-xl sm:text-2xl font-bold text-gray-900 text-center text-nowrap">
+                            INNOVATION LABS
+                        </h4>
+                        <button id="toggleLabsBtn"
+                            class="lg:hidden text-gray-700 border border-gray-300 rounded-md px-2 py-1 text-sm hover:bg-gray-200 transition text-nowrap">
+                            See all
+                        </button>
+                    </div>
+
+                    <div id="labsContent"
+                        class="hidden lg:block space-y-6 mt-4 transition-all duration-300">
+
+                        <div class="flex flex-col items-center">
+                            <a href="./productinnovation.html">
+                                <img src="img/Type-14.png" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Product
+                                Innovation</span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="./predictiveengineering.html">
+                                <img src="img/Picture7.jpg" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Predictive
+                                Engineering</span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="./innovation.html">
+                                <img src="img/newimg_3.jpg"
+                                    alt="Corporate Training"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Innovative
+                                Manufacturing</span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="./smartfactory.html">
+                                <img src="img/newimg_1.jpg"
+                                    alt="Academia Programs"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Smart
+                                Factory</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="./assestperformance.html">
+                                <img src="img/newimg_2.jpg" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Asset
+                                Performance</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="./industrial_IOT.html">
+                                <img src="img/newimg_4.jpg" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Industrial
+                                IoT & Equipment</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="./productivelifecyclemangement.html">
+                                <img src="img/Productlifecyclemanagements.png" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Product
+                                Lifecycle Management</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="./arvrxr.html">
+                                <img src="img/6.png" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">AR
+                                | VR | XR</span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="./Digital_technology.html">
+                                <img src="img/hand-touching-digital-screen-with-data-visualization.jpg.jpeg" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Digital
+                                Technologies</span>
+                        </div>
+                    </div>
+                </div>
+                <section
+                    class="w-full lg:w-3/4 bg-white  px-4 order-2 lg:order-1">
+                    <div class="container mx-auto lg:px-4 py-10">
+                        <div class="mb-8">
+                            <img src="img/6.png"
+                                alt="Product Innovation Center"
+                                class="w-full h-64 sm:h-80 md:h-[400px] lg:h-[500px] object-cover rounded-lg shadow-md mb-6" />
+                        </div>
+
+                        <h3
+                            class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4 text-gray-900 text-center lg:text-left">
+                            Extended Reality (XR) – Virtual & Augmented Reality
+                            Solutions
+                        </h3>
+
+                        <p
+                            class="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6 text-justify">
+                            The AR/VR Lab at TANSAM (Tamil Nadu Smart and
+                            Advanced Manufacturing Centre), located at TIDEL
+                            Park, Chennai, is a dedicated facility for immersive
+                            technologies in manufacturing and
+                            training. Powered by Siemens Xcelerator solutions,
+                            the lab integrates Augmented Reality (AR) and
+                            Virtual Reality (VR) to create digital twins,
+                            immersive simulations, and interactive learning
+                            environments for MSMEs, startups, and academic
+                            institutions across Tamil Nadu.
+                        </p>
+
+                        <p
+                            class="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6 text-justify">
+                            These technologies are widely used in industries
+                            such as entertainment, education, healthcare,
+                            and engineering. VR is commonly used to create
+                            immersive gaming experiences and training
+                            simulations, while AR enhances real-world tasks by
+                            providing digital guidance and interactive
+                            learning opportunities.
+                        </p>
+
+                        <h4
+                            class="text-xl sm:text-2xl font-bold text-gray-800 mb-2 mt-6">
+                            How It Helps Companies
+                        </h4>
+                        <ul
+                            class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg md:text-xl mb-8">
+                            <li>Enhanced training – AR/VR reduces training time
+                                and improves knowledge retention.</li>
+                            <li>Cost savings – Virtual prototyping eliminates
+                                the need for physical models.</li>
+                            <li>Improved safety – Simulations allow risk‑free
+                                testing of industrial processes.</li>
+                            <li>Faster innovation – Digital twins accelerate
+                                product design and validation.</li>
+                            <li>Regional impact – Affordable access for MSMEs in
+                                across Tamilnadu.</li>
+                        </ul>
+
+                        <h4
+                            class="text-xl sm:text-2xl font-bold text-gray-800 mb-2 mt-6">
+                            Core Solutions
+                        </h4>
+                        <ul
+                            class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg md:text-xl mb-8">
+                            <li>Augmented Reality (AR) – Digital overlays for
+                                real‑time guidance on equipment.</li>
+                            <li>Virtual Reality (VR) – Immersive factory
+                                simulations for design validation and workforce
+                                training.</li>
+                            <li>Digital Twin Integration – AR/VR combined with
+                                IoT and analytics for predictive
+                                maintenance.</li>
+                            <li>Immersive Training Programs – Hands‑on Industry
+                                4.0 learning for students, startups, and
+                                MSMEs.</li>
+                        </ul>
+
+                        <h4
+                            class="text-xl sm:text-2xl font-bold text-gray-800 mb-2 mt-6">
+                            Services Offered
+                        </h4>
+                        <ul
+                            class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg md:text-xl mb-8">
+                            <li>AR/VR application development</li>
+                            <li>Digital twin simulations</li>
+                            <li>Industrial training programs</li>
+                            <li>Collaborative projects with universities and
+                                corporates</li>
+                        </ul>
+
+                        <h4
+                            class="text-xl sm:text-2xl font-bold text-gray-800 mb-2 mt-6">
+                            Testimonials
+                        </h4>
+                        <div class="space-y-4 mb-8">
+                            <blockquote
+                                class="border-l-4 border-[#009999] pl-4 sm:pl-6 text-gray-700 italic">
+                                “The AR/VR Lab gave our MSME team the ability to
+                                test processes virtually before implementation.
+                                It saved us both time and money.”
+                                <span class="block font-semibold mt-2"> – MSME Partner, located at Tamilnadu.</span>
+                            </blockquote>
+                            <blockquote
+                                class="border-l-4 border-[#009999] pl-4 sm:pl-6 text-gray-700 italic">
+                                “Our students gained hands‑on AR/VR experience
+                                that directly improved their employability in
+                                Tamil Nadu’s manufacturing sector.”
+                                <span class="block font-semibold mt-2">–
+                                    Professor, Engineering College, located at Tamilnadu.</span>
+                            </blockquote>
+                        </div>
+
+                        <h4
+                            class="text-xl sm:text-2xl font-bold text-gray-800 mb-2 mt-6">
+                            Case Study
+                        </h4>
+                        <ul
+                            class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg md:text-xl mb-8">
+                            <li>A Madurai‑based engineering college partnered
+                                with the AR/VR Lab to modernize student
+                                training.</li>
+                            <li>Students explored virtual factory environments
+                                through VR simulations.</li>
+                            <li>AR overlays provided step‑by‑step instructions
+                                on lab equipment.</li>
+                            <li>Digital twin integration enabled real‑time
+                                monitoring of machine performance.</li>
+                            <li>Outcome: Training time reduced by 40%, student
+                                engagement increased, and graduates gained
+                                practical Industry 4.0 skills.</li>
+                        </ul>
+
+                        <h4
+                            class="text-xl sm:text-2xl font-bold text-gray-800 mb-2 mt-6">
+                            Frequently Asked Questions (FAQ)
+                        </h4>
+                        <ul
+                            class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg md:text-xl mb-8">
+                            <li><strong>Q1: Who can access the AR/VR
+                                    Lab?</strong> MSMEs, startups, enterprises,
+                                and academic institutions across Tamil
+                                Nadu.</li>
+                            <li><strong>Q2: What technologies are used?</strong>
+                                The lab uses Siemens NX, Solid Edge, Unity, and
+                                Siemens Xcelerator portfolio.</li>
+                            <li><strong>Q3: How does AR/VR benefit
+                                    MSMEs?</strong> It reduces costs, improves
+                                safety, and accelerates product innovation.</li>
+                        </ul>
+
+                    </div>
+
+                </section>
+            </div>
+
+            <div class="w-full overflow-x-auto no-scrollbar mt-10">
+                <div class="flex flex-nowrap gap-4">
+                    <div class="flex-shrink-0 w-[70%] sm:w-[50%] md:w-[40%]">
+                        <img src="img/Picture2.jpg" alt="Image 1"
+                            class="w-full h-[150px] object-cover rounded">
+                    </div>
+                    <div class="flex-shrink-0 w-[70%] sm:w-[50%] md:w-[40%]">
+                        <img src="img/Picture11.png" alt="Image 2"
+                            class="w-full h-[150px] object-cover rounded">
+                    </div>
+                    <div class="flex-shrink-0 w-[70%] sm:w-[50%] md:w-[40%]">
+                        <img src="img/Picture12.png" alt="Image 3"
+                            class="w-full h-[150px] object-cover rounded">
+                    </div>
+                    <div class="flex-shrink-0 w-[70%] sm:w-[50%] md:w-[40%]">
+                        <img src="img/Picture14.png" alt="Image 4"
+                            class="w-full h-[150px] object-cover rounded">
+                    </div>
+                    <div class="flex-shrink-0 w-[70%] sm:w-[50%] md:w-[40%]">
+                        <img src="img/Picture16.png" alt="Image 5"
+                            class="w-full h-[150px] object-cover rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+            class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+            <i class="fa-solid fa-arrow-up text-xl"></i>
+        </a>
+        <footer class="bg-dark text-gray-400 pt-12">
+            <div
+                class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                <div class="text-white">
+                    <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                    <p>Tamil Nadu Smart and Advanced Manufacturing Centre -
+                        (TANSAM)</p>
+                </div>
+
+                <div class="text-white flex flex-col">
+                    <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                    <p class="flex items-start gap-3">
+                        <i class="fa fa-map-marker-alt mt-1"></i>
+                        <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani,
+                            Chennai, Tamil Nadu 600113</span>
+                    </p>
+
+                    <p class="flex items-center gap-3 pt-2">
+                        <i class="fa fa-phone-alt"></i>
+                        <span>+91-98840 35145</span>
+                    </p>
+
+                    <div class="flex gap-4 pt-4 flex-wrap">
+                        <a href="https://x.com/TANSAM2022" target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a
+                            href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tansamcoe_2022/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tansam/"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-white">
+                    <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                    <div class="flex flex-col space-y-2">
+                        <a href="index.html"
+                            class="hover:text-[#009999] transition-colors">Home</a>
+                        <a href="contact.html"
+                            class="hover:text-[#009999] transition-colors">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-center md:text-left">
+                <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="Disclaimer.html"
+                        class="hover:text-[#009999] transition-colors">Disclaimer</a>
+                    <a href="privacy_policy.html"
+                        class="hover:text-[#009999] transition-colors">Privacy
+                        and Copyright
+                        Policy</a>
+                    <a href="Terms_use.html"
+                        class="hover:text-[#009999] transition-colors">Terms of
+                        Use</a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+    <script>
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    // labs list 
+    const toggleBtn = document.getElementById('toggleLabsBtn');
+    const content = document.getElementById('labsContent');
+
+    toggleBtn.addEventListener('click', () => {
+        const isHidden = content.classList.toggle('hidden');
+        toggleBtn.textContent = isHidden ? 'See all' : 'Hide';
+    });
+    // dropdown of cababilities 
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    });
+
+
+</script>
+
+</html>

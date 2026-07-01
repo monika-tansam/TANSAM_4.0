@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing </title>
+    <link href="../img/Tansam.png" rel="icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-white">
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+            <div class="lg:hidden">
+                <button id="mobileMenuBtn" class="text-[#A21D21] focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                <a href="../index.html"
+                    class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Home</a>
+                 <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            About Us
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="index.html#about-us"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">About Us</a>
+                            <a href="board.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Board  Directors</a>                            
+                        </div>
+                    </div>
+                <a href="../index.html#labs"
+                    class="border-b-2 border-transparent  hover:text-[#A21D21] hover:border-[#A21D21]">Labs</a>
+
+                <div class="relative group">
+                    <button id="capabilitiesBtn"
+                        class="flex items-center font-medium text-primary border-b-2 border-[#A21D21] hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                        Capabilities
+                        <svg class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="capabilitiesDropdown"
+                        class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                        <a href="../Skillinghead.html"
+                            class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Skilling</a>
+                        <a href="../Research_Projecthead.html"
+                            class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Research &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="../index.html#news_events"
+                    class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">News & Events</a>
+                <a href="../index.html#team"
+                    class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Our Team</a>
+                <a href="../contact.html"
+                    class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Contact</a>
+                <!-- <a href="../Gcc.html"
+                    class="bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-1 px-4 ">GCC</a> -->
+            </div>
+        </div>
+        <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+            <a href="../index.html" class="block py-2 text-black ">Home</a>
+            <a href="../index.html#about-us" class="block py-2 hover:text-[#A21D21]">About Us</a>
+            <a href="../index.html#labs" class="block py-2  hover:text-[#A21D21]">Labs</a>
+            <div class="block py-2">
+                <button
+                    class="w-full text-left flex justify-between items-center text-primary font-medium hover:text-[#A21D21] focus:outline-none "
+                    onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                    Capabilities
+                    <svg class="w-4 h-4 ml-1 transition-transform duration-300" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                    <a href="../Skillinghead.html" class="block py-1 hover:text-[#A21D21]">Skilling</a>
+                    <a href="../Research_Projecthead.html" class="block py-1 hover:text-[#A21D21]">Research &
+                        Projects</a>
+                </div>
+            </div>
+
+            <a href="../index.html#news_events" class="block py-2 hover:text-[#A21D21]">News & Events</a>
+            <a href="../index.html#team" class="block py-2 hover:text-[#A21D21]">Our Team</a>
+            <a href="../contact.html" class="block py-2 hover:text-[#A21D21]">Contact</a>
+            <!-- <a href="../Gcc.html"
+                class="block bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-2 px-4 mt-2 w-full text-center">GCC</a> -->
+        </div>
+    </nav>
+
+    <div class="bg-[#009999] py-4 px-4 md:px-12">
+        <h1 class="text-xl sm:text-4xl font-bold text-white animate-slide-in-left md:whitespace-nowrap">
+            Digital technologies – AI &
+            Vision-Based
+        </h1>
+    </div>
+    
+    <div class="container mx-auto py-12 px-4">
+        <div class="flex flex-col lg:flex-row bg-white rounded-lg shadow-xl overflow-hidden">
+
+            <!-- Main Content -->
+            <div class="w-full lg:w-3/4 p-6 md:p-12 order-2 lg:order-1">
+                <div class="mb-8">
+
+                    <!-- Featured Image -->
+                    <img src="../img/2.jpg" alt="Digital Technologies – AI & Vision-Based"
+                        class="w-full h-[300px] md:h-[500px] object-cover rounded-lg shadow-md mb-6">
+
+                    <!-- Headline -->
+                    <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-8 text-gray-900">
+                        Digital Technologies – AI & Vision-Based Projects
+                    </h3>
+
+                    <section class="bg-gray-50 py-16 px-4">
+                        <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                      
+                          <!-- Title -->
+                          <h1 class="text-3xl md:text-4xl font-bold text-[#A21D21] text-center mb-6">
+                            What is TANSAM AI?
+                          </h1>
+                      
+                          <p class="text-gray-700 text-base md:text-lg text-center max-w-4xl mx-auto mb-10">
+                            <strong>TANSAM AI (Tamil Nadu Smart and Advanced Manufacturing Centre)</strong>, powered by Siemens,
+                            is Tamil Nadu’s hub for Artificial Intelligence in Industry 4.0. It provides AI-driven training,
+                            solutions, and innovation labs to enable smarter manufacturing and digital transformation
+                            across Chennai, Coimbatore, Madurai, and Salem.
+                          </p>
+                      
+                          <!-- Why AI Matters -->
+                          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                            Why AI Matters for Tamil Nadu
+                          </h2>
+                      
+                          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 mb-10">
+                            <li class="flex items-start gap-3">
+                              <span class="text-[#A21D21] font-bold">•</span>
+                              Government-backed initiative trusted by industries and institutions
+                            </li>
+                            <li class="flex items-start gap-3">
+                              <span class="text-[#A21D21] font-bold">•</span>
+                              AI-powered smart factory solutions for predictive maintenance and quality control
+                            </li>
+                            <li class="flex items-start gap-3">
+                              <span class="text-[#A21D21] font-bold">•</span>
+                              Supporting Chennai automotive, Coimbatore textile, Madurai academic, and Salem industrial clusters
+                            </li>
+                            <li class="flex items-start gap-3">
+                              <span class="text-[#A21D21] font-bold">•</span>
+                              Future-ready AI careers with global demand
+                            </li>
+                            <li class="flex items-start gap-3 md:col-span-2">
+                              <span class="text-[#A21D21] font-bold">•</span>
+                              Proven success with thousands of learners and institutions onboarded
+                            </li>
+                          </ul>
+                      
+                          <!-- AI Training -->
+                          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+                            AI Training & Solutions
+                          </h2>
+                      
+                          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                            <div class="bg-gray-50 rounded-xl p-5 shadow-sm">
+                              <h3 class="font-semibold text-gray-800 mb-2">Machine Learning & Predictive Analytics</h3>
+                              <p class="text-sm text-gray-600">Data-driven decision-making for smart manufacturing.</p>
+                            </div>
+                      
+                            <div class="bg-gray-50 rounded-xl p-5 shadow-sm">
+                              <h3 class="font-semibold text-gray-800 mb-2">Computer Vision</h3>
+                              <p class="text-sm text-gray-600">Automated quality inspection using AI.</p>
+                            </div>
+                      
+                            <div class="bg-gray-50 rounded-xl p-5 shadow-sm">
+                              <h3 class="font-semibold text-gray-800 mb-2">Generative AI</h3>
+                              <p class="text-sm text-gray-600">AI-powered product and design innovation.</p>
+                            </div>
+                      
+                            <div class="bg-gray-50 rounded-xl p-5 shadow-sm">
+                              <h3 class="font-semibold text-gray-800 mb-2">AI-Driven Cybersecurity</h3>
+                              <p class="text-sm text-gray-600">Securing smart factories and systems.</p>
+                            </div>
+                      
+                            <div class="bg-gray-50 rounded-xl p-5 shadow-sm">
+                              <h3 class="font-semibold text-gray-800 mb-2">Natural Language Processing</h3>
+                              <p class="text-sm text-gray-600">Workflow automation and intelligent communication.</p>
+                            </div>
+                      
+                            <div class="bg-gray-50 rounded-xl p-5 shadow-sm">
+                              <h3 class="font-semibold text-gray-800 mb-2">AI in EV Technology</h3>
+                              <p class="text-sm text-gray-600">Optimizing electric mobility solutions.</p>
+                            </div>
+                          </div>
+                      
+                          <!-- Benefits -->
+                          <h2 class="texint-2xl font-semibold text-gray-800 mb-4">
+                            Benefits of TANSAM AI
+                          </h2>
+                      
+                          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700 mb-12">
+                            <li>✔ Hands-on labs with Siemens Xcelerator AI tools</li>
+                            <li>✔ Faculty training programs for AI upskilling</li>
+                            <li>✔ Internships and hackathons aligned with AI modules</li>
+                            <li>✔ Industry-recognized certifications</li>
+                            <li class="md:col-span-2">✔ AI consulting for MSMEs and enterprises</li>
+                          </ul>
+                      
+                          <!-- CTA -->
+                          <div class="text-center">
+                            <!-- <a href="https://tansam.org/ai"
+                              class="inline-block bg-[#A21D21] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-800 transition">
+                              Explore AI Modules
+                            </a> -->
+                            <a 
+                              class="inline-block bg-[#A21D21] text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-red-800 transition">
+                              Explore AI Modules
+                            </a>
+                          </div>
+                      
+                        </div>
+                      </section>
+                      
+                    <!-- Client 1: Roadways -->
+                    <h4 class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client: Roadways</h4>
+                    <p class="text-base md:text-xl text-gray-700 mb-3 mt-2 font-medium"><strong>Problem Statement /
+                            Project Scope:</strong></p>
+                    <ul class="text-base md:text-xl list-disc list-inside space-y-2 text-gray-700 mb-4">
+                        <li>Automate traffic classification & support road expansion planning.</li>
+                        <li>Address limitations of manual vehicle counting & need for multi-vehicle classification
+                            accuracy.</li>
+                        <li>AI-based system to automatically detect & classify various vehicle types using video
+                            analytics and sensor integration.</li>
+                    </ul>
+                    <p class="text-base md:text-xl text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                            Highlights:</strong></p>
+                    <ul class="text-base md:text-xl list-disc list-inside space-y-2 text-gray-700 mb-4">
+                        <li>High accuracy in real-time vehicle classification.</li>
+                        <li>Seamless analysis of traffic data.</li>
+                        <li>Improved traffic monitoring.</li>
+                    </ul>
+                    <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                        <p class="text-base md:text-xl text-gray-700 leading-loose"><strong>Value Addition:</strong>
+                            Near-accurate, real-time traffic data to support smarter road infrastructure planning and
+                            automated classification of vehicles on live feeds, reducing manual effort and improving
+                            consistency.</p>
+                    </div>
+
+                    <!-- Client 2: Directorate of Public Health -->
+                    <h4 class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client: Directorate of Public
+                        Health and Preventive Medicine</h4>
+                    <p class="text-base md:text-xl text-gray-700 mb-3 mt-2 font-medium"><strong>Problem Statement /
+                            Project Scope:</strong></p>
+                    <ul class="text-base md:text-xl list-disc list-inside space-y-2 text-gray-700 mb-4">
+                        <li>Mosquito breeding site identification & chlorine usage data collection is manual &
+                            decentralized.</li>
+                        <li>No real-time geospatial monitoring or centralized data; limited field visibility &
+                            paper-based records.</li>
+                    </ul>
+                    <p class="text-base md:text-xl text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                            Highlights:</strong></p>
+                    <ul class="text-base md:text-xl list-disc list-inside space-y-2 text-gray-700 mb-4">
+                        <li>Cost-effective mobile platform integrating mosquito breeding & chlorine usage monitoring.
+                        </li>
+                        <li>Implemented geotagging for accurate field data acquisition.</li>
+                        <li>Responsive UX & interactive map-based selection for real-time data visibility.</li>
+                        <li>Streamlined workflows, minimized manual app-switching, improved efficiency.</li>
+                    </ul>
+                    <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                        <p class="text-base md:text-xl text-gray-700 leading-loose"><strong>Value Addition:</strong>
+                            Faster, accurate field data capture, improved decision-making, and enhanced responsiveness
+                            to on-ground issues.</p>
+                    </div>
+
+                    <!-- Client 3: Department of Public Health -->
+                    <h4 class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client: Department of Public
+                        Health</h4>
+                    <p class="text-base md:text-xl text-gray-700 mb-3 mt-2 font-medium"><strong>Problem Statement /
+                            Project Scope:</strong></p>
+                    <ul class="text-base md:text-xl list-disc list-inside space-y-2 text-gray-700 mb-4">
+                        <li>Monitor drinking water quality based on chlorine concentration (ppm).</li>
+                        <li>Detect over-chlorination and under-chlorination to ensure safe drinking water standards.
+                        </li>
+                        <li>Enable digital data collection of chlorine values with real-time dashboard monitoring.</li>
+                    </ul>
+                    <p class="text-base md:text-xl text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                            Highlights:</strong></p>
+                    <ul class="text-base md:text-xl list-disc list-inside space-y-2 text-gray-700 mb-4">
+                        <li>AI model predicts chlorine ppm values from images captured via mobile app.</li>
+                        <li>Real-time detection & classification of chlorine levels from field inputs.</li>
+                        <li>Automatic alerts for ppm exceeding 2, enhancing public health safety.</li>
+                    </ul>
+                    <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                        <p class="text-base md:text-xl text-gray-700 leading-loose"><strong>Value Addition:</strong>
+                            Near-accurate classification of chlorine ppm values, automated analysis reducing manual
+                            errors, improved public health monitoring.</p>
+                    </div>
+
+                    <!-- Client 4: Leather Industry -->
+                    <h4 class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client: Leather Industry</h4>
+                    <p class="text-base md:text-xl text-gray-700 mb-3 mt-2 font-medium"><strong>Problem Statement /
+                            Project Scope:</strong></p>
+                    <ul class="text-base md:text-xl list-disc list-inside space-y-2 text-gray-700 mb-4">
+                        <li>Automate quality inspection of shoes by measuring physical dimensions accurately.</li>
+                        <li>Detect dimensional deviations to ensure consistent size, shape, and fit.</li>
+                        <li>Utilize digital imaging and measurement tools to compare shoe dimensions against design
+                            specs.</li>
+                    </ul>
+                    <p class="text-base md:text-xl text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                            Highlights:</strong></p>
+                    <ul class="text-base md:text-xl list-disc list-inside space-y-2 text-gray-700 mb-4">
+                        <li>Automated detection & classification of dimensional deviations without manual tools.</li>
+                        <li>Improved quality inspection, reduced human error, accelerated production checks.</li>
+                        <li>Scalable solution enhancing manufacturing precision and rapid data-driven quality control.
+                        </li>
+                    </ul>
+                    <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                        <p class="text-base md:text-xl text-gray-700 leading-loose"><strong>Value Addition:</strong>
+                            Near-accurate measurement of shoe dimensions, automated analysis, reduced manual inspection
+                            errors, improved manufacturing precision and quality control efficiency.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Section -->
+            <div class="w-full lg:w-1/4 p-6 md:p-12 bg-gray-50 flex flex-col space-y-6 order-1 lg:order-2">
+                <h4 class="text-lg md:text-xl font-bold mb-4">Research & Projects</h4>
+               <div class="space-y-6">
+
+                    <div class="flex flex-col items-center">
+                        <a href="../Research&Projects/research_1.html">
+                            <img src="../img/2.jpg" alt="Digital Technologies – AI & Vision-Based"
+                                class="w-[200px] h-[150px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <span class="mt-2 text-gray-700 font-medium text-center text-sm md:text-base">
+                            Digital Technologies – AI & Vision-Based
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <a href="../Research&Projects/research_2.html">
+                            <img src="../img/3.jpg" alt="Center for Predictive Engineering Analytics"
+                                class="w-[200px] h-[150px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <span class="mt-2 text-gray-700 font-medium text-center text-sm md:text-base">
+                            Center for Predictive Engineering Analytics
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <a href="../Research&Projects/research_3.html">
+                            <img src="../img/4.jpg" alt="Smart Factory Research Center"
+                                class="w-[200px] h-[150px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <span class="mt-2 text-gray-700 font-medium text-center text-sm md:text-base">
+                            Smart Factory Research Center
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <a href="../Research&Projects/research_4.html">
+                            <img src="../img/6.png" alt="AR / VR Research Center"
+                                class="w-[200px] h-[150px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <span class="mt-2 text-gray-700 font-medium text-center text-sm md:text-base">
+                            AR / VR Research Center
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col items-center">
+                        <a href="../Research&Projects/research_5.html">
+                            <img src="../img/assest.jpg" alt="Asset Performance Management"
+                                class="w-[200px] h-[150px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                        </a>
+                        <span class="mt-2 text-gray-700 font-medium text-center text-sm md:text-base">
+                            Asset Performance Management
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+        class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+        <i class="fa-solid fa-arrow-up text-xl"></i>
+    </a>
+    <footer class="bg-dark text-gray-400 pt-12">
+        <div class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+            <div class="text-white">
+                <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                <p>Tamil Nadu Smart and Advanced Manufacturing Centre - (TANSAM)</p>
+            </div>
+
+            <div class="text-white flex flex-col">
+                <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                <p class="flex items-start gap-3">
+                    <i class="fa fa-map-marker-alt mt-1"></i>
+                    <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani, Chennai, Tamil Nadu 600113</span>
+                </p>
+
+                <p class="flex items-center gap-3 pt-2">
+                    <i class="fa fa-phone-alt"></i>
+                    <span>+91-98840 35145</span>
+                </p>
+
+                <div class="flex gap-4 pt-4 flex-wrap">
+                    <a href="https://x.com/TANSAM2022" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tansamcoe_2022/#" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/tansam/" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-white">
+                <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                <div class="flex flex-col space-y-2">
+                    <a href="../index.html" class="hover:text-[#009999] transition-colors">Home</a>
+                    <a href="../contact.html" class="hover:text-[#009999] transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-center md:text-left">
+            <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                <a href="../Disclaimer.html" class="hover:text-[#009999] transition-colors">Disclaimer</a>
+                <a href="../privacy_policy.html" class="hover:text-[#009999] transition-colors">Privacy and Copyright
+                    Policy</a>
+                <a href="../Terms_use.html" class="hover:text-[#009999] transition-colors">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    });
+</script>
+
+</html>

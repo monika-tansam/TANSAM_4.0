@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing </title>
+        <link href="img/Tansam.png" rel="icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body class="bg-white font-['Roboto']">
+        <nav class="bg-white shadow-md sticky top-0 z-40">
+            <div
+                class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn"
+                        class="text-[#009999] focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                    <a href="index.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Home</a>
+                     <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            About Us
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="index.html#about-us"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">About Us</a>
+                            <a href="board.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Board  Directors</a>                            
+                        </div>
+                    </div>
+                    <a href="index.html#labs"
+                        class="border-b-2 border-[#A21D21] font-medium text-primary hover:text-[#A21D21] hover:border-[#A21D21]">Labs</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            Capabilities
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="Skillinghead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Skilling</a>
+                            <a href="Research_Projecthead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Research
+                                &
+                                Projects</a>
+                        </div>
+                    </div>
+
+                    <a href="index.html#news_events"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">News
+                        & Events</a>
+                    <a href="index.html#team"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Our
+                        Team</a>
+                    <a href="responsive.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Contact</a>
+                    <!-- <a href="Gcc.html"
+                    class="bg-[#A21D21] hover:bg-[#A21D21] text-white font-semibold py-1 px-4 ">GCC</a> -->
+                </div>
+            </div>
+            <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+                <a href="index.html" class="block py-2 text-black ">Home</a>
+                <a href="index.html#about-us"
+                    class="block py-2 hover:text-[#A21D21]">About Us</a>
+                <a href="index.html#labs"
+                    class="block py-2 text-primary font-medium hover:text-[#A21D21]">Labs</a>
+                <div class="block py-2">
+                    <button
+                        class="w-full text-left flex justify-between items-center  text-black hover:text-[#A21D21] focus:outline-none "
+                        onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                        Capabilities
+                        <svg
+                            class="w-4 h-4 ml-1 transition-transform duration-300"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                        <a href="Skillinghead.html"
+                            class="block py-1 hover:text-[#A21D21]">Skilling</a>
+                        <a href="Research_Projecthead.html"
+                            class="block py-1 hover:text-[#A21D21]">Research &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="index.html#news_events"
+                    class="block py-2 hover:text-[#A21D21]">News & Events</a>
+                <a href="index.html#team"
+                    class="block py-2 hover:text-[#A21D21]">Our Team</a>
+                <a href="contact.html"
+                    class="block py-2 hover:text-[#A21D21]">Contact</a>
+                <!-- <a href="Gcc.html"
+                class="block bg-[#A21D21] hover:bg-[#A21D21] text-white font-semibold py-2 px-4 mt-2  w-full text-center">GCC</a> -->
+            </div>
+        </nav>
+
+        <div class="bg-[#009999] py-4 px-4 md:px-12">
+            <h1
+                class="text-2xl sm:text-4xl font-bold text-white animate-slide-in-left whitespace-nowrap">
+                Innovative Manufacturing
+            </h1>
+        </div>
+
+        <div class="container mx-auto py-12 px-4">
+            <div
+                class="flex flex-col lg:flex-row bg-white rounded-lg shadow-xl overflow-hidden">
+
+                <div
+                    class="lg:w-1/4 p-6 lg:p-12 bg-gray-50 flex flex-col space-y-6 order-1 lg:order-2">
+
+                    <div
+                        class="flex justify-between gap-3 items-center lg:justify-center">
+                        <h4
+                            class="text-xl sm:text-2xl font-bold text-gray-900 text-center text-nowrap">
+                            INNOVATION LABS
+                        </h4>
+                        <button id="toggleLabsBtn"
+                            class="lg:hidden text-gray-700 border border-gray-300 rounded-md px-2 py-1 text-sm hover:bg-gray-200 transition text-nowrap">
+                            See all
+                        </button>
+                    </div>
+
+                    <div id="labsContent"
+                        class="hidden lg:block space-y-6 mt-4 transition-all duration-300">
+
+                        <div class="flex flex-col items-center">
+                            <a href="./productinnovation.html">
+                                <img src="img/Type-14.png" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Product
+                                Innovation</span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="./predictiveengineering.html">
+                                <img src="img/Picture7.jpg" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Predictive
+                                Engineering</span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="./innovation.html">
+                                <img src="img/newimg_3.jpg"
+                                    alt="Corporate Training"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Innovative
+                                Manufacturing</span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="./smartfactory.html">
+                                <img src="img/newimg_1.jpg"
+                                    alt="Academia Programs"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Smart
+                                Factory</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="./assestperformance.html">
+                                <img src="img/newimg_2.jpg" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Asset
+                                Performance</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="./industrial_IOT.html">
+                                <img src="img/newimg_4.jpg" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Industrial
+                                IoT & Equipment</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="./productivelifecyclemangement.html">
+                                <img src="img/Productlifecyclemanagements.png" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Product
+                                Lifecycle Management</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <a href="./arvrxr.html">
+                                <img src="img/6.png" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">AR
+                                | VR | XR</span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="./Digital_technology.html">
+                                <img src="img/hand-touching-digital-screen-with-data-visualization.jpg.jpeg" alt="Nanmudhalvan"
+                                    class="w-[220px] h-[130px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300" />
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Digital
+                                Technologies</span>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="bg-white order-2 lg:order-1">
+                    <div class="container mx-auto px-4 sm:px-6 md:px-12 py-10">
+                        <div>
+
+                            <div class="mb-8">
+                                <img src="img/newimg_3.jpg"
+                                    alt="3D Printing Machine"
+                                    class="w-full h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] object-cover rounded-xl shadow-lg mb-6" />
+                            </div>
+
+                            <h3
+                                class="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight mb-4 text-gray-900">
+                                Materials & Specifications for 3D Printing
+                            </h3>
+
+                            <div
+                                class="space-y-5 text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed mb-8">
+                                <p>
+                                    The Innovative Manufacturing Lab at <span
+                                        class="font-semibold">TANSAM</span>
+                                    (Tamil Nadu Smart and Advanced Manufacturing
+                                    Centre), located at TIDEL Park, Chennai, is
+                                    a dedicated hub for reverse engineering,
+                                    additive
+                                    manufacturing, and 3D printing technologies.
+                                    Powered by Siemens Xcelerator solutions, the
+                                    lab provides MSMEs, startups, and students
+                                    across Tamil Nadu with access to advanced
+                                    tools that
+                                    accelerate product innovation, reduce costs,
+                                    and improve competitiveness.
+                                </p>
+                                <p>
+                                    Our approach promotes flexibility and
+                                    scalability, empowering industries to meet
+                                    evolving demands efficiently.
+                                    At <span
+                                        class="font-semibold">TANSAM</span>,
+                                    innovation drives sustainable and
+                                    future-ready manufacturing solutions.
+                                </p>
+                                <p>
+                                    Innovative Manufacturing Centre hosts two
+                                    critical functions: <span
+                                        class="font-semibold">Reverse
+                                        Engineering</span> and <span
+                                        class="font-semibold">Rapid
+                                        Prototyping</span>.
+                                </p>
+                                <p>
+
+                                </p>
+                            </div>
+
+                            <ul
+                                class="text-gray-700 text-base sm:text-lg md:text-xl list-disc list-inside mb-8">
+                                <li>
+                                    <span class="font-semibold">Reverse
+                                        Engineering</span> digitizes and creates
+                                    digital twins of legacy products, using 3D
+                                    scanning and parametric data to recreate and
+                                    improve 3D models.
+                                </li>
+                            </ul>
+
+                            <ul
+                                class="text-gray-700 text-base sm:text-lg md:text-xl list-disc list-inside mb-8">
+                                <li>
+                                    <span class="font-semibold">Rapid
+                                        prototyping</span> accelerates product
+                                    development,
+                                    enabling design iteration and validation —
+                                    leading to shorter time-to-market.
+                                </li>
+                            </ul>
+
+                            <h4
+                                class="text-xl sm:text-2xl font-bold text-gray-800 mb-3">How
+                                It Helps Companies</h4>
+                            <ul
+                                class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg md:text-xl mb-8">
+                                <li><strong>Rapid prototyping:</strong> 3D
+                                    printing enables faster product
+                                    development cycles.</li>
+                                <li><strong>Cost efficiency:</strong>
+                                    Reverse engineering reduces tooling and
+                                    manufacturing expenses.</li>
+                                <li><strong>Innovation:</strong> Additive
+                                    manufacturing allows complex geometries
+                                    not possible with traditional
+                                    methods.</li>
+                                <li><strong>Local support:</strong> Across Tamilnadu MSMEs 
+                                    gain affordable access to cutting-edge
+                                    technology.</li>
+                                <li><strong>Digital transformation:</strong>
+                                    Integrates with PLM and digital twin
+                                    workflows for Industry 4.0
+                                    readiness.</li>
+                            </ul>
+
+                            <h4
+                                class="text-xl sm:text-2xl font-bold text-gray-800 mb-3">
+                                Core Solutions</h4>
+                            <ul
+                                class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg md:text-xl mb-8">
+                                <li><strong>Reverse Engineering:</strong>
+                                    Handheld 3D scanning (Calibry Mini) and
+                                    reconstruction using Siemens NX and
+                                    Solid Edge.</li>
+                                <li><strong>3D Metal Printing:</strong>
+                                    Markforged printers for lightweight,
+                                    high-strength prototypes.</li>
+                                <li><strong>Additive Manufacturing:</strong>
+                                    Layer-by-layer printing with seamless
+                                    CAD-to-print workflows.</li>
+                            </ul>
+
+                            <h4
+                                class="text-xl sm:text-2xl font-bold text-gray-800 mb-3">
+                                Services Offered</h4>
+                            <ul
+                                class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg md:text-xl mb-8">
+                                <li>3D scanning and modeling</li>
+                                <li>Reverse engineering of legacy
+                                    components</li>
+                                <li>Additive manufacturing and
+                                    prototyping</li>
+                                <li>Training programs for students and
+                                    MSMEs</li>
+                            </ul>
+
+                            <h4
+                                class="text-xl sm:text-2xl font-bold text-gray-800 mb-3">
+                                Testimonals</h4>
+                            <div class="space-y-4 mb-8">
+                                <blockquote
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6 text-gray-700 italic">
+                                    “TANSAM’s Innovative Manufacturing Lab
+                                    helped us prototype parts quickly and
+                                    cost-effectively. It transformed our
+                                    production process.”
+                                    <span class="block font-semibold mt-2">—
+                                        MSME Partner, located at Tamilnadu.</span>
+                                </blockquote>
+                                <blockquote
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6 text-gray-700 italic">
+                                    “Our students gained hands-on experience
+                                    with 3D printing and reverse
+                                    engineering, making them job-ready for
+                                    Industry 4.0.”
+                                    <span class="block font-semibold mt-2">—
+                                        Professor, Engineering College, located at Tamilnadu.</span>
+                                </blockquote>
+                            </div>
+
+                            <h4
+                                class="text-xl sm:text-2xl font-bold text-gray-800 mb-3">
+                                Case Study</h4>
+                            <div
+                                class="space-y-3 text-gray-700 text-base sm:text-lg md:text-xl">
+                                <ul
+                                    class="list-disc list-inside space-y-1 pl-5">
+                                    <li>The worn-out part was scanned using
+                                        the alibry Mini 3D
+                                        scanner.</li>
+                                    <li> A Chennai-based
+                                        automotive MSME needed a discontinued
+                                        engine component.</li>
+                                    <li>Engineers reverse-engineered the
+                                        part in Siemens NX
+                                        and optimized the design.</li>
+                                    <li>A high-strength prototype was
+                                        produced in 72
+                                            hours using
+                                        Markforged’s metal printer.</li>
+                                    <li>
+                                        Reduced
+                                        downtime, avoided costly tooling, and
+                                        demonstrated the lab’s ability to
+                                        deliver end-to-end smart manufacturing
+                                        solutions.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <h4
+                                class="text-xl sm:text-2xl font-bold text-gray-800 mb-3 mt-6">Materials
+                                3D Printed</h4>
+                            <ul
+                                class="text-base sm:text-lg md:text-xl list-disc list-inside space-y-2 text-gray-700 mb-8">
+                                <li>Stainless Steel (17-4 PH)</li>
+                                <li>Copper</li>
+                                <li>Inconel 625</li>
+                                <li>Tool Steel H13, A2 & D2</li>
+                            </ul>
+
+                            <h4
+                                class="text-xl sm:text-2xl font-bold text-gray-800 mb-3">Build
+                                Volume</h4>
+                            <ul
+                                class="text-base sm:text-lg md:text-xl list-disc list-inside space-y-2 text-gray-700 mb-8">
+                                <li><span class="font-semibold">Length:</span>
+                                    300 mm</li>
+                                <li><span class="font-semibold">Width:</span>
+                                    220 mm</li>
+                                <li><span class="font-semibold">Height:</span>
+                                    180 mm</li>
+                            </ul>
+
+                            <h4
+                                class="text-xl sm:text-2xl font-bold text-gray-800 mb-3">Key
+                                Features</h4>
+                            <ul
+                                class="text-base sm:text-lg md:text-xl list-disc list-inside space-y-2 text-gray-700">
+                                <li><span class="font-semibold">Print Bed
+                                        Heated:</span> Vacuum-sealed print
+                                    sheet, auto bed
+                                    leveling</li>
+                                <li><span class="font-semibold">Print
+                                        System:</span> Two nozzles – metal
+                                    material and
+                                    release material</li>
+                                <li><span class="font-semibold">Release
+                                        Material:</span> Ceramic (consumed at
+                                    1:10 ratio to
+                                    metal spools)</li>
+                                <li><span class="font-semibold">Supports:</span>
+                                    Metal material with ceramic release layer
+                                </li>
+                                <li><span class="font-semibold">Supplied
+                                        Software:</span> Eiger Cloud (other
+                                    options
+                                    available at cost)</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+            <div class="w-full overflow-x-auto no-scrollbar mt-10">
+                <div class="flex flex-nowrap gap-4">
+                    <div class="flex-shrink-0 w-[70%] sm:w-[50%] md:w-[40%]">
+                        <img src="img/Picture2.jpg" alt="Image 1"
+                            class="w-full h-[150px] object-cover rounded">
+                    </div>
+                    <div class="flex-shrink-0 w-[70%] sm:w-[50%] md:w-[40%]">
+                        <img src="img/Picture11.png" alt="Image 2"
+                            class="w-full h-[150px] object-cover rounded">
+                    </div>
+                    <div class="flex-shrink-0 w-[70%] sm:w-[50%] md:w-[40%]">
+                        <img src="img/Picture12.png" alt="Image 3"
+                            class="w-full h-[150px] object-cover rounded">
+                    </div>
+                    <div class="flex-shrink-0 w-[70%] sm:w-[50%] md:w-[40%]">
+                        <img src="img/Picture14.png" alt="Image 4"
+                            class="w-full h-[150px] object-cover rounded">
+                    </div>
+                    <div class="flex-shrink-0 w-[70%] sm:w-[50%] md:w-[40%]">
+                        <img src="img/Picture16.png" alt="Image 5"
+                            class="w-full h-[150px] object-cover rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+            class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+            <i class="fa-solid fa-arrow-up text-xl"></i>
+        </a>
+        <footer class="bg-dark text-gray-400 pt-12">
+            <div
+                class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                <div class="text-white">
+                    <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                    <p>Tamil Nadu Smart and Advanced Manufacturing Centre -
+                        (TANSAM)</p>
+                </div>
+
+                <div class="text-white flex flex-col">
+                    <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                    <p class="flex items-start gap-3">
+                        <i class="fa fa-map-marker-alt mt-1"></i>
+                        <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani,
+                            Chennai, Tamil Nadu 600113</span>
+                    </p>
+
+                    <p class="flex items-center gap-3 pt-2">
+                        <i class="fa fa-phone-alt"></i>
+                        <span>+91-98840 35145</span>
+                    </p>
+
+                    <div class="flex gap-4 pt-4 flex-wrap">
+                        <a href="https://x.com/TANSAM2022" target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a
+                            href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tansamcoe_2022/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tansam/"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-white">
+                    <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                    <div class="flex flex-col space-y-2">
+                        <a href="index.html"
+                            class="hover:text-[#009999] transition-colors">Home</a>
+                        <a href="contact.html"
+                            class="hover:text-[#009999] transition-colors">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-center md:text-left">
+                <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="Disclaimer.html"
+                        class="hover:text-[#009999] transition-colors">Disclaimer</a>
+                    <a href="privacy_policy.html"
+                        class="hover:text-[#009999] transition-colors">Privacy
+                        and Copyright
+                        Policy</a>
+                    <a href="Terms_use.html"
+                        class="hover:text-[#009999] transition-colors">Terms of
+                        Use</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+
+    <script>
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    // labs list 
+    const toggleBtn = document.getElementById('toggleLabsBtn');
+    const content = document.getElementById('labsContent');
+
+    toggleBtn.addEventListener('click', () => {
+        const isHidden = content.classList.toggle('hidden');
+        toggleBtn.textContent = isHidden ? 'See all' : 'Hide';
+    });
+    // dropdown of cababilities 
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    });
+
+
+</script>
+
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Favicon -->
+    <link href="img/Tansam.png" rel="icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Grotesk&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS & fontawesomeicon cssstyles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Custom Animations -->
+    <style>
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .animate-slide-in-left {
+            animation: slideInLeft 1s ease-out forwards;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="bg-white shadow-md sticky top-0 z-40">
+            <div
+                class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn"
+                        class="primary focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                    <a href="index.html"
+                        class="border-b-2 border-primary font-medium text-primary hover:text-[#A21D21] hover:border-[#A21D21]">Home</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            About Us
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="index.html#about-us"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">About Us</a>
+                            <a href="board.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Board  Directors</a>                            
+                        </div>
+                    </div>
+                    <!-- <a href="index.html#about-us"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">About
+                        Us</a> -->
+                    <a href="index.html#labs"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Labs</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            Capabilities
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="Skillinghead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Skilling</a>
+                            <a href="Research_Projecthead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Research
+                                &
+                                Projects</a>
+                        </div>
+                    </div>
+
+                    <a href="index.html#news_events"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">News
+                        & Events</a>
+                    <a href="index.html#team"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Our
+                        Team</a>
+                    <a href="contact.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Contact</a>
+                    <!-- <a href="Gcc.html"
+                        class="bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-1 px-4 ">GCC</a> -->
+                </div>
+            </div>
+            <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+                <a href="index.html"
+                    class="block py-2 text-primary font-medium">Home</a>
+                <a href="index.html#about-us"
+                    class="block py-2 hover:text-[#A21D21]">About Us</a>
+                <a href="index.html#labs"
+                    class="block py-2  hover:text-[#A21D21]">Labs</a>
+                <div class="block py-2">
+                    <button
+                        class="w-full text-left flex justify-between items-center  text-black hover:text-[#A21D21] focus:outline-none "
+                        onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                        Capabilities
+                        <svg
+                            class="w-4 h-4 ml-1 transition-transform duration-300"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                        <a href="Skillinghead.html"
+                            class="block py-1 hover:text-[#A21D21]">Skilling</a>
+                        <a href="Research_Projecthead.html"
+                            class="block py-1 hover:text-[#A21D21]">Research &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="index.html#news_events"
+                    class="block py-2 hover:text-[#A21D21]">News & Events</a>
+                <a href="index.html#team"
+                    class="block py-2 hover:text-[#A21D21]">Our Team</a>
+                <a href="contact.html"
+                    class="block py-2 hover:text-[#A21D21]">Contact</a>
+                <!-- <a href="Gcc.html"
+                    class="block bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-2 px-4 mt-2 w-full text-center">GCC</a> -->
+            </div>
+        </nav>
+
+    <!-- Hero -->
+    <div class="bg-[#009999] py-4 px-4 md:px-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white animate-slide-in-left">
+                Contact
+            </h1>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="py-16 px-4 md:px-12">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- Map -->
+            <div class="w-full">
+                <h1 class="text-3xl md:text-4xl font-bold mb-6 text-[#A21D21]">
+                    If You Have Any Query,<br>
+                    Please Contact Us
+                </h1>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.858519237072!2d80.24602337489333!3d12.989573287327453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d210ee3c88b%3A0xf5aa43e3900fcbf!2sTANSAM%20(Tamilnadu%20smart%20and%20advanced%20manufacturing%20centre)!5e1!3m2!1sen!2sin!4v1759745699294!5m2!1sen!2sin"
+                    class="w-full h-64 md:h-75 lg:h-[300px] border-0 " allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+            <!-- Form -->
+            <div>
+                <form class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium">Your Name</label>
+                            <input type="text" id="name"
+                                class="w-full border border-gray-300 rounded-md px-3 py-2 mt-2 focus:ring-2 focus:ring-[#009999] focus:outline-none" />
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium">Your Email</label>
+                            <input type="email" id="email"
+                                class="w-full border border-gray-300 rounded-md px-3 py-2 mt-2 focus:ring-2 focus:ring-[#009999] focus:outline-none" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="subject" class="block text-gray-700 font-medium">Subject</label>
+                        <input type="text" id="subject"
+                            class="w-full border border-gray-300 rounded-md px-3 py-2 mt-2 focus:ring-2 focus:ring-[#009999] focus:outline-none" />
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-gray-700 font-medium">Message</label>
+                        <textarea id="message" rows="4"
+                            class="w-full border border-gray-300 rounded-md px-3 py-2 mt-2 focus:ring-2 focus:ring-[#009999] focus:outline-none"></textarea>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:gap-3 gap-3 mt-3">
+                        <a href="#!" class="bg-[#009999] hover:bg-[#164143] text-white px-6 py-2  text-center">Send
+                            Message</a>
+                        <a href="#!"
+                            class="border-2 border-[#009999] text-[#009999] hover:bg-[#009999] hover:text-white px-6 py-2  text-center">Apply
+                            for Career</a>
+                        <a href="#!"
+                            class="border-2 border-[#009999] text-[#009999] hover:bg-[#009999] hover:text-white px-6 py-2  text-center">Apply
+                            for Internship</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+        class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+        <i class="fa-solid fa-arrow-up text-xl"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-gray-400 pt-12">
+        <div class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+            <!-- Left Section -->
+            <div class="text-white">
+                <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                <p>Tamil Nadu Smart and Advanced Manufacturing Centre - (TANSAM)</p>
+            </div>
+
+            <!-- Middle Section -->
+            <div class="text-white flex flex-col">
+                <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                <p class="flex items-start gap-3">
+                    <i class="fa fa-map-marker-alt mt-1"></i>
+                    <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani, Chennai, Tamil Nadu 600113</span>
+                </p>
+
+                <p class="flex items-center gap-3 pt-2">
+                    <i class="fa fa-phone-alt"></i>
+                    <span>+91-98840 35145</span>
+                </p>
+
+                <!-- Social Media Section -->
+                <div class="flex gap-4 pt-4 flex-wrap">
+                    <a href="https://x.com/TANSAM2022" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tansamcoe_2022/#" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/tansam/" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="text-white">
+                <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="hover:text-[#009999] transition-colors">Home</a>
+                    <a href="contact.html" class="hover:text-[#009999] transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div
+            class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-center md:text-left">
+            <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                <a href="Disclaimer.html" class="hover:text-[#009999] transition-colors">Disclaimer</a>
+                <a href="privacy_policy.html" class="hover:text-[#009999] transition-colors">Privacy and Copyright
+                    Policy</a>
+                <a href="Terms_use.html" class="hover:text-[#009999] transition-colors">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script>
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // dropdown of cababilities 
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    });
+
+
+</script>
+
+</html>

@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing </title>
+        <link href="../img/Tansam.png" rel="icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+
+    <body class="bg-white">
+        <nav class="bg-white shadow-md sticky top-0 z-40">
+            <div
+                class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn"
+                        class="text-[#A21D21] focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                    <a href="../index.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Home</a>
+                    <a href="../index.html#about-us"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">About
+                        Us</a>
+                    <a href="../index.html#labs"
+                        class="border-b-2 border-transparent  hover:text-[#A21D21] hover:border-[#A21D21]">Labs</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center font-medium text-primary border-b-2 border-[#A21D21] hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            Capabilities
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="../Skillinghead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Skilling</a>
+                            <a href="../Research_Projecthead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Research
+                                &
+                                Projects</a>
+                        </div>
+                    </div>
+
+                    <a href="../index.html#news_events"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">News
+                        & Events</a>
+                    <a href="../index.html#team"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Our
+                        Team</a>
+                    <a href="../contact.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Contact</a>
+                    <!-- <a href="../Gcc.html"
+                    class="bg-[#A21D21] hover:bg-[#A21D21] text-white font-semibold py-1 px-4 ">GCC</a> -->
+                </div>
+            </div>
+            <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+                <a href="../index.html" class="block py-2 text-black ">Home</a>
+                <a href="../index.html#about-us"
+                    class="block py-2 hover:text-[#A21D21]">About Us</a>
+                <a href="../index.html#labs"
+                    class="block py-2  hover:text-[#A21D21]">Labs</a>
+                <div class="block py-2">
+                    <button
+                        class="w-full text-left flex justify-between items-center text-primary font-medium hover:text-[#A21D21] focus:outline-none "
+                        onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                        Capabilities
+                        <svg
+                            class="w-4 h-4 ml-1 transition-transform duration-300"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                        <a href="../Skillinghead.html"
+                            class="block py-1 hover:text-[#A21D21]">Skilling</a>
+                        <a href="../Research_Projecthead.html"
+                            class="block py-1 hover:text-[#A21D21]">Research &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="../index.html#news_events"
+                    class="block py-2 hover:text-[#A21D21]">News & Events</a>
+                <a href="../index.html#team"
+                    class="block py-2 hover:text-[#A21D21]">Our Team</a>
+                <a href="../contact.html"
+                    class="block py-2 hover:text-[#A21D21]">Contact</a>
+                <!-- <a href="../Gcc.html"
+                class="block bg-[#A21D21] hover:bg-[#A21D21] text-white font-semibold py-2 px-4 mt-2  w-full text-center">GCC</a> -->
+            </div>
+        </nav>
+        <div class="bg-[#009999] py-4 px-4 md:px-12">
+            <h1
+                class="text-2xl sm:text-4xl font-bold text-white animate-slide-in-left whitespace-nowrap">
+                Nanmudhalvan
+            </h1>
+        </div>
+
+        <div class="container mx-auto py-12 px-4">
+            <div
+                class="flex flex-col lg:flex-row bg-white rounded-lg shadow-xl overflow-hidden">
+
+                <!-- Main Content -->
+                <div class="flex-1 p-6 md:p-12 order-2 lg:order-1">
+                    <div class="mb-8">
+
+                        <img src="../img/NAAN 1.png"
+                            alt="Corporate Training - Industry 4.0"
+                            class="w-full max-h-[500px] object-cover rounded-lg shadow-md mb-6">
+
+                        <!-- Headline -->
+                        <h3
+                            class="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-4 text-gray-900">
+                            Naan Mudhalvan - Upskilling Course
+                        </h3>
+
+                        <!-- Intro Paragraph -->
+                        <p
+                            class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 text-justify">
+                            TANSAM is proud to empower 97,500+ students,
+                            transforming dreams into reality. Bridging talent
+                            and industrial Exposures by TIDCO and students gain
+                            real-world skills that open doors to
+                            Innovations. From aspiration to achievement,
+                            Students are the leaders of tomorrow, strengthening
+                            careers through Skill enhancement through TN Skills.
+                            This milestone in skill development by Naan
+                            Mudhalvan program is shaping Tamil Nadu’s future,
+                            impacting young minds. Together, we rise,
+                            building a skilled, confident, and successful
+                            generation!
+                        </p>
+
+                        <h4 class="text-xl md:text-2xl font-bold mb-4">Faculty
+                            Development Program:</h4>
+                        <p
+                            class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 text-justify">
+                            TANSAM has trained over 1,700 faculty members,
+                            providing them with advanced skills and valuable
+                            industry experience. The 6-day faculty development
+                            program is thoughtfully designed to align
+                            academic teaching with current industry demands,
+                            thereby enhancing the overall quality of
+                            education.
+                        </p>
+
+                        <p
+                            class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 text-justify">
+                            The training program is structured with the first 4
+                            days dedicated to classroom training,
+                            followed by 2 days focused on assessments that
+                            include written tests and practical evaluations
+                            to gauge participants’ technical understanding and
+                            application capabilities. Conducted in both
+                            online and offline modes depending on session type,
+                            the FDP ensured inclusive participation and
+                            provided faculty with digital learning materials and
+                            real-time project exposure. The initiative
+                            not only enhanced faculty readiness to deliver
+                            high-impact student training under the Naan
+                            Mudhalvan program but also fostered a collaborative
+                            learning environment that bridges the gap
+                            between academic instruction and industry
+                            requirements.
+                        </p>
+
+                        <p
+                            class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 text-justify">
+                            Following the successful completion of the faculty
+                            development program, the student development
+                            program will commence. This structured approach
+                            ensures that faculty are well-equipped with the
+                            knowledge and insights needed to effectively guide
+                            and support students throughout their
+                            training,
+                            fostering a more impactful and industry-ready
+                            learning experience.
+                        </p>
+
+                    
+
+                        <p
+                            class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 text-justify">
+                            So far, the details of the FDP training conducted
+                            are summarized in the table below:
+                        </p>
+
+                        <!-- Table 1: FDP -->
+                        <div class="overflow-x-auto p-4 rounded-md mb-6">
+                            <table
+                                class="min-w-full border border-gray-200 shadow-md table-auto">
+                                <thead>
+                                    <tr
+                                        class="bg-[#A21D21] text-white text-left">
+                                        <th
+                                            class="px-4 py-2 text-sm border border-gray-200 text-center">SL.NO</th>
+                                        <th
+                                            class="px-4 py-2 text-sm border border-gray-200 text-center">COURSE</th>
+                                        <th
+                                            class="px-4 py-2 text-sm border border-gray-200 text-center">INSTITUTION
+                                            TYPE
+                                        </th>
+                                        <th
+                                            class="px-4 py-2 text-sm border border-gray-200 text-center whitespace-nowrap">
+                                            YEAR/SEM</th>
+                                        <th
+                                            class="px-4 py-2 text-sm border border-gray-200 text-center">COLLEGE
+                                            COUNT</th>
+                                        <th
+                                            class="px-4 py-2 text-sm border border-gray-200 text-center">FACULTY
+                                            COUNT</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm text-gray-800">
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">1</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">INDUSTRY
+                                            4.0</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">POLYTECHNIC</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">420</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">400</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">2</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">3D
+                                            PRINTING USING NX</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">71</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">65</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">3</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ELECTRIC
+                                            VEHICLE TECHNOLOGY AND
+                                            MANUFATURING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">24</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">23</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">4</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">INDUTRY
+                                            4.0 AND ITS APPPLICATION IN
+                                            MECHANICAL ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">80</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">76</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">5</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ELECTRIC
+                                            VEHICLE TECHNOLOGY AND
+                                            MANUFATURING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">42</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">38</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">6</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">INDUSTRIAL
+                                            IOT AND INDUSTRY 4.0</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">84</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">75</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">7</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">INDUSTRY
+                                            4.0</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">POLYTECHNIC</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2024-2025
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">327</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">305</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">8</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">INDUSTRIAL
+                                            IOT AND INDUSTRY 4.0</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2024-2025
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">47</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">42</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">9</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">PLC
+                                            USING SIMATICS</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2024-2025
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">86</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">83</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">10</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">LOW
+                                            CODE APPLICATION USING MENDIX</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2024-2025
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">32</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">30</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">11</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ELECTRIC
+                                            VEHICLE TECHNOLOGY</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">POLYTECHNIC</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2024-2025
+                                            EVEN SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">145</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">141</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">12</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ADDITIVE
+                                            MANUFACTURING USING NX</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">POLYTECHNIC</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2024-2025
+                                            EVEN SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">77</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">60</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">13</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">EMBEDDED
+                                            SYSTEM DESIGN FOR IOT
+                                            (RASHBERY PI)</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2024-2025
+                                            EVEN SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">143</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">143</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-center">14</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ELECTRIC
+                                            VEHICLE TECHNOLOGY FOR EEE
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200">ENGINEERING</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 whitespace-nowrap">2024-2025
+                                            EVEN SEM
+                                        </td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">65</td>
+                                        <td
+                                            class="px-4 py-2 border border-gray-200 text-right">65</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="ECF8F9 font-semibold text-sm">
+                                        <td colspan="4"
+                                            class="border border-gray-200"></td>
+                                        <td
+                                            class="px-4 py-3 border border-gray-200 text-right">Total</td>
+                                        <td
+                                            class="px-4 py-3 border border-gray-200 bg-yellow-100 text-teal-700 font-bold text-right">
+                                            1546</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                        <!-- Student Development Program -->
+                        <h4 class="text-xl md:text-2xl font-bold mb-4">Student
+                            Development Program:</h4>
+                        <p
+                            class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 text-justify">
+                            Tamil Nadu Smart and Advanced Manufacturing
+                            (TANSAM), under the flagship Naan Mudhalvan scheme
+                            of the Government of Tamil Nadu, organized a 3-month
+                            Student Development Program (SDP) aimed at
+                            training students in advanced manufacturing and
+                            emerging technologies. This program targeted
+                            students from both engineering and polytechnic
+                            colleges across various zones in Tamil Nadu, with
+                            the goal of improving their technical capabilities
+                            and employability.
+                        </p>
+
+                        <p
+                            class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 text-justify">
+                            A 10-week program for Polytechnic students and a
+                            12-week program for Engineering students.
+                            Assessments are conducted during the final week of
+                            the training to evaluate the students'
+                            learning progress. Throughout the program, students
+                            participate in activities such as hackathons
+                            and industrial visits to gain practical experience
+                            and industry exposure. Upon completion of the
+                            course, internships and placement drives are
+                            organized to help the trained students secure job
+                            opportunities and further develop their careers.
+                        </p>
+
+                        <p
+                            class="text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed mb-6 text-justify">
+                            So far, the details of the SDP training conducted
+                            are summarized in the table below:
+                        </p>
+
+                        <!-- Table 2: SDP -->
+                        <div class="overflow-x-auto mt-6">
+                            <table
+                                class="min-w-full border border-gray-200 shadow-lg">
+                                <thead>
+                                    <tr
+                                        class="bg-[#A21D21] text-white text-xs sm:text-sm uppercase">
+                                        <th
+                                            class="px-2 sm:px-4 py-2 border border-gray-200 text-center">Sl.No</th>
+                                        <th
+                                            class="px-2 sm:px-4 py-2 border border-gray-200 text-center">Course</th>
+                                        <th
+                                            class="px-2 sm:px-4 py-2 border border-gray-200 text-center">Institution
+                                            Type
+                                        </th>
+                                        <th
+                                            class="px-2 sm:px-4 py-2 border border-gray-200 text-center whitespace-nowrap">
+                                            Year/Sem</th>
+                                        <th
+                                            class="px-2 sm:px-4 py-2 border border-gray-200 text-center">College
+                                            Count</th>
+                                        <th
+                                            class="px-2 sm:px-4 py-2 border border-gray-200 text-center">Students
+                                            Count</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-xs sm:text-sm text-gray-800">
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">1</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">INDUSTRY
+                                            4.0</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">POLYTECHNIC</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">420</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">25000</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">2</td>
+                                        <td class="px-2 sm:px-4 py-2 border">3D
+                                            PRINTING USING NX</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">71</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">3261</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">3</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ELECTRIC
+                                            VEHICLE TECHNOLOGY AND MANUFACTURING
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">24</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">1161</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">4</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">INDUTRY
+                                            4.0 AND ITS APPLICATION IN
+                                            MECHANICAL
+                                            ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">80</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">3721</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">5</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ELECTRIC
+                                            VEHICLE TECHNOLOGY AND MANUFACTURING
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">42</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">2038</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">6</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">INDUSTRIAL
+                                            IOT AND INDUSTRY 4.0</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2023-2024
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">84</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">3208</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">7</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">INDUSTRY
+                                            4.0</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">POLYTECHNIC</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2024-2025
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">327</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">19198</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">8</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">INDUSTRIAL
+                                            IOT AND INDUSTRY 4.0</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2024-2025
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">47</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">2572</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">9</td>
+                                        <td class="px-2 sm:px-4 py-2 border">PLC
+                                            USING SIMATICS</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2024-2025
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">86</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">2299</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">10</td>
+                                        <td class="px-2 sm:px-4 py-2 border">LOW
+                                            CODE APPLICATION USING MENDIX</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2024-2025
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">32</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">1101</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">11</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ELECTRIC
+                                            VEHICLE TECHNOLOGY</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">POLYTECHNIC</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2024-2025
+                                            EVEN
+                                            SEM</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">145</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">6442</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">12</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ADDITIVE
+                                            MANUFACTURING USING NX</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">POLYTECHNIC</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2024-2025
+                                            EVEN
+                                            SEM</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">77</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">3131</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">13</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">EMBEDDED
+                                            SYSTEM DESIGN FOR IOT (RASHBERY PI)
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2024-2025
+                                            EVEN
+                                            SEM</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">143</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">4949</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">14</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ELECTRIC
+                                            VEHICLE TECHNOLOGY FOR EEE</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2024-2025
+                                            EVEN
+                                            SEM</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">65</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">1759</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">15</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">INDUSTRIAL
+                                            DESIGN TECHNOLOGY</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">POLYTECHNIC</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2025-2026
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">36</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">7324</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">16</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ADDITIVE
+                                            MANUFACTURING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">POLYTECHNIC</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2025-2026
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">158</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">1478</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">17</td>
+                                        <td class="px-2 sm:px-4 py-2 border">PLC
+                                            PROGRAMMING & APPLICATIONS</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">POLYTECHNIC</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2025-2026
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">112</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">3313</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">18</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">EMBEDDED
+                                            SYSTEMS FOR IOT APPLICATIONS USING
+                                            RASPBERRY PI</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2025-2026
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">-</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">3157</td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center">19</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">INDUSTRIAL
+                                            IOT & INDUSTRY 4.0</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border">ENGINEERING</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-center whitespace-nowrap">2025-2026
+                                            ODD SEM
+                                        </td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">-</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right">2230</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="font-semibold bg-yellow-100">
+                                        <td colspan="4"
+                                            class="px-2 sm:px-4 py-2 border text-right">Total</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right text-blue-900">1949</td>
+                                        <td
+                                            class="px-2 sm:px-4 py-2 border text-right text-green-700 font-bold">97342</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar / Gallery Section -->
+                <div
+                    class="lg:w-1/4 p-6 lg:p-12 bg-gray-50 flex flex-col space-y-8 order-1 lg:order-2">
+                    <!-- <a 
+                        class="bg-primary border text-white font-semibold w-full text-center py-3 text-xl transition duration-300">
+                        CourseWare
+                    </a> -->
+
+                    <h4
+                        class="text-xl md:text-2xl font-bold mb-4 text-gray-900 text-center">Skilling
+                        Section</h4>
+
+                    <div class="space-y-6">
+                        <!-- Corporate -->
+                        <div class="flex flex-col items-center">
+                            <a href="../skillingsection.html/Nanmudhalvan.html">
+                                <img src="../img/NAAN 1.png"
+                                    alt="Corporate Training"
+                                    class="w-full h-auto object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Naanmudhalvan</span>
+                        </div>
+
+                        <!-- Academia -->
+                        <div class="flex flex-col items-center">
+                            <a href="../skillingsection.html/corporate.html">
+                                <img src="../img/corporatee.png"
+                                    alt="Academia Programs"
+                                    class="w-full h-auto object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Corporate</span>
+                        </div>
+
+                        <!-- Nanmudhalvan -->
+                        <div class="flex flex-col items-center">
+                            <a href="../skillingsection.html/academia.html">
+                                <img src="../img/aacademia.png"
+                                    alt="Nanmudhalvan"
+                                    class="w-full h-auto object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center">Academia</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <a href="#"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+            class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+            <i class="fa-solid fa-arrow-up text-xl"></i>
+        </a>
+        <footer class="bg-dark text-gray-400 pt-12">
+            <div
+                class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                <div class="text-white">
+                    <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                    <p>Tamil Nadu Smart and Advanced Manufacturing Centre -
+                        (TANSAM)</p>
+                </div>
+
+                <div class="text-white flex flex-col">
+                    <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                    <p class="flex items-start gap-3">
+                        <i class="fa fa-map-marker-alt mt-1"></i>
+                        <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani,
+                            Chennai, Tamil Nadu 600113</span>
+                    </p>
+
+                    <p class="flex items-center gap-3 pt-2">
+                        <i class="fa fa-phone-alt"></i>
+                        <span>+91-98840 35145</span>
+                    </p>
+
+                    <div class="flex gap-4 pt-4 flex-wrap">
+                        <a href="https://x.com/TANSAM2022" target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a
+                            href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tansamcoe_2022/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tansam/"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-white">
+                    <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                    <div class="flex flex-col space-y-2">
+                        <a href="../index.html"
+                            class="hover:text-[#009999] transition-colors">Home</a>
+                        <a href="../contact.html"
+                            class="hover:text-[#009999] transition-colors">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-center md:text-left">
+                <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="../Disclaimer.html"
+                        class="hover:text-[#009999] transition-colors">Disclaimer</a>
+                    <a href="../privacy_policy.html"
+                        class="hover:text-[#009999] transition-colors">Privacy
+                        and Copyright
+                        Policy</a>
+                    <a href="../Terms_use.html"
+                        class="hover:text-[#009999] transition-colors">Terms of
+                        Use</a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+    <script>
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    });
+</script>
+
+</html>

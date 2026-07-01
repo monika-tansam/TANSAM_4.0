@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing </title>
+    <link href="img/Tansam.png" rel="icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body class="bg-white text-gray-800 font-['Roboto']">
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+            <div
+                class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn"
+                        class="primary focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                    <a href="index.html"
+                        class="border-b-2 border-primary font-medium text-primary hover:text-[#A21D21] hover:border-[#A21D21]">Home</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            About Us
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="index.html#about-us"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">About Us</a>
+                            <a href="board.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Board  Directors</a>                            
+                        </div>
+                    </div>
+                    <!-- <a href="index.html#about-us"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">About
+                        Us</a> -->
+                    <a href="index.html#labs"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Labs</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            Capabilities
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="Skillinghead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Skilling</a>
+                            <a href="Research_Projecthead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Research
+                                &
+                                Projects</a>
+                        </div>
+                    </div>
+
+                    <a href="index.html#news_events"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">News
+                        & Events</a>
+                    <a href="index.html#team"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Our
+                        Team</a>
+                    <a href="contact.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Contact</a>
+                    <!-- <a href="Gcc.html"
+                        class="bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-1 px-4 ">GCC</a> -->
+                </div>
+            </div>
+            <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+                <a href="index.html"
+                    class="block py-2 text-primary font-medium">Home</a>
+                <a href="index.html#about-us"
+                    class="block py-2 hover:text-[#A21D21]">About Us</a>
+                <a href="index.html#labs"
+                    class="block py-2  hover:text-[#A21D21]">Labs</a>
+                <div class="block py-2">
+                    <button
+                        class="w-full text-left flex justify-between items-center  text-black hover:text-[#A21D21] focus:outline-none "
+                        onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                        Capabilities
+                        <svg
+                            class="w-4 h-4 ml-1 transition-transform duration-300"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                        <a href="Skillinghead.html"
+                            class="block py-1 hover:text-[#A21D21]">Skilling</a>
+                        <a href="Research_Projecthead.html"
+                            class="block py-1 hover:text-[#A21D21]">Research &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="index.html#news_events"
+                    class="block py-2 hover:text-[#A21D21]">News & Events</a>
+                <a href="index.html#team"
+                    class="block py-2 hover:text-[#A21D21]">Our Team</a>
+                <a href="contact.html"
+                    class="block py-2 hover:text-[#A21D21]">Contact</a>
+                <!-- <a href="Gcc.html"
+                    class="block bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-2 px-4 mt-2 w-full text-center">GCC</a> -->
+            </div>
+        </nav>
+    <div class="bg-[#009999] py-4 px-4 md:px-12">
+        <h1 class="text-2xl sm:text-4xl font-bold text-white animate-slide-in-left whitespace-nowrap">
+            Capabilities
+        </h1>
+    </div>
+    <section class="container mx-auto px-6 my-20">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-[#A21D21] relative mb-6">
+            Research & Projects
+            <span class="block w-16 h-1 bg-[#A21D21] mx-auto mt-2 rounded-full"></span>
+        </h2>
+
+        <div class="container p-4 sm:p-8 md:p-12 my-4 flex flex-col items-center justify-between">
+            <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-center md:text-left">
+                Corporate Engagement
+            </h3>
+            <h4 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 mb-4 text-center md:text-left">
+                Projects with Automotive & Heavy Engineering Clients
+            </h4>
+
+            <ul
+                class="flex flex-col md:flex-row md:space-x-6 list-disc text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mt-4 text-justify md:text-left">
+                <li class="mb-2 md:mb-0">Identified process bottlenecks, designed layouts, and conducted PoCs.</li>
+                <li class="mb-2 md:mb-0">Improved safety and efficiency in crane operations and engine assembly.</li>
+                <li>Delivered training (~450 hours) and predictive engineering projects.</li>
+            </ul>
+        </div>
+
+
+
+        <div class="flex flex-col gap-20">
+            <!-- Card 1: Image Left -->
+            <div
+                class="animate-on-scroll bg-white rounded-xl shadow-lg flex flex-col lg:flex-row items-center lg:items-start gap-6 p-6 text-justify">
+                <img src="img/2.jpg" alt="AI & Vision-Based Projects"
+                    class="rounded-xl object-cover w-full lg:w-1/2 h-64 hover:scale-105 transition">
+                <div class="flex flex-col justify-between lg:w-1/2">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#A21D21] mb-3">
+                            Digital Technologies – AI & Vision-Based
+                        </h3>
+                        <p class="text-gray-700 mb-3">
+                            Key Projects:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Smart Traffic Monitoring: AI-based real-time vehicle classification to support road
+                                planning.</li>
+                            <li>Public Health: Geotagged mosquito breeding site tracking & chlorine usage monitoring.
+                            </li>
+                            <li>Safe Drinking Water: AI model to detect chlorine levels for safe consumption.</li>
+                            <li>Leather Industry: Automated shoe inspection & quality control.</li>
+                        </ul>
+                    </div>
+                    <a href="./Research&Projects/research_1.html" class="bg-[#009999] w-[150px] hover:bg-[#164143] border border-transparent hover:border-[#164143] 
+             text-white font-semibold py-2 px-4 text-center mt-4 transition duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="animate-on-scroll bg-white rounded-xl shadow-lg flex flex-col lg:flex-row-reverse items-center lg:items-start gap-6 p-6 text-justify">
+                <img src="img/3.jpg" alt="Simulation & Optimization Projects"
+                    class="rounded-xl object-cover w-full lg:w-1/2 h-64 hover:scale-105 transition">
+                <div class="flex flex-col justify-between lg:w-1/2">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#A21D21] mb-3">
+                            Center for Predictive Engineering Analytics
+                        </h3>
+                        <p class="text-gray-700 mb-3">
+                            Simulation & Optimization Projects:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Improved engine-chassis structural stability (40% less vibration, 28% better fatigue
+                                life).</li>
+                            <li>Aerospace turbine analysis: Identified resonance risks, reduced prototyping cost.</li>
+                            <li>Motorcycle durability studies: Cut physical tests by 35%.</li>
+                            <li>Truck & crane dynamics: Optimized for safety & reduced downtime.</li>
+                            <li>Toy Industry scooter design: 18% lighter, safer design.</li>
+                        </ul>
+                    </div>
+                    <a href="./Research&Projects/research_2.html" class="bg-[#009999] w-[150px] hover:bg-[#164143] border border-transparent hover:border-[#164143] 
+             text-white font-semibold py-2 px-4 text-center mt-4 transition duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="animate-on-scroll bg-white rounded-xl shadow-lg flex flex-col lg:flex-row items-center lg:items-start gap-6 p-6 text-justify">
+                <img src="img/4.jpg" alt="Smart Factory Research Center"
+                    class="rounded-xl object-cover w-full lg:w-1/2 h-64 hover:scale-105 transition">
+                <div class="flex flex-col justify-between lg:w-1/2">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#A21D21] mb-3">
+                            Smart Factory Research Center
+                        </h3>
+                        <p class="text-gray-700 mb-3">
+                            Focus on Digital Twins & Robotics:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Automated spot welding & inspection lines with robotics.</li>
+                            <li>Digital twin of PCB manufacturing line for bottleneck reduction.</li>
+                            <li>Simulated manual vs. automated processes to optimize manpower.</li>
+                        </ul>
+                    </div>
+                    <a href="./Research&Projects/research_3.html" class="bg-[#009999] w-[150px] hover:bg-[#164143] border border-transparent hover:border-[#164143] 
+             text-white font-semibold py-2 px-4 text-center mt-4 transition duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="animate-on-scroll bg-white rounded-xl shadow-lg flex flex-col lg:flex-row-reverse items-center lg:items-start gap-6 p-6 text-justify">
+                <img src="img/6.png" alt="AR / VR Research Center"
+                    class="rounded-xl object-cover w-full lg:w-1/2 h-64 hover:scale-105 transition">
+                <div class="flex flex-col justify-between lg:w-1/2">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#A21D21] mb-3">
+                            AR / VR Research Center
+                        </h3>
+                        <p class="text-gray-700 mb-3">
+                            Immersive Training & Learning Solutions:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Steel industry: VR-based machine assembly training.</li>
+                            <li>Maritime industry: Holographic shipbuilding training.</li>
+                            <li>Healthcare:</li>
+                            <li>VR anatomy learning & venipuncture training.</li>
+                            <li>Risk-free, interactive, real-time simulations.</li>
+                        </ul>
+                    </div>
+                    <a href="./Research&Projects/research_4.html" class="bg-[#009999] w-[150px] hover:bg-[#164143] border border-transparent hover:border-[#164143] 
+             text-white font-semibold py-2 px-4 text-center mt-4 transition duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="animate-on-scroll bg-white rounded-xl shadow-lg flex flex-col lg:flex-row items-center lg:items-start gap-6 p-6 text-justify">
+                <img src="img/assest.jpg" alt="Asset Performance Management"
+                    class="rounded-xl object-cover w-full lg:w-1/2 h-64 hover:scale-105 transition">
+                <div class="flex flex-col justify-between lg:w-1/2">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#A21D21] mb-3">
+                            Asset Performance Management
+                        </h3>
+                        <p class="text-gray-700 mb-3">
+                            IoT-Enabled Monitoring Projects:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>Leather industry: Automated thickness & area measurement.</li>
+                            <li>Remote monitoring of temperature, pressure, production counts.</li>
+                            <li>Medical Devices: Smart stethoscope with real-time diagnostics.</li>
+                        </ul>
+                    </div>
+                    <a href="./Research&Projects/research_5.html" class="bg-[#009999] w-[150px] hover:bg-[#164143] border border-transparent hover:border-[#164143] 
+             text-white font-semibold py-2 px-4 text-center mt-4 transition duration-300">
+                        Read More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+        class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+        <i class="fa-solid fa-arrow-up text-xl"></i>
+    </a>
+    <footer class="bg-dark text-gray-400 pt-12">
+        <div class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+            <div class="text-white">
+                <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                <p>Tamil Nadu Smart and Advanced Manufacturing Centre - (TANSAM)</p>
+            </div>
+
+            <div class="text-white flex flex-col">
+                <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                <p class="flex items-start gap-3">
+                    <i class="fa fa-map-marker-alt mt-1"></i>
+                    <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani, Chennai, Tamil Nadu 600113</span>
+                </p>
+
+                <p class="flex items-center gap-3 pt-2">
+                    <i class="fa fa-phone-alt"></i>
+                    <span>+91-98840 35145</span>
+                </p>
+
+                <div class="flex gap-4 pt-4 flex-wrap">
+                    <a href="https://x.com/TANSAM2022" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tansamcoe_2022/#" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/tansam/" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-white">
+                <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="hover:text-[#009999] transition-colors">Home</a>
+                    <a href="contact.html" class="hover:text-[#009999] transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <div
+            class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-center md:text-left">
+            <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                <a href="Disclaimer.html" class="hover:text-[#009999] transition-colors">Disclaimer</a>
+                <a href="privacy_policy.html" class="hover:text-[#009999] transition-colors">Privacy and Copyright
+                    Policy</a>
+                <a href="Terms_use.html" class="hover:text-[#009999] transition-colors">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    // Scroll animation
+    const scrollElements = document.querySelectorAll(".animate-on-scroll");
+    const elementInView = (el, dividend = 1) => el.getBoundingClientRect().top <= window.innerHeight / dividend;
+    const displayScrollElement = el => el.classList.add("show");
+    const hideScrollElement = el => el.classList.remove("show");
+    const handleScrollAnimation = () => {
+        scrollElements.forEach(el => elementInView(el, 1.25) ? displayScrollElement(el) : hideScrollElement(el));
+    }
+    window.addEventListener("scroll", handleScrollAnimation);
+    handleScrollAnimation();
+
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    });
+
+</script>
+
+</html>

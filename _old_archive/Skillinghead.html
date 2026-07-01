@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing </title>
+        <link href="img/Tansam.png" rel="icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body class="bg-white text-gray-800 font-['Roboto']">
+        <nav class="bg-white shadow-md sticky top-0 z-40">
+            <div
+                class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn"
+                        class="primary focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                    <a href="index.html"
+                        class="border-b-2 border-primary font-medium text-primary hover:text-[#A21D21] hover:border-[#A21D21]">Home</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            About Us
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="index.html#about-us"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">About Us</a>
+                            <a href="board.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Board  Directors</a>                            
+                        </div>
+                    </div>
+                    <!-- <a href="index.html#about-us"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">About
+                        Us</a> -->
+                    <a href="index.html#labs"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Labs</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            Capabilities
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="Skillinghead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Skilling</a>
+                            <a href="Research_Projecthead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Research
+                                &
+                                Projects</a>
+                        </div>
+                    </div>
+
+                    <a href="index.html#news_events"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">News
+                        & Events</a>
+                    <a href="index.html#team"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Our
+                        Team</a>
+                    <a href="contact.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Contact</a>
+                    <!-- <a href="Gcc.html"
+                        class="bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-1 px-4 ">GCC</a> -->
+                </div>
+            </div>
+            <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+                <a href="index.html"
+                    class="block py-2 text-primary font-medium">Home</a>
+                <a href="index.html#about-us"
+                    class="block py-2 hover:text-[#A21D21]">About Us</a>
+                <a href="index.html#labs"
+                    class="block py-2  hover:text-[#A21D21]">Labs</a>
+                <div class="block py-2">
+                    <button
+                        class="w-full text-left flex justify-between items-center  text-black hover:text-[#A21D21] focus:outline-none "
+                        onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                        Capabilities
+                        <svg
+                            class="w-4 h-4 ml-1 transition-transform duration-300"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                        <a href="Skillinghead.html"
+                            class="block py-1 hover:text-[#A21D21]">Skilling</a>
+                        <a href="Research_Projecthead.html"
+                            class="block py-1 hover:text-[#A21D21]">Research &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="index.html#news_events"
+                    class="block py-2 hover:text-[#A21D21]">News & Events</a>
+                <a href="index.html#team"
+                    class="block py-2 hover:text-[#A21D21]">Our Team</a>
+                <a href="contact.html"
+                    class="block py-2 hover:text-[#A21D21]">Contact</a>
+                <!-- <a href="Gcc.html"
+                    class="block bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-2 px-4 mt-2 w-full text-center">GCC</a> -->
+            </div>
+        </nav>
+        <div class="bg-[#009999] py-4 px-4 md:px-12">
+            <h1
+                class="text-2xl sm:text-4xl font-bold text-white animate-slide-in-left whitespace-nowrap">
+                Capabilities
+            </h1>
+        </div>
+        <section class="container mx-auto px-4 sm:px-6 lg:px-10 my-10">
+
+            <!-- <h2
+                class="text-3xl sm:text-4xl font-bold text-center text-[#A21D21] relative mb-8">
+                Skilling
+                <span
+                    class="block w-16 h-1 bg-[#A21D21] mx-auto mt-2 rounded-full"></span>
+            </h2> -->
+
+            <!-- Cards Grid -->
+
+            <section class="bg-gray-50 py-16 px-6 font-sans">
+                <div class="max-w-8xl mx-auto">
+
+                    <!-- Title -->
+                    <h2
+                        class="text-xl md:text-5xl font-bold text-[#A21D21] text-center mb-8">
+                        What is TANSAM Skilling?
+                    </h2>
+
+                    <!-- Intro -->
+                    <p
+                        class="text-gray-700 text-lg max-w-4xl mx-auto mb-12 text-justify">
+                        <strong>TANSAM (Tamil Nadu Smart and Advanced
+                            Manufacturing Centre)</strong>,
+                        powered by Siemens, is the state’s premier Industry 4.0
+                        skilling hub.
+                        It delivers hands-on training, consulting, and
+                        innovation labs to empower
+                        students, MSMEs, and professionals with future-ready
+                        skills in smart
+                        manufacturing, IoT, EV technology, AI, AR/VR, and
+                        cybersecurity.
+                    </p>
+
+                    <div
+                        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8">
+
+                        <!-- Corporate -->
+                        <div
+                            class="animate-on-scroll bg-white rounded-xl shadow-lg p-4 sm:p-8 flex flex-col justify-between h-full border-2 border-gray-100">
+                            <div>
+                                <img src="img/corporatee.png" alt="Corporate Training"
+                                    class="object-cover w-full h-44 sm:h-48 mb-4 rounded-lg hover:scale-105 transition duration-300">
+                                <h3
+                                    class="text-xl sm:text-2xl font-semibold text-[#A21D21] mb-3 text-center sm:text-left">Corporate
+                                </h3>
+                                <p
+                                    class="text-gray-700 text-sm sm:text-base text-justify">
+                                    Industry 4.0 marks a transformative era in
+                                    manufacturing and industrial practices,
+                                    characterized
+                                    by automation, real-time data,
+                                    interconnected
+                                    systems, and advanced technologies. To
+                                    remain
+                                    competitive, corporations must adapt by
+                                    continuously
+                                    enhancing the skills of their workforce.
+                                </p>
+                            </div>
+                            <a href="./skillingsection.html/corporate.html"
+                                class="bg-[#009999] hover:bg-[#164143] border border-transparent hover:border-[#164143] text-white font-semibold py-2 px-4 text-center mt-5 w-full sm:w-[150px] self-center sm:self-start transition duration-300 ">
+                                Read More
+                            </a>
+                        </div>
+
+                        <!-- Academia -->
+                        <div
+                            class="animate-on-scroll bg-white rounded-xl shadow-lg p-4 sm:p-8 flex flex-col justify-between h-full border-2 border-gray-100">
+                            <div>
+                                <img src="img/aacademia.png" alt="Academia"
+                                    class="object-cover w-full h-44 sm:h-48 mb-4 rounded-lg hover:scale-105 transition duration-300">
+                                <h3
+                                    class="text-xl sm:text-2xl font-semibold text-[#A21D21] mb-3 text-center sm:text-left">Academia
+                                </h3>
+                                <p
+                                    class="text-gray-700 text-sm sm:text-base text-justify">
+                                    TANSAM (Tamil Nadu Smart and Advanced
+                                    Manufacturing
+                                    Centre), powered by Siemens, partners with
+                                    polytechnic colleges, engineering
+                                    institutions, and
+                                    universities across Tamil Nadu to deliver
+                                    Industry 4.0 training, internships, and
+                                    research
+                                    labs. It is the academic outreach program of
+                                    the
+                                    Government of Tamil Nadu, designed to bridge
+                                    the gap
+                                    between classroom learning and industry
+                                    needs
+                                </p>
+                            </div>
+                            <a href="./skillingsection.html/academia.html"
+                                class="bg-[#009999] hover:bg-[#164143] border border-transparent hover:border-[#164143] text-white font-semibold py-2 px-4 text-center mt-5 w-full sm:w-[150px] self-center sm:self-start transition duration-300 ">
+                                Read More
+                            </a>
+                        </div>
+
+                        <!-- Naan Mudhalvan -->
+                        <div
+                            class="animate-on-scroll bg-white rounded-xl shadow-lg p-4 sm:p-8 flex flex-col justify-between h-full border-2 border-gray-100">
+                            <div>
+                                <img src="img/NAAN 1.png" alt="Naan Mudhalvan"
+                                    class="object-cover w-full h-44 sm:h-48 mb-4 rounded-lg hover:scale-105 transition duration-300">
+                                <h3
+                                    class="text-xl sm:text-2xl font-semibold text-[#A21D21] mb-3 text-center sm:text-left">Naan
+                                    Mudhalvan</h3>
+                                <p
+                                    class="text-gray-700 text-sm sm:text-base text-justify">
+                                    Naan Mudhalvan is the flagship skill
+                                    development
+                                    program of the Government of Tamil Nadu,
+                                    designed to
+                                    empower students with Industry 4.0 skills
+                                    including
+                                    IoT, robotics, EV technology, additive
+                                    manufacturing, AI, and cybersecurity.
+                                    It bridges the gap between academic learning
+                                    and
+                                    industry needs, preparing youth for
+                                    future‑ready
+                                    careers in smart manufacturing, digital
+                                    transformation, and emerging technologies
+                                </p>
+                            </div>
+                            <a href="./skillingsection.html/Nanmudhalvan.html"
+                                class="bg-[#009999] hover:bg-[#164143] border border-transparent hover:border-[#164143] text-white font-semibold py-2 px-4 text-center mt-5 w-full sm:w-[150px] self-center sm:self-start transition duration-300 ">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Why TANSAM Matters -->
+                    <h3
+                        class="text-3xl font-bold text-[#A21D21]  mb-6 mt-10">
+                        Why TANSAM Skilling Matters
+                    </h3>
+
+                    <div class="grid md:grid-cols-2 gap-6 mb-12">
+                        <div class="bg-white p-6 rounded-xl shadow">
+                            Government-backed initiative trusted by Tamil Nadu
+                            industries.
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow">
+                            Industry-aligned curriculum with Siemens, Unity, and
+                            global tech leaders.
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow">
+                            Future-proof careers in IoT, EV, automation, AR/VR,
+                            and cybersecurity.
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow">
+                            <!-- Serving Chennai, Coimbatore, Madurai, and Salem
+                            institutions & industries. -->
+                            Serving institutions & industries across Tamilnadu, India and globally.
+                        </div>
+                        <div
+                            class="bg-white p-6 rounded-xl shadow md:col-span-2">
+                            97,500+ students trained · 100+ institutions engaged
+                            · 100,000+ learning hours delivered
+                        </div>
+                    </div>
+
+                    <!-- Career Pathways -->
+                    <h3
+                        class="text-3xl font-bold text-[#A21D21]  mb-6">
+                        Career Pathways
+                    </h3>
+
+                    <ul
+                        class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12 ">
+                        <li class="bg-white p-6 rounded-xl shadow">
+                            <strong>IoT Engineer</strong><br />Smart factory
+                            solutions
+                        </li>
+                        <li class="bg-white p-6 rounded-xl shadow">
+                            <strong>Automation Specialist</strong><br />Robotics
+                            & automation
+                        </li>
+                        <li class="bg-white p-6 rounded-xl shadow">
+                            <strong>EV Technologist</strong><br />Electric
+                            mobility innovation
+                        </li>
+                        <li class="bg-white p-6 rounded-xl shadow">
+                            <strong>Cybersecurity
+                                Analyst</strong><br />Industrial system security
+                        </li>
+                    </ul>
+
+                    <!-- Courses -->
+                    <h3
+                        class="text-3xl font-bold text-[#A21D21]  mb-6">
+                        A few Sample Courses...
+                    </h3>
+
+                    <ul
+                        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-4 
+         text-gray-700 max-w-5xl  mb-12 list-disc list-inside">
+                        <li>Industrial IoT & PLC Programming – Smart factory
+                            automation</li>
+                        <li>EV Technology </li>
+                        <li>PCB Design & Electronics</li>
+                        <li>Additive Manufacturing with NXCAD</li>
+                        <li>Advanced Manufacturing Data Analytics</li>
+                        <li>Product Lifecycle Management (PLM)</li>
+                        <li>Low-Code Web Development</li>
+                        <li>Generative AI & AR/VR</li>
+                    </ul>
+
+                    <!-- Testimonials -->
+                    <h3
+                        class="text-3xl font-bold text-[#A21D21]  mb-6">
+                        Testimonials
+                    </h3>
+
+                    <div class="space-y-6 mb-12">
+                        <div class="bg-white p-6 rounded-xl shadow">
+                            “Thanks to TANSAM Skilling, I secured my first job
+                            as an IoT Engineer in Chennai.
+                            The labs gave me confidence to solve real-world
+                            problems.”
+                            <span class="block mt-2 font-semibold">— Arun K.,
+                                Chennai Engineering College</span>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow">
+                            “The EV Technology certification helped me land an
+                            internship with a leading
+                            automotive company in Coimbatore.”
+                            <span class="block mt-2 font-semibold">— Priya S.,
+                                Coimbatore Polytechnic</span>
+                        </div>
+                    </div>
+
+                    <!-- Impact Metrics -->
+                    <h3
+                        class="text-3xl font-bold text-[#A21D21]  mb-6">
+                        Impact Metrics
+                    </h3>
+
+                    <div
+                        class="grid sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12 ">
+                        <div class="bg-white p-6 rounded-xl shadow">12+ unique
+                            skills taught</div>
+                        <div class="bg-white p-6 rounded-xl shadow">1,500+
+                            beneficiaries trained</div>
+                        <div class="bg-white p-6 rounded-xl shadow">100,000+
+                            learning hours delivered</div>
+                        <div class="bg-white p-6 rounded-xl shadow">100+
+                            institutions engaged</div>
+                    </div>
+
+                    <!-- FAQ -->
+                    <h3
+                        class="text-3xl font-bold text-[#A21D21]  mb-6">
+                        Frequently Asked Questions
+                    </h3>
+
+                    <ul class="space-y-3 text-gray-700 max-w-4xl  mb-12">
+                        <li><strong>Is TANSAM Skilling free?</strong> Yes, it is
+                            government-backed.</li>
+                        <li><strong>Who can enroll?</strong> Students, MSMEs,
+                            and professionals in Tamil Nadu.</li>
+                        <li><strong>What careers can I pursue?</strong> IoT, EV,
+                            automation, cybersecurity, AR/VR, data science.</li>
+                        <!-- <li><strong>How do I register?</strong> Visit <a
+                                href="https://tansam.org/skilling"
+                                class="text-blue-600 underline">tansam.org/skilling</a>.</li> -->
+                        <li><strong>How do I register?</strong> Visit <a
+                               
+                                class="text-blue-600 underline">tansam.org/skilling</a>.</li>
+                        <li><strong>Training duration?</strong> 4 weeks to 6
+                            months.</li>
+                    </ul>
+
+                    <!-- CTA -->
+                    <div
+                        class="bg-[#f0f8f8]  ">
+                        <div
+                            class="bg-[#ffffff] rounded-2xl shadow-lg text-center p-10 ">
+
+                            <h3 class="text-3xl font-bold text-[#009999] mb-4">
+                                Enroll Today – Shape Your Industry 4.0 Career
+                                with
+                                TANSAM Skilling
+                            </h3>
+                            <p class="text-gray-700 mb-4">
+                                contact@tansam.org | +91-98840 35145
+                            </p>
+                            <div
+                                class="flex justify-center gap-6 font-semibold">
+                                <a href="#"
+                                    class="text-[#0077B5] hover:underline">LinkedIn</a>
+                                <a href="#"
+                                    class="text-[#1DA1F2] hover:underline">Twitter</a>
+                                <a href="#"
+                                    class="text-[#FF0000] hover:underline">YouTube</a>
+                            </div>
+                            <p class="mt-6 font-medium text-[#009999]">
+                                👉 Your success is measurable — join the
+                                movement
+                                today
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </section>
+        <a href="#"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+            class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+            <i class="fa-solid fa-arrow-up text-xl"></i>
+        </a>
+        <footer class="bg-dark text-gray-400 pt-12">
+            <div
+                class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                <div class="text-white">
+                    <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                    <p>Tamil Nadu Smart and Advanced Manufacturing Centre -
+                        (TANSAM)</p>
+                </div>
+
+                <div class="text-white flex flex-col">
+                    <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                    <p class="flex items-start gap-3">
+                        <i class="fa fa-map-marker-alt mt-1"></i>
+                        <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani,
+                            Chennai, Tamil Nadu 600113</span>
+                    </p>
+
+                    <p class="flex items-center gap-3 pt-2">
+                        <i class="fa fa-phone-alt"></i>
+                        <span>+91-98840 35145</span>
+                    </p>
+
+                    <div class="flex gap-4 pt-4 flex-wrap">
+                        <a href="https://x.com/TANSAM2022" target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a
+                            href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tansamcoe_2022/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tansam/"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-white">
+                    <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                    <div class="flex flex-col space-y-2">
+                        <a href="index.html"
+                            class="hover:text-[#009999] transition-colors">Home</a>
+                        <a href="contact.html"
+                            class="hover:text-[#009999] transition-colors">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white  md:text-left">
+                <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="Disclaimer.html"
+                        class="hover:text-[#009999] transition-colors">Disclaimer</a>
+                    <a href="privacy_policy.html"
+                        class="hover:text-[#009999] transition-colors">Privacy
+                        and Copyright
+                        Policy</a>
+                    <a href="Terms_use.html"
+                        class="hover:text-[#009999] transition-colors">Terms of
+                        Use</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <script>
+    // Scroll animation
+    const scrollElements = document.querySelectorAll(".animate-on-scroll");
+    const elementInView = (el, dividend = 1) => el.getBoundingClientRect().top <= window.innerHeight / dividend;
+    const displayScrollElement = el => el.classList.add("show");
+    const hideScrollElement = el => el.classList.remove("show");
+    const handleScrollAnimation = () => {
+        scrollElements.forEach(el => elementInView(el, 1.25) ? displayScrollElement(el) : hideScrollElement(el));
+    }
+    window.addEventListener("scroll", handleScrollAnimation);
+    handleScrollAnimation();
+
+
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // dropdown of cababilities 
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    });
+
+
+</script>
+
+</html>

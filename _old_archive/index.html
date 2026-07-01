@@ -1,0 +1,2171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content name="keywords">
+    <meta content name="description">
+    <link href="img/Tansam.png" rel="icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+            rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Wittgenstein:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> -->
+    <!-- <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet"> -->
+
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<!-- Tailwind animation -->
+<style>
+    @keyframes scroll {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .animate-scroll {
+        display: inline-block;
+        animation: scroll 20s linear infinite;
+    }
+</style>
+
+<style>
+    .image-wrapper {
+        height: 450px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .fixed-image-block {
+        width: 550px;
+        height: 366px;
+        overflow: hidden;
+    }
+
+    .fixed-image-block img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .search-link {
+        background: #fff;
+        /* white background */
+        color: #000 !important;
+        /* black text and icon */
+        border-radius: 20px;
+        /* rounded pill */
+        padding: 6px 12px;
+        /* spacing inside */
+        font-weight: 500;
+        transition: 0.3s ease;
+    }
+
+    .search-link:hover {
+        background: #f0f0f0;
+        /* light gray on hover */
+        text-decoration: none;
+    }
+
+    .search-link i {
+        color: #000;
+        /* icon black */
+    }
+
+    .team-scroll-container {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .team-scroll {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.5s ease-in-out;
+        width: max-content;
+    }
+
+    .flip-card {
+        background-color: transparent;
+        width: 305px;
+        height: 350px;
+        perspective: 1000px;
+        flex-shrink: 0;
+    }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 6px;
+    }
+
+    .flip-card-front {
+        background-color: #fff;
+    }
+
+    .flip-card-back {
+        background-color: #fff;
+        color: #000;
+        transform: rotateY(180deg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 30px;
+        text-align: justify;
+        font-size: 1rem;
+        line-height: 1.6;
+        font-weight: 400;
+        box-sizing: border-box;
+    }
+
+    .flip-card-back h1 {
+        font-size: 16px;
+        font-weight: bold;
+        /* font-family: 'libre-franklin'; */
+    }
+
+    .flip-card-back p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+    .team-item img {
+        border-radius: 10px;
+    }
+
+    .team-item {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image-wrapper-1 {
+        height: 250px;
+        width: 280px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-radius: 15px;
+
+    }
+
+    .image-wrapper-1 img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+
+    .team-info {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .team-name {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+
+    .team-designation {
+        font-size: 16px;
+        color: #555;
+        margin-top: 6px;
+        font-weight: 800;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-marquee {
+        display: flex;
+        width: max-content;
+        animation: marquee 15s linear infinite;
+    }
+
+    /* notificaation */
+    @keyframes scroll {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+
+    .animate-scroll {
+        display: inline-block;
+        animation: scroll 20s linear infinite;
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .logos-slide {
+        display: flex;
+        min-width: max-content;
+        animation: scroll 80s linear infinite;
+    }
+
+    @media (max-width: 640px) {
+        .logos-slide {
+            animation: scroll 90s linear infinite;
+        }
+    }
+
+    /* Hide scrollbar */
+    .overflow-hidden::-webkit-scrollbar {
+        display: none;
+    }
+
+    .overflow-hidden {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+</style>
+
+<body class="font-['Roboto']">
+
+    <!-- Top nav  -->
+    <nav class="py-2 bg-primary block">
+        <div class="flex items-center justify-between px-2 sm:px-4 md:px-4 lg:px-8 flex-nowrap w-full">
+
+            <div class="flex space-x-1 sm:space-x-3 items-center flex-shrink-0">
+                <a href="https://x.com/TANSAM2022" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                    <i class="fa-brands fa-x-twitter text-white text-[10px] sm:text-base"></i>
+                </a>
+
+                <a href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#" target="_blank"
+                    rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fab fa-facebook-f text-white text-[10px] sm:text-base"></i>
+                </a>
+
+                <a href="https://www.instagram.com/tansamcoe_2022/#" target="_blank" rel="noopener noreferrer"
+                    aria-label="Instagram">
+                    <i class="fab fa-instagram text-white text-[10px] sm:text-base"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/company/tansam/" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in text-white text-[10px] sm:text-base"></i>
+                </a>
+            </div>
+
+            <div
+                class="flex items-center text-white text-[10px] sm:text-sm divide-x divide-white divide-opacity-50 space-x-1 sm:space-x-3 flex-shrink">
+                <a href="#!" class="hover:underline px-1 sm:px-3 py-1 whitespace-nowrap">
+                    Screen Reader Access
+                </a>
+
+                <a href="#!" class="hover:underline px-1 sm:px-3 py-1 whitespace-nowrap">
+                    Text Size - A +
+                </a>
+
+                <a href="#!" class="flex items-center hover:underline px-1 sm:px-3 py-1 whitespace-nowrap">
+                    <span class="mr-1 sm:mr-2 text-[10px] sm:text-sm">Search</span>
+                    <i class="fas fa-search text-[10px] sm:text-sm"></i>
+                </a>
+            </div>
+
+        </div>
+    </nav>
+    <!-- 3logo  -->
+    <div
+        class="flex flex-row justify-between items-center w-full px-4 sm:px-6 md:px-4 lg:px-8 py-8 box-border flex-nowrap">
+
+        <div class="flex-shrink-0">
+            <img src="img/tansamoldlogo.png" alt="TANSAM" class="w-12 sm:w-16 md:w-24 lg:w-30 h-auto object-contain">
+        </div>
+
+        <div class="flex flex-col items-center text-center flex-grow mx-2">
+            <img src="img/tn-logo.png" alt="Logo" class="w-14 sm:w-16 md:w-24 lg:w-32 h-auto object-contain my-2">
+
+            <div>
+                <h1 class="font-semibold text-[10px]  md:text-[14px] lg:text-[28px] leading-tight">
+                    TAMIL NADU SMART AND ADVANCED MANUFACTURING CENTER -
+                    (TANSAM)
+                </h1>
+                <p class="font-libre-franklin text-[8px] sm:text-xs md:text-base lg:text-lg font-semibold mt-1 md:mt-2">
+                    Center of Excellence
+                    <strong class="font-bold secondary">powered by
+                        SIEMENS</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class="flex-shrink-0 lg:pt-6">
+            <img src="img/tidcologo.png" alt="TIDCO" class="w-12 sm:w-16 md:w-24 lg:w-28 h-auto object-contain">
+        </div>
+
+    </div>
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+            <div class="lg:hidden">
+                <button id="mobileMenuBtn" class="primary focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                <a href="index.html"
+                    class="border-b-2 border-primary font-medium text-primary hover:text-[#A21D21] hover:border-[#A21D21]">Home</a>
+
+                <div class="relative group">
+                    <button id="capabilitiesBtn"
+                        class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                        About Us
+                        <svg class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="capabilitiesDropdown"
+                        class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                        <a href="index.html#about-us"
+                            class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">About Us</a>
+                        <a href="board.html"
+                            class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Board Directors</a>
+                    </div>
+                </div>
+                <!-- <a href="index.html#about-us"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">About
+                        Us</a> -->
+                <a href="index.html#labs"
+                    class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Labs</a>
+
+                <div class="relative group">
+                    <button id="capabilitiesBtn"
+                        class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                        Capabilities
+                        <svg class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="capabilitiesDropdown"
+                        class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                        <a href="Skillinghead.html"
+                            class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Skilling</a>
+                        <a href="Research_Projecthead.html"
+                            class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Research
+                            &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="index.html#news_events"
+                    class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">News
+                    & Events</a>
+                <a href="index.html#team"
+                    class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Internship</a>
+                <a href="contact.html"
+                    class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Contact</a>
+                <!-- <a href="Gcc.html"
+                        class="bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-1 px-4 ">GCC</a> -->
+            </div>
+        </div>
+        <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+            <a href="index.html" class="block py-2 text-primary font-medium">Home</a>
+            <a href="index.html#about-us" class="block py-2 hover:text-[#A21D21]">About Us</a>
+            <a href="index.html#labs" class="block py-2  hover:text-[#A21D21]">Labs</a>
+            <div class="block py-2">
+                <button
+                    class="w-full text-left flex justify-between items-center  text-black hover:text-[#A21D21] focus:outline-none "
+                    onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                    Capabilities
+                    <svg class="w-4 h-4 ml-1 transition-transform duration-300" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                    <a href="Skillinghead.html" class="block py-1 hover:text-[#A21D21]">Skilling</a>
+                    <a href="Research_Projecthead.html" class="block py-1 hover:text-[#A21D21]">Research &
+                        Projects</a>
+                </div>
+            </div>
+
+            <a href="index.html#news_events" class="block py-2 hover:text-[#A21D21]">News & Events</a>
+            <a href="index.html#team" class="block py-2 hover:text-[#A21D21]">Internship</a>
+            <a href="contact.html" class="block py-2 hover:text-[#A21D21]">Contact</a>
+            <!-- <a href="Gcc.html"
+                    class="block bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-2 px-4 mt-2 w-full text-center">GCC</a> -->
+        </div>
+    </nav>
+    <!-- notification  -->
+    <div class="w-full bg-[#009999] overflow-hidden flex">
+        <div class="animate-scroll w-max flex whitespace-nowrap font-semibold py-2 text-white">
+            <span class="px-8">Welcome to TANSAM!</span>
+            <span class="px-8">Enroll now for our Industry 4.0 corporate skilling programs.</span>
+            <span class="px-8">Internship opportunities available - registrations open!</span>
+            <span class="px-8">Stay updated with the latest news and events across Tamil Nadu.</span>
+            <!-- Duplicate for loop -->
+            <span class="px-8" aria-hidden="true">Welcome to TANSAM!</span>
+            <span class="px-8" aria-hidden="true">Enroll now for our Industry 4.0 corporate skilling programs.</span>
+            <span class="px-8" aria-hidden="true">Internship opportunities available - registrations open!</span>
+            <span class="px-8" aria-hidden="true">Stay updated with the latest news and events across Tamil Nadu.</span>
+        </div>
+    </div>
+    <!-- home section  -->
+    <div id="home" class="w-full bg-[#faffff] px-4 sm:px-6 md:px-10 lg:px-20 pb-5  lg:mb-5">
+        <div class="max-w-7xl mx-auto py-5">
+
+            <!-- Hero Section -->
+            <div class="flex flex-col-reverse lg:flex-row items-center gap-6 lg:gap-12 mb-5">
+
+                <!-- Text Section -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-semibold leading-snug">
+                        <span class="text-black"><span class="font-bold">TANSAM</span> -
+                            Transforming</span><br>
+                        <span class="text-primary font-semibold">Tamil
+                            Nadu</span>
+                        <span class="text-black"> into the</span><br>
+                        <span class="text-primary font-semibold">Smart
+                            Manufacturing & Industry 4.0 ready Hub</span>
+                        <span class="text-black"> of the Future</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg lg:text-lg font-light mt-4">
+                        Driving innovation, sustainability, and advanced
+                        technology for global growth.
+                    </p>
+
+                    <div class="mt-5 flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
+                        <a href="Learnmore.html"
+                            class="bg-[#009999] text-white text-base sm:text-lg font-medium px-6 py-2  transition">
+                            Learn More
+                        </a>
+                        <a href="contact.html"
+                            class="border border-[#164143] text-[#164143] text-base sm:text-lg font-medium px-6 py-2  hover:bg-[#164143] hover:text-white transition">
+                            Get in Touch
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Section -->
+                <div class="w-full lg:w-1/2 relative">
+                    <div class="overflow-hidden">
+                        <div class="owl-carousel header-carousel animated fadeIn">
+                            <!-- <picture>
+                                    <source srcset="img/slider1-large.webp"
+                                        media="(min-width:1024px)">
+                                    <source srcset="img/slider1-medium.webp"
+                                        media="(min-width:768px)">
+                                    <img src="img/slider1-small.webp"
+                                        alt="Slider 1"
+                                        class="w-full sm:w-full object-cover h-60 sm:h-auto lg:h-[372px] ">
+                                </picture>
+
+                                <picture>
+                                    <source srcset="img/slider2-large.webp"
+                                        media="(min-width:1024px)">
+                                    <source srcset="img/slider2-medium.webp"
+                                        media="(min-width:768px)">
+                                    <img src="img/slider2-small.webp"
+                                        alt="Slider 2"
+                                        class="w-full sm:w-full object-cover h-60 sm:h-auto lg:h-[372px] ">
+                                </picture> -->
+                            <picture>
+                                <source srcset="img/Entrance_1.jpeg" media="(min-width:1024px)">
+                                <source srcset="img/Entrance_1.jpeg" media="(min-width:768px)">
+                                <img src="img/Entrance_1.jpeg" alt="Slider 2"
+                                    class="w-full sm:w-full object-cover h-60 sm:h-auto lg:h-[372px] ">
+                            </picture>
+                            <picture>
+                                <source srcset="img/slider3-large.webp" media="(min-width:1024px)">
+                                <source srcset="img/slider3-medium.webp" media="(min-width:768px)">
+                                <img src="img/slider3-small.webp" alt="Slider 3"
+                                    class="w-full sm:w-full object-cover h-60 sm:h-auto lg:h-[372px] ">
+                            </picture>
+                            <!-- <img src="img/individual_1.png"
+                                alt="Slider 3"
+                                class="w-full sm:w-full object-cover h-60 sm:h-auto lg:h-auto ">
+                                <img src="img/individual_2.png"
+                                alt="Slider 3"
+                                class="w-full sm:w-full object-cover h-60 sm:h-auto lg:h-auto ">
+                                <img src="img/last_3.png"
+                                alt="Slider 3"
+                                class="w-full sm:w-full object-cover h-60 sm:h-auto lg:h-auto "> -->
+                            <picture>
+                                <source srcset="img/individual_1.png" media="(min-width:1024px)">
+                                <source srcset="img/individual_1.png" media="(min-width:768px)">
+                                <img src="img/individual_1.png" alt="Slider 3"
+                                    class="w-full sm:w-full object-cover h-60 sm:h-auto lg:h-[372px] ">
+                            </picture>
+                            <picture>
+                                <source srcset="img/individual_2.png" media="(min-width:1024px)">
+                                <source srcset="img/individual_2.png" media="(min-width:768px)">
+                                <img src="img/individual_2.png" alt="Slider 3"
+                                    class="w-full sm:w-full object-cover h-60 sm:h-auto lg:h-[372px] ">
+                            </picture>
+                            <picture>
+                                <source srcset="img/last_3.png" media="(min-width:1024px)">
+                                <source srcset="img/last_3.png" media="(min-width:768px)">
+                                <img src="img/last_3.png" alt="Slider 3"
+                                    class="w-full sm:w-full object-cover h-60 sm:h-auto lg:h-[372px] ">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Services Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-base sm:text-lg lg:text-lg mt-6">
+
+                <div class="flex items-center gap-3">
+                    <div class="flex-shrink-0 border border-gray-500 p-3 flex items-center justify-center">
+                        <i class="fa fa-robot text-[#009999]"></i>
+                    </div>
+                    <h5 class="leading-relaxed mb-0">Industry Solutions from
+                        7 specialized labs</h5>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="flex-shrink-0 border border-gray-500 p-3 flex items-center justify-center">
+                        <i class="fa fa-robot text-[#009999]"></i>
+                    </div>
+                    <h5 class="leading-relaxed mb-0">Practical skill
+                        development aligned with industrial needs</h5>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="flex-shrink-0 border border-gray-500 p-3 flex items-center justify-center">
+                        <i class="fa fa-robot text-[#009999]"></i>
+                    </div>
+                    <h5 class="leading-relaxed mb-0">Access to modern
+                        software and hardware</h5>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="flex-shrink-0 border border-gray-500 p-3 flex items-center justify-center">
+                        <i class="fa fa-robot text-[#009999]"></i>
+                    </div>
+                    <h5 class="leading-relaxed mb-0">Support in turning
+                        ideas into functional products</h5>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <div class="flex-shrink-0 border border-gray-500 p-3 flex items-center justify-center">
+                        <i class="fa fa-robot text-[#009999]"></i>
+                    </div>
+                    <h5 class="leading-relaxed mb-0">Hands-on training and
+                        real-world use cases</h5>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="about-us" class="container mx-auto py-10 lg:py-16 lg:px-16 px-4 sm:px-6 md:px-10 ">
+        <div class="flex flex-col lg:flex-row flex-wrap gap-y-12">
+
+            <!-- Right Text (About TANSAM) -->
+            <div class="w-full lg:w-1/2  lg:px-4 wow fadeIn order-1 lg:order-2">
+                <h1 class=" text-3xl sm:text-4xl md:text-4xl font-bold">
+                    <span class="uppercase text-[#A21D21] ">About</span>
+                    TANSAM
+                </h1>
+
+                <div class="lg:hidden w-full py-2 mb-4 flex flex-wrap wow fadeIn order-2 lg:order-1">
+                    <div class="w-1/2 px-1 sm:px-2" data-wow-delay="0.1s">
+                        <div class="relative w-full h-56 sm:h-72 md:h-[450px]">
+                            <img src="img/image 52.png" alt="TANSAM image" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="w-1/2 px-1 sm:px-2" data-wow-delay="0.3s">
+                        <div class="relative w-full h-56 sm:h-72 md:h-[450px]">
+                            <img class="w-full h-full object-cover" src="img/Entrance_2.jpeg" alt>
+                            <div
+                                class="absolute bottom-0 w-full flex items-center justify-center text-center bg-[#009999] px-2 sm:px-4 py-2 sm:py-4">
+                                <h4 class="text-white leading-relaxed text-sm sm:text-base md:text-lg font-medium">
+                                    Tamil Nadu’s Industry 4.0 Hub Since 2022
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="mt-3  text-justify text-sm sm:text-[16px] md:text-[18px] leading-relaxed">
+                    <!-- TANSAM (Tamil Nadu Smart and Advanced Manufacturing) is
+                        a state-of-the-art Industry Centre of
+                        Excellence, powered by Siemens, a global leader in
+                        digital transformation solutions. TANSAM was
+                        inaugurated by the Tamil Nadu Honourable Chief Minister,
+                        Thiru. M.K. Stalin, on the 8th of November
+                        2022 situated at Tidel Park, Chennai. -->
+                    TANSAM (Tamil Nadu Smart and Advanced Manufacturing),
+                    powered by Siemens, is the state’s of the arts
+                    Industry 4.0 Centre of Excellence. Located at Tidel
+                    Park, Chennai, TANSAM helps industries, MSMEs, and
+                    academic institutions adopt future‑ready technologies
+                    such as IoT, digital twins, AI, AR/VR, and smart factory
+                    solutions.
+                </p>
+                <p class="mb-3 text-justify text-sm sm:text-[16px] md:text-[18px]">
+                    <!-- SIEMENS and TIDCO are setting up a center to bridge
+                        academia and industry, create jobs, and
+                        strengthen Tamil Nadu’s industrial ecosystem. -->
+                    Inaugurated on 8 November 2022 by Honourable Chief
+                    Minister of Tamil Nadu, Thiru. M.K. Stalin.
+                    Established as a Section 8 company under TIDCO to drive
+                    industrial growth,a global leader in smart manufacturing
+                    solutions.
+                </p>
+
+                <div class="flex flex-wrap -mx-2 gap-y-4 text-sm sm:text-[18px] mt-4">
+                    <div class="w-full sm:w-1/2 px-2">
+                        <h6 class="mb-2"><i class="fa fa-check text-[#009999] mr-2"></i>MSME
+                            Collaboration</h6>
+                        <h6 class="mb-2"><i class="fa fa-check text-[#009999] mr-2"></i>POCs
+                            & POVs</h6>
+                        <h6><i class="fa fa-check text-[#009999] mr-2"></i>Joint
+                            Research & Development</h6>
+                    </div>
+                    <div class="w-full sm:w-1/2 px-2">
+                        <h6 class="mb-2"><i class="fa fa-check text-[#009999] mr-2"></i>Start-Up
+                            Mentoring</h6>
+                        <h6 class="mb-2"><i class="fa fa-check text-[#009999] mr-2"></i>Industry
+                            & Academic Spokes</h6>
+                        <h6><i class="fa fa-check text-[#009999] mr-2"></i>Industry
+                            Academic Collaboration</h6>
+                    </div>
+                </div>
+
+                <div class="flex  items-center mt-6 gap-2 whitespace-nowrap">
+                    <a class="bg-[#009999] hover:border-[#164143] text-white font-semibold py-2  px-2 lg:px-6 transition"
+                        href="Aboutus.html">Read More</a>
+                    <a class="h-10 w-10 flex items-center justify-center border-2 border-[#009999] text-[#009999] hover:bg-[#164143] hover:text-white transition"
+                        href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#"
+                        target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="h-10 w-10 flex items-center justify-center border-2 border-[#009999] text-[#009999] hover:bg-[#164143] hover:text-white transition"
+                        href="https://x.com/TANSAM2022" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a class="h-10 w-10 flex items-center justify-center border-2 border-[#009999] text-[#009999] hover:bg-[#164143] hover:text-white transition"
+                        href="https://www.instagram.com/tansamcoe_2022/#" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a class="h-10 w-10 flex items-center justify-center border-2 border-[#009999] text-[#009999] hover:bg-[#164143] hover:text-white transition"
+                        href="https://www.linkedin.com/company/tansam/" target="_blank"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Left Images -->
+            <div class="hidden w-full lg:w-1/2 px-2 lg:px-4 lg:flex flex-wrap wow fadeIn order-2 lg:order-1">
+                <div class="w-1/2 px-1 sm:px-2" data-wow-delay="0.1s">
+                    <div class="relative w-full h-56 sm:h-72 md:h-[450px]">
+                        <img src="img/image 52.png" alt="TANSAM image" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="w-1/2 px-1 sm:px-2" data-wow-delay="0.3s">
+                    <div class="relative w-full h-56 sm:h-72 md:h-[450px]">
+                        <img class="w-full h-full object-cover" src="img/Entrance_2.jpeg" alt>
+                        <div
+                            class="absolute bottom-0 w-full flex items-center justify-center text-center bg-[#009999] px-2 sm:px-4 py-2 sm:py-4">
+                            <h4 class="text-white leading-relaxed text-sm sm:text-base md:text-lg font-medium">
+                                Tamil Nadu’s Industry 4.0 Hub Since 2022
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section id="labs" class="w-full py-10 lg:py-15 bg-[#faffff]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 lg:mb-12 animate-fadeIn" style="animation-delay: 0.1s">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold">
+                    <span class="uppercase  text-[#A21D21] px-2 py-1 inline-block ">
+                        INNOVATION
+                    </span>
+                    LABS
+                </h1>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <a href="productinnovation.html" class="block animate-fadeIn" style="animation-delay: 0.5s">
+                    <div
+                        class="h-full flex flex-col items-center text-center p-6 bg-white  shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-cube fa-3x sm:fa-4x text-[#009999] mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 leading-relaxed">Product
+                            Innovation</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            TANSAM Product Innovation Center uses Siemens
+                            tools to accelerate efficient, creative
+                            product development.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="predictiveengineering.html" class="block animate-fadeIn" style="animation-delay: 0.6s">
+                    <div
+                        class="h-full flex flex-col items-center text-center p-6 bg-white  shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-check fa-3x sm:fa-4x text-[#009999] mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 leading-relaxed">Predictive
+                            Engineering</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            TANSAM Predictive Engineering Center uses
+                            Siemens tools to simulate, analyze, and optimize
+                            products.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="innovation.html" class="block animate-fadeIn" style="animation-delay: 0.1s">
+                    <div
+                        class="h-full flex flex-col items-center text-center p-6 bg-white  shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-lightbulb fa-3x sm:fa-4x text-[#009999] mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 leading-relaxed">Innovative
+                            Manufacturing</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            TANSAM with Siemens powers precision
+                            manufacturing through reverse engineering and 3D
+                            metal
+                            printing.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="smartfactory.html" class="block animate-fadeIn" style="animation-delay: 0.2s">
+                    <div
+                        class="h-full flex flex-col items-center text-center p-6 bg-white  shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-industry fa-3x sm:fa-4x text-[#009999] mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 leading-relaxed">Smart
+                            Factory</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            TANSAM Smart Factory uses Siemens Industry 4.0
+                            tools to optimize and transform
+                            manufacturing.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="assestperformance.html" class="block animate-fadeIn" style="animation-delay: 0.7s">
+                    <div
+                        class="h-full flex flex-col items-center text-center p-6 bg-white  shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-cogs fa-3x sm:fa-4x text-[#009999] mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 leading-relaxed">Asset
+                            Performance</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            TANSAM Asset Performance uses advanced
+                            engineering & computing methods to determine
+                            predictive and
+                            preventive asset performance.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="industrial_IOT.html" class="block animate-fadeIn" style="animation-delay: 0.8s">
+                    <div
+                        class="h-full flex flex-col items-center text-center p-6 bg-white  shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-network-wired fa-3x sm:fa-4x text-[#009999] mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 leading-relaxed">Industrial
+                            IoT & Equipment
+                        </h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            TANSAM Industrial IIoT & Equipment performance
+                            center uses edge computing, IIoT, and
+                            automation tools to
+                            enhance efficiency and productivity at the shop
+                            floor.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="productivelifecyclemangement.html" class="block animate-fadeIn" style="animation-delay: 0.4s">
+                    <div
+                        class="h-full flex flex-col items-center text-center p-6 bg-white  shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-tasks fa-3x sm:fa-4x text-[#009999] mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 leading-relaxed">Product
+                            Lifecycle Management
+                        </h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            TANSAM PLM Center uses Siemens Teamcenter to
+                            streamline product lifecycle, collaboration,
+                            and innovation.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="arvrxr.html" class="block animate-fadeIn" style="animation-delay: 0.3s">
+                    <div
+                        class="h-full flex flex-col items-center text-center p-6 bg-white  shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-vr-cardboard fa-3x sm:fa-4x text-[#009999] mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 leading-relaxed">AR
+                            | VR | XR</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            TANSAM AR/VR/MR Lab develops immersive
+                            simulations enhancing training, learning, and
+                            real-world workflows.
+                        </p>
+                    </div>
+                </a>
+
+                <a href="Digital_technology.html" class="block animate-fadeIn" style="animation-delay: 0.9s">
+                    <div
+                        class="h-full flex flex-col items-center text-center p-6 bg-white  shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+                        <i class="fa fa-robot fa-3x sm:fa-4x text-[#009999] mb-4"></i>
+                        <h3 class="text-lg sm:text-xl font-semibold mb-3 leading-relaxed">Digital
+                            Technologies</h3>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            TANSAM Digital Technologies center uses AI & ML
+                            techniques for vision computing,
+                            digitization, and advanced
+                            computing needs.
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="w-full mb-2 lg:mt-20 py-10 lg:py-15">
+
+        <div class="block lg:hidden px-4">
+            <div class="text-center mb-6 lg:mb-12 animate-fadeIn" style="animation-delay: 0.1s">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold">
+                    <span class="uppercase text-primary bg-gray-100 px-2 py-1 inline-block rounded">
+                        Our Latest
+                    </span>
+                    Projects
+                </h1>
+            </div>
+            <div class="space-y-4">
+                <details class="bg-white  shadow-md p-4">
+                    <summary class="font-medium text-[16px] text-gray-600 cursor-pointer">Corporate
+                        Engagement</summary>
+                    <img src="img/Type-11.png" alt="Corporate Engagement"
+                        class="w-full h-48 object-cover mt-3 rounded-md transform transition-transform duration-500 hover:scale-105 active:scale-105">
+                </details>
+
+                <details class="bg-white rounded-lg shadow-md p-4">
+                    <summary class="font-medium text-[16px] text-gray-600 cursor-pointer">AI
+                        / Vision-Based</summary>
+                    <img src="img/Type-14.png" alt="AI / Vision-Based"
+                        class="w-full h-48 object-cover mt-3 rounded-md transform transition-transform duration-500 hover:scale-105 active:scale-105">
+                </details>
+
+                <details class="bg-white rounded-lg shadow-md p-4">
+                    <summary class="font-medium text-[16px] text-gray-600 cursor-pointer">Predictive
+                        Engineering
+                        Analytics</summary>
+                    <img src="img/Type-10.png" alt="Predictive Engineering"
+                        class="w-full h-48 object-cover mt-3 rounded-md transform transition-transform duration-500 hover:scale-105 active:scale-105">
+                </details>
+
+                <details class="bg-white rounded-lg shadow-md p-4">
+                    <summary class="font-medium text-[16px] text-gray-600 cursor-pointer">Smart
+                        Factory Research Center
+                    </summary>
+                    <img src="img/Type-14.png" alt="Smart Factory"
+                        class="w-full h-48 object-cover mt-3 rounded-md transform transition-transform duration-500 hover:scale-105 active:scale-105">
+                </details>
+
+                <details class="bg-white rounded-lg shadow-md p-4">
+                    <summary class="font-medium text-[16px] text-gray-600 cursor-pointer">Asset
+                        Performance Management
+                    </summary>
+                    <img src="img/Type-13.png" alt="Asset Performance"
+                        class="w-full h-48 object-cover mt-3 rounded-md transform transition-transform duration-500 hover:scale-105 active:scale-105">
+                </details>
+
+                <details class="bg-white rounded-lg shadow-md p-4">
+                    <summary class="font-medium text-[16px] text-gray-600 cursor-pointer">AR
+                        / VR Research Center
+                    </summary>
+                    <img src="img/Type-12.png" alt="AR / VR"
+                        class="w-full h-48 object-cover mt-3 rounded-md transform transition-transform duration-500 hover:scale-105 active:scale-105">
+                </details>
+            </div>
+        </div>
+
+        <!-- 💻 Large Screen View (Grid + Left Box) -->
+        <div class="hidden lg:block">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-wrap -mx-4">
+
+                    <!-- Left Box -->
+                    <div class="w-full lg:w-5/12 px-4 mb-8 lg:mb-0">
+                        <div class="flex flex-col justify-center bg-[#009999] h-130 p-10 text-white animate-fadeIn"
+                            style="animation-delay:0.1s">
+                            <h1 class="text-4xl md:text-5xl font-bold mb-5">
+                                Our Latest
+                                <span class="text-uppercase text-primary bg-white  px-2 inline-block">Projects</span>
+                            </h1>
+                            <h4 class="text-2xl md:text-3xl font-semibold">
+                                <span class="text-6xl md:text-7xl font-bold">6</span>
+                                of our latest projects
+                            </h4>
+                        </div>
+                    </div>
+
+                    <!-- Right Grid -->
+                    <div class="w-full lg:w-7/12">
+                        <div class="flex flex-wrap -mx-2">
+                            <!-- Project Cards -->
+                            <div class="w-1/2 lg:w-1/3 px-2 mb-4">
+                                <div class="relative overflow-hidden group">
+                                    <img class="w-[232px] h-[252px] object-cover transform transition-transform duration-500 group-hover:scale-110"
+                                        src="img/Type-11.png" alt="Corporate Engagement">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/100 to-transparent p-4">
+                                        <h6 class="text-white text-lg font-semibold text-center">Corporate
+                                            Engagement
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-1/2 lg:w-1/3 px-2 mb-4">
+                                <div class="relative overflow-hidden group">
+                                    <img class="w-[232px] h-[252px] object-cover transform transition-transform duration-500 group-hover:scale-110"
+                                        src="img/Type-14.png" alt="AI / Vision-Based">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/100 to-transparent p-4">
+                                        <h6 class="text-white text-lg font-semibold text-center">AI
+                                            / Vision-Based</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-1/2 lg:w-1/3 px-2 mb-4">
+                                <div class="relative overflow-hidden group">
+                                    <img class="w-[232px] h-[252px] object-cover transform transition-transform duration-500 group-hover:scale-110"
+                                        src="img/Type-10.png" alt="Predictive Engineering">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/100 to-transparent p-4">
+                                        <h6 class="text-white text-lg font-semibold text-center">Predictive
+                                            Engineering
+                                            Analytics</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-1/2 lg:w-1/3 px-2 mb-4">
+                                <div class="relative overflow-hidden group">
+                                    <img class="w-[232px] h-[252px] object-cover transform transition-transform duration-500 group-hover:scale-110"
+                                        src="img/Type-14.png" alt="Smart Factory">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/100 to-transparent p-4">
+                                        <h6 class="text-white text-lg font-semibold text-center">Smart
+                                            Factory Research
+                                            Center</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-1/2 lg:w-1/3 px-2 mb-4">
+                                <div class="relative overflow-hidden group">
+                                    <img class="w-[232px] h-[252px] object-cover transform transition-transform duration-500 group-hover:scale-110"
+                                        src="img/Type-13.png" alt="Asset Performance">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/100 to-transparent p-4">
+                                        <h6 class="text-white text-lg font-semibold text-center">Asset
+                                            Performance
+                                            Management</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="w-1/2 lg:w-1/3 px-2 mb-4">
+                                <div class="relative overflow-hidden group">
+                                    <img class="w-[232px] h-[252px] object-cover transform transition-transform duration-500 group-hover:scale-110"
+                                        src="img/Type-12.png" alt="AR / VR">
+                                    <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/100 to-transparent p-4">
+                                        <h6 class="text-white text-lg font-semibold text-center">AR
+                                            / VR Research Center
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="news_events" class="w-full bg-[#faffff] py-12 px-4 sm:px-6 md:px-8 lg:px-16">
+
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Mobile & Small Screens Layout -->
+            <div class="lg:hidden">
+
+                <!-- Title & Description -->
+                <div class="text-justify lg:text-left mb-8 lg:mb-12 animate-fadeIn" style="animation-delay:0.1s">
+                    <h1 class="mb-4 text-center text-2xl sm:text-3xl lg:text-3xl font-bold">
+                        <span class="uppercase text-[#A21D21] px-2 py-1 rounded">NEWS</span>
+                        & EVENTS
+                    </h1>
+                    <p class="text-gray-700 leading-relaxed mb-2">
+                        At TANSAM, innovation and collaboration shape the
+                        future of smart manufacturing in Tamil Nadu.
+                        Recent industry partnerships, technology showcases,
+                        and advanced training programs highlight our
+                        commitment to empowering businesses and individuals
+                        with the tools of Industry 4.0.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Discover TANSAM’s latest milestones, partnerships,
+                        and industry breakthroughs. From new training
+                        programs to smart factory innovations, our updates
+                        show how we are shaping the future of
+                        manufacturing in Tamil Nadu.
+                    </p>
+                </div>
+
+                <!-- Contact Box -->
+                <div
+                    class="flex flex-col sm:flex-row items-center sm:items-start bg-gray-100 overflow-hidden rounded-lg mb-8">
+                    <div class="flex-shrink-0 flex items-center justify-center bg-primary w-20 h-20 sm:w-24 sm:h-24">
+                        <i class="fa fa-phone text-white text-2xl"></i>
+                    </div>
+                    <div class="px-4 py-2 text-center sm:text-left">
+                        <h3 class="text-lg sm:text-xl font-semibold">+91-98840
+                            35145</h3>
+                        <span class="text-gray-600 text-sm sm:text-base">Call
+                            us direct 24/7 for a free
+                            consultation</span>
+                    </div>
+                </div>
+
+                <!-- Events Grid -->
+                <div class="grid grid-cols-1 gap-6">
+
+                    <!-- Event Cards (Mobile) -->
+                    <div
+                        class="group flex flex-col justify-center items-center bg-primary hover:bg-[#ECF8F9] transition-all duration-300 p-4 rounded-lg">
+                        <img src="img/about11.jpg" alt="Industry 4.0 Workshop"
+                            class="w-full h-48 sm:h-56 object-cover shadow-md rounded-md mb-4">
+                        <h3
+                            class="text-center text-lg sm:text-xl font-semibold text-white group-hover:text-black transition-colors duration-300">
+                            Industry 4.0 Workshop
+                        </h3>
+                        <p
+                            class="text-center text-white group-hover:text-black text-sm sm:text-base transition-colors duration-300">
+                            A hands-on training program covering IoT, AI,
+                            and Robotics for MSME engineers and managers.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group flex flex-col justify-center items-center bg-[#ECF8F9] hover:bg-primary transition-all duration-300 p-4 rounded-lg">
+                        <img src="img/pro-1.png" alt="AR/VR Immersive"
+                            class="w-full h-48 sm:h-56 object-cover shadow-md rounded-md mb-4">
+                        <h3
+                            class="text-center text-lg sm:text-xl font-semibold text-black group-hover:text-white transition-colors duration-300">
+                            AR/VR Immersive
+                        </h3>
+                        <p
+                            class="text-center text-gray-600 group-hover:text-white text-sm sm:text-base transition-colors duration-300">
+                            Showcasing TANSAM’s latest projects in virtual
+                            reality training, holographic simulations,
+                            and digital factory planning.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group flex flex-col justify-center items-center bg-[#ECF8F9] hover:bg-primary transition-all duration-300 p-4 rounded-lg">
+                        <img src="img/Slider5 (1).jpeg" alt="Public Health Event"
+                            class="w-full h-48 sm:h-56 object-cover shadow-md rounded-md mb-4">
+                        <h3
+                            class="text-center text-lg sm:text-xl font-semibold text-black group-hover:text-white transition-colors duration-300">
+                            Public Health Event
+                        </h3>
+                        <p
+                            class="text-center text-gray-600 group-hover:text-white text-sm sm:text-base transition-colors duration-300">
+                            Honourable Minister Thiru Ma. Subramanian
+                            launched a mobile app for field monitoring
+                            developed by TANSAM.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group flex flex-col justify-center items-center bg-primary hover:bg-[#ECF8F9] transition-all duration-300 p-4 rounded-lg">
+                        <img src="img/robotics.jpeg" alt="AI & Robotics"
+                            class="w-full h-48 sm:h-56 object-cover shadow-md rounded-md mb-4">
+                        <h3
+                            class="text-center text-lg sm:text-xl font-semibold text-white group-hover:text-black transition-colors duration-300">
+                            AI & Robotics
+                        </h3>
+                        <p
+                            class="text-center text-white group-hover:text-black text-sm sm:text-base transition-colors duration-300">
+                            A one-day summit bringing together experts to
+                            showcase AI, robotics, and digital twin
+                            innovations with live demos.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Large Screens Layout -->
+            <div class="hidden lg:block">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+
+                    <!-- Left Column: Text & Contact -->
+                    <div class="lg:col-span-5 animate-fadeIn" style="animation-delay:0.1s">
+                        <h1 class="mb-6 text-3xl font-bold">
+                            <span class="uppercase text-[#A21D21] px-2">NEWS</span>
+                            & EVENTS
+                        </h1>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            At TANSAM, innovation and collaboration shape
+                            the future of smart manufacturing in Tamil
+                            Nadu. Recent industry partnerships, technology
+                            showcases, and advanced training programs
+                            highlight our commitment to empowering
+                            businesses and individuals with the tools of
+                            Industry
+                            4.0.
+                        </p>
+                        <p class="mb-6 text-gray-700 leading-relaxed">
+                            Discover TANSAM’s latest milestones,
+                            partnerships, and industry breakthroughs. From
+                            new training
+                            programs to smart factory innovations, our
+                            updates show how we are shaping the future of
+                            manufacturing in Tamil Nadu.
+                        </p>
+
+                        <div class="flex items-center bg-gray-100 overflow-hidden">
+                            <div class="flex-shrink-0 flex items-center justify-center bg-[#009999] w-24 h-24">
+                                <i class="fa fa-phone text-white text-2xl"></i>
+                            </div>
+                            <div class="px-4">
+                                <h3 class="text-xl font-semibold">+91-98840
+                                    35145</h3>
+                                <span class="text-gray-600 text-sm">Call us
+                                    direct 24/7 for a free
+                                    consultation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Events Grid -->
+                    <div class="lg:col-span-7">
+                        <div class="grid grid-cols-1 md:grid-cols-2 ">
+
+                            <!-- Event Cards (Large Screen) -->
+                            <div
+                                class="group flex flex-col justify-center items-center bg-[#ECF8F9] hover:bg-[#ECF8F9] transition-all duration-300 p-4">
+                                <img src="img/about11-large.webp" alt="Industry 4.0 Workshop"
+                                    class="w-[318px] h-[176px] object-cover shadow-md mb-4">
+                                <h3
+                                    class="text-center text-xl font-semibold text-black group-hover:text-black transition-colors duration-300">
+                                    Industry 4.0 Workshop
+                                </h3>
+                                <p class="text-center text-black group-hover:text-black transition-colors duration-300">
+                                    A hands-on training program covering
+                                    IoT, AI, and Robotics for MSME engineers
+                                    and
+                                    managers.
+                                </p>
+                            </div>
+
+                            <div
+                                class="group flex flex-col justify-center items-center bg-[#009999] hover:bg-primary transition-all duration-300 p-4">
+                                <img src="img/pro-1.png" alt="AR/VR Immersive"
+                                    class="w-[318px] h-[176px] object-cover shadow-md mb-4">
+                                <h3
+                                    class="text-center text-xl font-semibold text-white group-hover:text-white transition-colors duration-300">
+                                    AR/VR Immersive
+                                </h3>
+                                <p class="text-center text-white group-hover:text-white transition-colors duration-300">
+                                    Showcasing TANSAM’s latest projects in
+                                    virtual reality training, holographic
+                                    simulations, and digital factory
+                                    planning.
+                                </p>
+                            </div>
+
+                            <div
+                                class="group flex flex-col justify-center items-center bg-[#009999] hover:bg-primary transition-all duration-300 p-4">
+                                <img src="img/new3.png" alt="Public Health Event"
+                                    class="w-[318px] h-[176px] object-cover shadow-md mb-4">
+                                <h3
+                                    class="text-center text-xl font-semibold text-white group-hover:text-white transition-colors duration-300">
+                                    Public Health Event
+                                </h3>
+                                <p class="text-center text-white group-hover:text-white transition-colors duration-300">
+                                    Honourable Minister Thiru Ma.
+                                    Subramanian launched a mobile app for
+                                    field monitoring
+                                    developed by TANSAM.
+                                </p>
+                            </div>
+
+                            <div
+                                class="group flex flex-col justify-center items-center bg-[#ECF8F9] hover:bg-[#ECF8F9] transition-all duration-300 p-4">
+                                <img src="img/robotics.jpeg" alt="AI & Robotics"
+                                    class="w-[318px] h-[176px] object-cover shadow-md mb-4">
+                                <h3
+                                    class="text-center text-xl font-semibold text-black group-hover:text-black transition-colors duration-300">
+                                    AI & Robotics
+                                </h3>
+                                <p class="text-center text-black group-hover:text-black transition-colors duration-300">
+                                    A one-day summit bringing together
+                                    experts to showcase AI, robotics, and
+                                    digital
+                                    twin innovations with live demos.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="my-14 px-4 sm:px-6 lg:px-16 py-10 lg:py-16 md:gap-10">
+
+        <div class="mb-14">
+            <h1 class="text-center tansam-heading mb-8 text-2xl sm:text-3xl font-bold">
+                <span class="uppercase text-[#A21D21]  px-2">INDUSTRY</span>
+                CLIENTS
+            </h1>
+            <p class="text-center tansam-heading mb-8 text-xl font-medium text-[#4b4b4b]">
+                TANSAM partners with leading manufacturing enterprises,
+                MSMEs, and startups to accelerate digital transformation.
+                Our clients leverage IoT, AR/VR, AI,
+                and digital twin technologies to build smarter factories and
+                reduce time-to-market.
+            </p>
+            <div class="overflow-hidden relative">
+
+                <div class="flex logos-slide animate-scroll space-x-4">
+                    <!-- <img src="img/patners/caterpiller.png" alt="Caterpiller"
+                            class="h-12 sm:h-20 w-auto"> -->
+                    <img src="img/patners/flex2.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/tansam-about.jpeg" alt="Renault" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/Highways_dept.png" alt="Renault" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/ortholite.png" alt="Renault" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/jsw.png" alt="Renault" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/renalutnissan.png" alt="Renault" class="h-12 sm:h-20 w-auto">
+                    <!-- duplicate for continuous scroll -->
+                    <!-- <img src="img/patners/caterpiller.png" alt="Caterpiller"
+                            class="h-12 sm:h-20 w-auto"> -->
+                    <img src="img/patners/flex2.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/tansam-about.jpeg" alt="Renault" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/Highways_dept.png" alt="Renault" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/ortholite.png" alt="Renault" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/jsw.png" alt="Renault" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/renalutnissan.png" alt="Renault" class="h-12 sm:h-20 w-auto">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h1 class="text-center tansam-heading mb-8 text-2xl sm:text-3xl font-bold">
+                <span class="uppercase text-[#A21D21] px-2">ACADEMIC</span>
+                CLIENTS
+            </h1>
+            <p class="text-center tansam-heading mb-8 text-xl font-medium text-[#4b4b4b]">
+                We collaborate with universities, research institutions, and
+                faculty to advance Industry 4.0 education. Through courses,
+                certifications, and joint research,
+                academic partners gain hands-on exposure to smart
+                manufacturing technologies and prepare students for
+                future-ready careers.
+            </p>
+            <div class="overflow-hidden relative">
+                <div class="flex logos-slide animate-scroll space-x-4">
+                    <img src="img/patners/INDUSTRY_TOP.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/AVIT.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/Easwari.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/INDUSTRY3.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/Holycros.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/IASC.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/INDUSTRY4.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/INDUSTY2.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/INDUSTRY1.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/JPCollege.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/KCG.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/NICHE.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/Ramachandratech.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/REC.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/SVCE.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <!-- duplicate for continuous scroll -->
+                    <img src="img/patners/INDUSTRY_TOP.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/AVIT.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/Easwari.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/INDUSTRY3.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/Holycros.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/IASC.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/INDUSTRY4.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/INDUSTY2.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/INDUSTRY1.png" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/JPCollege.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/KCG.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/NICHE.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/Ramachandratech.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/REC.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                    <img src="img/patners/SVCE.jpeg" alt="JSW" class="h-12 sm:h-20 w-auto">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <section id="team" class="bg-[#faffff] py-16 px-4 sm:px-6 md:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12 animate-fadeIn" style="animation-delay: 0.1s">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-gray-900">
+                    <span class="uppercase text-[#A21D21] px-2">STUDENT</span> SUCCESS STORY
+                </h2>
+                <p class="text-[#009999] font-semibold text-lg mt-2">TANSAM Internship Program</p>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+                <!-- Left Column: Success Story Details -->
+                <div class="lg:col-span-7 flex flex-col gap-6">
+                    <div
+                        class="bg-white p-6 sm:p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex-1 border border-gray-100/50 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+                            <i class="fas fa-graduation-cap text-[#009999]"></i>
+                            Bridging Academia & Industry
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed mb-4 text-justify">
+                            TANSAM has been successfully conducting industry-oriented internship programs in a wide
+                            range of Industry 4.0 technologies, equipping students with practical skills that align with
+                            current and future industry requirements.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed text-justify">
+                            Students from engineering, arts, and science colleges across various districts of Tamil
+                            Nadu, as well as participants from other states in India and abroad, have actively taken
+                            part in these internship programs.
+                        </p>
+                    </div>
+
+                    <div
+                        class="bg-white p-6 sm:p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex-1 border border-gray-100/50 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+                            <i class="fas fa-tools text-[#009999]"></i>
+                            Practical Learning & Mentorship
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed text-justify">
+                            Throughout the internship, students receive hands-on training from experienced industry
+                            professionals. They work on mini projects, gain practical exposure to real-world
+                            applications, collaborate with fellow participants, and develop innovative solutions using
+                            modern tools and technologies. At the end of the program, students present their projects,
+                            demonstrating the knowledge and skills they have acquired during the internship.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Technologies Covered & Program Status -->
+                <div class="lg:col-span-5 flex flex-col gap-6">
+                    <!-- Technologies Card -->
+                    <div
+                        class="bg-white p-6 sm:p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 flex-1 border border-gray-100/50 flex flex-col">
+                        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-3">
+                            <i class="fas fa-laptop-code text-[#009999]"></i>
+                            Technologies Covered
+                        </h3>
+                        <div class="flex flex-wrap gap-2 mt-2">
+                            <span
+                                class="px-3 py-2 bg-[#f4fcfc] text-[#009999] hover:bg-[#009999] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#d6f5f5] cursor-default">AI
+                                & Machine Learning (ML)</span>
+                            <span
+                                class="px-3 py-2 bg-[#f4fcfc] text-[#009999] hover:bg-[#009999] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#d6f5f5] cursor-default">Data
+                                Analytics</span>
+                            <span
+                                class="px-3 py-2 bg-[#f4fcfc] text-[#009999] hover:bg-[#009999] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#d6f5f5] cursor-default">Full-Stack
+                                Web Dev</span>
+                            <span
+                                class="px-3 py-2 bg-[#f4fcfc] text-[#009999] hover:bg-[#009999] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#d6f5f5] cursor-default">AR,
+                                VR & XR</span>
+                            <span
+                                class="px-3 py-2 bg-[#f4fcfc] text-[#009999] hover:bg-[#009999] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#d6f5f5] cursor-default">NX
+                                CAD Design</span>
+                            <span
+                                class="px-3 py-2 bg-[#f4fcfc] text-[#009999] hover:bg-[#009999] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#d6f5f5] cursor-default">Embedded
+                                & IoT</span>
+                            <span
+                                class="px-3 py-2 bg-[#f4fcfc] text-[#009999] hover:bg-[#009999] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#d6f5f5] cursor-default">PCB
+                                Design</span>
+                            <span
+                                class="px-3 py-2 bg-[#f4fcfc] text-[#009999] hover:bg-[#009999] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#d6f5f5] cursor-default">PLC
+                                & Industrial Automation</span>
+                            <span
+                                class="px-3 py-2 bg-[#f4fcfc] text-[#009999] hover:bg-[#009999] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#d6f5f5] cursor-default">Cloud
+                                Computing</span>
+                            <span
+                                class="px-3 py-2 bg-[#f4fcfc] text-[#009999] hover:bg-[#009999] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#d6f5f5] cursor-default">Cybersecurity</span>
+                            <span
+                                class="px-3 py-2 bg-[#fff6f6] text-[#A21D21] hover:bg-[#A21D21] hover:text-white rounded-xl text-xs font-semibold transition-colors duration-200 border border-[#ffdcdc] cursor-default">&
+                                many more</span>
+                        </div>
+                    </div>
+
+                    <!-- Program Status & Batch Card -->
+                    <div
+                        class="bg-white p-6 sm:p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100/50 flex flex-col justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 rounded-2xl bg-[#A21D21]/10 flex items-center justify-center text-[#A21D21] text-xl flex-shrink-0">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800">4 Completed Batches</h4>
+                                <p class="text-xs text-gray-500 font-medium">Outstanding response from students &
+                                    colleges</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed text-justify">
+                            Due to the encouraging feedback and growing demand, registrations for the July batch are
+                            already underway, and many students have secured their seats in advance.
+                        </p>
+                        <a href="contact.html"
+                            class="inline-flex items-center justify-center px-6 py-3 bg-[#A21D21] text-white font-semibold text-sm rounded-xl hover:bg-[#8d181b] transition-all duration-200 gap-2 self-start shadow-sm hover:shadow-md">
+                            <i class="fas fa-paper-plane"></i> Register Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feedback & Testimonials Intro -->
+            <div
+                class="mt-8 bg-white p-6 sm:p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100/50">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+                    <i class="fas fa-comments text-[#009999]"></i>
+                    Feedback & Career Impact
+                </h3>
+                <p class="text-gray-600 leading-relaxed mb-6 text-justify">
+                    The response from participants has been overwhelmingly positive. Students have appreciated the
+                    practical learning approach, interactive sessions, expert mentoring, and project-based training.
+                    Many participants shared excellent feedback, stating that the internship significantly enhanced
+                    their technical knowledge, improved their confidence, and provided valuable exposure to industry
+                    practices. The opportunity to build projects and present them has further strengthened their
+                    problem-solving, communication, and teamwork skills.
+                </p>
+                <div class="p-4 bg-[#f4fcfc] rounded-xl border border-[#d6f5f5] flex items-center gap-4">
+                    <i class="fas fa-play-circle text-2xl text-[#009999] animate-pulse flex-shrink-0"></i>
+                    <p class="text-sm text-gray-700 font-semibold leading-relaxed">
+                        Watch the testimonials below to hear directly from our participants about their learning
+                        experience, project work, and overall journey with the TANSAM Internship Program.
+                    </p>
+                </div>
+            </div>
+
+            <!-- YouTube Shorts Embed (Scrollable Row) -->
+            <div id="shorts-carousel"
+                class="mt-8 flex overflow-x-auto snap-x snap-mandatory gap-6 pb-6 w-screen relative left-1/2 -translate-x-1/2 px-4 md:px-8"
+                style="scrollbar-width: thin;">
+
+                <!-- Video 1 -->
+                <div
+                    class="flex-none w-[315px] h-[560px] snap-center overflow-hidden rounded-2xl shadow-xl border-2 border-gray-100">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/lUZMzLErt9Q"
+                        title="Student Testimonial 1" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Video 2 -->
+                <div
+                    class="flex-none w-[315px] h-[560px] snap-center overflow-hidden rounded-2xl shadow-xl border-2 border-gray-100">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/DjvjZrjVe1o"
+                        title="Student Testimonial 2" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Video 3 -->
+                <div
+                    class="flex-none w-[315px] h-[560px] snap-center overflow-hidden rounded-2xl shadow-xl border-2 border-gray-100">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6fOJCAKgLxA"
+                        title="Student Testimonial 3" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Video 4 -->
+                <div
+                    class="flex-none w-[315px] h-[560px] snap-center overflow-hidden rounded-2xl shadow-xl border-2 border-gray-100">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kuad2gShVGs"
+                        title="Student Testimonial 4" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Video 5 -->
+                <div
+                    class="flex-none w-[315px] h-[560px] snap-center overflow-hidden rounded-2xl shadow-xl border-2 border-gray-100">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2Lp2RHyMwsY"
+                        title="Student Testimonial 5" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Video 6 -->
+                <div
+                    class="flex-none w-[315px] h-[560px] snap-center overflow-hidden rounded-2xl shadow-xl border-2 border-gray-100">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xLI6-iw9pps"
+                        title="Student Testimonial 6" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Video 7 -->
+                <div
+                    class="flex-none w-[315px] h-[560px] snap-center overflow-hidden rounded-2xl shadow-xl border-2 border-gray-100">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/_d64qeG9oPs"
+                        title="Student Testimonial 7" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Video 8 -->
+                <div
+                    class="flex-none w-[315px] h-[560px] snap-center overflow-hidden rounded-2xl shadow-xl border-2 border-gray-100">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/lwmlw79uss8"
+                        title="Student Testimonial 8" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- Video 9 -->
+                <div
+                    class="flex-none w-[315px] h-[560px] snap-center overflow-hidden rounded-2xl shadow-xl border-2 border-gray-100">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/kluNmcZ1I3U"
+                        title="Student Testimonial 9" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <!-- You can copy one of the blocks above to add more shorts later -->
+            </div>
+
+            <!-- Shuffler Script -->
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const carousel = document.getElementById("shorts-carousel");
+                    if (carousel) {
+                        const videos = Array.from(carousel.children);
+                        
+                        // Randomize the order property of each video container
+                        // This uses CSS flexbox ordering, so it doesn't touch the DOM structure or iframe URLs,
+                        // completely bypassing any Content Security Policy blocks!
+                        videos.forEach(video => {
+                            video.style.order = Math.floor(Math.random() * 100);
+                        });
+                    }
+                });
+            </script>
+        </div>
+        </div>
+    </section>
+
+    <div class="w-full bg-white">
+        <div class="container mx-auto py-16 px-4 md:px-8 lg:px-12">
+            <div class="text-center mb-10 animate-fadeIn" style="animation-delay: 0.1s">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                    <span class="uppercase text-[#A21D21]  px-2">TESTIMONIALS</span>
+                </h1>
+            </div>
+
+            <div class="flex justify-center">
+                <div class="w-full lg:w-3/4">
+                    <div class="owl-carousel testimonial-carousel wow fadeIn " data-wow-delay="0.2s">
+
+                        <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12 ">
+                            <div class="w-full md:w-1/2 relative flex justify-center md:justify-start">
+                                <div
+                                    class="absolute top-4 left-4 md:top-0 md:left-0 h-[300px] md:h-[450px] w-[220px] md:w-[300px] bg-[#009999] -z-10 ">
+                                </div>
+                                <div class="relative pt-10 md:pt-12 pb-10 md:pb-12 pl-10 md:pl-24">
+                                    <img src="img/Type-4.png" alt="Testimonial"
+                                        class="w-[260px] md:w-[360px] h-[260px] md:h-[360px] object-cover " />
+                                </div>
+                            </div>
+
+                            <div class="w-full md:w-1/2 pr-0 md:pr-4">
+                                <div class="pb-6 md:pb-0 text-center md:text-left">
+                                    <h3 class="text-xl md:text-2xl font-semibold mb-4 leading-snug">
+                                        Academic Collaboration & AR/VR Skill
+                                        Development
+                                    </h3>
+                                    <p class="text-gray-700 mb-4 text-justify leading-relaxed">
+                                        Joy University is proud to have
+                                        collaborated with TANSAM for setting
+                                        up an
+                                        AR/VR Centre of Excellence that has
+                                        empowered our students with hands-on
+                                        exposure to
+                                        cutting-edge technologies, product
+                                        simulations, and real-time
+                                        industry-relevant
+                                        solutions.
+                                        This collaboration has enabled
+                                        students to win prizes at
+                                        national-level
+                                        hackathons and showcase
+                                        their skills in prestigious events,
+                                        boosting innovation and
+                                        employability.
+                                    </p>
+                                    <div class="flex items-center justify-center md:justify-start mb-1">
+                                        <span class="block w-10 h-[2px] bg-primary mr-4"></span>
+                                        <h5 class="font-semibold mb-0">Pro
+                                            Vice Chancellor (Academics)</h5>
+                                    </div>
+                                    <small class="text-gray-500 block text-center md:text-left">Joy
+                                        University</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+                            <div class="w-full md:w-1/2 relative flex justify-center md:justify-start">
+                                <div
+                                    class="absolute top-4 left-4 md:top-0 md:left-0 h-[300px] md:h-[450px] w-[220px] md:w-[300px] bg-[#009999] -z-10 ">
+                                </div>
+                                <div class="relative pt-10 md:pt-12 pb-10 md:pb-12 pl-10 md:pl-24">
+                                    <img src="img/Type-3.png" alt="Testimonial"
+                                        class="w-[260px] md:w-[360px] h-[260px] md:h-[360px] object-cover  shadow-md" />
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 pr-0 md:pr-4">
+                                <div class="pb-6 md:pb-0 text-center md:text-left">
+                                    <h3 class="text-xl md:text-2xl font-semibold mb-4 leading-snug">
+                                        Technical Training & VR Innovation
+                                    </h3>
+                                    <p class="text-gray-700 mb-4 text-justify leading-relaxed">
+                                        TANSAM has been actively
+                                        collaborating with JSW Steel for the
+                                        past two years,
+                                        successfully
+                                        conducting technical training
+                                        programs and developing a VR module
+                                        for Gear
+                                        Box Assembly of
+                                        Screw-down gearbox assembly, which
+                                        has been of great value to our
+                                        organization. We deeply
+                                        appreciate TANSAM’s professional
+                                        approach, commitment, and innovation
+                                        in
+                                        delivering
+                                        industry-relevant solutions and look
+                                        forward to achieving more milestones
+                                        together.
+                                    </p>
+                                    <div class="flex items-center justify-center md:justify-start mb-1">
+                                        <span class="block w-10 h-[2px] bg-primary mr-4"></span>
+                                        <h5 class="font-semibold mb-0">Theepan
+                                            T K</h5>
+                                    </div>
+                                    <small class="text-gray-500">Associate
+                                        Vice President – Production
+                                        Services, IT &
+                                        Projects Electrical,
+                                        JSW Steel Ltd.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+                            <div class="w-full md:w-1/2 relative flex justify-center md:justify-start">
+                                <div
+                                    class="absolute top-4 left-4 md:top-0 md:left-0 h-[300px] md:h-[450px] w-[220px] md:w-[300px] bg-[#009999] -z-10 ">
+                                </div>
+                                <div class="relative pt-10 md:pt-12 pb-10 md:pb-12 pl-10 md:pl-24">
+                                    <img src="img/Type-9.png" alt="Testimonial"
+                                        class="w-[260px] md:w-[360px] h-[260px] md:h-[360px] object-cover  shadow-md" />
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 pr-0 md:pr-4">
+                                <div class="pb-6 md:pb-0 text-center md:text-left">
+                                    <h3 class="text-xl md:text-2xl font-semibold mb-4 leading-snug">
+                                        Innovation Partnership
+                                    </h3>
+                                    <p class="text-gray-700 mb-4 text-justify leading-relaxed">
+                                        Renault Nissan Automotive India Pvt
+                                        Ltd (RNAIPL) had the privilege of
+                                        collaborating with TANSAM
+                                        to establish an Innovation Center at
+                                        our plant that has become a thriving
+                                        hub for testing and
+                                        scaling employee-driven ideas. With
+                                        TANSAM’s expertise and support, we
+                                        successfully developed
+                                        and implemented solutions in IIoT,
+                                        computer vision, and factory
+                                        simulations—enhancing our
+                                        manufacturing capabilities. Their
+                                        collaborative spirit and technical
+                                        proficiency have been key
+                                        in transforming concepts into
+                                        real-world applications and
+                                        accelerating our
+                                        digital transformation journey.
+                                    </p>
+                                    <div class="flex items-center justify-center md:justify-start mb-1">
+                                        <span class="block w-10 h-[2px] bg-primary mr-4"></span>
+                                        <h5 class="font-semibold mb-0">Leo
+                                            Benjamin</h5>
+                                    </div>
+                                    <small class="text-gray-500">MD Office /
+                                        Business Strategy / Digitalization &
+                                        Innovation, Renault
+                                        Nissan Automotive India Pvt
+                                        Ltd</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+                            <div class="w-full md:w-1/2 relative flex justify-center md:justify-start">
+                                <div
+                                    class="absolute top-4 left-4 md:top-0 md:left-0 h-[300px] md:h-[450px] w-[220px] md:w-[300px] bg-[#009999] -z-10 ">
+                                </div>
+                                <div class="relative pt-10 md:pt-12 pb-10 md:pb-12 pl-10 md:pl-24">
+                                    <img src="img/about11.jpg" alt="Testimonial"
+                                        class="w-[260px] md:w-[360px] h-[260px] md:h-[360px] object-cover  shadow-md" />
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 pr-0 md:pr-4">
+                                <div class="pb-6 md:pb-0 text-center md:text-left">
+                                    <h3 class="text-xl md:text-2xl font-semibold mb-4 leading-snug">
+                                        AI/ML & Full Stack Internship
+                                        Collaboration
+                                    </h3>
+                                    <p class="text-gray-700 mb-4 text-justify leading-relaxed">
+                                        Students of Annai Vailankanni
+                                        College of Engineering successfully
+                                        completed
+                                        their internship at
+                                        TANSAM in Artificial
+                                        Intelligence/Machine Learning
+                                        (AI/ML) and Full Stack
+                                        Development, gaining
+                                        hands-on experience with
+                                        industry-relevant tools,
+                                        technologies, and
+                                        projects. The mentorship and
+                                        guidance provided by TANSAM helped
+                                        students enhance programming skills,
+                                        problem-solving
+                                        abilities, and professional
+                                        confidence, effectively preparing
+                                        them for IT
+                                        careers and research
+                                        opportunities. Several students were
+                                        successfully placed in reputed
+                                        companies, including
+                                        opportunities within TANSAM itself.
+                                    </p>
+                                    <div class="flex items-center justify-center md:justify-start mb-1">
+                                        <span class="block w-10 h-[2px] bg-primary mr-4"></span>
+                                        <h5 class="font-semibold mb-0">Dr.
+                                            R. Angeline Prabhavathy</h5>
+                                    </div>
+                                    <small class="text-gray-500">Principal,
+                                        Annai Vailankanni College of
+                                        Engineering</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row items-center gap-8 lg:gap-12">
+                            <div class="w-full md:w-1/2 relative flex justify-center md:justify-start">
+                                <div
+                                    class="absolute top-4 left-4 md:top-0 md:left-0 h-[300px] md:h-[450px] w-[220px] md:w-[300px] bg-[#009999] -z-10 ">
+                                </div>
+                                <div class="relative pt-10 md:pt-12 pb-10 md:pb-12 pl-10 md:pl-24">
+                                    <img src="img/teamtestimonals.png" alt="Testimonial"
+                                        class="w-[260px] md:w-[360px] h-[260px] md:h-[360px] object-cover  shadow-md" />
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 pr-0 md:pr-4">
+                                <div class="pb-6 md:pb-0 text-center md:text-left">
+                                    <h3 class="text-xl md:text-2xl font-semibold mb-4 leading-snug">
+                                        We are happy to state that our
+                                        collaboration with Renault Nissan
+                                        has achieved a new flagship
+                                        milestone.
+                                    </h3>
+                                    <p class="text-gray-700 mb-4 text-justify leading-relaxed">
+                                        An innovation done by our team has
+                                        been recognized in the TPM Event
+                                        (Total Productive Maintenance)
+                                        organized by CII. Our team has won
+                                        the Silver Medal.
+                                        The system implemented provides a
+                                        robust, low-cost, and highly
+                                        accurate solution for quality
+                                        control. By integrating AI, Computer
+                                        Vision and PLC automation,
+                                        significant failure modes in the
+                                        engine assembly process, has been
+                                        eliminated. The system provides
+                                        real-time validation of operator
+                                        movements. This solution addresses a
+                                        critical quality risk in the engine
+                                        assembly line.
+                                    </p>
+                                    <!-- <div
+                                            class="flex items-center justify-center md:justify-start mb-1">
+                                            <span
+                                                class="block w-10 h-[2px] bg-primary mr-4"></span>
+                                            <h5 class="font-semibold mb-0">Dr.
+                                                R. Angeline Prabhavathy</h5>
+                                        </div> -->
+                                    <small class="text-gray-500">Principal,
+                                        Seshan from our team had
+                                        participated in the event conducted
+                                        this week along with few members
+                                        from Renault Nissan.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full bg-[#009999]">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="w-full md:w-5/12 flex justify-center md:justify-start py-6 sm:py-10 md:py-12 animate-fadeIn"
+                    style="animation-delay:0.2s">
+                    <div
+                        class="w-full max-w-[550px] aspect-[550/366] overflow-hidden flex justify-center md:justify-start">
+                        <img src="img/Newsletter.png" alt="Newsletter" class="w-full h-full object-cover " />
+                    </div>
+                </div>
+                <div class="w-full md:w-7/12 py-8 sm:py-10 md:py-16 px-4 sm:px-6 md:px-10 animate-fadeIn"
+                    style="animation-delay:0.5s">
+                    <div class="text-center md:text-left">
+                        <h1 class="mb-5 font-bold uppercase text-2xl sm:text-3xl leading-snug">
+                            <span class="text-black">SUBSCRIBE</span>
+                            <span class="bg-white px-2 text-primary">THE
+                                NEWSLETTER</span>
+                        </h1>
+
+                        <div class="relative w-full mb-5">
+                            <input type="email" placeholder="Enter Your Email"
+                                class="w-full h-[40px] sm:h-[50px] ps-4 pe-14 bg-white border border-white  focus:outline-none text-black placeholder-gray-500" />
+                            <button type="button"
+                                class="absolute top-1/2 right-3 -translate-y-1/2 bg-transparent hover:scale-110 transition-transform">
+                                <i class="fa fa-paper-plane text-primary text-2xl"></i>
+                            </button>
+                        </div>
+                        <p class="text-base sm:text-lg text-white leading-relaxed">
+                            Stay updated with the latest news, events, and
+                            Entrepreneurship Development!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+        class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+        <i class="fa-solid fa-arrow-up text-xl"></i>
+    </a>
+    <footer class="bg-dark text-gray-400 pt-12">
+        <div class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+            <!-- Left Section -->
+            <div class="text-white">
+                <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                <p>Tamil Nadu Smart and Advanced Manufacturing Centre -
+                    (TANSAM)</p>
+            </div>
+
+            <!-- Middle Section -->
+            <div class="text-white flex flex-col">
+                <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                <p class="flex items-start gap-3">
+                    <i class="fa fa-map-marker-alt mt-1"></i>
+                    <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani,
+                        Chennai, Tamil Nadu 600113</span>
+                </p>
+
+                <p class="flex items-center gap-3 pt-2">
+                    <i class="fa fa-phone-alt"></i>
+                    <span>+91-98840 35145</span>
+                </p>
+
+                <!-- Social Media Section -->
+                <div class="flex gap-4 pt-4 flex-wrap">
+                    <a href="https://x.com/TANSAM2022" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fa-brands fa-x-twitter"></i>
+
+                    </a>
+                    <a href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tansamcoe_2022/#" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/tansam/" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="text-white">
+                <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="hover:text-[#009999] transition-colors">Home</a>
+                    <a href="contact.html" class="hover:text-primary transition-colors">Contact
+                        Us</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div
+            class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-center md:text-left">
+            <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                <a href="Disclaimer.html" class="hover:text-primary transition-colors">Disclaimer</a>
+                <a href="privacy_policy.html" class="hover:text-primary transition-colors">Privacy and
+                    Copyright
+                    Policy</a>
+                <a href="Terms_use.html" class="hover:text-primary transition-colors">Terms of
+                    Use</a>
+            </div>
+        </div>
+    </footer>
+</body>
+<!-- Back to Top -->
+<!-- Tailwindstyle -->
+
+<script>
+    // last updated 
+    const scrollContainer = document.getElementById('teamScroll');
+    const scrollRightBtn = document.getElementById('scrollRightBtn');
+    const scrollLeftBtn = document.getElementById('scrollLeftBtn');
+
+    let scrollAmount = 0;
+
+    function getCardWidth() {
+        if (!scrollContainer) return 0;
+        const firstCard = scrollContainer.querySelector('.flip-card');
+        if (!firstCard) return 0;
+        const style = window.getComputedStyle(firstCard);
+        const gap = parseInt(style.marginRight) || 0; // fallback if using margin
+        return firstCard.offsetWidth + gap;
+    }
+
+    function updateButtons() {
+        if (!scrollContainer || !scrollLeftBtn || !scrollRightBtn) return;
+        const maxScroll = scrollContainer.scrollWidth - scrollContainer.parentElement.clientWidth;
+        scrollLeftBtn.disabled = scrollAmount <= 0;
+        scrollRightBtn.disabled = scrollAmount >= maxScroll;
+    }
+
+    if (scrollContainer && scrollRightBtn && scrollLeftBtn) {
+        scrollRightBtn.addEventListener('click', () => {
+            const cardWidth = getCardWidth();
+            const maxScroll = scrollContainer.scrollWidth - scrollContainer.parentElement.clientWidth;
+            scrollAmount += cardWidth;
+            if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+            scrollContainer.style.transform = `translateX(-${scrollAmount}px)`;
+            updateButtons();
+        });
+
+        scrollLeftBtn.addEventListener('click', () => {
+            const cardWidth = getCardWidth();
+            scrollAmount -= cardWidth;
+            if (scrollAmount < 0) scrollAmount = 0;
+            scrollContainer.style.transform = `translateX(-${scrollAmount}px)`;
+            updateButtons();
+        });
+
+        window.addEventListener('resize', () => {
+            const maxScroll = scrollContainer.scrollWidth - scrollContainer.parentElement.clientWidth;
+            if (scrollAmount > maxScroll) scrollAmount = maxScroll;
+            scrollContainer.style.transform = `translateX(-${scrollAmount}px)`;
+            updateButtons();
+        });
+
+        updateButtons();
+    }
+
+    // for teams backbutton start 
+    document.addEventListener("DOMContentLoaded", () => {
+        const profileButtons = document.querySelectorAll(".profile-btn");
+        const backButtons = document.querySelectorAll(".back-btn");
+
+        profileButtons.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                const cardInner = e.target.closest(".flip-card-inner");
+                if (cardInner) cardInner.style.transform = "rotateY(180deg)";
+            });
+        });
+
+        backButtons.forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                const cardInner = e.target.closest(".flip-card-inner");
+                if (cardInner) cardInner.style.transform = "rotateY(0deg)";
+            });
+        });
+    });
+    // for teams backbutton end 
+
+
+
+
+</script>
+
+<!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // dropdown of cababilities 
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+    if (btn && dropdown && icon) {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            dropdown.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        });
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        });
+    }
+
+
+</script>
+
+</html>

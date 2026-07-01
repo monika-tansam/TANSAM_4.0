@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing </title>
+        <link href="img/Tansam.png" rel="icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+        <style>
+
+    </style>
+    </head>
+    <style>
+    .tab-btn {
+        padding: 12px 28px;
+        font-size: 18px;
+        font-weight: 500;
+        color: #555;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s ease;
+    }
+    
+    .tab-btn:hover {
+        color: #A21D21;
+    }
+    
+    .active-tab {
+        color: #A21D21;
+        border-color: #A21D21;
+    }
+    </style>
+
+    <body class="bg-white">
+        <nav class="bg-white shadow-md sticky top-0 z-40">
+            <div
+                class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn"
+                        class="primary focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                    <a href="index.html"
+                        class="border-b-2 border-primary font-medium text-primary hover:text-[#A21D21] hover:border-[#A21D21]">Home</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            About Us
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="index.html#about-us"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">About Us</a>
+                            <a href="board.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Board  Directors</a>                            
+                        </div>
+                    </div>
+                    <!-- <a href="index.html#about-us"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">About
+                        Us</a> -->
+                    <a href="index.html#labs"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Labs</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            Capabilities
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="Skillinghead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Skilling</a>
+                            <a href="Research_Projecthead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Research
+                                &
+                                Projects</a>
+                        </div>
+                    </div>
+
+                    <a href="index.html#news_events"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">News
+                        & Events</a>
+                    <a href="index.html#team"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Our
+                        Team</a>
+                    <a href="contact.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Contact</a>
+                    <!-- <a href="Gcc.html"
+                        class="bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-1 px-4 ">GCC</a> -->
+                </div>
+            </div>
+            <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+                <a href="index.html"
+                    class="block py-2 text-primary font-medium">Home</a>
+                <a href="index.html#about-us"
+                    class="block py-2 hover:text-[#A21D21]">About Us</a>
+                <a href="index.html#labs"
+                    class="block py-2  hover:text-[#A21D21]">Labs</a>
+                <div class="block py-2">
+                    <button
+                        class="w-full text-left flex justify-between items-center  text-black hover:text-[#A21D21] focus:outline-none "
+                        onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                        Capabilities
+                        <svg
+                            class="w-4 h-4 ml-1 transition-transform duration-300"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                        <a href="Skillinghead.html"
+                            class="block py-1 hover:text-[#A21D21]">Skilling</a>
+                        <a href="Research_Projecthead.html"
+                            class="block py-1 hover:text-[#A21D21]">Research &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="index.html#news_events"
+                    class="block py-2 hover:text-[#A21D21]">News & Events</a>
+                <a href="index.html#team"
+                    class="block py-2 hover:text-[#A21D21]">Our Team</a>
+                <a href="contact.html"
+                    class="block py-2 hover:text-[#A21D21]">Contact</a>
+                <!-- <a href="Gcc.html"
+                    class="block bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-2 px-4 mt-2 w-full text-center">GCC</a> -->
+            </div>
+        </nav>
+
+        <div class="bg-[#009999] py-4 px-4 md:px-12">
+            <div class="container mx-auto px-4 md:px-6">
+                <h1
+                    class="text-4xl sm:text-5xl md:text-6xl font-bold text-white animate-slide-in-left">
+                    About Us
+                </h1>
+            </div>
+        </div>
+
+        <div class="bg-gray-50 py-12 px-4">
+            <div
+                class="container mx-auto bg-white rounded-lg shadow-xl p-6 sm:p-8 md:p-12">
+                <img src="img/2.jpg" alt="Corporate Training - Industry 4.0"
+                    class="w-full sm:w-4/5 lg:w-3/4 h-48 sm:h-64 md:h-80 lg:h-[400px] object-cover rounded-lg shadow-md mb-8 mx-auto">
+
+                <div
+                    class="flex flex-wrap justify-center gap-3 sm:gap-6 border-b pb-3 mb-8 overflow-x-auto">
+                    <button class="tab-btn active-tab"
+                        onclick="openTab(event,'TANSAM')">TANSAM</button>
+                    <button class="tab-btn"
+                        onclick="openTab(event,'SPOKE')">SPOKE CENTRE</button>
+                    <button class="tab-btn"
+                        onclick="openTab(event,'COLLAB')">COLLABORATION</button>
+                    <button class="tab-btn"
+                        onclick="openTab(event,'STRENGTH')">OUR
+                        STRENGTH</button>
+                </div>
+
+                <div id="TANSAM" class="tab-content">
+                    <section
+                        class="bg-gray-50 py-10 sm:py-12 md:py-14 px-4 sm:px-6">
+                        <div
+                            class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-12">
+
+                            <!-- Title -->
+                            <h2
+                                class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#A21D21] mb-6 text-center">
+                                What is TANSAM?
+                            </h2>
+
+                            <!-- Intro -->
+                            <p
+                                class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed text-justify mb-6">
+                                The <span class="font-semibold">Tamil Nadu
+                                    Industrial Development
+                                    Corporation (TIDCO)</span> is establishing
+                                the
+                                <span class="font-semibold">Tamil Nadu Smart and
+                                    Advanced Manufacturing
+                                    Centre (TANSAM)</span>
+                                at <span class="font-semibold">TIDEL Park,
+                                    Chennai</span>. As India’s
+                                first-of-its-kind
+                                <span class="font-semibold">Centre of Excellence
+                                    (CoE)</span>, TANSAM
+                                provides a dedicated advanced manufacturing
+                                ecosystem to support
+                                <span class="font-semibold">Micro, Small &
+                                    Medium Enterprises (MSMEs)</span>
+                                and students across Tamil Nadu.
+                            </p>
+
+                            <p
+                                class="text-[#A21D21] font-semibold text-base sm:text-lg text-center sm:text-left mb-10">
+                                👉 Partner with TANSAM – accelerate your
+                                Industry 4.0 journey
+                            </p>
+
+                            <div class="border-t my-8 sm:my-10"></div>
+
+                            <!-- Growth Section -->
+                            <h3
+                                class="text-xl sm:text-2xl md:text-3xl font-bold text-[#A21D21] mb-6">
+                                Driving Industry Growth
+                            </h3>
+
+                            <p
+                                class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed mb-6">
+                                TANSAM is designed to strengthen key industries
+                                in Tamil Nadu through
+                                advanced manufacturing, automation, and digital
+                                transformation in domains such as:
+                            </p>
+
+                            <ul
+                                class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-gray-700 text-base sm:text-lg">
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl">✔</span>
+                                    <span><strong>Aerospace</strong> – Advanced
+                                        design and simulation.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl">✔</span>
+                                    <span><strong>Defense</strong> –
+                                        Cutting-edge manufacturing
+                                        solutions.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl">✔</span>
+                                    <span><strong>Automotive</strong> – Smart
+                                        factory automation and EV
+                                        technology.</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl">✔</span>
+                                    <span><strong>Electric Vehicles
+                                            (EVs)</strong> – Innovation in
+                                        sustainable mobility.</span>
+                                </li>
+                            </ul>
+
+                            <p
+                                class="text-[#A21D21] font-semibold text-base sm:text-lg text-center sm:text-left mt-8">
+                                👉 Explore Tamil Nadu’s future industries –
+                                powered by TANSAM.
+                            </p>
+
+                            <div class="border-t my-8 sm:my-10"></div>
+
+                            <!-- Partnership -->
+                            <h3
+                                class="text-xl sm:text-2xl md:text-3xl font-bold text-[#A21D21] mb-6">
+                                Partnership with Siemens
+                            </h3>
+
+                            <p
+                                class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed mb-6">
+                                To power this initiative, <span
+                                    class="font-semibold">SIEMENS</span>
+                                has signed a <span
+                                    class="font-semibold">Memorandum of
+                                    Understanding (MoU)</span>
+                                with TIDCO, bringing global expertise in smart
+                                manufacturing and
+                                digital transformation.
+                            </p>
+
+                            <ul
+                                class="space-y-4 text-gray-700 text-base sm:text-lg">
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl">✔</span>
+                                    Cutting-edge infrastructure
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl">✔</span>
+                                    State-of-the-art technology
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl">✔</span>
+                                    Industry-driven training programs
+                                </li>
+                            </ul>
+
+                            <p
+                                class="text-[#A21D21] font-semibold text-base sm:text-lg text-center sm:text-left mt-8">
+                                👉 Collaborate with TANSAM – access world-class
+                                facilities in Tamilnadu.
+                            </p>
+
+                        </div>
+                    </section>
+                </div>
+
+                <div id="SPOKE" class="tab-content hidden">
+                    <section
+                        class="bg-gray-50 py-10 sm:py-14 px-4 sm:px-6 lg:px-10">
+                        <div
+                            class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-12">
+
+                            <!-- INTRO -->
+                            <p
+                                class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed sm:text-justify mb-6">
+                                The <span class="font-semibold">Tamil Nadu Smart
+                                    and Advanced Manufacturing Centre
+                                    (TANSAM)</span>
+                                provides <span class="font-semibold">SMBs,
+                                    MSMEs, and students</span> with complete
+                                access to the
+                                <span class="font-semibold">Siemens Xcelerator
+                                    portfolio</span> of solutions and
+                                services—enabling
+                                them to use advanced technologies that would
+                                otherwise be unaffordable. In its short
+                                existence,
+                                TANSAM has already accelerated industrial
+                                innovation and driven economic growth by
+                                introducing
+                                <span class="font-semibold">digitalization and
+                                    automation capabilities</span>
+                                across Tamil Nadu.
+                            </p>
+
+                            <p
+                                class="text-[#A21D21] font-semibold text-base sm:text-lg mb-8">
+                                👉 Partner with TANSAM Academy – empower your
+                                workforce with Industry 4.0 skills.
+                            </p>
+
+                            <div class="border-t my-8 sm:my-10"></div>
+
+                            <!-- JOINT INITIATIVE -->
+                            <h3
+                                class="text-xl sm:text-2xl md:text-3xl font-bold text-[#A21D21] mb-4 sm:mb-6">
+                                Joint Initiative
+                            </h3>
+
+                            <p
+                                class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed mb-6">
+                                TANSAM is a joint initiative between <span
+                                    class="font-semibold">Siemens</span>,
+                                the <span class="font-semibold">Government of
+                                    Tamil Nadu</span>, and
+                                <span class="font-semibold">TIDCO (Tamil Nadu
+                                    Industrial Development Corporation)</span>.
+                                Its vision is to:
+                            </p>
+
+                            <ul
+                                class="space-y-3 sm:space-y-4 text-gray-700 text-base sm:text-lg">
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl">✔</span>
+                                    Incubate innovative start-ups.
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl">✔</span>
+                                    Provide Industry 4.0 training to engineering
+                                    students.
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl">✔</span>
+                                    Strengthen academia–industry collaboration
+                                    through SPOKE centres across Tamil Nadu.
+                                </li>
+                            </ul>
+
+                            <p
+                                class="text-[#A21D21] font-semibold text-base sm:text-lg mt-6 sm:mt-8">
+                                👉 Join Tamil Nadu’s first-of-its-kind Centre of
+                                Excellence – shaping the future of smart
+                                manufacturing.
+                            </p>
+
+                            <div class="border-t my-8 sm:my-10"></div>
+
+                            <!-- IMPACT -->
+                            <h3
+                                class="text-xl sm:text-2xl md:text-3xl font-bold text-[#A21D21] mb-4 sm:mb-6">
+                                Impact So Far
+                            </h3>
+
+                            <p
+                                class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed mb-6">
+                                Since its grand opening in <span
+                                    class="font-semibold">November 2022</span>,
+                                inaugurated by
+                                Honourable Chief Minister <span
+                                    class="font-semibold">Thiru. M. K.
+                                    Stalin</span>, TANSAM has
+                                achieved remarkable milestones:
+                            </p>
+
+                            <ul
+                                class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-gray-700 text-base sm:text-lg">
+
+                                <li class="flex gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl flex-shrink-0">✔</span>
+                                    <p class="flex-1 break-words leading-snug">
+                                        <strong>97,500+</strong> students
+                                        trained in Industry 4.0 technologies.
+                                    </p>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl flex-shrink-0">✔</span>
+                                    <p class="flex-1 break-words leading-snug">
+                                        <strong>700+</strong> professors
+                                        upskilled with Siemens tools.
+                                    </p>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl flex-shrink-0">✔</span>
+                                    <p class="flex-1 break-words leading-snug">
+                                        <strong>2,000+</strong> SMBs supported
+                                        with product development and digital
+                                        solutions.
+                                    </p>
+                                </li>
+
+                                <li class="flex gap-3">
+                                    <span
+                                        class="text-[#009999] text-lg sm:text-xl flex-shrink-0">✔</span>
+                                    <p class="flex-1 break-words leading-snug">
+                                        <strong>Goal:</strong> 500,000 students
+                                        trained in the upcoming year across
+                                        Tamilnadu.
+                                    </p>
+                                </li>
+
+                            </ul>
+
+                            <p
+                                class="text-[#A21D21] font-semibold text-base sm:text-lg mt-6 sm:mt-8">
+                                👉 Discover the impact – join thousands of
+                                learners transforming their careers with TANSAM.
+                            </p>
+
+                            <!-- <div class="border-t my-8 sm:my-10"></div>
+
+                            <h3
+                                class="text-xl sm:text-2xl md:text-3xl font-bold text-[#A21D21] mb-4 sm:mb-6">
+                                Local Partnership
+                            </h3>
+
+                            <p
+                                class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed sm:text-justify">
+                                <span class="font-semibold">Broadline Computer
+                                    Systems</span>, headquartered in Tamil Nadu,
+                                has partnered with Siemens to implement
+                                technologies at the centre. Broadline provides
+                                academic software support, staffing, and ongoing
+                                assistance—adding strong local and
+                                grassroots capabilities to the TANSAM
+                                initiative.
+                            </p> -->
+
+                        </div>
+                    </section>
+                </div>
+
+                <div id="COLLAB" class="tab-content hidden">
+                    <section
+                        class="bg-gray-50 py-10 sm:py-14 px-4 sm:px-6 lg:px-10">
+                        <div
+                            class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-12">
+
+                            <!-- TITLE -->
+                            <h2
+                                class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#A21D21] mb-4 text-center">
+                                TANSAM Collaborations
+                            </h2>
+
+                            <p
+                                class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed text-center mb-8 sm:mb-10">
+                                <span class="font-semibold">Driving Innovation
+                                    with Industry Leaders</span><br
+                                    class="hidden sm:block">
+                                TANSAM builds strong partnerships to accelerate
+                                Industry 4.0 adoption and
+                                strengthen Tamil Nadu’s manufacturing ecosystem
+                                through innovation,
+                                workforce upskilling, and technology enablement.
+                            </p>
+
+                            <div class="border-t my-8 sm:my-10"></div>
+
+                            <!-- SUB TITLE -->
+                            <h3
+                                class="text-xl sm:text-2xl md:text-3xl font-bold text-[#A21D21] mb-6 sm:mb-8">
+                                Key Collaborations
+                            </h3>
+
+                            <!-- COLLAB LIST -->
+                            <div
+                                class="space-y-6 sm:space-y-8 text-gray-700 text-base sm:text-lg md:text-xl">
+
+                                <!-- ITEM -->
+                                <div
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6">
+                                    <h4
+                                        class="font-bold text-lg sm:text-xl text-gray-900 mb-1 sm:mb-2 break-words">
+                                        RNAIPL (Renault Nissan Automotive India
+                                        Pvt. Ltd.)
+                                    </h4>
+                                    <!-- <p class="leading-relaxed break-words">
+                                        TANSAM deployed three engineers at the
+                                        Oragadam manufacturing unit
+                                        to support <span
+                                            class="font-semibold">POCs and
+                                            POVs</span>, nurturing
+                                        innovation in automotive manufacturing.
+                                    </p> -->
+                                    <p class="leading-relaxed break-words">
+                                        TANSAM has deployed SMEs at
+                                        manufacturing unit Oragadam estate to
+                                        support innovation in automotive
+                                        manufacturing.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6">
+                                    <h4
+                                        class="font-bold text-lg sm:text-xl text-gray-900 mb-1 sm:mb-2">
+                                        Flex India
+                                    </h4>
+                                    <p class="leading-relaxed break-words">
+                                        Collaboration on a <span
+                                            class="font-semibold">CSR
+                                            initiative</span>
+                                        to build manpower capacity in
+                                        electronics manufacturing and repair job
+                                        roles.
+                                    </p>
+                                </div>
+
+                                <div
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6">
+                                    <h4
+                                        class="font-bold text-lg sm:text-xl text-gray-900 mb-1 sm:mb-2">
+                                        JSW
+                                    </h4>
+                                    <p class="leading-relaxed break-words">
+                                        Partnership for <span
+                                            class="font-semibold">technology
+                                            enablement</span>
+                                        through advanced manufacturing solutions
+                                        and employee training.
+                                    </p>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+                <div id="STRENGTH" class="tab-content hidden">
+                    <section
+                        class="bg-gray-50 py-10 sm:py-14 px-4 sm:px-6 lg:px-10">
+                        <div
+                            class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 md:p-12">
+
+                            <!-- TITLE -->
+                            <h2
+                                class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#A21D21] mb-4 sm:mb-6 text-center">
+                                TANSAM Core Competencies
+                            </h2>
+
+                            <p
+                                class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed text-center mb-8 sm:mb-10">
+                                TANSAM brings together a diverse skill portfolio
+                                backed by
+                                <span class="font-semibold">~375 man-years of
+                                    experience</span> and
+                                <span class="font-semibold">67 unique
+                                    competencies</span>. This extensive
+                                spectrum enables delivery of <span
+                                    class="font-semibold">end-to-end
+                                    solutions</span>
+                                in advanced manufacturing, digital
+                                transformation, and Industry 4.0 adoption.
+                            </p>
+
+                            <div class="border-t my-8 sm:my-10"></div>
+
+                            <!-- GRID -->
+                            <div
+                                class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 md:gap-10 text-gray-700 text-base sm:text-lg">
+
+                                <!-- ITEM -->
+
+                                <div
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6">
+                                    <h3
+                                        class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
+                                        Design & Engineering
+                                    </h3>
+                                    <ul class="space-y-1.5 sm:space-y-2">
+                                        <li>3D Modelling</li>
+                                        <li>Mechanical Product Design</li>
+                                        <li>Industrial Design</li>
+                                        <li>Predictive Engineering</li>
+                                    </ul>
+                                </div>
+                                <div
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6">
+                                    <h3
+                                        class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
+                                        Predictive Simulations
+                                    </h3>
+                                    <ul
+                                        class="space-y-1.5 sm:space-y-2 break-words">
+                                        <li>Finite Element Analysis</li>
+                                        <li>Multibody Dynamic Simulation</li>
+                                        <li>Computational Fluid Dynamics</li>
+                                        <li>Kinematic Simulation</li>
+                                        <li>Noise, Vibration, Shock</li>
+                                        <li>Thermal Analysis</li>
+                                    </ul>
+                                </div>
+
+                                <div
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6">
+                                    <h3
+                                        class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
+                                        Smart Factory & Robotics
+                                    </h3>
+                                    <ul class="space-y-1.5 sm:space-y-2">
+                                        <li>Industrial Engineering</li>
+                                        <li>Robotics & Automation</li>
+                                        <li>Robotic Signal & Path Planning</li>
+                                        <li>Process & Resource Optimization</li>
+                                        <li>Kinematics</li>
+                                        <li>Cobot Training</li>
+                                        <li>Robotic / AGV Simulation</li>
+                                        <li>Digital Twin</li>
+
+                                    </ul>
+                                </div>
+
+                                <div
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6">
+                                    <h3
+                                        class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
+                                        Advanced Manufacturing
+                                    </h3>
+                                    <ul
+                                        class="space-y-1.5 sm:space-y-2 break-words">
+                                        <li>3D Scanning</li>
+                                        <li>Additive Manufacturing</li>
+                                        <li>Reverse Engineering</li>
+                                        <li>Automated Guided Vehicles
+                                            (AGVs)</li>
+                                    </ul>
+                                </div>
+                                <div
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6">
+                                    <h3
+                                        class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
+                                        Electronics & Embedded Systems
+                                    </h3>
+                                    <ul
+                                        class="space-y-1.5 sm:space-y-2 break-words">
+                                        <li>Electronic Circuits</li>
+                                        <li>Embedded Systems</li>
+                                        <li>Printed Circuit Board (PCB)
+                                            Design</li>
+                                        <li>Programmable Logic Control
+                                            (PLC)</li>
+                                        <li>Internet of Things (IoT) & Edge
+                                            Computing</li>
+                                    </ul>
+                                </div>
+
+                                <div
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6">
+                                    <h3
+                                        class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
+                                        Digital Technologies
+                                    </h3>
+                                    <ul
+                                        class="space-y-1.5 sm:space-y-2 break-words">
+                                        <li>Artificial Intelligence (AI)</li>
+                                        <li>Machine Learning (ML)</li>
+                                        <li>Data Science</li>
+                                        <li>Data Analytics</li>
+                                        <li>Software Development</li>
+                                        <li>Angular, React, Django, Node.js,
+                                            HTML, CSS, Python</li>
+                                    </ul>
+                                </div>
+                                <!-- FULL WIDTH -->
+                                <div
+                                    class="border-l-4 border-[#009999] pl-4 sm:pl-6 sm:col-span-2">
+                                    <h3
+                                        class="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
+                                        Extended Reality
+                                    </h3>
+                                    <ul class="flex flex-wrap gap-4 sm:gap-6">
+                                        <li>Augmented Reality (AR)</li>
+                                        <li>Virtual Reality (VR)</li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+                <h3
+                    class="text-xl sm:text-3xl leading-relaxed font-bold  mb-6 text-[#A21D21] text-center py-4">
+                    Our Partners
+                </h3>
+                <ul
+                    class="text-gray-700 text-base sm:text-lg md:text-xl list-disc mt-4 list-inside mb-2">
+                    <li>
+                        <span class="font-semibold">Siemens</span> Global leader
+                        in digital transformation.
+                    </li>
+                </ul>
+
+                <ul
+                    class="text-gray-700 text-base sm:text-lg md:text-xl list-disc list-inside mt-4">
+                    <li>
+                        <span class="font-semibold">Broadline-</span> A local
+                        partner working with Siemens to implement technology and
+                        provide support at the center Collaborations with
+                        universities, corporates, and startups
+                    </li>
+                </ul>
+
+                <ul
+                    class="text-gray-700 text-base sm:text-lg md:text-xl list-disc list-inside mt-4">
+                    <li>
+                        <span class="font-semibold">👉 Collobrate with TANSAM –
+                            accelerate your digital transformation journey in
+                            Tamil Nadu.</span>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <a href="#"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+            class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+            <i class="fa-solid fa-arrow-up text-xl"></i>
+        </a>
+        <footer class="bg-dark text-gray-400 pt-12">
+            <div
+                class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                <div class="text-white">
+                    <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                    <p>Tamil Nadu Smart and Advanced Manufacturing Centre -
+                        (TANSAM)</p>
+                </div>
+
+                <div class="text-white flex flex-col">
+                    <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                    <p class="flex items-start gap-3">
+                        <i class="fa fa-map-marker-alt mt-1"></i>
+                        <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani,
+                            Chennai, Tamil Nadu 600113</span>
+                    </p>
+
+                    <p class="flex items-center gap-3 pt-2">
+                        <i class="fa fa-phone-alt"></i>
+                        <span>+91-98840 35145</span>
+                    </p>
+
+                    <div class="flex gap-4 pt-4 flex-wrap">
+                        <a href="https://x.com/TANSAM2022" target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a
+                            href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tansamcoe_2022/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tansam/"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-white">
+                    <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                    <div class="flex flex-col space-y-2">
+                        <a href="index.html"
+                            class="hover:text-[#009999] transition-colors">Home</a>
+                        <a href="contact.html"
+                            class="hover:text-[#009999] transition-colors">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-center md:text-left">
+                <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="Disclaimer.html"
+                        class="hover:text-[#009999] transition-colors">Disclaimer</a>
+                    <a href="privacy_policy.html"
+                        class="hover:text-[#009999] transition-colors">Privacy
+                        and Copyright
+                        Policy</a>
+                    <a href="Terms_use.html"
+                        class="hover:text-[#009999] transition-colors">Terms of
+                        Use</a>
+                </div>
+            </div>
+        </footer>
+
+    </body>
+
+    <script>
+    function openTab(evt, tabId) {
+    const contents = document.querySelectorAll('.tab-content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    contents.forEach(c => c.classList.add('hidden'));
+    buttons.forEach(b => b.classList.remove('active-tab'));
+
+    document.getElementById(tabId).classList.remove('hidden');
+    evt.currentTarget.classList.add('active-tab');
+}
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    // dropdown of cababilities 
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    });
+
+
+</script>
+
+</html>

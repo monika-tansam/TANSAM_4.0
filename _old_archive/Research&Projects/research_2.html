@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing </title>
+        <link href="../img/Tansam.png" rel="icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+            rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+    </head>
+
+    <body class="bg-white">
+        <nav class="bg-white shadow-md sticky top-0 z-40">
+            <div
+                class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+                <div class="lg:hidden">
+                    <button id="mobileMenuBtn"
+                        class="text-[#A21D21] focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div
+                    class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                    <a href="../index.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Home</a>
+                     <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center text-black border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            About Us
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="index.html#about-us"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">About Us</a>
+                            <a href="board.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Board  Directors</a>                            
+                        </div>
+                    </div>
+                    <a href="../index.html#labs"
+                        class="border-b-2 border-transparent  hover:text-[#A21D21] hover:border-[#A21D21]">Labs</a>
+
+                    <div class="relative group">
+                        <button id="capabilitiesBtn"
+                            class="flex items-center font-medium text-primary border-b-2 border-[#A21D21] hover:text-[#A21D21] hover:border-[#A21D21] transition focus:outline-none">
+                            Capabilities
+                            <svg
+                                class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180"
+                                fill="none"
+                                stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        <div id="capabilitiesDropdown"
+                            class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                            <a href="../Skillinghead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Skilling</a>
+                            <a href="../Research_Projecthead.html"
+                                class="block px-4 py-2 hover:bg-[#A21D21] hover:text-white transition">Research
+                                &
+                                Projects</a>
+                        </div>
+                    </div>
+
+                    <a href="../index.html#news_events"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">News
+                        & Events</a>
+                    <a href="../index.html#team"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Our
+                        Team</a>
+                    <a href="../contact.html"
+                        class="border-b-2 border-transparent hover:text-[#A21D21] hover:border-[#A21D21]">Contact</a>
+                    <!-- <a href="../Gcc.html"
+                    class="bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-1 px-4 ">GCC</a> -->
+                </div>
+            </div>
+            <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+                <a href="../index.html" class="block py-2 text-black ">Home</a>
+                <a href="../index.html#about-us"
+                    class="block py-2 hover:text-[#A21D21]">About Us</a>
+                <a href="../index.html#labs"
+                    class="block py-2  hover:text-[#A21D21]">Labs</a>
+                <div class="block py-2">
+                    <button
+                        class="w-full text-left flex justify-between items-center text-primary font-medium hover:text-[#A21D21] focus:outline-none "
+                        onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                        Capabilities
+                        <svg
+                            class="w-4 h-4 ml-1 transition-transform duration-300"
+                            fill="none" stroke="currentColor"
+                            stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                        <a href="../Skillinghead.html"
+                            class="block py-1 hover:text-[#A21D21]">Skilling</a>
+                        <a href="../Research_Projecthead.html"
+                            class="block py-1 hover:text-[#A21D21]">Research &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="../index.html#news_events"
+                    class="block py-2 hover:text-[#A21D21]">News & Events</a>
+                <a href="../index.html#team"
+                    class="block py-2 hover:text-[#A21D21]">Our Team</a>
+                <a href="../contact.html"
+                    class="block py-2 hover:text-[#A21D21]">Contact</a>
+                <!-- <a href="../Gcc.html"
+                class="block bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-2 px-4 mt-2  w-full text-center">GCC</a> -->
+            </div>
+        </nav>
+        <div class="bg-[#009999] py-4 px-4 md:px-12">
+            <h1
+                class="text-xl sm:text-4xl font-bold text-white animate-slide-in-left md:whitespace-nowrap">
+                Center for Predictive Engineering
+                Analytics
+            </h1>
+        </div>
+        <div class="container mx-auto py-12 px-4">
+            <div
+                class="flex flex-col lg:flex-row bg-white rounded-lg shadow-xl overflow-hidden">
+
+                <!-- Main Content -->
+                <div class="w-full lg:w-3/4 p-6 md:p-12 order-2 lg:order-1">
+                    <div class="mb-8">
+
+                        <!-- Featured Image -->
+                        <img src="../img/3.jpg"
+                            alt="Digital Technologies – AI & Vision-Based"
+                            class="w-full h-[300px] md:h-[500px] object-cover rounded-lg shadow-md mb-6">
+
+                        <!-- Headline -->
+                        <h3
+                            class="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight mb-8 text-gray-900">
+                            Center for Predictive Engineering
+                            Analytics
+                        </h3>
+
+                        <!-- Client Sections -->
+                        <!-- Client: Heavy Engineering -->
+                        <div class="mb-8">
+                            <h4
+                                class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client:
+                                Heavy Engineering
+                            </h4>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-2 font-medium"><strong>Problem
+                                    Statement /
+                                    Project Scope:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Objective: Improve stability between the
+                                    engine and chassis to enhance structural
+                                    integrity and vibration control.</li>
+                                <li>Challenge: Stress concentrations and
+                                    vibration transmission can compromise
+                                    durability
+                                    under dynamic loads and mounting
+                                    misalignments.</li>
+                                <li>Approach: Simulated engine-chassis coupling
+                                    using Siemens Simcenter 3D FEA and MBD to
+                                    capture deformation, stress hotspots, and
+                                    vibrational response.</li>
+                                <li>Outcome: Achieved optimized mount
+                                    positioning, reduced critical stress zones,
+                                    and
+                                    ensured structural stability under
+                                    operational and peak loads.</li>
+                            </ul>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                                    Highlights:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>FEA-Based Structural Integrity: Conducted
+                                    stress-strain evaluations across chassis
+                                    mount
+                                    zones.</li>
+                                <li>Multibody Dynamics (MBD): Simulated engine
+                                    inertia interaction with chassis
+                                    system.</li>
+                                <li>Load Case Variability: Simulated different
+                                    loading scenarios—start-up torque, road
+                                    shocks, misalignments.</li>
+                                <li>Design Optimization: Implemented iterations
+                                    with material adjustments to improve
+                                    damping.</li>
+                            </ul>
+                            <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                                <p
+                                    class="text-base md:text-lg text-gray-700 leading-loose"><strong>Value
+                                        Addition:</strong>
+                                </p>
+                                <ul
+                                    class="list-disc list-inside ml-5 space-y-1 text-gray-700 text-base md:text-lg">
+                                    <li>40% reduction in transmitted vibration
+                                        to chassis structure</li>
+                                    <li>28% improvement in component fatigue
+                                        life under dynamic load</li>
+                                    <li>Enhanced operational stability and
+                                        safety under peak loading
+                                        conditions</li>
+                                    <li>A virtual testbed for future stability
+                                        design evaluations</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Client: Aerospace Industry -->
+                        <div class="mb-8">
+                            <h4
+                                class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client:
+                                Aerospace Industry
+                            </h4>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-2 font-medium"><strong>Problem
+                                    Statement /
+                                    Project Scope:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Objective: Validate structural integrity of
+                                    turbine-bearing support under dynamic
+                                    excitation.</li>
+                                <li>Challenge: Assess random vibration response
+                                    due to rotor imbalance.</li>
+                                <li>Approach: Simulate worst-case spectral
+                                    excitations to capture resonance
+                                    behavior.</li>
+                                <li>Outcome: Identify potential
+                                    resonance-induced failure zones, enhance
+                                    reliability.</li>
+                            </ul>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                                    Highlights:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Modal Analysis to extract natural
+                                    frequencies.</li>
+                                <li>Damping Characterization based on turbine
+                                    test data.</li>
+                                <li>Random Vibration (PSD): Broadband PSD with
+                                    radial excitation.</li>
+                                <li>Results Extraction: RMS/peak stresses,
+                                    displacements & acceleration fields.</li>
+                            </ul>
+                            <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                                <p
+                                    class="text-base md:text-lg text-gray-700 leading-loose"><strong>Value
+                                        Addition:</strong>
+                                </p>
+                                <ul
+                                    class="list-disc list-inside ml-5 space-y-1 text-gray-700 text-base md:text-lg">
+                                    <li>Early detection of resonance-prone
+                                        regions</li>
+                                    <li>25–30% reduction in prototyping costs &
+                                        20% faster design cycle</li>
+                                    <li>Supports predictive maintenance
+                                        planning</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Client: Motorcycle OEM -->
+                        <div class="mb-8">
+                            <h4
+                                class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client:
+                                Motorcycle OEM</h4>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-2 font-medium"><strong>Problem
+                                    Statement /
+                                    Project Scope:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Objective: Validate structural durability
+                                    under broadband dynamic loads from
+                                    high-speed
+                                    rides on irregular roads.</li>
+                                <li>Challenge: Fatigue & failure risks from
+                                    non-deterministic excitations.</li>
+                                <li>Approach: Random vibration loads assessed
+                                    with real-world conditions.</li>
+                                <li>Outcome: Identify fatigue-sensitive regions
+                                    early to ensure reliability.</li>
+                            </ul>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                                    Highlights:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Modal Analysis: Natural frequencies clear of
+                                    road excitation to avoid resonance.</li>
+                                <li>Stress & Fatigue Evaluation: RMS stress &
+                                    strain energy density to find fatigue-prone
+                                    zones.</li>
+                                <li>Deformation & Load Checks: Displacement &
+                                    reaction forces verified.</li>
+                                <li>Simulation Setup: TET10 mesh, refined
+                                    critical zones, orthotropic Al properties,
+                                    PSD
+                                    inputs per ISO 2631 standards.</li>
+                            </ul>
+                            <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                                <p
+                                    class="text-base md:text-lg text-gray-700 leading-loose"><strong>Value
+                                        Addition:</strong>
+                                </p>
+                                <ul
+                                    class="list-disc list-inside ml-5 space-y-1 text-gray-700 text-base md:text-lg">
+                                    <li>Identify fatigue-prone regions &
+                                        optimize alloy wheel durability</li>
+                                    <li>35% reduction in physical test efforts &
+                                        20% faster validation</li>
+                                    <li>Digital Twin integration enables
+                                        predictive design-phase analysis</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Client: Truck Manufacturing OEM -->
+                        <div class="mb-8">
+                            <h4
+                                class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client:
+                                Truck Manufacturing
+                                OEM</h4>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-2 font-medium"><strong>Problem
+                                    Statement /
+                                    Project Scope:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Objective: Improve crane dynamics in truck
+                                    body assembly for safety & reliability.</li>
+                                <li>Challenge: Crane instability, load
+                                    imbalance, CG misalignment.</li>
+                                <li>Approach: Evaluate CG shifts, optimize
+                                    lifting speeds, predict instability
+                                    scenarios.
+                                </li>
+                                <li>Outcome: Enable safe, efficient crane
+                                    operations, minimize downtime risks.</li>
+                            </ul>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                                    Highlights:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Advanced Multi-Body Dynamics simulation,
+                                    tracking CG displacement.</li>
+                                <li>Variable rigging & lift angles to understand
+                                    CG drift & instability.</li>
+                                <li>Crane Speed Optimization for safe operating
+                                    zones.</li>
+                            </ul>
+                            <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                                <p
+                                    class="text-base md:text-lg text-gray-700 leading-loose"><strong>Value
+                                        Addition:</strong>
+                                </p>
+                                <ul
+                                    class="list-disc list-inside ml-5 space-y-1 text-gray-700 text-base md:text-lg">
+                                    <li>Early detection of fatigue risks & CG
+                                        instability</li>
+                                    <li>Customized crane speed profiles minimize
+                                        overstress & maintenance</li>
+                                    <li>Replaced physical tests with
+                                        simulations, cutting prototype
+                                        validation costs by ~30%
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Client: Toy Manufacturing Industry -->
+                        <div class="mb-8">
+                            <h4
+                                class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client:
+                                Toy Manufacturing
+                                Industry</h4>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-2 font-medium"><strong>Problem
+                                    Statement /
+                                    Project Scope:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Objective: Simulate dynamic behavior &
+                                    structural performance of foldable scooter
+                                    under
+                                    varied load & terrain conditions.</li>
+                                <li>Challenge: Evaluate performance & safety
+                                    across loading scenarios.</li>
+                                <li>Approach: Analyze flexible body
+                                    stress-strain response & terrain-induced
+                                    vibrations.
+                                </li>
+                                <li>Outcome: Identify potential failure zones,
+                                    optimize design parameters before
+                                    prototypes.
+                                </li>
+                            </ul>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                                    Highlights:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Multi-Load Simulation: Assessed scooter
+                                    dynamics under different loads.</li>
+                                <li>Flexible Body Analysis: Modeled the frame as
+                                    flexible body for stress, strain,
+                                    deformation.</li>
+                                <li>Terrain Interaction: Simulated urban
+                                    road-induced vibrations for ride
+                                    quality.</li>
+                                <li>Topology Optimization: Weight-saving
+                                    geometry refinements while maintaining
+                                    integrity.
+                                </li>
+                            </ul>
+                            <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                                <p
+                                    class="text-base md:text-lg text-gray-700 leading-loose"><strong>Value
+                                        Addition:</strong>
+                                </p>
+                                <ul
+                                    class="list-disc list-inside ml-5 space-y-1 text-gray-700 text-base md:text-lg">
+                                    <li>Enabled early insights, saving material
+                                        & validation costs</li>
+                                    <li>18% weight reduction</li>
+                                    <li>Reduction in prototype iterations</li>
+                                    <li>Digital twin model for future
+                                        upgrades</li>
+                                    <li>Enhanced ride safety & comfort through
+                                        vibration tuning</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Client: Crane Manufacturer -->
+                        <div class="mb-8">
+                            <h4
+                                class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client:
+                                Crane Manufacturer
+                            </h4>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-2 font-medium"><strong>Problem
+                                    Statement /
+                                    Project Scope:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Objective: Simulate tower crane operations
+                                    to minimize container oscillation during
+                                    lifting & horizontal transport.</li>
+                                <li>Challenge: Container sway affecting
+                                    efficiency & safety.</li>
+                                <li>Approach: Analyze CG movement, dynamic
+                                    behavior across operations.</li>
+                                <li>Outcome: Identify control strategies to
+                                    suppress oscillations.</li>
+                            </ul>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                                    Highlights:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Kinematic Modeling: Full crane system
+                                    simulation</li>
+                                <li>Container Dynamics: CG displacement, swing
+                                    angles, inertia-tension interaction</li>
+                                <li>Operational Studies: Evaluate lifts &
+                                    translations to identify resonance
+                                    risks</li>
+                                <li>Control Insights: Recommend damping,
+                                    acceleration ramps & motion planning</li>
+                            </ul>
+                            <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                                <p
+                                    class="text-base md:text-lg text-gray-700 leading-loose"><strong>Value
+                                        Addition:</strong>
+                                </p>
+                                <ul
+                                    class="list-disc list-inside ml-5 space-y-1 text-gray-700 text-base md:text-lg">
+                                    <li>Improved safety through sway
+                                        analysis</li>
+                                    <li>Reduction in load swing amplitude by
+                                        over 40%</li>
+                                    <li>Support control system development &
+                                        virtual tests</li>
+                                    <li>Digital twin for future monitoring</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Client: Forklift Manufacturer -->
+                        <div class="mb-8">
+                            <h4
+                                class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client:
+                                Forklift
+                                Manufacturer</h4>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-2 font-medium"><strong>Problem
+                                    Statement /
+                                    Project Scope:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Objective: Simulate forklift dynamics during
+                                    lifting & maneuvering to assess stress &
+                                    displacement behavior.</li>
+                                <li>Challenge: Abrupt starts, turns, load shifts
+                                    affecting stress-sensitive regions.</li>
+                                <li>Approach: Simcenter to replicate real-world
+                                    dynamics, quantify displacements.</li>
+                                <li>Outcome: Improve structural integrity,
+                                    safety, and efficiency.</li>
+                            </ul>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                                    Highlights:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Displacement Analysis: Track mast, forks,
+                                    chassis & counterweight displacements</li>
+                                <li>Dynamic Load Scenarios: Static lifts, loaded
+                                    turns, emergency braking</li>
+                                <li>Stress Detection: Identify
+                                    high-displacement, wear-prone
+                                    components</li>
+                            </ul>
+                            <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                                <p
+                                    class="text-base md:text-lg text-gray-700 leading-loose"><strong>Value
+                                        Addition:</strong>
+                                </p>
+                                <ul
+                                    class="list-disc list-inside ml-5 space-y-1 text-gray-700 text-base md:text-lg">
+                                    <li>Identify load-shift-induced displacement
+                                        paths</li>
+                                    <li>Enable adaptive load handling designs
+                                        for forklifts</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Client: Heavy Engineering (Overhead Crane) -->
+                        <div class="mb-8">
+                            <h4
+                                class="text-xl md:text-2xl font-semibold text-primary mb-4 mt-6">Client:
+                                Heavy Engineering
+                            </h4>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-2 font-medium"><strong>Problem
+                                    Statement /
+                                    Project Scope:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Objective: Validate behavior of an overhead
+                                    crane system for precision lifting.</li>
+                                <li>Challenge: Limitations of calculations &
+                                    empirical methods causing vibrations.</li>
+                                <li>Approach: Dynamic load transfer, control
+                                    system, structural response.</li>
+                                <li>Outcome: Optimized performance, suppressed
+                                    vibrations & predictive maintenance.</li>
+                            </ul>
+                            <p
+                                class="text-base md:text-lg text-gray-700 mb-3 mt-4 font-medium"><strong>Solution
+                                    Highlights:</strong></p>
+                            <ul
+                                class="text-base md:text-lg list-disc list-inside space-y-2 text-gray-700 mb-4">
+                                <li>Load Path Estimation</li>
+                                <li>Fatigue Analysis</li>
+                                <li>Control System Integration</li>
+                                <li>Vibration Minimization</li>
+                            </ul>
+                            <div class="bg-[#ECF8F9] p-4 mb-6 mt-4 rounded">
+                                <p
+                                    class="text-base md:text-lg text-gray-700 leading-loose"><strong>Value
+                                        Addition:</strong>
+                                </p>
+                                <ul
+                                    class="list-disc list-inside ml-5 space-y-1 text-gray-700 text-base md:text-lg">
+                                    <li>40% reduction in load sway, 30% decrease
+                                        in design iterations & enhanced
+                                        reliability
+                                    </li>
+                                    <li>Virtual commissioning platform predicts
+                                        performance accurately</li>
+                                    <li>Digital Twin enables maintenance
+                                        planning & safety</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Gallery Section -->
+                <div
+                    class="w-full lg:w-1/4 p-6 md:p-12 bg-gray-50 flex flex-col space-y-6 order-1 lg:order-2">
+                    <h4 class="text-xl md:text-2xl font-bold mb-4">Research &
+                        Projects</h4>
+                    <div class="space-y-6">
+
+                        <div class="flex flex-col items-center">
+                            <a href="../Research&Projects/research_1.html">
+                                <img src="../img/2.jpg"
+                                    alt="Digital Technologies – AI & Vision-Based"
+                                    class="w-[200px] h-[150px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center text-sm md:text-base">
+                                Digital Technologies – AI & Vision-Based
+                            </span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="../Research&Projects/research_2.html">
+                                <img src="../img/3.jpg"
+                                    alt="Center for Predictive Engineering Analytics"
+                                    class="w-[200px] h-[150px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center text-sm md:text-base">
+                                Center for Predictive Engineering Analytics
+                            </span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="../Research&Projects/research_3.html">
+                                <img src="../img/4.jpg"
+                                    alt="Smart Factory Research Center"
+                                    class="w-[200px] h-[150px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center text-sm md:text-base">
+                                Smart Factory Research Center
+                            </span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="../Research&Projects/research_4.html">
+                                <img src="../img/6.png"
+                                    alt="AR / VR Research Center"
+                                    class="w-[200px] h-[150px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center text-sm md:text-base">
+                                AR / VR Research Center
+                            </span>
+                        </div>
+
+                        <div class="flex flex-col items-center">
+                            <a href="../Research&Projects/research_5.html">
+                                <img src="../img/assest.jpg"
+                                    alt="Asset Performance Management"
+                                    class="w-[200px] h-[150px] object-cover rounded-lg shadow-md cursor-pointer hover:scale-105 transition-transform duration-300">
+                            </a>
+                            <span
+                                class="mt-2 text-gray-700 font-medium text-center text-sm md:text-base">
+                                Asset Performance Management
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <a href="#"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+            class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+            <i class="fa-solid fa-arrow-up text-xl"></i>
+        </a>
+        <footer class="bg-dark text-gray-400 pt-12">
+            <div
+                class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+                <div class="text-white">
+                    <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                    <p>Tamil Nadu Smart and Advanced Manufacturing Centre -
+                        (TANSAM)</p>
+                </div>
+
+                <div class="text-white flex flex-col">
+                    <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                    <p class="flex items-start gap-3">
+                        <i class="fa fa-map-marker-alt mt-1"></i>
+                        <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani,
+                            Chennai, Tamil Nadu 600113</span>
+                    </p>
+
+                    <p class="flex items-center gap-3 pt-2">
+                        <i class="fa fa-phone-alt"></i>
+                        <span>+91-98840 35145</span>
+                    </p>
+
+                    <div class="flex gap-4 pt-4 flex-wrap">
+                        <a href="https://x.com/TANSAM2022" target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+                        <a
+                            href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/tansamcoe_2022/#"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tansam/"
+                            target="_blank"
+                            class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="text-white">
+                    <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                    <div class="flex flex-col space-y-2">
+                        <a href="../index.html"
+                            class="hover:text-[#009999] transition-colors">Home</a>
+                        <a href="../contact.html"
+                            class="hover:text-[#009999] transition-colors">Contact
+                            Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-center md:text-left">
+                <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+                <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                    <a href="../Disclaimer.html"
+                        class="hover:text-[#009999] transition-colors">Disclaimer</a>
+                    <a href="../privacy_policy.html"
+                        class="hover:text-[#009999] transition-colors">Privacy
+                        and Copyright
+                        Policy</a>
+                    <a href="../Terms_use.html"
+                        class="hover:text-[#009999] transition-colors">Terms of
+                        Use</a>
+                </div>
+            </div>
+        </footer>
+    </body>
+    <script>
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    });
+</script>
+
+</html>

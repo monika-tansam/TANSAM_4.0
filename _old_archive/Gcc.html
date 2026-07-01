@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TANSAM - Tamil Nadu Smart and Advanced Manufacturing </title>
+    <link href="img/Tansam.png" rel="icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+
+    </style>
+</head>
+
+<body class="bg-white">
+    <nav class="bg-white shadow-md sticky top-0 z-40">
+        <div class="flex items-center justify-between py-2 px-4 sm:px-6 lg:px-0 w-full">
+
+            <!-- Hamburger button (mobile & md) -->
+            <div class="lg:hidden">
+                <button id="mobileMenuBtn" class="text-[#009999] focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Desktop Menu (lg+) -->
+            <div class="hidden lg:flex items-center space-x-6 text-xl font-medium justify-end w-full px-6">
+                <a href="index.html"
+                    class="border-b-2 border-transparent hover:text-[#009999] hover:border-[#009999]">Home</a>
+                <a href="index.html#about-us"
+                    class="border-b-2 border-transparent hover:text-[#009999] hover:border-[#009999]">About Us</a>
+                <a href="index.html#labs"
+                    class="border-b-2 border-transparent hover:text-[#009999] hover:border-[#009999]">Labs</a>
+
+                <!-- Capabilities Dropdown -->
+                <div class="relative group">
+                    <button
+                        class="flex items-center text-black border-b-2 border-transparent hover:text-[#009999] hover:border-[#009999] transition focus:outline-none">
+                        Capabilities
+                        <svg class="w-4 h-4 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute left-0 mt-2 min-w-max bg-white shadow-lg text-base rounded-md hidden group-hover:block py-2">
+                        <a href="Skillinghead.html"
+                            class="block px-4 py-2 hover:bg-[#009999] hover:text-white transition">Skilling</a>
+                        <a href="Research_Projecthead.html"
+                            class="block px-4 py-2 hover:bg-[#009999] hover:text-white transition">Research &
+                            Projects</a>
+                    </div>
+                </div>
+
+                <a href="index.html#news_events"
+                    class="border-b-2 border-transparent hover:text-[#009999] hover:border-[#009999]">News & Events</a>
+                <a href="index.html#team"
+                    class="border-b-2 border-transparent hover:text-[#009999] hover:border-[#009999]">Our Team</a>
+                <a href="contact.html"
+                    class="border-b-2 border-transparent hover:text-[#009999] hover:border-[#009999]">Contact</a>
+                <!-- <a href="Gcc.html"
+                    class="bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-1 px-4 ">GCC</a> -->
+            </div>
+        </div>
+
+        <!-- Mobile & md Menu -->
+        <div id="mobileMenu" class="lg:hidden hidden px-4 pb-4">
+            <a href="index.html" class="block py-2 hover:text-[#009999]">Home</a>
+            <a href="index.html#about-us" class="block py-2 hover:text-[#009999]">About Us</a>
+            <a href="index.html#labs" class="block py-2 hover:text-[#009999]">Labs</a>
+
+            <!-- Capabilities Dropdown for mobile -->
+            <div class="block py-2">
+                <button
+                    class="w-full text-left flex justify-between items-center hover:text-[#009999] focus:outline-none"
+                    onclick="document.getElementById('mobileCapabilities').classList.toggle('hidden')">
+                    Capabilities
+                    <svg class="w-4 h-4 ml-1 transition-transform duration-300" fill="none" stroke="currentColor"
+                        stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="mobileCapabilities" class="hidden pl-4 mt-2">
+                    <a href="Skillinghead.html" class="block py-1 hover:text-[#009999]">Skilling</a>
+                    <a href="Research_Projecthead.html" class="block py-1 hover:text-[#009999]">Research & Projects</a>
+                </div>
+            </div>
+
+            <a href="index.html#news_events" class="block py-2 hover:text-[#009999]">News & Events</a>
+            <a href="index.html#team" class="block py-2 hover:text-[#009999]">Our Team</a>
+            <a href="contact.html" class="block py-2 hover:text-[#009999]">Contact</a>
+            <!-- <a href="Gcc.html"
+                class="block bg-[#A21D21] hover:bg-[#164143] text-white font-semibold py-2 px-4 mt-2  w-full text-center">GCC</a> -->
+        </div>
+    </nav>
+
+    <div class="bg-[#009999] py-4 px-4 md:px-12">
+        <div class="container mx-auto px-4 md:px-6">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white animate-slide-in-left">
+                Global Career Connect
+            </h1>
+        </div>
+    </div>
+
+    <div
+        class="container mx-auto bg-white rounded-lg shadow-xl px-6 sm:px-10 md:px-12 py-12 sm:py-16 md:py-20 space-y-10">
+
+        <!-- About Us -->
+        <div>
+            <h5 class="text-xl sm:text-2xl md:text-4xl font-bold text-[#A21D21] mb-4">
+                About Us
+            </h5>
+            <p class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+                TANSAM – Global Career Connect (GCC), backed by Tamil Nadu Industrial Development Corporation (TIDCO),
+                Government of Tamil Nadu, is a trusted platform connecting skilled professionals with global career
+                opportunities. We bridge the gap between talent and industries worldwide, offering tailored recruitment,
+                skill development, and career advancement solutions.
+            </p>
+        </div>
+
+        <!-- Who We Are -->
+        <div>
+            <h5 class="text-xl sm:text-2xl md:text-4xl font-bold text-[#A21D21] mb-4">
+                Who We Are
+            </h5>
+            <p class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+                Global Career Connect is a dynamic and forward-thinking organisation specialising in end-to-end
+                recruitment
+                and talent solutions across industries. With a strong global outlook and deep industry expertise, we
+                help businesses access the right talent while empowering professionals to achieve their career
+                aspirations.
+            </p>
+        </div>
+
+        <!-- Our Mission -->
+        <div>
+            <h5 class="text-xl sm:text-2xl md:text-4xl font-bold text-[#A21D21] mb-4">
+                Our Mission
+            </h5>
+            <p class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
+                To create a world where talent meets opportunity beyond boundaries, empowering dreams to transform into
+                global success stories.
+            </p>
+        </div>
+
+        <!-- Recent News -->
+        <div>
+            <h5 class="text-xl sm:text-2xl md:text-4xl font-bold text-[#A21D21] mb-4">
+                Recent News
+            </h5>
+            <ul class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed list-disc list-inside space-y-2">
+                <li>MoUs signed with overseas companies generating requirements for 6,000 candidates.</li>
+                <li>3,000 offer letters issued in the presence of the Hon’ble Deputy Chief Minister, for opportunities
+                    in Kuwait, Dubai, and Bhutan.</li>
+            </ul>
+        </div>
+
+
+        <div class="flex flex-col items-center px-4 sm:px-6 md:px-12 py-12 space-y-10">
+
+            <!-- Current Openings Overseas -->
+            <div class="w-full max-w-6xl">
+                <h5 class="text-xl sm:text-2xl md:text-3xl font-bold text-[#A21D21] mb-4 text-center">
+                    Current Openings Overseas:
+                </h5>
+                <p class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed text-center mb-2">
+                    Current Overseas Job Openings with Leading Construction company, Petro Chemical, Oil and Gas and
+                    with
+                    the Railways Group in the UAE <br> (Dubai, Kuwait and Bhutan)
+                </p>
+                <p class="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed text-center mb-4">
+                    Positions Hired for the below-mentioned Designations
+                </p>
+
+                <!-- Responsive Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full border border-gray-200 shadow-md">
+                        <thead>
+                            <tr class="bg-[#A21D21] text-white text-left">
+                                <th class="px-4 py-2 text-sm sm:text-base border border-gray-200">DESIGNATION</th>
+                                <th class="px-4 py-2 text-sm sm:text-base border border-gray-200">JOB LOCATION &
+                                    POSITION OPENINGS</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-800 text-sm sm:text-base md:text-lg">
+                            <!-- Repeat all rows here (kept as-is) -->
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">PLUMBER</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 750 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">ELECTRICIAN</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 750 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">SCAFFOLDER</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 500 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">STEEL FIXER</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 500 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">HELPER (to Skilled Workers)</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 750 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">PAINTER</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 750 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">CARPENTER</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 500 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">WELDER</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 500 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">MASON</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 500 No's</td>
+                            </tr>
+                           <tr>
+                                <td class="px-3 py-2 border border-gray-200">PLUMBER</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 25 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">ELECTRICIAN</td>
+                                <td class="px-3 py-2 border border-gray-200">UAE (Dubai) - 75 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Facility Co-ordinator / Engineer (Multidiscipline)</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 5 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Electrical Protection Engineer</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 5 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Supervisor (ADMIN)</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 10 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Supervisor Mechanical</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 29 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Senior Mechanical Technician</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 6 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Diesel Mechanic</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 6 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Mechanic</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 73 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Mechanical Fitter</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 91 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Lead Systems Analyst</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 8 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Senior Instr. Tech</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 40 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-2 border border-gray-200">Instr. Tech</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 40 No's</td>
+                            </tr>
+                             <tr>
+                                <td class="px-3 py-2 border border-gray-200">Tech. Asst</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 40 No's</td>
+                            </tr> <tr>
+                                <td class="px-3 py-2 border border-gray-200">Safety Officer</td>
+                                <td class="px-3 py-2 border border-gray-200">Kuwait - 40 No's</td>
+                            </tr> <tr>
+                                <td class="px-3 py-2 border border-gray-200">Clinical Nurse</td>
+                                <td class="px-3 py-2 border border-gray-200">Royal Government of Bhutan - 115 No's</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Domestic Openings -->
+            <div class="w-full max-w-6xl">
+                <p class="text-gray-700 text-base sm:text-lg md:text-xl text-center mb-2">
+                    Current Domestic Job Openings with Leading Manufacturing and Transportation Sector (Chennai, Tamil
+                    Nadu)
+                </p>
+                <p class="text-gray-700 text-base sm:text-lg md:text-xl text-center mb-4">
+                    Positions Hired for the below-mentioned Designations
+                </p>
+
+                <!-- Responsive Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full border border-gray-200 shadow-md">
+                        <thead>
+                            <tr class="bg-[#A21D21] text-white text-left">
+                                <th class="px-4 py-2 text-sm sm:text-base border border-gray-200">DESIGNATION</th>
+                                <th class="px-4 py-2 text-sm sm:text-base border border-gray-200">JOB LOCATION &
+                                    POSITION OPENINGS</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-gray-800 text-sm sm:text-base md:text-lg">
+                            <tr>
+                                <td class="px-4 py-2 border border-gray-200">Lead Level</td>
+                                <td class="px-4 py-2 border border-gray-200">Chennai - SP Kovil - 55 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border border-gray-200">Lead Level</td>
+                                <td class="px-4 py-2 border border-gray-200">Hosur - 100 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border border-gray-200">Lead Level</td>
+                                <td class="px-4 py-2 border border-gray-200">Chennai - Ambattur Estate - 45 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border border-gray-200">Lead Level</td>
+                                <td class="px-4 py-2 border border-gray-200">Chennai - Padi, Ambattur - 45 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border border-gray-200">Lead Level</td>
+                                <td class="px-4 py-2 border border-gray-200">Chennai - Oragadam - 45 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border border-gray-200">Production Trainee</td>
+                                <td class="px-4 py-2 border border-gray-200">Chennai - Oragadam - 300 No's</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-2 border border-gray-200">Process Executive / AR</td>
+                                <td class="px-4 py-2 border border-gray-200">Chennai, Trichy, Coimbatore, Hyderabad,
+                                    Bangalore - 300 No's</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div class="w-full max-w-4xl text-center space-y-8">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#A21D21] mb-4">Contact Us</h2>
+
+                <div class="bg-white shadow-lg rounded-2xl p-6 sm:p-8 mb-6">
+                    <h3 class="text-xl sm:text-2xl font-semibold text-black mb-4">Why Choose Global Career Connect?</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left text-gray-700 text-sm sm:text-base">
+                        <li>✔ <span class="font-medium">Industry Expertise</span> – In-depth recruitment & career
+                            development knowledge</li>
+                        <li>✔ <span class="font-medium">Tailored Solutions</span> – Customised to each client &
+                            candidate</li>
+                        <li>✔ <span class="font-medium">Global Network</span> – Connecting talents to opportunities
+                            worldwide</li>
+                        <li>✔ <span class="font-medium">Commitment to Excellence</span> – Quality, integrity, and
+                            measurable results</li>
+                    </ul>
+                </div>
+
+                <p class="text-sm sm:text-base text-gray-600 mb-6">
+                    Looking for your next career move or the right talent for your organisation?<br />
+                    <span class="font-semibold text-gray-800">We are here to make it happen.</span>
+                </p>
+
+                <div class="bg-[#A21D21] text-white rounded-2xl shadow-lg p-6 sm:p-8 space-y-4">
+                    <div>
+                        <p class="text-lg sm:text-xl font-semibold">Email</p>
+                        <p class="text-sm sm:text-base">advisor.gcc@tansam.org &nbsp; | &nbsp; gcc.tansam@gmail.com</p>
+                    </div>
+                    <hr class="border-gray-300">
+                    <div>
+                        <p class="text-lg sm:text-xl font-semibold">Contact</p>
+                        <p class="text-sm sm:text-base">+91 8681878889 &nbsp; | &nbsp; +91 9514838485</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- <div class="flex flex-col items-center">
+            <h5 class="text-2xl md:text-4xl font-bold text-[#009999] mb-4">
+                Current Openings Overseas:
+            </h5>
+            <p class="text-gray-700 text-xl leading-relaxed text-center">
+                Current Overseas Job Openings with Leading Construction company, Petro Chemical, Oil and Gas and with
+                the Railways Group in the UAE <br> (Dubai, Kuwait and Bhutan)
+            </p>
+            <p class="text-gray-700 text-xl leading-relaxed">
+                Positions Hired for the below-mentioned Designations
+            </p>
+
+            <table class="w-full border border-gray-200 shadow-md px-10 mt-10">
+                <thead>
+                    <tr class="bg-[#009999] text-white text-left">
+                        <th class="px-4 py-2 text-sm border border-gray-200">DESIGNATION</th>
+                        <th class="px-4 py-2 text-sm border border-gray-200">JOB LOCATION & POSITION OPENINGS</th>
+                    </tr>
+                </thead>
+                <tbody class="text-xl text-gray-800">
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">PLUMBER</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 750 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">ELECTRICIAN</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 750 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">SCAFFOLDER</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 500 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">STEEL FIXER</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 500 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">HELPER (to Skilled Workers)</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 750 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">PAINTER</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 750 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">CARPENTER</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 500 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">WELDER</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 500 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">MASON</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 500 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">PLUMBER</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 25 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">ELECTRICIAN</td>
+                        <td class="px-4 py-2 border border-gray-200">UAE (Dubai) - 75 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Facility Co-ordinator / Engineer (Multidiscipline)
+                        </td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 5 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Electrical Protection Engineer</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 5 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Supervisor (ADMIN)</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 20 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Supervisor Mechanical</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 10 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Senior Mechanic</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 29 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Senior Mechanical Technician</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 2 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Diesel Mechanic</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 6 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Mechanic</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 73 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Mechanical Fitter</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 91 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Lead Systems Analyst</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 8 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Senior Instr. Tech</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 40 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Instr. Tech</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 40 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Tech. Asst</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 40 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Safety Officer</td>
+                        <td class="px-4 py-2 border border-gray-200">Kuwait - 40 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Clinical Nurse</td>
+                        <td class="px-4 py-2 border border-gray-200">Royal Government of Bhutan - 115 No's</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="flex flex-col items-center">
+            <p class="text-gray-700 text-xl leading-relaxed text-center">
+                Current Domestic Job Openings with Leading Manufacturing and Transportation Sector (Chennai, Tamil Nadu)
+            </p>
+            <p class="text-gray-700 text-xl leading-relaxed">
+                Positions Hired for the below-mentioned Designations
+            </p>
+
+            <table class="w-full border border-gray-200 shadow-md px-10 mt-10">
+                <thead>
+                    <tr class="bg-[#009999] text-white text-left">
+                        <th class="px-4 py-2 text-sm border border-gray-200">DESIGNATION</th>
+                        <th class="px-4 py-2 text-sm border border-gray-200">JOB LOCATION & POSITION OPENINGS</th>
+                    </tr>
+                </thead>
+                <tbody class="text-xl text-gray-800">
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Lead Level</td>
+                        <td class="px-4 py-2 border border-gray-200">Chennai - SP Kovil - 55 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Lead Level</td>
+                        <td class="px-4 py-2 border border-gray-200">Hosur - 100 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Lead Level</td>
+                        <td class="px-4 py-2 border border-gray-200">Chennai - Ambattur Estate - 45 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Lead Level</td>
+                        <td class="px-4 py-2 border border-gray-200">Chennai - Padi, Ambattur - 45 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Lead Level</td>
+                        <td class="px-4 py-2 border border-gray-200">Chennai - Oragadam - 45 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Production Trainee</td>
+                        <td class="px-4 py-2 border border-gray-200">Chennai - Oragadam - 300 No's</td>
+                    </tr>
+                    <tr>
+                        <td class="px-4 py-2 border border-gray-200">Process Executive / AR</td>
+                        <td class="px-4 py-2 border border-gray-200">Chennai, Trichy, Coimbatore, Hyderabad, Bangalore -
+                            300 No's</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="container mx-auto text-center py-14">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#009999] mb-4">Contact Us</h2>
+
+                <div class="bg-white shadow-lg rounded-2xl p-8 mb-10">
+                    <h3 class="text-2xl font-semibold text-black mb-6">Why Choose Global Career Connect?</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 text-left text-gray-700 text-lg">
+                        <li>✔ <span class="font-medium">Industry Expertise</span> – In-depth recruitment & career
+                            development knowledge</li>
+                        <li>✔ <span class="font-medium">Tailored Solutions</span> – Customised to each client &
+                            candidate</li>
+                        <li>✔ <span class="font-medium">Global Network</span> – Connecting talents to opportunities
+                            worldwide</li>
+                        <li>✔ <span class="font-medium">Commitment to Excellence</span> – Quality, integrity, and
+                            measurable results</li>
+                    </ul>
+                </div>
+                <p class="text-lg text-gray-600 mb-8">
+                    Looking for your next career move or the right talent for your organisation?<br />
+                    <span class="font-semibold text-gray-800">We are here to make it happen.</span>
+                </p>
+                <div class="bg-[#009999] text-white rounded-2xl shadow-lg p-8 space-y-4">
+                    <p class="text-xl font-semibold">Email</p>
+                    <p class="text-lg">advisor.gcc@tansam.org &nbsp; | &nbsp; gcc.tansam@gmail.com</p>
+                    <hr>
+                    <p class="text-xl font-semibold">Contact</p>
+                    <p class="text-lg">+91 8681878889 &nbsp; | &nbsp; +91 9514838485</p>
+                </div>
+            </div>
+
+
+        </div> -->
+
+
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
+        class="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center bg-primary text-white  shadow-lg hover:bg-primary/90 transition">
+        <i class="fa-solid fa-arrow-up text-xl"></i>
+    </a>
+    <footer class="bg-dark text-gray-400 pt-12">
+        <div class="max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+            <!-- Left Section -->
+            <div class="text-white">
+                <h1 class="text-3xl font-bold mb-3">TANSAM</h1>
+                <p>Tamil Nadu Smart and Advanced Manufacturing Centre - (TANSAM)</p>
+            </div>
+
+            <!-- Middle Section -->
+            <div class="text-white flex flex-col">
+                <h5 class="text-xl mb-4 font-semibold">Get In Touch</h5>
+
+                <p class="flex items-start gap-3">
+                    <i class="fa fa-map-marker-alt mt-1"></i>
+                    <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani, Chennai, Tamil Nadu 600113</span>
+                </p>
+
+                <p class="flex items-center gap-3 pt-2">
+                    <i class="fa fa-phone-alt"></i>
+                    <span>+91-98840 35145</span>
+                </p>
+
+                <!-- Social Media Section -->
+                <div class="flex gap-4 pt-4 flex-wrap">
+                    <a href="https://x.com/TANSAM2022" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tansamcoe_2022/#" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/company/tansam/" target="_blank"
+                        class="border-2 border-[#009999] text-[#009999] w-10 h-10 flex items-center justify-center hover:bg-[#009999] hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="text-white">
+                <h5 class="text-xl mb-4 font-semibold">Popular Links</h5>
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="hover:text-[#009999] transition-colors">Home</a>
+                    <a href="contact.html" class="hover:text-[#009999] transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div
+            class="max-w-[1400px] mx-auto px-4 border-t border-white/10 pt-6 pb-4 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-center md:text-left">
+            <div>&copy; 2026 TANSAM. All Rights Reserved.</div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                <a href="Disclaimer.html" class="hover:text-[#009999] transition-colors">Disclaimer</a>
+                <a href="privacy_policy.html" class="hover:text-[#009999] transition-colors">Privacy and Copyright
+                    Policy</a>
+                <a href="Terms_use.html" class="hover:text-[#009999] transition-colors">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    // navbar web to mobile design 
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+    const btn = document.getElementById('capabilitiesBtn');
+    const dropdown = document.getElementById('capabilitiesDropdown');
+    const icon = document.getElementById('capabilitiesIcon');
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('hidden');
+        icon.classList.toggle('rotate-180');
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.add('hidden');
+            icon.classList.remove('rotate-180');
+        }
+    });
+</script>
+
+</html>
