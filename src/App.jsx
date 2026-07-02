@@ -14,6 +14,8 @@ import ClientsSection from './components/ClientsSection';
 import StudentSuccess from './components/StudentSuccess';
 import TestimonialsAndNewsletter from './components/TestimonialsAndNewsletter';
 import Footer from './components/Footer';
+import ChatWidget from './components/ChatWidget';
+
 
 function ParticleNetwork({ theme }) {
   const ref = useRef();
@@ -209,6 +211,7 @@ function App() {
       <StudentSuccess />
       <TestimonialsAndNewsletter />
       <Footer />
+      <ChatWidget />
     </div>
   );
 }
