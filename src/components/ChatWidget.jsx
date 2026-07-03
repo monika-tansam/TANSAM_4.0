@@ -9,6 +9,80 @@ const SUGGESTIONS = [
   "Who inaugurated TANSAM and when?"
 ];
 
+const renderFormattedMessage = (content) => {
+  if (!content) return null;
+
+  const lines = content.split('\n');
+  const elements = [];
+  let inList = false;
+  let listItems = [];
+
+  const parseInline = (text) => {
+    if (!text) return '';
+    // Split by markdown bold (**text**)
+    const parts = text.split(/\*\*([\s\S]+?)\*\*/g);
+    return parts.flatMap((part, i) => {
+      if (i % 2 === 1) {
+        return [<strong key={`b-${i}`}>{part}</strong>];
+      }
+      
+      // Split by markdown italic (*text*)
+      const subParts = part.split(/\*([\s\S]+?)\*/g);
+      return subParts.flatMap((subPart, j) => {
+        if (j % 2 === 1) {
+          return [<em key={`i-${i}-${j}`}>{subPart}</em>];
+        }
+        
+        // Split by markdown inline code (`code`)
+        const codeParts = subPart.split(/`([^`\n]+)`/g);
+        return codeParts.map((codePart, k) => {
+          if (k % 2 === 1) {
+            return <code key={`c-${i}-${j}-${k}`} className="inline-code">{codePart}</code>;
+          }
+          return codePart;
+        });
+      });
+    });
+  };
+
+  lines.forEach((line, idx) => {
+    // Match bullet points starting with * or -
+    const bulletMatch = line.match(/^[\-\*]\s+(.*)/);
+    if (bulletMatch) {
+      if (!inList) {
+        inList = true;
+        listItems = [];
+      }
+      listItems.push(<li key={`li-${idx}`}>{parseInline(bulletMatch[1])}</li>);
+    } else {
+      if (inList) {
+        elements.push(<ul key={`ul-${idx}`} className="chat-list">{listItems}</ul>);
+        inList = false;
+        listItems = [];
+      }
+      
+      if (line.trim() === '') {
+        elements.push(<div key={`spacer-${idx}`} className="chat-spacer" />);
+      } else {
+        const headerMatch = line.match(/^(#{1,6})\s+(.*)/);
+        if (headerMatch) {
+          const level = headerMatch[1].length;
+          const Tag = `h${level}`;
+          elements.push(<Tag key={`h-${idx}`} className={`chat-h${level}`}>{parseInline(headerMatch[2])}</Tag>);
+        } else {
+          elements.push(<p key={`p-${idx}`} className="chat-paragraph">{parseInline(line)}</p>);
+        }
+      }
+    }
+  });
+
+  if (inList) {
+    elements.push(<ul key="ul-end" className="chat-list">{listItems}</ul>);
+  }
+
+  return elements;
+};
+
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
@@ -178,7 +252,7 @@ export default function ChatWidget() {
                     </div>
                   )}
                   <div className={`chat-bubble ${msg.role}`}>
-                    {msg.content}
+                    {renderFormattedMessage(msg.content)}
                   </div>
                 </div>
               ))}

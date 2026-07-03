@@ -72,7 +72,14 @@ def ollama_chat_stream(messages: list, model: str):
     """Initiates a streaming chat interface with Ollama."""
     r = requests.post(
         f"{config.OLLAMA_URL}/api/chat",
-        json={"model": model, "messages": messages, "stream": True},
+        json={
+            "model": model,
+            "messages": messages,
+            "stream": True,
+            "options": {
+                "num_predict": 150
+            }
+        },
         stream=True,
         timeout=120,
     )
