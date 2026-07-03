@@ -15,6 +15,7 @@ import StudentSuccess from './components/StudentSuccess';
 import TestimonialsAndNewsletter from './components/TestimonialsAndNewsletter';
 import Footer from './components/Footer';
 import ContactPage from './components/ContactPage';
+import ChatWidget from './components/ChatWidget';
 
 function ParticleNetwork({ theme }) {
   const ref = useRef();
@@ -59,7 +60,9 @@ function ParticleNetwork({ theme }) {
 }
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('home');
 
@@ -86,6 +89,7 @@ function App() {
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -238,6 +242,7 @@ function App() {
         <ContactPage theme={theme} />
       )}
       <Footer />
+      <ChatWidget />
     </div>
   );
 }

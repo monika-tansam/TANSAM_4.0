@@ -1,0 +1,60 @@
+TANSAM COMPANY PROFILE & KNOWLEDGE BASE
+
+ABOUT TANSAM
+TANSAM stands for Tamil Nadu Smart and Advanced Manufacturing Center.
+TANSAM is a Center of Excellence (CoE) powered by Siemens.
+It was established as a Section 8 company under TIDCO (Tamil Nadu Industrial Development Corporation) to drive industrial growth and serve as a global leader in smart manufacturing solutions.
+TANSAM was inaugurated on 8 November 2022 by the Honourable Chief Minister of Tamil Nadu, Thiru. M.K. Stalin.
+Location: TIDEL Park, Rajiv Gandhi IT Expy, Tharamani, Chennai, Tamil Nadu 600113.
+TANSAM's goal is to help industries, MSMEs, startups, and academic institutions adopt future-ready Industry 4.0 technologies.
+
+CORE COLLABORATION AREAS
+- MSME Collaboration: Assisting micro, small, and medium enterprises in adopting digital twins and advanced tools.
+- Start-Up Mentoring: Supporting entrepreneurs with industrial mentoring and resources.
+- POCs & POVs: Creating Proof of Concepts and Proof of Values to validate technologies.
+- Industry & Academic Spokes: Connecting educational institutions with industry partners.
+- Joint Research & Development: Conducting collaborative R&D projects.
+- Industry-Academic Collaboration: Providing certifications, courses, and internship projects to build careers.
+
+THE NINE INNOVATION LABS
+TANSAM features 9 state-of-the-art specialized labs powered by Siemens tools:
+1. Product Innovation Lab: Uses Siemens tools to accelerate efficient, creative product development.
+2. Predictive Engineering Lab: Uses Siemens tools to simulate, analyze, and optimize products before manufacturing.
+3. Innovative Manufacturing Lab: Powers precision manufacturing through reverse engineering and 3D metal printing (Additive Manufacturing).
+4. Smart Factory Lab: Uses Siemens Industry 4.0 tools to optimize, automate, and transform manufacturing floors.
+5. Asset Performance Lab: Uses advanced engineering and computing methods to determine predictive and preventive asset performance.
+6. Industrial IoT Lab: Uses edge computing and automation tools to enhance efficiency at the shop floor level.
+7. Product Lifecycle Management (PLM) Center: Uses Siemens Teamcenter to streamline product lifecycles, collaboration, and innovation management.
+8. AR | VR | XR Lab (Augmented / Virtual / Extended Reality): Develops immersive 3D simulations enhancing training, learning, and real-world industrial workflows.
+9. Digital Technologies Center: Uses Artificial Intelligence (AI) and Machine Learning (ML) techniques for vision computing and advanced computing needs.
+
+TANSAM INTERNSHIP PROGRAM
+TANSAM conducts high-quality, industry-oriented internship programs in Industry 4.0 technologies.
+- Batches Completed: 4 batches have completed successfully.
+- Participants: Students from engineering, arts, and science colleges across Tamil Nadu, other states of India, and from abroad.
+- Training Style: Practical learning, hands-on training from experienced industry professionals. Students build mini-projects, collaborate in teams, and deliver final presentations.
+- Key Technologies Covered:
+  * Artificial Intelligence (AI) & Machine Learning (ML)
+  * Data Analytics
+  * Full-Stack Development
+  * AR/VR/XR (Augmented, Virtual & Extended Reality)
+  * NX CAD (Computer-Aided Design)
+  * Internet of Things (IoT)
+  * PCB Design
+  * Industrial Automation
+  * Cloud Computing
+  * Cybersecurity
+- Career Impact: Feedback is overwhelmingly positive. Participants note a significant enhancement of technical knowledge, improved confidence, and valuable exposure to industry-grade software and practices.
+
+NEWS & LATEST EVENTS
+- Industry 4.0 Workshop: A hands-on training program covering IoT, AI, and Robotics for MSME engineers and managers.
+- AR/VR Immersive Showcase: Showcasing TANSAM's latest projects in virtual reality training, holographic simulations, and digital factory planning.
+- Public Health Event: Honorable Minister Thiru Ma. Subramanian launched a mobile app for field monitoring developed by TANSAM.
+- AI & Robotics Summit: A one-day summit bringing together experts to showcase AI, robotics, and digital twin innovations with live demos.
+
+CONTACT INFORMATION
+- Office Address: TIDEL Park, Rajiv Gandhi IT Expy, Tharamani, Chennai, Tamil Nadu 600113.
+- Telephone / Phone: +91-98840 35145
+- Email: info@tansam.in
+- Website: https://tansam.in
+- Operation Hours: 24/7 consultation assistance available.
