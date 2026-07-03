@@ -1645,6 +1645,7 @@ a {
   gap: 12px;
 }
 
+.chatbot-footer input,
 .chatbot-footer textarea {
   flex-grow: 1;
   background: rgba(255, 255, 255, 0.05);
@@ -1660,14 +1661,17 @@ a {
   font-family: inherit;
   transition: border-color 0.2s ease;
 }
+.chatbot-footer input:focus,
 .chatbot-footer textarea:focus {
   border-color: rgba(0, 255, 255, 0.4);
 }
+[data-theme='light'] .chatbot-footer input,
 [data-theme='light'] .chatbot-footer textarea {
   background: rgba(0, 0, 0, 0.03);
   border-color: rgba(0, 0, 0, 0.08);
   color: #0b0f19;
 }
+[data-theme='light'] .chatbot-footer input:focus,
 [data-theme='light'] .chatbot-footer textarea:focus {
   border-color: rgba(0, 153, 153, 0.4);
 }
