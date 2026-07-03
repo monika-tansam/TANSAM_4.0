@@ -1654,6 +1654,7 @@ a {
   color: #ffffff;
   font-size: 0.92rem;
   resize: none;
+  overflow: hidden;
   outline: none;
   height: 38px;
   line-height: 1.3;
