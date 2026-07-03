@@ -143,11 +143,6 @@ def chat():
     user_msg   = data.get("message", "").strip()
     model      = data.get("model", config.AVAILABLE_MODELS[0])
 
-    # Sanitize model parameter against available installed models
-    allowed_models = get_installed_models()
-    if model not in allowed_models:
-        model = allowed_models[0] if allowed_models else config.AVAILABLE_MODELS[0]
-
     if not user_msg:
         return jsonify({"error": "Empty message"}), 400
 
@@ -392,11 +387,6 @@ def public_chat():
     history = data.get("history", [])
     model = data.get("model", config.AVAILABLE_MODELS[0])
 
-    # Sanitize model parameter against available installed models
-    allowed_models = get_installed_models()
-    if model not in allowed_models:
-        model = allowed_models[0] if allowed_models else config.AVAILABLE_MODELS[0]
-
     if not user_msg:
         return jsonify({"error": "Empty message"}), 400
 
@@ -424,8 +414,7 @@ Your task is to answer user queries accurately based ONLY on the provided "RELEV
 
     recent_history = history[-6:] if history else []
     for msg in recent_history:
-        if isinstance(msg, dict) and "role" in msg and "content" in msg:
-            messages.append({"role": msg["role"], "content": msg["content"]})
+        messages.append({"role": msg["role"], "content": msg["content"]})
 
     messages.append({"role": "user", "content": user_msg})
 
@@ -453,9 +442,5 @@ Your task is to answer user queries accurately based ONLY on the provided "RELEV
         except Exception as e:
             yield f"data: {json.dumps({'error': str(e), 'done': True})}\n\n"
 
-    return Response(
-        stream_with_context(generate()),
-        mimetype="text/event-stream",
-        headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"},
-    )
+    return Response(stream_with_context(generate()), mimetype="text/event-stream")
 

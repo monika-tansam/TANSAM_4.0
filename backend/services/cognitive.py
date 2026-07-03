@@ -104,15 +104,12 @@ def should_use_rag(query: str, model: str, user_id: str) -> bool:
     """
     Determine if the query is relevant to the indexed documents.
     """
-    if not query or not query.strip():
-        return False
-
     from services.rag import list_documents
     user_docs = list_documents(user_id)
     if not user_docs:
         return False
         
-    query_lower = query.lower().strip()
+    query_lower = query.lower()
     
     general_patterns = [
         r"^(hi|hello|hey|greetings|good morning|good afternoon|good evening|howdy)(\s+.*)?$",

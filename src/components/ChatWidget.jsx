@@ -300,12 +300,12 @@ export default function ChatWidget() {
 
             {/* Input Footer */}
             <div className="chatbot-footer">
-              <input 
-                type="text"
+              <textarea 
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Ask TANSAM Assistant..."
+                rows={1}
                 disabled={isTyping}
               />
               <button 
