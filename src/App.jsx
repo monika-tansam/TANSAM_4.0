@@ -14,12 +14,12 @@ import ClientsSection from './components/ClientsSection';
 import StudentSuccess from './components/StudentSuccess';
 import TestimonialsAndNewsletter from './components/TestimonialsAndNewsletter';
 import Footer from './components/Footer';
+import ContactPage from './components/ContactPage';
 import ChatWidget from './components/ChatWidget';
-
 
 function ParticleNetwork({ theme }) {
   const ref = useRef();
-  
+
   // Generate random points for the particle system
   const count = 2000;
   const positions = useMemo(() => {
@@ -29,7 +29,7 @@ function ParticleNetwork({ theme }) {
       const radius = 3 + Math.random() * 2;
       const theta = Math.random() * 2 * Math.PI;
       const phi = Math.acos((Math.random() * 2) - 1);
-      
+
       p[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
       p[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
       p[i * 3 + 2] = radius * Math.cos(phi);
@@ -64,6 +64,28 @@ function App() {
     return localStorage.getItem('theme') || 'light';
   });
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('home');
+
+  const handleNavClick = (tab, sectionId, e) => {
+    e.preventDefault();
+    if (tab !== activeTab) {
+      setActiveTab(tab);
+    }
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+    
+    setTimeout(() => {
+      if (sectionId) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (tab === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -97,7 +119,7 @@ function App() {
 
       {/* Header Container */}
       <header className="navbar-container">
-        
+
         {/* Top Header: Logos & Title */}
         <div className="header-top">
           {/* Left: TANSAM Logo */}
@@ -117,12 +139,12 @@ function App() {
           {/* Right: TIDCO Logo & Controls */}
           <div className="header-right">
             <img src="/img/tidcologo.png" alt="TIDCO Logo" className="logo-tidco" onError={(e) => e.target.style.display = 'none'} />
-            
+
             {/* Desktop Theme Toggle */}
             <button onClick={toggleTheme} className="theme-toggle desktop-only" aria-label="Toggle Theme">
               {theme === 'light' ? '🌙' : '☀️'}
             </button>
-            
+
             {/* Mobile Hamburger & Theme Toggle */}
             <div className="mobile-only mobile-controls">
               <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
@@ -138,33 +160,33 @@ function App() {
         {/* Bottom Header: Navigation Links */}
         <nav className="header-bottom desktop-only">
           <div className="nav-links">
-            <a href="#" className="nav-link">Home</a>
-            
+            <a href="#hero" className="nav-link" onClick={(e) => handleNavClick('home', 'hero', e)}>Home</a>
+
             <div className="dropdown">
               <button className="dropdown-btn">
                 About Us ▼
               </button>
               <div className="dropdown-content">
-                <a href="#">About Us</a>
-                <a href="#">Board Directors</a>
+                <a href="#about-us" onClick={(e) => handleNavClick('home', 'about-us', e)}>About Us</a>
+                <a href="#about-us" onClick={(e) => handleNavClick('home', 'about-us', e)}>Board Directors</a>
               </div>
             </div>
 
-            <a href="#" className="nav-link">Labs</a>
-            
+            <a href="#labs" className="nav-link" onClick={(e) => handleNavClick('home', 'labs', e)}>Labs</a>
+
             <div className="dropdown">
               <button className="dropdown-btn">
                 Capabilities ▼
               </button>
               <div className="dropdown-content">
-                <a href="#">Skilling</a>
-                <a href="#">Research & Projects</a>
+                <a href="#skilling" onClick={(e) => handleNavClick('home', 'skilling', e)}>Skilling</a>
+                <a href="#projects" onClick={(e) => handleNavClick('home', 'projects', e)}>Research & Projects</a>
               </div>
             </div>
-            
-            <a href="#" className="nav-link">News & Events</a>
-            <a href="#" className="nav-link">Internship</a>
-            <a href="#" className="nav-link">Contact</a>
+
+            <a href="#news" className="nav-link" onClick={(e) => handleNavClick('home', 'news', e)}>News & Events</a>
+            <a href="#internship" className="nav-link" onClick={(e) => handleNavClick('home', 'internship', e)}>Internship</a>
+            <a href="#contact" className="nav-link" onClick={(e) => handleNavClick('contact', null, e)}>Contact</a>
           </div>
         </nav>
       </header>
@@ -172,7 +194,7 @@ function App() {
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div 
+          <motion.div
             className="mobile-menu-overlay"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
@@ -181,15 +203,15 @@ function App() {
           >
             <button className="close-menu-btn" onClick={toggleMobileMenu}>✕</button>
             <div className="mobile-nav-links">
-              <a href="#" className="nav-link" onClick={toggleMobileMenu}>Home</a>
-              <a href="#" className="nav-link" onClick={toggleMobileMenu}>About Us</a>
-              <a href="#" className="nav-link" onClick={toggleMobileMenu}>Board Directors</a>
-              <a href="#" className="nav-link" onClick={toggleMobileMenu}>Labs</a>
-              <a href="#" className="nav-link" onClick={toggleMobileMenu}>Skilling</a>
-              <a href="#" className="nav-link" onClick={toggleMobileMenu}>Research & Projects</a>
-              <a href="#" className="nav-link" onClick={toggleMobileMenu}>News & Events</a>
-              <a href="#" className="nav-link" onClick={toggleMobileMenu}>Internship</a>
-              <a href="#" className="nav-link" onClick={toggleMobileMenu}>Contact</a>
+              <a href="#hero" className="nav-link" onClick={(e) => handleNavClick('home', 'hero', e)}>Home</a>
+              <a href="#about-us" className="nav-link" onClick={(e) => handleNavClick('home', 'about-us', e)}>About Us</a>
+              <a href="#about-us" className="nav-link" onClick={(e) => handleNavClick('home', 'about-us', e)}>Board Directors</a>
+              <a href="#labs" className="nav-link" onClick={(e) => handleNavClick('home', 'labs', e)}>Labs</a>
+              <a href="#skilling" className="nav-link" onClick={(e) => handleNavClick('home', 'skilling', e)}>Skilling</a>
+              <a href="#projects" className="nav-link" onClick={(e) => handleNavClick('home', 'projects', e)}>Research & Projects</a>
+              <a href="#news" className="nav-link" onClick={(e) => handleNavClick('home', 'news', e)}>News & Events</a>
+              <a href="#internship" className="nav-link" onClick={(e) => handleNavClick('home', 'internship', e)}>Internship</a>
+              <a href="#contact" className="nav-link" onClick={(e) => handleNavClick('contact', null, e)}>Contact</a>
             </div>
           </motion.div>
         )}
@@ -204,15 +226,21 @@ function App() {
       </div>
 
       {/* Main Content Sections */}
-      <HeroSection theme={theme} />
-      <AboutSection theme={theme} />
-      <ServicesSummary />
-      <LabsGrid theme={theme} />
-      <ProjectsSection />
-      <NewsAndEvents />
-      <ClientsSection />
-      <StudentSuccess />
-      <TestimonialsAndNewsletter />
+      {activeTab === 'home' ? (
+        <>
+          <HeroSection theme={theme} />
+          <AboutSection theme={theme} />
+          <ServicesSummary />
+          <LabsGrid theme={theme} />
+          <ProjectsSection />
+          <NewsAndEvents />
+          <ClientsSection />
+          <StudentSuccess />
+          <TestimonialsAndNewsletter />
+        </>
+      ) : (
+        <ContactPage theme={theme} />
+      )}
       <Footer />
       <ChatWidget />
     </div>

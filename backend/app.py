@@ -1,16 +1,10 @@
 import os
 import uuid
-from datetime import timedelta
 from flask import Flask, render_template, request, Response
-from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
-from models import db
 import config
 
 # Import modular blueprints
-from routes.auth import auth_bp
-from routes.documents import doc_bp
 from routes.chat import chat_bp
-from routes.admin import admin_bp
 from services.cognitive import get_installed_models
 
 app = Flask(__name__)
@@ -35,86 +29,14 @@ os.makedirs(config.UPLOAD_FOLDER, exist_ok=True)
 app.config["UPLOAD_FOLDER"] = config.UPLOAD_FOLDER
 app.config["MAX_CONTENT_LENGTH"] = config.MAX_CONTENT_LENGTH
 
-# ── Database & JWT configuration ──────────────────────────────────────────────
-app.config["SQLALCHEMY_DATABASE_URI"] = config.DATABASE_URL
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-db.init_app(app)
-
-app.config["JWT_SECRET_KEY"] = config.JWT_SECRET_KEY
-app.config["JWT_TOKEN_LOCATION"] = ["headers", "cookies"]
-app.config["JWT_COOKIE_CSRF_PROTECT"] = False
-app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=30)
-jwt = JWTManager(app)
-
 # Register routing blueprints
-app.register_blueprint(auth_bp)
-app.register_blueprint(doc_bp)
 app.register_blueprint(chat_bp)
-app.register_blueprint(admin_bp)
-
-# Automatically create all tables at startup if they do not exist
-with app.app_context():
-    try:
-        db.create_all()
-        # Verify and dynamically append 'title' column if it doesn't exist in PostgreSQL
-        from sqlalchemy import text
-        try:
-            db.session.execute(text("ALTER TABLE conversations ADD COLUMN IF NOT EXISTS title VARCHAR(150) DEFAULT 'New Chat'"))
-            # High-performance indexing for rapid page loading and traversing speeds
-            db.session.execute(text("CREATE INDEX IF NOT EXISTS idx_conversations_user_id ON conversations (user_id)"))
-            db.session.execute(text("CREATE INDEX IF NOT EXISTS idx_chat_messages_conversation_id ON chat_messages (conversation_id)"))
-            db.session.execute(text("CREATE INDEX IF NOT EXISTS idx_user_memories_user_id ON user_memories (user_id)"))
-            db.session.commit()
-            print("[SUCCESS] PostgreSQL tables, columns, and query performance indexes verified successfully.")
-        except Exception as alter_err:
-            db.session.rollback()
-            print(f"[WARNING] Could not execute DB dynamic column/index migrations: {alter_err}")
-    except Exception as e:
-        print(f"[WARNING] Could not connect to PostgreSQL or create tables: {e}")
-        print("[INFO] Make sure your PostgreSQL database is running and configured correctly in your .env file.")
-
 
 @app.route("/")
-@jwt_required(optional=True)
 def index():
-    theme = request.args.get("theme")
     models = get_installed_models()
     default = models[0] if models else config.AVAILABLE_MODELS[0]
-    
-    current_user_id = get_jwt_identity()
-    is_logged_in = current_user_id is not None
-    greeting = "PERSONAL RAG BOT"
-    
-    if is_logged_in:
-        try:
-            from models import User
-            user = User.query.get(uuid.UUID(current_user_id))
-            if user:
-                display_name = user.first_name if user.first_name else user.username
-                display_name = display_name[0].upper() + display_name[1:] if display_name else ""
-                
-                from datetime import datetime
-                hour = datetime.now().hour
-                if hour < 12:
-                    greet_prefix = "Good Morning"
-                elif hour < 17:
-                    greet_prefix = "Good Afternoon"
-                else:
-                    greet_prefix = "Good Evening"
-                greeting = f"{greet_prefix}, {display_name}!"
-        except Exception:
-            pass
-            
-    if theme in ("classic", "fire"):
-        response = Response(render_template("index.html", models=models, default_model=default, theme=theme, is_logged_in=is_logged_in, greeting=greeting))
-        response.set_cookie("theme", theme, max_age=30*24*60*60)
-        return response
-
-    cookie_theme = request.cookies.get("theme", "fire")
-    response = Response(render_template("index.html", models=models, default_model=default, theme=cookie_theme, is_logged_in=is_logged_in, greeting=greeting))
-    response.set_cookie("theme", cookie_theme, max_age=30*24*60*60)
-    return response
-
+    return render_template("index.html", models=models, default_model=default, theme="fire", is_logged_in=False, greeting="TANSAM BOT")
 
 # ══════════════════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
@@ -126,4 +48,4 @@ if __name__ == "__main__":
     else:
         print("[WARNING] No models found. Pull models with: ollama pull llama3.2")
     print(f"\n[INFO] To add more models, edit AVAILABLE_MODELS in config.py, then: ollama pull <model>")
-    app.run(debug=True, host="0.0.0.0", port=5000, threaded=True)
+    app.run(debug=True, host="0.0.0.0", port=5001, threaded=True)

@@ -83,6 +83,21 @@ export default function StudentSuccess() {
             </motion.button>
           </motion.div>
 
+          {/* Anna University Update */}
+          <motion.div className="glass-panel bento-panel p-8 bento-card-large" style={{ gridColumn: '1 / -1' }} whileHover={{ y: -5 }}>
+            <div className="flex flex-col md:flex-row gap-8 items-center">
+              <div className="w-full md:w-1/2">
+                <img src="/img/anna_univ_interns.jpg" alt="Anna University Internship" className="w-full h-auto rounded-xl object-cover shadow-lg" style={{ maxHeight: '400px' }} />
+              </div>
+              <div className="w-full md:w-1/2 flex flex-col justify-center">
+                <h3 className="content-title mb-4">Anna University Regional Campus Internship</h3>
+                <p className="content-text text-muted" style={{ textAlign: 'justify' }}>
+                  We are immensely proud to have successfully hosted a comprehensive one-month internship program for students from in and around Tirunelveli at the Anna University Regional Campus, Tirunelveli. This intensive program focused on equipping students with hands-on experience in cutting-edge Industry 4.0 technologies, bridging the gap between academic learning and industry requirements. The students exhibited incredible enthusiasm and built impressive projects during their time with us!
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

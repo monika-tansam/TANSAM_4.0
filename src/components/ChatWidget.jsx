@@ -123,7 +123,7 @@ export default function ChatWidget() {
       .map(msg => ({ role: msg.role, content: msg.content }));
 
     try {
-      const response = await fetch('http://localhost:5000/api/public/chat', {
+      const response = await fetch('http://localhost:5001/api/public/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -211,6 +211,19 @@ export default function ChatWidget() {
         onClick={() => setIsOpen(!isOpen)}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
+        animate={!isOpen ? {
+          scale: [1, 1.15, 1],
+          boxShadow: [
+            "0px 0px 0px rgba(0, 255, 255, 0)",
+            "0px 0px 20px rgba(0, 255, 255, 0.6)",
+            "0px 0px 0px rgba(0, 255, 255, 0)"
+          ]
+        } : {}}
+        transition={!isOpen ? {
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        } : {}}
         aria-label="Open Help Chatbot"
       >
         {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
