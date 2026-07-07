@@ -11,7 +11,7 @@ export default function ServicesSummary() {
   ];
 
   return (
-    <div className="services-summary-container">
+    <div className="services-summary-container" id="skilling">
       <div className="services-summary-grid">
         {services.map((service, index) => (
           <div key={index} className="service-card">

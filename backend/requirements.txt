@@ -1,0 +1,12 @@
+# Core Web Application Framework
+flask>=3.0.0
+python-dotenv>=1.0.1
+requests>=2.31.0
+
+# RAG & Semantic Search
+chromadb>=0.4.0
+pypdf>=4.0.0
+
+# Production WSGI Servers
+gunicorn>=21.2.0
+waitress>=3.0.0

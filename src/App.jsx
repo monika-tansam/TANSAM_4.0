@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
+import ChatWidget from './components/ChatWidget';
 
 const HomePage = lazy(() => import('./pages/HomePage'));
 const LabsPage = lazy(() => import('./pages/LabsPage'));
@@ -37,6 +38,7 @@ function App() {
           </Route>
         </Routes>
       </Suspense>
+      <ChatWidget />
     </BrowserRouter>
   );
 }
