@@ -43,6 +43,11 @@
   padding: 0;
 }
 
+html {
+  scroll-padding-top: 180px; /* Adjust for fixed header height */
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-family);
   color: var(--text-main);

@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
@@ -137,16 +138,16 @@ const Rotating3DIcon = ({ type }) => {
   );
 };
 
-const labsData = [
-  { title: 'Product Innovation', desc: 'TANSAM Product Innovation Center uses Siemens tools to accelerate efficient, creative product development.', iconType: 'cuboid' },
-  { title: 'Predictive Engineering', desc: 'TANSAM Predictive Engineering Center uses Siemens tools to simulate, analyze, and optimize products.', iconType: 'check' },
-  { title: 'Innovative Manufacturing', desc: 'TANSAM with Siemens powers precision manufacturing through reverse engineering and 3D metal printing.', iconType: 'lightbulb' },
-  { title: 'Smart Factory', desc: 'TANSAM Smart Factory uses Siemens Industry 4.0 tools to optimize and transform manufacturing.', iconType: 'factory' },
-  { title: 'Asset Performance', desc: 'TANSAM Asset Performance uses advanced engineering & computing methods to determine predictive and preventive asset performance.', iconType: 'gear' },
-  { title: 'Industrial IoT', desc: 'TANSAM Industrial IIoT center uses edge computing and automation tools to enhance efficiency at the shop floor.', iconType: 'network' },
-  { title: 'Product Lifecycle', desc: 'TANSAM PLM Center uses Siemens Teamcenter to streamline product lifecycle, collaboration, and innovation.', iconType: 'clipboard' },
-  { title: 'AR | VR | XR', desc: 'TANSAM AR/VR/MR Lab develops immersive simulations enhancing training, learning, and real-world workflows.', iconType: 'vr' },
-  { title: 'Digital Technologies', desc: 'TANSAM Digital Technologies center uses AI & ML techniques for vision computing and advanced computing needs.', iconType: 'bot' },
+export const labsData = [
+  { id: 'product-innovation', title: 'Product Innovation', desc: 'TANSAM Product Innovation Center uses Siemens tools to accelerate efficient, creative product development.', iconType: 'cuboid' },
+  { id: 'predictive-engineering', title: 'Predictive Engineering', desc: 'TANSAM Predictive Engineering Center uses Siemens tools to simulate, analyze, and optimize products.', iconType: 'check' },
+  { id: 'innovative-manufacturing', title: 'Innovative Manufacturing', desc: 'TANSAM with Siemens powers precision manufacturing through reverse engineering and 3D metal printing.', iconType: 'lightbulb' },
+  { id: 'smart-factory', title: 'Smart Factory', desc: 'TANSAM Smart Factory uses Siemens Industry 4.0 tools to optimize and transform manufacturing.', iconType: 'factory' },
+  { id: 'asset-performance', title: 'Asset Performance', desc: 'TANSAM Asset Performance uses advanced engineering & computing methods to determine predictive and preventive asset performance.', iconType: 'gear' },
+  { id: 'industrial-iot', title: 'Industrial IoT', desc: 'TANSAM Industrial IIoT center uses edge computing and automation tools to enhance efficiency at the shop floor.', iconType: 'network' },
+  { id: 'product-lifecycle', title: 'Product Lifecycle', desc: 'TANSAM PLM Center uses Siemens Teamcenter to streamline product lifecycle, collaboration, and innovation.', iconType: 'clipboard' },
+  { id: 'ar-vr-xr', title: 'AR | VR | XR', desc: 'TANSAM AR/VR/MR Lab develops immersive simulations enhancing training, learning, and real-world workflows.', iconType: 'vr' },
+  { id: 'digital-technologies', title: 'Digital Technologies', desc: 'TANSAM Digital Technologies center uses AI & ML techniques for vision computing and advanced computing needs.', iconType: 'bot' },
 ];
 
 const TiltCard = ({ lab, theme }) => {
@@ -180,17 +181,21 @@ const TiltCard = ({ lab, theme }) => {
   };
 
   return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateY,
-        rotateX,
-        transformStyle: "preserve-3d",
-      }}
-      className="lab-tilt-card"
-    >
+    <Link to={`/labs/${lab.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+      <motion.div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateY,
+          rotateX,
+          transformStyle: "preserve-3d",
+          cursor: 'pointer'
+        }}
+        className="lab-tilt-card"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
       <div className="lab-tilt-card-inner" style={{ transform: "translateZ(50px)" }}>
         <div className="lab-icon-3d" style={{ width: '80px', height: '80px', marginBottom: '15px' }}>
           <Canvas camera={{ position: [0, 0, 4] }}>
@@ -204,13 +209,14 @@ const TiltCard = ({ lab, theme }) => {
         <h3 className="lab-title">{lab.title}</h3>
         <p className="lab-desc">{lab.desc}</p>
       </div>
-    </motion.div>
+      </motion.div>
+    </Link>
   );
 };
 
 export default function LabsGrid({ theme }) {
   return (
-    <section className="labs-section" id="labs">
+    <section className="labs-section" id="labs" style={{ position: 'relative' }}>
       <div className="text-center mb-12">
         <h2 className="section-title">
           <span className="highlight-gradient">INNOVATION</span> LABS
