@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Canvas } from '@react-three/fiber';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -247,7 +247,9 @@ export default function LabDetailsPage({ theme }) {
             <ambientLight intensity={theme === 'dark' ? 2.5 : 2.0} />
             <pointLight position={[10, 10, 10]} intensity={theme === 'dark' ? 4 : 3} color={themeColor} />
             <pointLight position={[-10, -10, -10]} intensity={theme === 'dark' ? 3 : 2} color="#ffffff" />
-            <Rotating3DIcon type={lab.iconType} />
+            <Suspense fallback={null}>
+              <Rotating3DIcon type={lab.iconType} />
+            </Suspense>
           </Canvas>
         </div>
 

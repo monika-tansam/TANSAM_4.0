@@ -1,0 +1,7 @@
+# Ignore old archived code
+_old_archive/
+
+# Ignore dependency and build directories
+node_modules/
+dist/
+dist-ssr/

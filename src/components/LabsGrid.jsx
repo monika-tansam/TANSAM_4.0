@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, Suspense } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { Canvas, useFrame } from '@react-three/fiber';
+import { useGLTF, Center } from '@react-three/drei';
 import * as THREE from 'three';
+import cobotModelPath from '../assets/Cobot.glb';
 
 // Custom 3D Icons built from primitives
 const Gear3D = () => (
@@ -17,14 +19,15 @@ const Gear3D = () => (
   </group>
 );
 
-const Factory3D = () => (
-  <group position={[0, -0.5, 0]}>
-    <mesh position={[-0.8, 0.5, 0]}><boxGeometry args={[0.8, 1, 1]} /><meshStandardMaterial color="#009999" /></mesh>
-    <mesh position={[0.2, 0.7, 0]}><boxGeometry args={[0.8, 1.4, 1]} /><meshStandardMaterial color="#009999" /></mesh>
-    <mesh position={[1.2, 0.9, 0]}><boxGeometry args={[0.8, 1.8, 1]} /><meshStandardMaterial color="#009999" /></mesh>
-    <mesh position={[1.2, 2.2, 0]}><cylinderGeometry args={[0.1, 0.1, 1, 16]} /><meshStandardMaterial color="#A21D21" /></mesh>
-  </group>
-);
+const Factory3D = ({ scale = 1.0 }) => {
+  const { scene } = useGLTF(cobotModelPath);
+  return (
+    <Center scale={scale * 4.2}>
+      <primitive object={scene} />
+    </Center>
+  );
+};
+useGLTF.preload(cobotModelPath);
 
 const Network3D = () => (
   <group>
@@ -220,12 +223,14 @@ const TiltCard = ({ lab, theme }) => {
           border: `1px solid ${lab.color}44`
         }}>
         <div className="lab-icon-3d" style={{ width: '160px', height: '160px', marginBottom: '5px' }}>
-          <Canvas camera={{ position: [0, 0, 4] }}>
+          <Canvas camera={{ position: lab.id === 'smart-factory' ? [0, 0, 5.5] : [0, 0, 4] }}>
             <ambientLight intensity={theme === 'dark' ? 1.5 : 2.5} />
             <pointLight position={[10, 10, 10]} intensity={theme === 'dark' ? 3 : 2} color={lab.color} />
             <pointLight position={[-10, -10, -10]} intensity={theme === 'dark' ? 2 : 1} color="#ffffff" />
             <directionalLight position={[0, 0, 5]} intensity={1.5} />
-            <Rotating3DIcon type={lab.iconType} />
+            <Suspense fallback={null}>
+              <Rotating3DIcon type={lab.iconType} />
+            </Suspense>
           </Canvas>
         </div>
           <h3 className="lab-title" style={{ fontSize: '1.4rem', marginTop: '10px' }}>{lab.title}</h3>
