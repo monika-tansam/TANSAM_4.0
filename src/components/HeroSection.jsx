@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, PresentationControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -144,7 +144,9 @@ export default function HeroSection({ theme }) {
         WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)',
       }}>
         <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
-          <DataPipe theme={theme} />
+          <Suspense fallback={null}>
+            <DataPipe theme={theme} />
+          </Suspense>
         </Canvas>
       </div>
 
