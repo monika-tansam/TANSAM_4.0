@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaShoppingCart } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Footer from '../components/Footer';
+import { useInternship } from '../context/InternshipContext';
 
 export default function MainLayout({ theme, toggleTheme }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { cart } = useInternship();
 
   // Close mobile menu on route change and handle hash scrolling
   useEffect(() => {
@@ -102,13 +104,43 @@ export default function MainLayout({ theme, toggleTheme }) {
               </button>
               <div className="dropdown-content">
                 <Link to="/labs">Skilling</Link>
-                <Link to="/#projects">Research & Projects</Link>
+              <Link to="/labs#projects" className="nav-link">Research & Projects</Link>
               </div>
             </div>
             
             <Link to="/news" className="nav-link">News & Events</Link>
-            <Link to="/success" className="nav-link">Internship</Link>
+            <div className="dropdown">
+              <button className="dropdown-btn">
+                Internship ▼
+              </button>
+              <div className="dropdown-content">
+                <Link to="/internships">Registrations</Link>
+                <Link to="/internships/dashboard">My Dashboard</Link>
+                <Link to="/success">Success Stories</Link>
+              </div>
+            </div>
+            
             <Link to="/contact" className="nav-link">Contact</Link>
+            
+            <Link to="/internships/checkout" className="nav-link cart-link" style={{ position: 'relative', display: 'flex', alignItems: 'center', marginLeft: '10px' }}>
+              <FaShoppingCart size={20} />
+              {cart && cart.length > 0 && (
+                <span style={{
+                  position: 'absolute',
+                  top: '-8px',
+                  right: '-12px',
+                  background: '#ff0055',
+                  color: 'white',
+                  borderRadius: '50%',
+                  padding: '2px 6px',
+                  fontSize: '0.75rem',
+                  fontWeight: 'bold',
+                  boxShadow: '0 0 10px #ff0055'
+                }}>
+                  {cart.length}
+                </span>
+              )}
+            </Link>
           </div>
         </nav>
       </header>
@@ -129,10 +161,15 @@ export default function MainLayout({ theme, toggleTheme }) {
               <Link to="/#about-us" className="nav-link">About Us</Link>
               <Link to="/labs" className="nav-link">Labs</Link>
               <Link to="/labs" className="nav-link">Skilling</Link>
-              <Link to="/#projects" className="nav-link">Research & Projects</Link>
+              <Link to="/labs#projects" className="nav-link">Research & Projects</Link>
               <Link to="/news" className="nav-link">News & Events</Link>
-              <Link to="/success" className="nav-link">Internship</Link>
+              <Link to="/internships" className="nav-link">Internship Registration</Link>
+              <Link to="/internships/dashboard" className="nav-link">My Dashboard</Link>
+              <Link to="/success" className="nav-link">Internship Success</Link>
               <Link to="/contact" className="nav-link">Contact</Link>
+              <Link to="/internships/checkout" className="nav-link" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <FaShoppingCart /> Cart ({cart?.length || 0})
+              </Link>
             </div>
           </motion.div>
         )}
