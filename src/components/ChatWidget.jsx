@@ -9,6 +9,12 @@ const SUGGESTIONS = [
   "Who inaugurated TANSAM and when?"
 ];
 
+const FLOATING_MESSAGES = [
+  "Ask TANSY",
+  "TANSY can help you!",
+  "Chat with TANSY"
+];
+
 const renderFormattedMessage = (content) => {
   if (!content) return null;
 
@@ -85,10 +91,11 @@ const renderFormattedMessage = (content) => {
 
 export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const [floatingMsgIndex, setFloatingMsgIndex] = useState(0);
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: 'Hi! I am the TANSAM Virtual Assistant. Ask me anything about TANSAM, our labs, or internship programs!'
+      content: 'Hi! I am TANSY, the TANSAM Virtual Assistant. Ask me anything about TANSAM, our labs, or internship programs!'
     }
   ]);
   const [inputValue, setInputValue] = useState('');
@@ -102,6 +109,14 @@ export default function ChatWidget() {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, isTyping]);
+
+  useEffect(() => {
+    if (isOpen) return;
+    const interval = setInterval(() => {
+      setFloatingMsgIndex(prev => (prev + 1) % FLOATING_MESSAGES.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [isOpen]);
 
   const handleSend = async (textToSend) => {
     const query = textToSend || inputValue.trim();
@@ -205,6 +220,39 @@ export default function ChatWidget() {
 
   return (
     <div className="chatbot-widget-container">
+      {/* Floating Message */}
+      <AnimatePresence mode="wait">
+        {!isOpen && (
+          <motion.div
+            key={floatingMsgIndex}
+            initial={{ opacity: 0, y: 10, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.9 }}
+            transition={{ duration: 0.5 }}
+            style={{
+              position: 'fixed',
+              bottom: '85px',
+              right: '25px',
+              background: 'linear-gradient(135deg, rgba(0, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.4) 100%)',
+              backdropFilter: 'blur(12px)',
+              WebkitBackdropFilter: 'blur(12px)',
+              border: '1px solid rgba(0, 255, 255, 0.3)',
+              padding: '8px 16px',
+              borderRadius: '20px',
+              color: '#fff',
+              fontSize: '0.9rem',
+              fontWeight: '500',
+              pointerEvents: 'none',
+              boxShadow: '0 4px 15px rgba(0, 255, 255, 0.2)',
+              whiteSpace: 'nowrap',
+              zIndex: 9999
+            }}
+          >
+            {FLOATING_MESSAGES[floatingMsgIndex]}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Floating Toggle Button */}
       <motion.button 
         className="chatbot-toggle-btn"
@@ -226,7 +274,7 @@ export default function ChatWidget() {
         } : {}}
         aria-label="Open Help Chatbot"
       >
-        {isOpen ? <X size={24} /> : <MessageSquare size={24} />}
+        {isOpen ? <X size={24} /> : <Bot size={24} />}
       </motion.button>
 
       {/* Chat Window Panel */}
@@ -246,7 +294,7 @@ export default function ChatWidget() {
                   <Bot size={18} color="#00ffff" />
                 </div>
                 <div>
-                  <h4>TANSAM Assistant</h4>
+                  <h4>TANSY</h4>
                   <span className="online-badge">online</span>
                 </div>
               </div>

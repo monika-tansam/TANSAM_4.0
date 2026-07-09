@@ -26,3 +26,5 @@ dist-ssr
 # Large Files
 *.zip
 public/img/about22.png
+**/__pycache__/
+backend/chroma_db/

@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, PresentationControls } from '@react-three/drei';
 import * as THREE from 'three';
@@ -144,7 +144,9 @@ export default function HeroSection({ theme }) {
         WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%)',
       }}>
         <Canvas camera={{ position: [0, 0, 10], fov: 60 }}>
-          <DataPipe theme={theme} />
+          <Suspense fallback={null}>
+            <DataPipe theme={theme} />
+          </Suspense>
         </Canvas>
       </div>
 
@@ -156,6 +158,7 @@ export default function HeroSection({ theme }) {
         margin: '0 auto',
         padding: '120px 20px 80px',
         display: 'flex',
+        flexWrap: 'wrap',
         minHeight: '85vh',
         alignItems: 'center',
         justifyContent: 'flex-start', // Align card to left
@@ -163,7 +166,7 @@ export default function HeroSection({ theme }) {
       }}>
         
         {/* Left Side: Text and Glass Card */}
-        <div style={{ flex: '0 0 650px', position: 'relative', zIndex: 10, pointerEvents: 'none', marginLeft: '40px' }}>
+        <div style={{ flex: '1 1 300px', maxWidth: '650px', position: 'relative', zIndex: 10, pointerEvents: 'none' }}>
           <div className="hero-glass-card" style={{ 
             pointerEvents: 'auto', 
             background: theme === 'dark' ? 'rgba(255,255,255,0.03)' : 'rgba(0,0,0,0.03)',
@@ -200,7 +203,7 @@ export default function HeroSection({ theme }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              style={{ display: 'flex', gap: '20px' }}
+              style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}
             >
               <a href="#about-us" className="btn btn-primary">Explore Solutions</a>
               <a href="#contact" className="btn btn-outline">Contact Us</a>

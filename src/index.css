@@ -43,6 +43,11 @@
   padding: 0;
 }
 
+html {
+  scroll-padding-top: 180px; /* Adjust for fixed header height */
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-family);
   color: var(--text-main);
@@ -987,15 +992,28 @@ a {
 }
 .marquee-container {
   width: 100vw;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: visible;
   display: flex;
   white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar for cleaner look */
+.marquee-container::-webkit-scrollbar {
+  display: none;
+}
+.marquee-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .marquee-track {
   display: flex;
   gap: 40px;
-  padding: 20px 0;
+  padding: 40px 0; /* Increased padding to allow room for scaled elements */
   width: max-content;
+  align-items: center;
+  perspective: 1000px;
 }
 .client-logo-box {
   width: 200px;
@@ -1005,6 +1023,32 @@ a {
   justify-content: center;
   padding: 15px;
   background: var(--glass-bg);
+  border-radius: 12px;
+  transform-origin: center center;
+  will-change: transform, margin;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), margin 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s;
+}
+
+/* MacBook Dock Effect */
+.client-logo-box:hover {
+  transform: scale(1.6) translateZ(50px);
+  z-index: 10;
+  margin: 0 50px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.client-logo-box:hover + .client-logo-box,
+.client-logo-box:has(+ .client-logo-box:hover) {
+  transform: scale(1.25) translateZ(20px);
+  z-index: 5;
+  margin: 0 20px;
+}
+
+.client-logo-box:hover + .client-logo-box + .client-logo-box,
+.client-logo-box:has(+ .client-logo-box + .client-logo-box:hover) {
+  transform: scale(1.1) translateZ(10px);
+  z-index: 2;
+  margin: 0 10px;
 }
 .client-logo-img {
   max-width: 100%;

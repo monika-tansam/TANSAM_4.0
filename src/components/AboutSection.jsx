@@ -1,136 +1,57 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Html, Text } from '@react-three/drei';
+import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
-function QuantumCoreGame({ theme }) {
-  const [score, setScore] = React.useState(0);
-  const [position, setPosition] = React.useState([0, 0, 0]);
-  const [isHit, setIsHit] = React.useState(false);
-  const targetRef = React.useRef();
-  const fieldRef = React.useRef();
-
-  const moveTarget = React.useCallback(() => {
-    // Spawn within a 3D spherical bounds
-    const radius = 2.2;
-    const theta = Math.random() * Math.PI * 2;
-    const phi = Math.acos((Math.random() * 2) - 1);
-    const x = radius * Math.sin(phi) * Math.cos(theta);
-    const y = radius * Math.sin(phi) * Math.sin(theta);
-    const z = radius * Math.cos(phi);
-    
-    setPosition([x, y, z]);
-    setIsHit(false);
-  }, []);
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isHit) moveTarget();
-    }, 1200);
-    return () => clearInterval(interval);
-  }, [isHit, moveTarget]);
-
-  const handleClick = (e) => {
-    e.stopPropagation();
-    if (isHit) return;
-    setScore(s => s + 1);
-    setIsHit(true);
-    setTimeout(moveTarget, 300);
-  };
+function DottedSphere({ theme }) {
+  const ref = React.useRef();
+  
+  // Generate random points on a sphere
+  const count = 1000;
+  const positions = React.useMemo(() => {
+    const p = new Float32Array(count * 3);
+    for (let i = 0; i < count; i++) {
+      const radius = 2.5;
+      const theta = Math.random() * 2 * Math.PI;
+      const phi = Math.acos((Math.random() * 2) - 1);
+      
+      p[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+      p[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      p[i * 3 + 2] = radius * Math.cos(phi);
+    }
+    return p;
+  }, [count]);
 
   useFrame((state, delta) => {
-    if (targetRef.current) {
-      targetRef.current.rotation.x += delta * (isHit ? 15 : 2);
-      targetRef.current.rotation.y += delta * (isHit ? 20 : 2);
-      const scale = isHit ? 0.1 : 1 + Math.sin(state.clock.elapsedTime * 5) * 0.1;
-      targetRef.current.scale.setScalar(THREE.MathUtils.lerp(targetRef.current.scale.x, scale, 0.2));
-    }
-    if (fieldRef.current) {
-      fieldRef.current.rotation.y += delta * 0.2;
-      fieldRef.current.rotation.z += delta * 0.1;
+    if (ref.current) {
+      ref.current.rotation.y += delta * 0.1;
+      ref.current.rotation.x += delta * 0.05;
     }
   });
 
   return (
-    <group>
-      {/* 3D Holographic HUD */}
-      <Text 
-        position={[0, 3.8, 0]} 
-        fontSize={0.4} 
-        color={theme === 'dark' ? "#00ffff" : "#009999"}
-        anchorX="center"
-        anchorY="middle"
-        outlineWidth={0.01}
-        outlineColor={theme === 'dark' ? "#00ffff" : "#009999"}
-      >
-        SYSTEM ANOMALIES RESOLVED: {score}
-      </Text>
-      <Text 
-        position={[0, 3.3, 0]} 
-        fontSize={0.18} 
-        color={theme === 'dark' ? "#ffffff" : "#333333"}
-        anchorX="center"
-        anchorY="middle"
-        opacity={0.8}
-      >
-        CLICK GLOWING NODES TO STABILIZE CORE
-      </Text>
-
-      {/* Holographic Containment Field */}
-      <group ref={fieldRef}>
-        {/* Core Sphere */}
-        <mesh>
-          <sphereGeometry args={[2.8, 16, 16]} />
-          <meshBasicMaterial 
-            color={theme === 'dark' ? "#00ffff" : "#009999"} 
-            wireframe 
-            transparent 
-            opacity={0.06} 
-          />
-        </mesh>
-        
-        {/* Data Rings */}
-        {[...Array(3)].map((_, i) => (
-          <mesh key={i} rotation={[Math.random() * Math.PI, Math.random() * Math.PI, 0]}>
-            <torusGeometry args={[3.0 + i * 0.2, 0.01, 16, 100]} />
-            <meshBasicMaterial 
-              color={theme === 'dark' ? "#00ffff" : "#009999"} 
-              transparent 
-              opacity={0.3} 
-            />
-          </mesh>
-        ))}
-      </group>
-
-      {/* Anomaly Target */}
-      <group 
-        position={position} 
-        ref={targetRef}
-        onClick={handleClick}
-        onPointerEnter={() => document.body.style.cursor='crosshair'}
-        onPointerLeave={() => document.body.style.cursor='auto'}
-      >
-        {/* Outer glowing shell */}
-        <mesh>
-          <icosahedronGeometry args={[0.5, 0]} />
-          <meshBasicMaterial 
-            color={isHit ? "#00ffff" : "#ff0055"} 
-            wireframe
-            transparent
-            opacity={0.8}
-          />
-        </mesh>
-        {/* Inner solid core */}
-        <mesh scale={0.5}>
-          <icosahedronGeometry args={[0.5, 0]} />
-          <meshStandardMaterial 
-            color={isHit ? "#00ffff" : "#ff0055"} 
-            emissive={isHit ? "#00ffff" : "#ff0055"} 
-            emissiveIntensity={2}
-          />
-        </mesh>
-      </group>
+    <group scale={1.5}>
+      <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
+        <PointMaterial
+          transparent
+          color={theme === 'dark' ? "#00e6e6" : "#009999"}
+          size={0.08}
+          sizeAttenuation={true}
+          depthWrite={false}
+          opacity={0.8}
+          blending={THREE.AdditiveBlending}
+        />
+      </Points>
+      <mesh>
+        <sphereGeometry args={[2.4, 32, 32]} />
+        <meshBasicMaterial 
+          color={theme === 'dark' ? "#001111" : "#e6ffff"} 
+          transparent
+          opacity={0.1}
+          wireframe
+        />
+      </mesh>
     </group>
   );
 }
@@ -149,12 +70,13 @@ export default function AboutSection({ theme }) {
         margin: '0 auto',
         display: 'flex',
         flexDirection: 'row',
+        flexWrap: 'wrap',
         alignItems: 'center',
         gap: '60px'
       }}>
         
         {/* Left Side: Interactive 3D Object */}
-        <div style={{ flex: '1', display: 'flex', justifyContent: 'center', height: '500px' }}>
+        <div style={{ flex: '1 1 400px', minWidth: '300px', display: 'flex', justifyContent: 'center', height: '500px' }}>
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -172,13 +94,14 @@ export default function AboutSection({ theme }) {
               <ambientLight intensity={theme === 'dark' ? 1.5 : 0.8} />
               <pointLight position={[10, 10, 10]} intensity={1.5} />
               <pointLight position={[-10, -10, -10]} intensity={1} color="#00ffff" />
-              <QuantumCoreGame theme={theme} />
+              <DottedSphere theme={theme} />
+              <OrbitControls enableZoom={false} enablePan={false} />
             </Canvas>
           </motion.div>
         </div>
 
         {/* Right Side: About Text */}
-        <div style={{ flex: '1' }}>
+        <div style={{ flex: '1 1 400px', minWidth: '300px' }}>
           <motion.div 
             className="about-content"
             initial={{ opacity: 0, x: 50 }}
@@ -207,7 +130,7 @@ export default function AboutSection({ theme }) {
 
             <div className="features-grid" style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
               gap: '15px',
               marginBottom: '40px'
             }}>
