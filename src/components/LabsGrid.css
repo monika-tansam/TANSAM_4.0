@@ -31,20 +31,94 @@
   --bg: #f4f6f7;
 }
 
-/* faint facility-count watermark, single instance behind the header */
-.labs-watermark {
+/* rotating HUD ring — contained within the section, sits behind the grid */
+.labs-hud {
   position: absolute;
-  top: -2.4rem;
-  right: 1rem;
-  font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
-  font-size: clamp(6rem, 16vw, 11rem);
-  font-weight: 700;
-  color: var(--ink);
-  opacity: 0.035;
-  letter-spacing: -0.04em;
+  top: 3.5rem;
+  right: -4rem;
+  width: 420px;
+  height: 420px;
+  color: var(--teal);
+  opacity: 0.16;
   pointer-events: none;
-  user-select: none;
   z-index: 0;
+}
+
+.labs-section[data-theme='light'] .labs-hud {
+  opacity: 0.1;
+}
+
+.labs-hud-ring {
+  width: 100%;
+  height: 100%;
+}
+
+.hud-ring-outer,
+.hud-ring-inner {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.hud-ring-outer { animation: hudSpin 90s linear infinite; }
+.hud-ring-inner { animation: hudSpin 60s linear infinite reverse; }
+
+@keyframes hudSpin {
+  to { transform: rotate(360deg); }
+}
+
+.labs-hud-readout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.9rem 1.3rem;
+  opacity: 0;
+  animation: hudFadeIn 0.8s ease 0.4s forwards;
+}
+
+@keyframes hudFadeIn {
+  to { opacity: 1; }
+}
+
+.hud-corner {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid currentColor;
+}
+.hud-corner.tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+.hud-corner.tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+.hud-corner.bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+.hud-corner.br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+.hud-readout-label {
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hud-readout-value {
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace;
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 980px) {
+  .labs-hud { width: 320px; height: 320px; top: 1rem; right: -5rem; }
+}
+@media (max-width: 620px) {
+  .labs-hud { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-ring-outer, .hud-ring-inner { animation: none; }
 }
 
 .labs-header {

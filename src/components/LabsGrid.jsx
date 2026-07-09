@@ -443,7 +443,34 @@ const LabPanel = ({ lab, index, theme }) => {
 export default function LabsGrid({ theme = 'dark' }) {
   return (
     <section className="labs-section" id="labs" data-theme={theme}>
-      <span className="labs-watermark" aria-hidden="true">09</span>
+      <div className="labs-hud" aria-hidden="true">
+        <svg className="labs-hud-ring" viewBox="0 0 400 400">
+          <g className="hud-ring-outer">
+            <circle cx="200" cy="200" r="178" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="2 10" />
+            {[...Array(12)].map((_, i) => (
+              <line
+                key={i}
+                x1="200" y1="14" x2="200" y2="30"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                transform={`rotate(${i * 30} 200 200)`}
+              />
+            ))}
+          </g>
+          <g className="hud-ring-inner">
+            <circle cx="200" cy="200" r="138" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="1 8" />
+          </g>
+          <circle cx="200" cy="200" r="3" fill="currentColor" />
+        </svg>
+        <div className="labs-hud-readout">
+          <span className="hud-corner tl" />
+          <span className="hud-corner tr" />
+          <span className="hud-corner bl" />
+          <span className="hud-corner br" />
+          <span className="hud-readout-label">Facility Count</span>
+          <span className="hud-readout-value">09</span>
+        </div>
+      </div>
 
       <motion.div
         className="labs-header"
