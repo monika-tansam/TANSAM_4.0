@@ -1,7 +1,6 @@
 import os
 import re
 import uuid
-import hashlib
 import requests
 from concurrent.futures import ThreadPoolExecutor
 import chromadb
@@ -24,18 +23,6 @@ collection = chroma_client.get_or_create_collection(
     metadata={"hnsw:space": "cosine"},
 )
 
-
-def secure_filename_hash(filename: str) -> str:
-    """
-    Generate a safe, deterministic cryptographic hash of the filename
-    to obfuscate it on the server filesystem.
-    """
-    base_name = os.path.basename(filename)
-    parts = base_name.rsplit(".", 1)
-    ext = parts[-1].lower() if len(parts) > 1 else ""
-    
-    sha256 = hashlib.sha256(base_name.encode("utf-8")).hexdigest()
-    return f"{sha256}.{ext}" if ext else sha256
 
 
 def embed_one(text: str) -> list:
@@ -173,36 +160,6 @@ def ingest_document(filepath: str, filename: str, user_id: str) -> int:
     collection.add(documents=texts, embeddings=embed(texts), metadatas=metadatas, ids=ids)
     return len(chunks)
 
-
-def list_documents(user_id: str) -> list:
-    """Lists source names of all indexed documents for a specific user."""
-    if collection.count() == 0:
-        return []
-    results = collection.get(where={"user_id": user_id}, include=["metadatas"])
-    if not results or not results.get("metadatas"):
-        return []
-    return sorted({m["source"] for m in results["metadatas"]})
-
-
-def count_user_chunks(user_id: str) -> int:
-    """Counts the total number of chunks indexed for a specific user."""
-    if collection.count() == 0:
-        return 0
-    results = collection.get(where={"user_id": user_id}, include=[])
-    if results and "ids" in results:
-        return len(results["ids"])
-    return 0
-
-
-def get_user_documents_and_chunks(user_id: str) -> tuple:
-    """Gets all indexed document sources and total chunks for a user in a single query."""
-    if collection.count() == 0:
-        return [], 0
-    results = collection.get(where={"user_id": user_id}, include=["metadatas"])
-    if not results or not results.get("metadatas"):
-        return [], 0
-    sources = sorted({m["source"] for m in results["metadatas"] if m and "source" in m})
-    return sources, len(results["metadatas"])
 
 
 def delete_document(filename: str, user_id: str):

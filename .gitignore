@@ -28,3 +28,10 @@ dist-ssr
 public/img/about22.png
 **/__pycache__/
 backend/chroma_db/
+
+# Python Virtual Environment and Env Variables
+.venv/
+venv/
+.env
+.env.*
+
