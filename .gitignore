@@ -26,5 +26,12 @@ dist-ssr
 # Large Files
 *.zip
 public/img/about22.png
-backend/__pycache__/
+**/__pycache__/
 backend/chroma_db/
+
+# Python Virtual Environment and Env Variables
+.venv/
+venv/
+.env
+.env.*
+

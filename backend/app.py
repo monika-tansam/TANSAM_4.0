@@ -1,6 +1,5 @@
 import os
-import uuid
-from flask import Flask, render_template, request, Response
+from flask import Flask, request, Response
 import config
 
 # Import modular blueprints
@@ -25,18 +24,8 @@ def preflight_handler(path):
     response.headers.add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS")
     return response
 
-os.makedirs(config.UPLOAD_FOLDER, exist_ok=True)
-app.config["UPLOAD_FOLDER"] = config.UPLOAD_FOLDER
-app.config["MAX_CONTENT_LENGTH"] = config.MAX_CONTENT_LENGTH
-
 # Register routing blueprints
 app.register_blueprint(chat_bp)
-
-@app.route("/")
-def index():
-    models = get_installed_models()
-    default = models[0] if models else config.AVAILABLE_MODELS[0]
-    return render_template("index.html", models=models, default_model=default, theme="fire", is_logged_in=False, greeting="TANSAM BOT")
 
 # ══════════════════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
@@ -48,4 +37,4 @@ if __name__ == "__main__":
     else:
         print("[WARNING] No models found. Pull models with: ollama pull llama3.2")
     print(f"\n[INFO] To add more models, edit AVAILABLE_MODELS in config.py, then: ollama pull <model>")
-    app.run(debug=True, host="0.0.0.0", port=5001, threaded=True)
+    app.run(debug=True, host="0.0.0.0", port=5001, threaded=True)

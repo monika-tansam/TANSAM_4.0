@@ -42,25 +42,6 @@ def get_installed_models() -> list:
             return _installed_models_cache
         return config.AVAILABLE_MODELS
 
-
-def get_fast_background_model() -> str:
-    """Selects a lightweight, high-speed model for background tasks."""
-    try:
-        installed = get_installed_models()
-        # Prefer llama3.2 (very fast 3B), then phi3, mistral, gemma2, etc.
-        preferred_fast = ["llama3.2", "phi3", "mistral", "gemma2"]
-        for model in preferred_fast:
-            for inst in installed:
-                if model in inst.lower():
-                    return inst
-        for inst in installed:
-            if "deepseek" not in inst.lower() and "think" not in inst.lower():
-                return inst
-        return installed[0] if installed else config.AVAILABLE_MODELS[0]
-    except Exception:
-        return config.AVAILABLE_MODELS[0]
-
-
 def ollama_chat_stream(messages: list, model: str):
     """Initiates a streaming chat interface with Ollama."""
     r = requests.post(
@@ -79,13 +60,3 @@ def ollama_chat_stream(messages: list, model: str):
     r.raise_for_status()
     return r
 
-
-def ollama_complete(prompt: str, model: str) -> str:
-    """Non-streaming complete pass."""
-    r = requests.post(
-        f"{config.OLLAMA_URL}/api/chat",
-        json={"model": model, "messages": [{"role": "user", "content": prompt}], "stream": False},
-        timeout=120,
-    )
-    r.raise_for_status()
-    return r.json()["message"]["content"].strip()
