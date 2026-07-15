@@ -12,7 +12,7 @@ export default function LabsPage({ theme }) {
   }, []);
 
   return (
-    <div style={{ paddingTop: '80px', minHeight: '80vh' }}>
+    <div style={{ minHeight: '80vh' }}>
       <AnimatedSection>
         <LabsGrid theme={theme} />
       </AnimatedSection>

@@ -689,9 +689,7 @@ a {
 
 /* Labs Grid */
 .labs-section {
-  max-width: 1300px;
-  margin: 100px auto;
-  padding: 0 20px;
+  padding: 100px 20px;
 }
 .labs-grid-container {
   display: grid;
@@ -1319,6 +1317,49 @@ a {
   border-radius: 40px;
   border: 1px solid var(--glass-border);
   box-shadow: 0 10px 25px var(--shadow-color);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-social-bar.collapsed {
+  transform: translate(calc(-100% - 20px), -50%);
+}
+
+.social-icons-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.social-toggle-btn {
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  transform: translateY(-50%);
+  background: var(--nav-bg);
+  border: 1px solid var(--glass-border);
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  width: 24px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-main);
+  box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+  backdrop-filter: blur(12px);
+  z-index: 999;
+  transition: all 0.2s ease;
+  opacity: 0;
+}
+
+.floating-social-bar:hover .social-toggle-btn {
+  opacity: 1;
+}
+
+.social-toggle-btn:hover {
+  background: var(--primary);
+  color: white;
 }
 @media (max-width: 768px) {
   .floating-social-bar {

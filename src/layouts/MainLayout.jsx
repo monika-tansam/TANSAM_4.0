@@ -7,6 +7,7 @@ import { useInternship } from '../context/InternshipContext';
 
 export default function MainLayout({ theme, toggleTheme }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSocialVisible, setIsSocialVisible] = useState(true);
   const location = useLocation();
   const { cart } = useInternship();
 
@@ -176,11 +177,20 @@ export default function MainLayout({ theme, toggleTheme }) {
       </AnimatePresence>
 
       {/* Floating Social Media Bar */}
-      <div className="floating-social-bar desktop-only">
-        <a href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#" target="_blank" rel="noreferrer" className="social-icon-btn"><FaFacebook size={20} /></a>
-        <a href="https://x.com/TANSAM2022" target="_blank" rel="noreferrer" className="social-icon-btn"><FaTwitter size={20} /></a>
-        <a href="https://www.instagram.com/tansamcoe_2022/#" target="_blank" rel="noreferrer" className="social-icon-btn"><FaInstagram size={20} /></a>
-        <a href="https://www.linkedin.com/company/tansam/" target="_blank" rel="noreferrer" className="social-icon-btn"><FaLinkedin size={20} /></a>
+      <div className={`floating-social-bar desktop-only ${!isSocialVisible ? 'collapsed' : ''}`}>
+        <button 
+          className="social-toggle-btn"
+          onClick={() => setIsSocialVisible(!isSocialVisible)}
+          aria-label="Toggle Social Media Bar"
+        >
+          {isSocialVisible ? '❮' : '❯'}
+        </button>
+        <div className="social-icons-wrapper">
+          <a href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#" target="_blank" rel="noreferrer" className="social-icon-btn"><FaFacebook size={20} /></a>
+          <a href="https://x.com/TANSAM2022" target="_blank" rel="noreferrer" className="social-icon-btn"><FaTwitter size={20} /></a>
+          <a href="https://www.instagram.com/tansamcoe_2022/#" target="_blank" rel="noreferrer" className="social-icon-btn"><FaInstagram size={20} /></a>
+          <a href="https://www.linkedin.com/company/tansam/" target="_blank" rel="noreferrer" className="social-icon-btn"><FaLinkedin size={20} /></a>
+        </div>
       </div>
 
       <main>

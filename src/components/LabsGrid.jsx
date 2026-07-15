@@ -418,10 +418,10 @@ const LabPanel = ({ lab, index, theme }) => {
           dpr={[1, 1.5]}
           gl={{ antialias: true, alpha: true }}
         >
-          <ambientLight intensity={theme === 'dark' ? 1.4 : 2.3} />
-          <pointLight position={[3, 3, 4]} intensity={theme === 'dark' ? 2.4 : 1.6} color={accentHex} />
-          <pointLight position={[-3, -2, -3]} intensity={1.1} color="#ffffff" />
-          <directionalLight position={[0, 2, 5]} intensity={1.1} />
+          <ambientLight intensity={theme === 'dark' ? 3.0 : 2.3} />
+          <pointLight position={[3, 3, 4]} intensity={theme === 'dark' ? 3.5 : 1.6} color={accentHex} />
+          <pointLight position={[-3, -2, -3]} intensity={theme === 'dark' ? 2.0 : 1.1} color="#ffffff" />
+          <directionalLight position={[0, 2, 5]} intensity={theme === 'dark' ? 2.5 : 1.1} />
           <Suspense fallback={null}>
             <Rotating3DIcon type={lab.iconType} accent={accentHex} hoverRef={hoverRef} />
           </Suspense>

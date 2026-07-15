@@ -127,6 +127,12 @@
   max-width: 640px;
   margin: 0 auto 3.5rem;
   text-align: center;
+  background: color-mix(in srgb, var(--panel) 90%, transparent);
+  backdrop-filter: blur(12px);
+  padding: 2.5rem;
+  border-radius: 24px;
+  border: 1px solid var(--panel-line);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
 }
 
 .labs-eyebrow {
