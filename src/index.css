@@ -1013,6 +1013,42 @@ a {
   align-items: center;
   perspective: 1000px;
 }
+
+@keyframes scroll-left {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.marquee-scroller {
+  display: flex;
+  width: max-content;
+}
+
+.marquee-scroller-industry {
+  animation: scroll-left var(--duration, 30s) linear infinite;
+}
+
+.marquee-scroller-academic {
+  animation: scroll-right var(--duration, 60s) linear infinite;
+}
+
+/* Pause the marquee track animation when any client logo box inside it is hovered */
+.marquee-scroller:has(.client-logo-box:hover) {
+  animation-play-state: paused;
+}
 .client-logo-box {
   width: 200px;
   height: 100px;

@@ -82,26 +82,31 @@ export default function ClientsSection() {
         </div>
         
         <div className="marquee-container" style={{ paddingBottom: '30px', paddingTop: '30px' }}>
-          <Reorder.Group 
-            axis="x" 
-            values={displayIndustry} 
-            onReorder={handleIndustryReorder} 
-            className="marquee-track"
-            style={{ listStyleType: 'none', margin: 0, padding: '40px 20px', cursor: 'grab' }}
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: industryDuration }}
-          >
-            {displayIndustry.map((client) => (
-              <Reorder.Item 
-                key={client} 
-                value={client} 
-                className="client-logo-box glass-panel"
-                whileDrag={{ scale: 1.1, cursor: 'grabbing', zIndex: 50, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}
-              >
-                <img src={client.split('|')[0]} alt="Industry Client" className="client-logo-img" draggable="false" />
-              </Reorder.Item>
-            ))}
-          </Reorder.Group>
+          <div className="marquee-scroller marquee-scroller-industry" style={{ '--duration': `${industryDuration}s` }}>
+            <Reorder.Group 
+              axis="x" 
+              values={displayIndustry} 
+              onReorder={handleIndustryReorder} 
+              className="marquee-track"
+              style={{ 
+                listStyleType: 'none', 
+                margin: 0, 
+                padding: '40px 20px', 
+                cursor: 'grab'
+              }}
+            >
+              {displayIndustry.map((client) => (
+                <Reorder.Item 
+                  key={client} 
+                  value={client} 
+                  className="client-logo-box glass-panel"
+                  whileDrag={{ scale: 1.1, cursor: 'grabbing', zIndex: 50, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}
+                >
+                  <img src={client.split('|')[0]} alt="Industry Client" className="client-logo-img" draggable="false" />
+                </Reorder.Item>
+              ))}
+            </Reorder.Group>
+          </div>
         </div>
       </div>
 
@@ -117,26 +122,31 @@ export default function ClientsSection() {
         </div>
 
         <div className="marquee-container" style={{ paddingBottom: '30px', paddingTop: '30px' }}>
-          <Reorder.Group 
-            axis="x" 
-            values={displayAcademic} 
-            onReorder={handleAcademicReorder} 
-            className="marquee-track"
-            style={{ listStyleType: 'none', margin: 0, padding: '40px 20px', cursor: 'grab' }}
-            animate={{ x: ["-50%", "0%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: academicDuration }}
-          >
-            {displayAcademic.map((client) => (
-              <Reorder.Item 
-                key={client} 
-                value={client} 
-                className="client-logo-box glass-panel"
-                whileDrag={{ scale: 1.1, cursor: 'grabbing', zIndex: 50, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}
-              >
-                <img src={client.split('|')[0]} alt="Academic Client" className="client-logo-img" draggable="false" />
-              </Reorder.Item>
-            ))}
-          </Reorder.Group>
+          <div className="marquee-scroller marquee-scroller-academic" style={{ '--duration': `${academicDuration}s` }}>
+            <Reorder.Group 
+              axis="x" 
+              values={displayAcademic} 
+              onReorder={handleAcademicReorder} 
+              className="marquee-track"
+              style={{ 
+                listStyleType: 'none', 
+                margin: 0, 
+                padding: '40px 20px', 
+                cursor: 'grab'
+              }}
+            >
+              {displayAcademic.map((client) => (
+                <Reorder.Item 
+                  key={client} 
+                  value={client} 
+                  className="client-logo-box glass-panel"
+                  whileDrag={{ scale: 1.1, cursor: 'grabbing', zIndex: 50, boxShadow: '0 10px 30px rgba(0,0,0,0.5)' }}
+                >
+                  <img src={client.split('|')[0]} alt="Academic Client" className="client-logo-img" draggable="false" />
+                </Reorder.Item>
+              ))}
+            </Reorder.Group>
+          </div>
         </div>
       </div>
 
