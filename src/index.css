@@ -1199,9 +1199,9 @@ a {
 
 /* --- FOOTER --- */
 .footer-section {
-  background: var(--glass-bg);
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--primary) 5%, transparent)), var(--bg-color);
   border-top: 1px solid var(--glass-border);
-  padding: 80px 20px 30px;
+  padding: 60px 20px 20px;
 }
 .footer-container {
   max-width: 1200px;
@@ -1209,9 +1209,9 @@ a {
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 60px;
-  margin-bottom: 60px;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 40px;
+  margin-bottom: 40px;
 }
 .footer-brand {
   font-size: 2.5rem;
@@ -1219,9 +1219,16 @@ a {
   font-family: 'Outfit', sans-serif;
 }
 .footer-title {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  color: var(--text-main);
+}
+.footer-description {
+  font-size: 0.95rem;
+  max-width: 400px;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 .footer-links {
   list-style: none;
@@ -1247,9 +1254,9 @@ a {
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid var(--glass-border);
-  padding-top: 30px;
+  padding-top: 20px;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 .footer-legal-links {
   display: flex;
@@ -1295,7 +1302,7 @@ a {
 /* --- SOCIAL MEDIA ICONS --- */
 .footer-socials {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   margin-top: 20px;
 }
 .social-icon-btn {

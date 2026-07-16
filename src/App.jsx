@@ -3,17 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import ChatWidget from './components/ChatWidget';
 
-import { InternshipProvider } from './context/InternshipContext';
-
 const HomePage = lazy(() => import('./pages/HomePage'));
 const LabsPage = lazy(() => import('./pages/LabsPage'));
 const LabDetailsPage = lazy(() => import('./pages/LabDetailsPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const StudentSuccessPage = lazy(() => import('./pages/StudentSuccessPage'));
 const NewsPage = lazy(() => import('./pages/NewsPage'));
-const InternshipRegistrationPage = lazy(() => import('./pages/InternshipRegistrationPage'));
-const InternshipCheckoutPage = lazy(() => import('./pages/InternshipCheckoutPage'));
-const InternshipDashboardPage = lazy(() => import('./pages/InternshipDashboardPage'));
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -30,7 +25,6 @@ function App() {
   };
 
   return (
-    <InternshipProvider>
       <BrowserRouter>
         <Suspense fallback={<div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading...</div>}>
           <Routes>
@@ -41,15 +35,11 @@ function App() {
               <Route path="contact" element={<ContactPage theme={theme} />} />
               <Route path="success" element={<StudentSuccessPage theme={theme} />} />
               <Route path="news" element={<NewsPage theme={theme} />} />
-              <Route path="internships" element={<InternshipRegistrationPage theme={theme} />} />
-              <Route path="internships/checkout" element={<InternshipCheckoutPage theme={theme} />} />
-              <Route path="internships/dashboard" element={<InternshipDashboardPage theme={theme} />} />
             </Route>
           </Routes>
         </Suspense>
         <ChatWidget />
       </BrowserRouter>
-    </InternshipProvider>
   );
 }
 

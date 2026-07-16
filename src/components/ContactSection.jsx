@@ -59,7 +59,8 @@ function ContactSection() {
                 📞 Phone
               </h4>
               <p style={{ opacity: 0.9 }}>
-                <a href="tel:+914422540000" style={{ color: 'var(--text-color)', textDecoration: 'none' }}>+91 44 2254 0000</a>
+                <a href="tel:+914422540000" style={{ color: 'var(--text-color)', textDecoration: 'none' }}>+91 44 2254 0000</a><br/>
+                <a href="tel:+919600091359" style={{ color: 'var(--text-color)', textDecoration: 'none' }}>+91 96000 91359</a>
               </p>
             </div>
           </motion.div>

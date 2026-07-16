@@ -33,7 +33,7 @@ export default function ContactPage({ theme }) {
                 <div className="icon-box text-cyan-500 mt-1"><Phone size={24} /></div>
                 <div>
                   <h4 className="font-medium text-lg">Call Us</h4>
-                  <p className="text-muted">+91 44 2254 1111</p>
+                  <p className="text-muted">+91 44 2254 1111<br/>+91 96000 91359</p>
                 </div>
               </div>
 

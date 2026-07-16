@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { FaUserGraduate, FaLaptopCode, FaAward, FaCalendarCheck } from 'react-icons/fa';
 
 const technologies = [
@@ -9,6 +10,8 @@ const technologies = [
 ];
 
 export default function StudentSuccess() {
+  const navigate = useNavigate();
+
   return (
     <section className="student-success-section" id="internship">
       <div className="success-container">
@@ -78,6 +81,7 @@ export default function StudentSuccess() {
               className="btn btn-primary w-full"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => navigate('/contact')}
             >
               Register Now
             </motion.button>

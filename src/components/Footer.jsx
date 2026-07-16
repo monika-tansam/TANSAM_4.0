@@ -19,10 +19,10 @@ export default function Footer() {
               TANSAM (Tamil Nadu Smart and Advanced Manufacturing), powered by Siemens, is the state's arts Industry 4.0 Centre of Excellence.
             </p>
             <div className="footer-socials">
-              <a href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#" target="_blank" rel="noreferrer" className="social-link"><FaFacebook size={20} /></a>
-              <a href="https://x.com/TANSAM2022" target="_blank" rel="noreferrer" className="social-link"><FaTwitter size={20} /></a>
-              <a href="https://www.instagram.com/tansamcoe_2022/#" target="_blank" rel="noreferrer" className="social-link"><FaInstagram size={20} /></a>
-              <a href="https://www.linkedin.com/company/tansam/" target="_blank" rel="noreferrer" className="social-link"><FaLinkedin size={20} /></a>
+              <a href="https://www.facebook.com/people/TANSAM-Powered-by-Siemens/61556964369639/#" target="_blank" rel="noreferrer" className="social-icon-btn"><FaFacebook size={20} /></a>
+              <a href="https://x.com/TANSAM2022" target="_blank" rel="noreferrer" className="social-icon-btn"><FaTwitter size={20} /></a>
+              <a href="https://www.instagram.com/tansamcoe_2022/#" target="_blank" rel="noreferrer" className="social-icon-btn"><FaInstagram size={20} /></a>
+              <a href="https://www.linkedin.com/company/tansam/" target="_blank" rel="noreferrer" className="social-icon-btn"><FaLinkedin size={20} /></a>
             </div>
           </div>
 
@@ -47,7 +47,7 @@ export default function Footer() {
               </li>
               <li className="flex gap-3 mb-4">
                 <Phone size={20} className="text-cyan" color="#00ffff" />
-                <span>+91-98840 35145</span>
+                <span>+91-98840 35145<br/>+91-96000 91359</span>
               </li>
               <li className="flex gap-3">
                 <Mail size={20} className="text-cyan" color="#00ffff" />
