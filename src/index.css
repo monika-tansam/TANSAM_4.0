@@ -1056,11 +1056,13 @@ a {
   align-items: center;
   justify-content: center;
   padding: 15px;
-  background: var(--glass-bg);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   transform-origin: center center;
   will-change: transform, margin;
-  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), margin 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), margin 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s, background 0.3s;
 }
 
 /* MacBook Dock Effect */
@@ -1068,7 +1070,8 @@ a {
   transform: scale(1.6) translateZ(50px);
   z-index: 10;
   margin: 0 50px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 255, 0.3);
+  background: #ffffff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 255, 255, 0.5);
 }
 
 .client-logo-box:hover + .client-logo-box,
@@ -1088,13 +1091,13 @@ a {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: grayscale(100%) contrast(1.2);
-  opacity: 0.8;
-  transition: 0.3s;
+  filter: none;
+  opacity: 1;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 .client-logo-box:hover .client-logo-img {
-  filter: grayscale(0%) contrast(1);
-  opacity: 1;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.15));
+  transform: scale(1.05);
 }
 
 /* --- STUDENT SUCCESS SECTION --- */
