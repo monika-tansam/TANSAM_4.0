@@ -1,6 +1,20 @@
 :root {
+  /* ══════════ TANSAM LOGO (LEFT) CONTROLS ══════════ */
+  --tansam-logo-height: 90px;          /* Size (height preserves aspect ratio) */
+  --tansam-logo-inset: 350px;           /* Distance from left edge (moves toward center) */
+  --tansam-logo-x: 0px;                /* Fine horizontal adjustment (+ right, - left) */
+  --tansam-logo-y: -4px;                /* Fine vertical adjustment (+ down, - up) */
+  --tansam-logo-mobile-height: 52px;   /* Size on mobile */
+
+  /* ══════════ TIDCO LOGO (RIGHT) CONTROLS ══════════ */
+  --tidco-logo-height: 75px;           /* Size (height preserves aspect ratio) */
+  --tidco-logo-inset: 300px;            /* Distance from right edge (moves toward center) */
+  --tidco-logo-x: 0px;                 /* Fine horizontal adjustment (+ right, - left) */
+  --tidco-logo-y: 0px;                 /* Fine vertical adjustment (+ down, - up) */
+  --tidco-logo-mobile-height: 40px;    /* Size on mobile */
+
   /* Light Theme - Muted soft slate */
-  --primary: #009999;
+  --primary: #00f0f0;
   --primary-dark: #007a7a;
   --accent: #A21D21;
   --accent-dark: #7a1518;
@@ -62,9 +76,9 @@ a {
   color: inherit;
 }
 
-/* Header Container (Siemens Cyan/Teal Gradient) */
+/* Header Container (Solid Teal) */
 .navbar-container {
-  background: linear-gradient(90deg, #004d4d 0%, #008080 50%, #004d4d 100%);
+  background: #009999;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 2px solid #00b3b3;
@@ -130,7 +144,6 @@ a {
 }
 
 .header-top img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
   background: rgba(255, 255, 255, 0.95);
   padding: 6px 14px;
   border-radius: 12px;
@@ -139,14 +152,38 @@ a {
   object-fit: contain;
 }
 
-.logo-main { height: 60px; }
 .tn-logo { height: 75px; padding: 4px 10px; }
-.logo-tidco { height: 50px; }
 
-.header-top img:hover {
-  transform: scale(1.05);
-  background: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+/* Transparent side logos, including on hover. */
+.header-top img.logo-main {
+  height: var(--tansam-logo-height, 85px);
+  width: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  flex-shrink: 0;
+}
+
+/* Move the TANSAM link together with its logo so it stays clickable */
+.header-left > a {
+  display: inline-flex;
+  margin-inline-start: var(--tansam-logo-inset, 50px);
+  translate: var(--tansam-logo-x, 0px) var(--tansam-logo-y, 0px);
+}
+
+.header-top img.logo-tidco {
+  height: var(--tidco-logo-height, 70px);
+  width: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  flex-shrink: 0;
+  margin-inline-end: var(--tidco-logo-inset, 50px);
+  translate: var(--tidco-logo-x, 0px) var(--tidco-logo-y, 0px);
 }
 
 .header-bottom {
@@ -428,9 +465,22 @@ a {
     padding: 1rem;
   }
 
-  .logo-main { height: 40px; }
   .tn-logo { height: 45px; }
-  .logo-tidco { height: 35px; }
+
+  .header-top img.logo-main {
+    height: var(--tansam-logo-mobile-height, 52px);
+  }
+
+  .header-top img.logo-tidco {
+    height: var(--tidco-logo-mobile-height, 40px);
+    margin-inline-end: 0;
+    translate: 0 0;
+  }
+
+  .header-left > a {
+    margin-inline-start: 0;
+    translate: 0 0;
+  }
   
   .header-center {
     flex: 1;
@@ -1289,12 +1339,12 @@ a {
   height: 40px;
   border-radius: 50%;
   background: rgba(0, 255, 255, 0.1);
-  color: #00ffff;
+  color: #009999;
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 255, 255, 0.3);
 }
 .social-icon-btn:hover {
-  background: #00ffff;
+  background: #009999;
   color: #0b0f19;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
