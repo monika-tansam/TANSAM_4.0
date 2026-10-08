@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, lazy } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import ChatWidget from './components/ChatWidget';
@@ -26,7 +26,6 @@ function App() {
 
   return (
       <BrowserRouter>
-        <Suspense fallback={<div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Loading...</div>}>
           <Routes>
             <Route path="/" element={<MainLayout theme={theme} toggleTheme={toggleTheme} />}>
               <Route index element={<HomePage theme={theme} />} />
@@ -37,7 +36,6 @@ function App() {
               <Route path="news" element={<NewsPage theme={theme} />} />
             </Route>
           </Routes>
-        </Suspense>
         <ChatWidget />
       </BrowserRouter>
   );

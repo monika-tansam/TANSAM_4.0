@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { Suspense, useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,8 +6,13 @@ import Footer from '../components/Footer';
 
 // Homepage gap before the card reaches navigation: larger = hide earlier.
 const HEADER_CARD_GAP = 25;
-// Fallback delay for pages without the Industry 4.0 card, in pixels.
+// Homepage fallback delay while the Industry 4.0 card is loading, in pixels.
 const HEADER_HIDE_DISTANCE = 250;
+// Labs landing spacing below navigation, matching the reference screenshot.
+const LABS_NAV_GAP = 64;
+const LABS_OPENING_OFFSET = 48;
+const INTERNSHIPS_OPENING_OFFSET = 24;
+const INTERNSHIPS_NAV_GAP = 56;
 
 export default function MainLayout({ theme, toggleTheme }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,15 +22,81 @@ export default function MainLayout({ theme, toggleTheme }) {
   const headerShellRef = useRef(null);
   const brandingRef = useRef(null);
   const location = useLocation();
+  const openingOffset = location.hash ? 0
+    : location.pathname === '/labs' ? LABS_OPENING_OFFSET
+    : location.pathname === '/success' ? INTERNSHIPS_OPENING_OFFSET : 0;
+
+  // Inner pages open below branding; scrolling back to the top reveals it naturally.
+  useLayoutEffect(() => {
+    if (location.pathname !== '/') {
+      const brandingHeight = brandingRef.current?.getBoundingClientRect().height ?? 0;
+      const tickerHeight = tickerRef.current?.offsetHeight ?? 0;
+      headerShellRef.current?.style.setProperty('--header-scroll-offset', `${brandingHeight}px`);
+      setIsHeaderHidden(true);
+      window.scrollTo({ top: Math.ceil(tickerHeight + brandingHeight + openingOffset), behavior: 'instant' });
+    } else if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [location.pathname, location.hash, location.key, openingOffset]);
 
   useEffect(() => {
+    if (!['/labs', '/success'].includes(location.pathname) || location.hash) return;
+    const isLabs = location.pathname === '/labs';
+    const titleSelector = isLabs ? '.labs-header' : '.internships-page h1';
+    const panelSelector = isLabs ? '.lab-panel' : '.success-bento-grid > .bento-panel';
+    const navGap = isLabs ? LABS_NAV_GAP : INTERNSHIPS_NAV_GAP;
+    const bottomGap = isLabs ? 24 : 12;
+    const minimumTitleGap = isLabs ? 24 : 0;
+    let cancelled = false;
+    let scheduled = false;
+    let frameId = null;
+    const observer = new MutationObserver(() => scheduleLanding());
+    const scheduleLanding = () => {
+      const titleCard = document.querySelector(titleSelector);
+      const panels = document.querySelectorAll(panelSelector);
+      if (scheduled || !titleCard || !panels.length) return;
+      scheduled = true;
+      observer.disconnect();
+      document.fonts.ready.then(() => {
+        if (cancelled) return;
+        frameId = window.requestAnimationFrame(() => {
+          // Layout coordinates ignore the cards' entrance animation transforms.
+          const documentTop = (element) => {
+            let top = 0;
+            for (let node = element; node; node = node.offsetParent) top += node.offsetTop;
+            return top;
+          };
+          const navHeight = headerShellRef.current?.querySelector('nav')?.offsetHeight ?? 0;
+          const titleTop = documentTop(titleCard);
+          const firstRowTop = panels[0].offsetTop;
+          const firstRow = Array.from(panels).filter(panel => panel.offsetTop === firstRowTop);
+          const rowBottom = Math.max(...firstRow.map(panel => documentTop(panel) + panel.offsetHeight));
+          const referenceTop = titleTop - navHeight - navGap;
+          // If the first row fits, keep its bottom visible in shorter windows too.
+          const fittedTop = Math.max(referenceTop, rowBottom + bottomGap - window.innerHeight);
+          const top = Math.min(fittedTop, titleTop - navHeight - minimumTitleGap);
+          window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+        });
+      });
+    };
+    observer.observe(document.body, { childList: true, subtree: true });
+    scheduleLanding();
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+    };
+  }, [location.pathname, location.hash, location.key]);
+
+  useLayoutEffect(() => {
     let frameId = null;
     let brandingHeight = 0;
     let tickerHeight = 0;
 
     const updateHeader = () => {
-      const heroCard = document.querySelector('.hero-glass-card');
-      let hideStart = tickerHeight + HEADER_HIDE_DISTANCE;
+      const isHome = location.pathname === '/';
+      const heroCard = isHome ? document.querySelector('.hero-glass-card') : null;
+      let hideStart = tickerHeight + (isHome ? HEADER_HIDE_DISTANCE : 0);
       if (heroCard) {
         // Document position stays stable because hiding does not shrink the header's layout space.
         const cardTop = heroCard.getBoundingClientRect().top + window.scrollY;
@@ -50,8 +121,19 @@ export default function MainLayout({ theme, toggleTheme }) {
     };
 
     const measureBranding = () => {
-      brandingHeight = brandingRef.current?.getBoundingClientRect().height ?? 0;
-      tickerHeight = tickerRef.current?.offsetHeight ?? 0;
+      const wasAtPageStart = location.pathname !== '/' && brandingHeight > 0
+        && Math.abs(window.scrollY - Math.ceil(tickerHeight + brandingHeight + openingOffset)) <= 2;
+      const nextBrandingHeight = brandingRef.current?.getBoundingClientRect().height ?? 0;
+      const nextTickerHeight = tickerRef.current?.offsetHeight ?? 0;
+      const sizeChanged = Math.abs(nextBrandingHeight - brandingHeight) > 0.5
+        || nextTickerHeight !== tickerHeight;
+      brandingHeight = nextBrandingHeight;
+      tickerHeight = nextTickerHeight;
+      // Logos and fonts can finish loading after navigation; keep the compact landing aligned.
+      // Observer's initial notification must not cancel a pending section scroll.
+      if (wasAtPageStart && sizeChanged && !location.hash) {
+        window.scrollTo({ top: Math.ceil(tickerHeight + brandingHeight + openingOffset), behavior: 'instant' });
+      }
       updateHeader();
     };
 
@@ -68,24 +150,67 @@ export default function MainLayout({ theme, toggleTheme }) {
       observer.disconnect();
       if (frameId !== null) window.cancelAnimationFrame(frameId);
     };
-  }, []);
+  }, [location.pathname, location.hash, openingOffset]);
 
   // Close mobile menu on route change and handle hash scrolling
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    
+
     if (location.hash) {
-      setTimeout(() => {
-        const id = location.hash.replace('#', '');
+      const id = location.hash.replace('#', '');
+      let cancelled = false;
+      let frameId = null;
+      let scheduled = false;
+
+      const scrollToTarget = () => {
         const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
+        if (!element) return;
+
+        const aboutCard = id === 'about-us' ? element.querySelector('.about-content') : null;
+        if (aboutCard) {
+          const navHeight = headerShellRef.current?.querySelector('nav')?.offsetHeight ?? 0;
+          const availableHeight = window.innerHeight - navHeight;
+          const cardHeight = aboutCard.offsetHeight;
+          // Centre a card that fits; start taller cards below navigation for normal scrolling.
+          const gap = cardHeight <= availableHeight ? (availableHeight - cardHeight) / 2 : 24;
+          let cardTop = 0;
+          // Use layout positions so entrance animations cannot move the scroll target.
+          for (let node = aboutCard; node; node = node.offsetParent) {
+            cardTop += node.offsetTop;
+          }
+          window.scrollTo({ top: Math.max(0, cardTop - navHeight - gap), behavior: 'smooth' });
+        } else {
+          const navHeight = headerShellRef.current?.querySelector('nav')?.offsetHeight ?? 0;
+          let sectionTop = 0;
+          for (let node = element; node; node = node.offsetParent) {
+            sectionTop += node.offsetTop;
+          }
+          window.scrollTo({ top: Math.max(0, sectionTop - navHeight - 24), behavior: 'smooth' });
         }
-      }, 100); // Give lazy loaded components a moment to mount
+      };
+
+      const observer = new MutationObserver(() => scheduleScroll());
+      const scheduleScroll = () => {
+        if (scheduled || !document.getElementById(id)) return;
+        scheduled = true;
+        observer.disconnect();
+        // Wait for lazy content and font metrics instead of guessing a mounting delay.
+        document.fonts.ready.then(() => {
+          if (!cancelled) frameId = window.requestAnimationFrame(scrollToTarget);
+        });
+      };
+      observer.observe(document.body, { childList: true, subtree: true });
+      scheduleScroll();
+
+      return () => {
+        cancelled = true;
+        observer.disconnect();
+        if (frameId !== null) window.cancelAnimationFrame(frameId);
+      };
     } else if (location.pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [location.pathname, location.hash]);
+  }, [location.pathname, location.hash, location.key]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -156,7 +281,7 @@ export default function MainLayout({ theme, toggleTheme }) {
                 Capabilities ▼
               </button>
               <div className="dropdown-content">
-                <Link to="/labs">Skilling</Link>
+                <Link to="/#skilling">Skilling</Link>
               <Link to="/labs#projects" className="nav-link">Research & Projects</Link>
               </div>
             </div>
@@ -205,7 +330,7 @@ export default function MainLayout({ theme, toggleTheme }) {
               <Link to="/" className="nav-link">Home</Link>
               <Link to="/#about-us" className="nav-link">About Us</Link>
               <Link to="/labs" className="nav-link">Labs</Link>
-              <Link to="/labs" className="nav-link">Skilling</Link>
+              <Link to="/#skilling" className="nav-link">Skilling</Link>
               <Link to="/labs#projects" className="nav-link">Research & Projects</Link>
               <Link to="/news" className="nav-link">News & Events</Link>
               <Link to="/success" className="nav-link">Internships</Link>
@@ -233,7 +358,9 @@ export default function MainLayout({ theme, toggleTheme }) {
       </div>
 
       <main>
-        <Outlet />
+        <Suspense fallback={<div style={{ minHeight: '100vh', display: 'grid', placeItems: 'center' }}>Loading...</div>}>
+          <Outlet />
+        </Suspense>
       </main>
 
       <Footer />

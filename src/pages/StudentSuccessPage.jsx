@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import StudentSuccess from '../components/StudentSuccess';
 import AnimatedSection from '../components/AnimatedSection';
 
 export default function StudentSuccessPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
-    <div style={{ paddingTop: '80px', minHeight: '80vh' }}>
+    <div className="internships-page" style={{ paddingTop: '80px', minHeight: '80vh' }}>
       <AnimatedSection>
         <div style={{ textAlign: 'center', marginBottom: '20px', padding: '0 20px' }}>
           <h1 style={{ fontSize: '3rem', color: 'var(--text-color)', marginBottom: '20px' }}>
