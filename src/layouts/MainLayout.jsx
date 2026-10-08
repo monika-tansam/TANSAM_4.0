@@ -1,13 +1,74 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import Footer from '../components/Footer';
 
+// Homepage gap before the card reaches navigation: larger = hide earlier.
+const HEADER_CARD_GAP = 25;
+// Fallback delay for pages without the Industry 4.0 card, in pixels.
+const HEADER_HIDE_DISTANCE = 250;
+
 export default function MainLayout({ theme, toggleTheme }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSocialVisible, setIsSocialVisible] = useState(true);
+  const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const tickerRef = useRef(null);
+  const headerShellRef = useRef(null);
+  const brandingRef = useRef(null);
   const location = useLocation();
+
+  useEffect(() => {
+    let frameId = null;
+    let brandingHeight = 0;
+    let tickerHeight = 0;
+
+    const updateHeader = () => {
+      const heroCard = document.querySelector('.hero-glass-card');
+      let hideStart = tickerHeight + HEADER_HIDE_DISTANCE;
+      if (heroCard) {
+        // Document position stays stable because hiding does not shrink the header's layout space.
+        const cardTop = heroCard.getBoundingClientRect().top + window.scrollY;
+        const fullHeaderHeight = headerShellRef.current?.getBoundingClientRect().height ?? brandingHeight;
+        hideStart = Math.max(tickerHeight, cardTop - fullHeaderHeight - HEADER_CARD_GAP);
+      }
+      const scrollOffset = Math.min(
+        brandingHeight,
+        Math.max(0, window.scrollY - hideStart),
+      );
+      headerShellRef.current?.style.setProperty('--header-scroll-offset', `${scrollOffset}px`);
+      setIsHeaderHidden(brandingHeight > 0 && scrollOffset >= brandingHeight);
+    };
+
+    const onScroll = () => {
+      if (frameId === null) {
+        frameId = window.requestAnimationFrame(() => {
+          frameId = null;
+          updateHeader();
+        });
+      }
+    };
+
+    const measureBranding = () => {
+      brandingHeight = brandingRef.current?.getBoundingClientRect().height ?? 0;
+      tickerHeight = tickerRef.current?.offsetHeight ?? 0;
+      updateHeader();
+    };
+
+    const observer = new ResizeObserver(measureBranding);
+    observer.observe(brandingRef.current);
+    observer.observe(tickerRef.current);
+    measureBranding();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      observer.disconnect();
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+    };
+  }, []);
 
   // Close mobile menu on route change and handle hash scrolling
   useEffect(() => {
@@ -33,7 +94,7 @@ export default function MainLayout({ theme, toggleTheme }) {
   return (
     <div>
       {/* Notification Bar */}
-      <div className="notification-bar">
+      <div className="notification-bar" ref={tickerRef}>
         <div className="marquee">
           <span>Welcome to TANSAM!</span>
           <span>Enroll now for our Industry 4.0 corporate skilling programs.</span>
@@ -47,8 +108,9 @@ export default function MainLayout({ theme, toggleTheme }) {
         </div>
       </div>
 
-      {/* Header Container */}
-      <header className="navbar-container">
+      {/* Move branding out as the hero card approaches navigation. */}
+      <div ref={headerShellRef} className="header-shell">
+      <header className="site-header" ref={brandingRef} inert={isHeaderHidden}>
         {/* Top Header: Logos & Title */}
         <div className="header-top">
           {/* Left: TANSAM Logo */}
@@ -76,21 +138,13 @@ export default function MainLayout({ theme, toggleTheme }) {
               {theme === 'light' ? '🌙' : '☀️'}
             </button>
             
-            {/* Mobile Hamburger & Theme Toggle */}
-            <div className="mobile-only mobile-controls">
-              <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
-                {theme === 'light' ? '🌙' : '☀️'}
-              </button>
-              <button className="hamburger-btn" onClick={toggleMobileMenu} aria-label="Toggle Mobile Menu">
-                ☰
-              </button>
-            </div>
           </div>
         </div>
+      </header>
 
         {/* Bottom Header: Navigation Links */}
-        <nav className="header-bottom desktop-only">
-          <div className="nav-links">
+        <nav className="navbar-container header-bottom" aria-label="Main navigation">
+          <div className="nav-links desktop-only">
             <Link to="/" className="nav-link">Home</Link>
             
             <Link to="/#about-us" className="nav-link">About Us</Link>
@@ -112,8 +166,29 @@ export default function MainLayout({ theme, toggleTheme }) {
             
             <Link to="/contact" className="nav-link">Contact</Link>
           </div>
+          {/* Fade in the desktop control when the branding has scrolled away. */}
+          <button
+            onClick={toggleTheme}
+            className={`theme-toggle nav-theme-toggle desktop-only${isHeaderHidden ? ' nav-theme-toggle--visible' : ''}`}
+            aria-label="Toggle Theme"
+            aria-pressed={theme === 'dark'}
+            aria-hidden={!isHeaderHidden}
+            disabled={!isHeaderHidden}
+            title={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+          >
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
+          {/* Mobile controls remain accessible after the logos scroll away. */}
+          <div className="mobile-only mobile-controls">
+            <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle Theme">
+              {theme === 'light' ? '🌙' : '☀️'}
+            </button>
+            <button className="hamburger-btn" onClick={toggleMobileMenu} aria-label="Toggle Mobile Menu">
+              ☰
+            </button>
+          </div>
         </nav>
-      </header>
+      </div>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
