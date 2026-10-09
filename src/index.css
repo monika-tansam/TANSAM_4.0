@@ -1,6 +1,36 @@
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('/fonts/nunito-sans-variable.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: italic;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url('/fonts/nunito-sans-italic-variable.ttf') format('truetype');
+}
+
 :root {
+  /* ══════════ TANSAM LOGO (LEFT) CONTROLS ══════════ */
+  --tansam-logo-height: 90px;          /* Size (height preserves aspect ratio) */
+  --tansam-logo-inset: 350px;           /* Distance from left edge (moves toward center) */
+  --tansam-logo-x: 0px;                /* Fine horizontal adjustment (+ right, - left) */
+  --tansam-logo-y: -4px;                /* Fine vertical adjustment (+ down, - up) */
+  --tansam-logo-mobile-height: 52px;   /* Size on mobile */
+
+  /* ══════════ TIDCO LOGO (RIGHT) CONTROLS ══════════ */
+  --tidco-logo-height: 75px;           /* Size (height preserves aspect ratio) */
+  --tidco-logo-inset: 300px;            /* Distance from right edge (moves toward center) */
+  --tidco-logo-x: 0px;                 /* Fine horizontal adjustment (+ right, - left) */
+  --tidco-logo-y: 0px;                 /* Fine vertical adjustment (+ down, - up) */
+  --tidco-logo-mobile-height: 40px;    /* Size on mobile */
+
   /* Light Theme - Muted soft slate */
-  --primary: #009999;
+  --primary: #00f0f0;
   --primary-dark: #007a7a;
   --accent: #A21D21;
   --accent-dark: #7a1518;
@@ -15,7 +45,7 @@
   --glass-border: rgba(0, 0, 0, 0.08);
   --shadow-color: rgba(0, 0, 0, 0.06);
 
-  --font-family: 'Inter', 'Outfit', system-ui, sans-serif;
+  --font-family: 'Nunito Sans', system-ui, sans-serif;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -62,18 +92,47 @@ a {
   color: inherit;
 }
 
-/* Header Container (Siemens Cyan/Teal Gradient) */
-.navbar-container {
-  background: linear-gradient(90deg, #004d4d 0%, #008080 50%, #004d4d 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 2px solid #00b3b3;
-  box-shadow: 0 8px 30px rgba(0, 77, 77, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3);
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Reference frosted glass, scoped to the header so page colors stay independent. */
+.header-shell {
+  --primary: #009999;
+  --text-main: #111827;
+  --nav-bg: rgba(255, 255, 255, 0.7);
+  --dropdown-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px var(--shadow-color);
   position: sticky;
-  top: 0;
+  /* Follow the scroll distance directly after the delay, without a timed pull-up. */
+  top: calc(-1 * var(--header-scroll-offset, 0px));
   z-index: 40;
+}
+
+[data-theme='dark'] .header-shell {
+  --primary: #00e6e6;
+  --text-main: #f9fafb;
+  --nav-bg: rgba(10, 15, 22, 0.7);
+  --dropdown-bg: rgba(17, 24, 39, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+.site-header,
+.navbar-container {
+  background: transparent;
+}
+
+.navbar-container {
+  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .header-top {
@@ -108,20 +167,19 @@ a {
 }
 
 .header-titles h2 {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
   margin: 0;
   letter-spacing: 0.5px;
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: var(--text-main);
 }
 
 .header-titles p {
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   margin: 0;
   margin-top: 0.2rem;
   font-weight: 500;
-  color: #e0f2f1;
+  color: var(--text-main);
 }
 
 .siemens-text {
@@ -130,50 +188,81 @@ a {
 }
 
 .header-top img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 6px 14px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease;
   object-fit: contain;
 }
 
-.logo-main { height: 60px; }
-.tn-logo { height: 75px; padding: 4px 10px; }
-.logo-tidco { height: 50px; }
+.tn-logo { height: 75px; }
 
 .header-top img:hover {
   transform: scale(1.05);
-  background: #ffffff;
-  box-shadow: 0 6px 20px rgba(0, 255, 255, 0.4);
+}
+
+[data-theme='dark'] .header-titles h2,
+[data-theme='dark'] .header-titles p {
+  color: #ffffff;
+}
+
+[data-theme='dark'] .header-top img.tn-logo {
+  filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.6));
+}
+
+/* Transparent side logos, including on hover. */
+.header-top img.logo-main {
+  height: var(--tansam-logo-height, 85px);
+  width: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  flex-shrink: 0;
+}
+
+/* Move the TANSAM link together with its logo so it stays clickable */
+.header-left > a {
+  display: inline-flex;
+  margin-inline-start: var(--tansam-logo-inset, 50px);
+  translate: var(--tansam-logo-x, 0px) var(--tansam-logo-y, 0px);
+}
+
+.header-top img.logo-tidco {
+  height: var(--tidco-logo-height, 70px);
+  width: auto;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  flex-shrink: 0;
+  margin-inline-end: var(--tidco-logo-inset, 50px);
+  translate: var(--tidco-logo-x, 0px) var(--tidco-logo-y, 0px);
 }
 
 .header-bottom {
   display: flex;
   justify-content: center;
-  padding: 0 2rem 0.6rem 2rem;
+  padding: 0.6rem 2rem;
   width: 100%;
 }
 
 .nav-links {
   display: flex;
-  gap: 1.8rem;
+  gap: 2rem;
   align-items: center;
 }
 
 .nav-link, .dropdown-btn {
-  font-weight: 700;
-  font-size: 0.98rem;
+  font-weight: 500;
+  font-size: 1rem;
   letter-spacing: 0.5px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  padding: 0.55rem 1.3rem;
+  padding: 0.5rem 1.2rem;
   border-radius: 24px;
-  background: #ffffff;
-  color: #004d4d;
-  border: 1px solid #ffffff;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  background: transparent;
+  color: var(--text-main);
+  border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -181,10 +270,9 @@ a {
 }
 
 .nav-link:hover, .dropdown-btn:hover {
-  color: #005959;
-  background: #e0f7fa;
-  border-color: #00c2c2;
-  box-shadow: 0 6px 20px rgba(0, 194, 194, 0.4);
+  color: var(--primary);
+  background: rgba(0, 153, 153, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 153, 153, 0.2);
   transform: translateY(-2px);
 }
 
@@ -202,11 +290,11 @@ a {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
-  background: #ffffff;
+  background: var(--dropdown-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid #00c2c2;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 0 20px rgba(0, 153, 153, 0.1);
   border-radius: 16px;
   min-width: 220px;
   padding: 0.5rem;
@@ -228,7 +316,8 @@ a {
   background: transparent;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
   display: flex;
   flex-direction: column;
   opacity: 1;
@@ -240,16 +329,16 @@ a {
   padding: 0.75rem 1rem;
   font-size: 0.95rem;
   transition: all 0.25s ease;
-  color: #004d4d;
+  color: var(--text-main);
   border-radius: 10px;
   display: flex;
   align-items: center;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .dropdown-content a:hover {
-  background-color: #e0f7fa;
-  color: #008080;
+  background-color: rgba(0, 153, 153, 0.15);
+  color: var(--primary);
   transform: translateX(4px);
 }
 
@@ -272,6 +361,35 @@ a {
 .theme-toggle:hover {
   background: var(--shadow-color);
   transform: rotate(15deg);
+}
+
+.theme-toggle.nav-theme-toggle {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  translate: 0 -50%;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+}
+
+.theme-toggle.nav-theme-toggle--visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.35s ease, visibility 0s;
+}
+
+.nav-theme-toggle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-toggle.nav-theme-toggle {
+    transition: none;
+  }
 }
 
 /* Notification Bar - Clean White Strip */
@@ -330,6 +448,16 @@ a {
   margin-bottom: 1.5rem;
   line-height: 1.2;
   color: var(--text-main);
+}
+
+.hero-glass-card {
+  container-type: inline-size;
+}
+
+.hero-glass-card .hero-title .highlight-gradient {
+  /* Fit the complete phrase to the card's available width. */
+  font-size: min(1em, 8cqi);
+  white-space: nowrap;
 }
 
 .hero-title .highlight {
@@ -428,9 +556,27 @@ a {
     padding: 1rem;
   }
 
-  .logo-main { height: 40px; }
+  .header-bottom {
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+  }
+
   .tn-logo { height: 45px; }
-  .logo-tidco { height: 35px; }
+
+  .header-top img.logo-main {
+    height: var(--tansam-logo-mobile-height, 52px);
+  }
+
+  .header-top img.logo-tidco {
+    height: var(--tidco-logo-mobile-height, 40px);
+    margin-inline-end: 0;
+    translate: 0 0;
+  }
+
+  .header-left > a {
+    margin-inline-start: 0;
+    translate: 0 0;
+  }
   
   .header-center {
     flex: 1;
@@ -552,6 +698,21 @@ a {
   padding: 30px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
+.services-skilling-link {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto 16px;
+  padding: 11px 20px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  color: var(--text-main);
+  font-weight: 700;
+}
+.services-skilling-link:hover { color: var(--primary); }
+.services-skilling-link:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
 .service-card {
   display: flex;
   align-items: center;
@@ -599,7 +760,7 @@ a {
   border-radius: 40px;
 }
 .section-title {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-family);
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 2rem;
@@ -1192,7 +1353,7 @@ a {
 .footer-brand {
   font-size: 2.5rem;
   font-weight: 800;
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-family);
 }
 .footer-title {
   font-size: 1.1rem;
@@ -1289,12 +1450,12 @@ a {
   height: 40px;
   border-radius: 50%;
   background: rgba(0, 255, 255, 0.1);
-  color: #00ffff;
+  color: #009999;
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 255, 255, 0.3);
 }
 .social-icon-btn:hover {
-  background: #00ffff;
+  background: #009999;
   color: #0b0f19;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
@@ -1405,7 +1566,7 @@ a {
   bottom: 20px;
   right: 20px;
   z-index: 9999;
-  font-family: 'Outfit', 'Inter', sans-serif;
+  font-family: var(--font-family);
 }
 
 .chatbot-toggle-btn {
@@ -1615,7 +1776,7 @@ a {
   background: rgba(255, 255, 255, 0.1);
   padding: 2px 6px;
   border-radius: 4px;
-  font-family: monospace;
+  font-family: var(--font-family);
 }
 [data-theme='light'] .chat-bubble .inline-code {
   background: rgba(0, 0, 0, 0.05);

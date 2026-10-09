@@ -201,10 +201,6 @@ export default function LabDetailsPage({ theme }) {
   // Put lab specific images first, then append the rest, filtering out duplicates
   const sliderImages = [...new Set([...labSpecificImages, ...allImages])];
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [id]);
-
   if (!lab) {
     return (
       <div style={{ padding: '150px 20px', textAlign: 'center', minHeight: '80vh' }}>
