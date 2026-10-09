@@ -316,7 +316,8 @@ button, input, select, textarea {
   background: transparent;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
   display: flex;
   flex-direction: column;
   opacity: 1;
@@ -697,6 +698,21 @@ button, input, select, textarea {
   padding: 30px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
+.services-skilling-link {
+  display: flex;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto 16px;
+  padding: 11px 20px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  color: var(--text-main);
+  font-weight: 700;
+}
+.services-skilling-link:hover { color: var(--primary); }
+.services-skilling-link:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
 .service-card {
   display: flex;
   align-items: center;

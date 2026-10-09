@@ -39,6 +39,35 @@ export default function MainLayout({ theme, toggleTheme }) {
     }
   }, [location.pathname, location.hash, location.key, openingOffset]);
 
+  // Skilling's lazy CSS adjusts the compact header; align after it has mounted.
+  useEffect(() => {
+    if (!location.pathname.startsWith('/skilling') || location.hash) return;
+    let cancelled = false;
+    let scheduled = false;
+    let frameId = null;
+    const scheduleLanding = () => {
+      if (scheduled || !document.querySelector('.skilling-page')) return;
+      scheduled = true;
+      observer.disconnect();
+      document.fonts.ready.then(() => {
+        if (cancelled) return;
+        frameId = window.requestAnimationFrame(() => {
+          const brandingHeight = brandingRef.current?.getBoundingClientRect().height ?? 0;
+          const tickerHeight = tickerRef.current?.offsetHeight ?? 0;
+          window.scrollTo({ top: Math.ceil(tickerHeight + brandingHeight), behavior: 'instant' });
+        });
+      });
+    };
+    const observer = new MutationObserver(scheduleLanding);
+    observer.observe(document.body, { childList: true, subtree: true });
+    scheduleLanding();
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+      if (frameId !== null) window.cancelAnimationFrame(frameId);
+    };
+  }, [location.pathname, location.hash, location.key]);
+
   useEffect(() => {
     if (!['/labs', '/success'].includes(location.pathname) || location.hash) return;
     const isLabs = location.pathname === '/labs';
@@ -165,6 +194,8 @@ export default function MainLayout({ theme, toggleTheme }) {
       const scrollToTarget = () => {
         const element = document.getElementById(id);
         if (!element) return;
+        const scrollBehavior = location.pathname.startsWith('/skilling')
+          && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
 
         const aboutCard = id === 'about-us' ? element.querySelector('.about-content') : null;
         if (aboutCard) {
@@ -178,14 +209,14 @@ export default function MainLayout({ theme, toggleTheme }) {
           for (let node = aboutCard; node; node = node.offsetParent) {
             cardTop += node.offsetTop;
           }
-          window.scrollTo({ top: Math.max(0, cardTop - navHeight - gap), behavior: 'smooth' });
+          window.scrollTo({ top: Math.max(0, cardTop - navHeight - gap), behavior: scrollBehavior });
         } else {
           const navHeight = headerShellRef.current?.querySelector('nav')?.offsetHeight ?? 0;
           let sectionTop = 0;
           for (let node = element; node; node = node.offsetParent) {
             sectionTop += node.offsetTop;
           }
-          window.scrollTo({ top: Math.max(0, sectionTop - navHeight - 24), behavior: 'smooth' });
+          window.scrollTo({ top: Math.max(0, sectionTop - navHeight - 24), behavior: scrollBehavior });
         }
       };
 
@@ -281,7 +312,7 @@ export default function MainLayout({ theme, toggleTheme }) {
                 Capabilities ▼
               </button>
               <div className="dropdown-content">
-                <Link to="/#skilling">Skilling</Link>
+                <Link to="/skilling">Skilling</Link>
               <Link to="/labs#projects" className="nav-link">Research & Projects</Link>
               </div>
             </div>
@@ -330,7 +361,7 @@ export default function MainLayout({ theme, toggleTheme }) {
               <Link to="/" className="nav-link">Home</Link>
               <Link to="/#about-us" className="nav-link">About Us</Link>
               <Link to="/labs" className="nav-link">Labs</Link>
-              <Link to="/#skilling" className="nav-link">Skilling</Link>
+              <Link to="/skilling" className="nav-link">Skilling</Link>
               <Link to="/labs#projects" className="nav-link">Research & Projects</Link>
               <Link to="/news" className="nav-link">News & Events</Link>
               <Link to="/success" className="nav-link">Internships</Link>

@@ -35,3 +35,13 @@ venv/
 .env
 .env.*
 
+# Obsidian
+.obsidian/
+.graphifyignore/
+
+# Docs
+docs/
+
+# Tests
+tests/
+graphify-out/
