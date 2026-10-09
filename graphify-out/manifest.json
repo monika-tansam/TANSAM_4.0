@@ -198,16 +198,16 @@
     "semantic_hash": "462f8968e9ca5fc9afd2187279329ef5"
   },
   "package.json": {
-    "mtime": 1791353799.5423322,
-    "seen": 1791523972.01784,
-    "ast_hash": "e9370e188249558fadf23b260e21d2ea",
-    "semantic_hash": "e9370e188249558fadf23b260e21d2ea"
+    "mtime": 1791538963.5332472,
+    "seen": 1791548432.2383678,
+    "ast_hash": "984dae057edd45415427905f7693a2f9",
+    "semantic_hash": "984dae057edd45415427905f7693a2f9"
   },
   "src/App.jsx": {
-    "mtime": 1791457701.924108,
-    "seen": 1791523972.01784,
-    "ast_hash": "240c393e793d8d3efb69f425843828e8",
-    "semantic_hash": "240c393e793d8d3efb69f425843828e8"
+    "mtime": 1791539597.1486669,
+    "seen": 1791548432.2383678,
+    "ast_hash": "e6e8363b98f6190044139bf7f6bb230b",
+    "semantic_hash": "e6e8363b98f6190044139bf7f6bb230b"
   },
   "src/components/AboutSection.jsx": {
     "mtime": 1791353800.336836,
@@ -282,10 +282,10 @@
     "semantic_hash": "adbb88a6882de5563989e786780c087e"
   },
   "src/components/ServicesSummary.jsx": {
-    "mtime": 1791353800.3430855,
-    "seen": 1791523972.01784,
-    "ast_hash": "d39c0cd99631971d43ef9d8310ea680d",
-    "semantic_hash": "d39c0cd99631971d43ef9d8310ea680d"
+    "mtime": 1791542490.1035545,
+    "seen": 1791548432.2383678,
+    "ast_hash": "8a9cb2265030deadc5e07e5d009a6231",
+    "semantic_hash": "8a9cb2265030deadc5e07e5d009a6231"
   },
   "src/components/StudentSuccess.jsx": {
     "mtime": 1791353800.343603,
@@ -306,10 +306,10 @@
     "semantic_hash": "c3f394a4d140ef27f717bcab38e4139c"
   },
   "src/layouts/MainLayout.jsx": {
-    "mtime": 1791459162.4552886,
-    "seen": 1791523972.01784,
-    "ast_hash": "79071dc1eaf599671c8232ffe62e245e",
-    "semantic_hash": "79071dc1eaf599671c8232ffe62e245e"
+    "mtime": 1791540225.4240046,
+    "seen": 1791548432.2383678,
+    "ast_hash": "12b860f82c987e9f3da5060cef337e46",
+    "semantic_hash": "12b860f82c987e9f3da5060cef337e46"
   },
   "src/main.jsx": {
     "mtime": 1791353800.3453498,
@@ -622,5 +622,65 @@
     "seen": 1791523972.01784,
     "ast_hash": "c09e7a0827f9a1e39068d6297289eac1",
     "semantic_hash": "c09e7a0827f9a1e39068d6297289eac1"
+  },
+  "src/components/skilling/FaqAccordion.jsx": {
+    "mtime": 1791539132.988479,
+    "seen": 1791548432.2383678,
+    "ast_hash": "59472459d9808ef92813bcefab020a88",
+    "semantic_hash": "59472459d9808ef92813bcefab020a88"
+  },
+  "src/components/skilling/PathwayCards.jsx": {
+    "mtime": 1791539639.0875337,
+    "seen": 1791548432.2383678,
+    "ast_hash": "36cb672bd8e0f59bf1a43b89da5f2be8",
+    "semantic_hash": "36cb672bd8e0f59bf1a43b89da5f2be8"
+  },
+  "src/components/skilling/SkillingLayout.jsx": {
+    "mtime": 1791539132.6312122,
+    "seen": 1791548432.2383678,
+    "ast_hash": "dccf7507e4f0f9e608c3aeedc4919fc3",
+    "semantic_hash": "dccf7507e4f0f9e608c3aeedc4919fc3"
+  },
+  "src/components/skilling/TrainingTable.jsx": {
+    "mtime": 1791539133.1731462,
+    "seen": 1791548432.2383678,
+    "ast_hash": "1b071251d04200634939b1919f967336",
+    "semantic_hash": "1b071251d04200634939b1919f967336"
+  },
+  "src/data/skillingContent.js": {
+    "mtime": 1791539930.3446462,
+    "seen": 1791548432.2383678,
+    "ast_hash": "52b188e5478b8a073f266f8fd3437d9c",
+    "semantic_hash": "52b188e5478b8a073f266f8fd3437d9c"
+  },
+  "src/data/skillingTrainingData.js": {
+    "mtime": 1791538963.2479887,
+    "seen": 1791548432.2383678,
+    "ast_hash": "04e90b9bd60582741111c0d389298d6e",
+    "semantic_hash": "04e90b9bd60582741111c0d389298d6e"
+  },
+  "src/pages/AcademiaSkillingPage.jsx": {
+    "mtime": 1791539946.5024955,
+    "seen": 1791548432.2383678,
+    "ast_hash": "56f0a0e8bec516dcc33db3683fd6df5e",
+    "semantic_hash": "56f0a0e8bec516dcc33db3683fd6df5e"
+  },
+  "src/pages/CorporateSkillingPage.jsx": {
+    "mtime": 1791539946.5014923,
+    "seen": 1791548432.2383678,
+    "ast_hash": "f42e3c20ca7ee9faff787cac08c44549",
+    "semantic_hash": "f42e3c20ca7ee9faff787cac08c44549"
+  },
+  "src/pages/NaanmudhalvanPage.jsx": {
+    "mtime": 1791539946.503495,
+    "seen": 1791548432.2383678,
+    "ast_hash": "ccb3725d5661d1723843f5b248cab3d5",
+    "semantic_hash": "ccb3725d5661d1723843f5b248cab3d5"
+  },
+  "src/pages/SkillingPage.jsx": {
+    "mtime": 1791540659.5695624,
+    "seen": 1791548432.2383678,
+    "ast_hash": "e9a344d77eb0e4dbf8dc92726aa36e0d",
+    "semantic_hash": "e9a344d77eb0e4dbf8dc92726aa36e0d"
   }
 }

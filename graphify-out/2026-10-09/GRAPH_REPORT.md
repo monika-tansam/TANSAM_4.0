@@ -4,60 +4,58 @@
 - cluster-only mode — file stats not available
 
 ## Summary
-- 640 nodes · 1221 edges · 41 communities (23 shown, 18 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 37 edges (avg confidence: 0.84)
-- Token cost: 0 input · 0 output
+- 593 nodes · 1072 edges · 39 communities (21 shown, 18 thin omitted)
+- Extraction: 96% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 37 edges (avg confidence: 0.84)
+- Token cost: 1,259 input · 386 output
 
 ## Graph Freshness
-- Built from commit: `06bf290e`
+- Built from commit: `0076a9b1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Owl Carousel Plugin
-- react
+- React Frontend App
 - Flask Backend API
 - RTSP Video Streaming Server
-- SkillingPage.jsx
-- LabDetailsPage.jsx
-- TANSAM Home Page
-- package.json
-- test1.js
-- imageprocesstansam.js
-- 3test.js
+- 3D Hero Section Components
+- TANSAM Website Pages
+- Frontend Package Dependencies
+- Tea Leaf Image Analysis
+- Tea Leaf Quality Processing
+- Tea Leaf Quality Test Script
+- RGB Image Comparison Test
 - TANSAM Static HTML Pages
-- run_mock.js
+- Image Receiver Test Script
 - Minified Carousel & WOW Scripts
 - WOW.js Scroll Animation Library
-- test2.js
-- testfinal.js
-- imageProcessor.js
-- final.js
-- bluetooth.js
-- cam.js
-- Sensor Snapshot Log (output_data_a9be6cb5)
-- .oxlintrc.json
-- e
-- 404.html (iSTUDIO template)
-- iSTUDIO Projects Template Page
-- TANSAM App Setup Instructions
-- team.html (iSTUDIO Team Page)
-- SIL Open Font License 1.1 (OFL.txt)
-- test-tail.html (Tailwind Test Page)
+- Image Brightness Test Script
+- Final Image Receiver Script
+- Camera Image Capture Script
+- Bluetooth Serial Image Receiver
+- Sensor Reading Data Logs
+- Oxlint Linter Configuration
+- Waypoints Scroll Library
+- Archived iSTUDIO Template Files
+- iSTUDIO Template Pages
+- App Setup & Sensor Data Docs
+- iSTUDIO Team & Testimonial Pages
+- Nunito Sans Font License
+- Tailwind Test Page
 - Backend Python Dependencies
-- README (React + Vite)
+- React Vite README
 
 ## God Nodes (most connected - your core abstractions)
 1. `Owl()` - 53 edges
-2. `react` - 27 edges
-3. `framer-motion` - 17 edges
+2. `react` - 25 edges
+3. `framer-motion` - 16 edges
 4. `TANSAM Home Page` - 16 edges
-5. `lucide-react` - 15 edges
-6. `App()` - 14 edges
-7. `react-router-dom` - 12 edges
-8. `AnimatedSection()` - 11 edges
-9. `Rotating3DIcon()` - 11 edges
-10. `jimp` - 11 edges
+5. `AnimatedSection()` - 11 edges
+6. `Rotating3DIcon()` - 11 edges
+7. `jimp` - 11 edges
+8. `App()` - 10 edges
+9. `path` - 10 edges
+10. `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `index.html (TANSAM 4.0)` --references--> `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)`  [INFERRED]
@@ -86,15 +84,15 @@
 - **TANSAM Industry 4.0 Ecosystem** — _old_archive_skillingsection_html_corporate_corporate_page, backend_tansam_knowledge_knowledge_base, backend_tansam_knowledge_nine_innovation_labs, _old_archive_index_internship_program [INFERRED 0.70]
 - **TANSAM organization and program concepts** — concept_tansam, concept_siemens_partnership, concept_industry_4_0, concept_innovation_labs, concept_gcc, concept_skilling [INFERRED 0.80]
 
-## Communities (41 total, 18 thin omitted)
+## Communities (39 total, 18 thin omitted)
 
 ### Community 0 - "Owl Carousel Plugin"
 Cohesion: 0.06
 Nodes (3): Owl(), prefixed(), test()
 
-### Community 1 - "react"
-Cohesion: 0.07
-Nodes (42): index.html (TANSAM 4.0), framer-motion, react, react-dom, react-icons, AcademiaSkillingPage, App(), ContactPage (+34 more)
+### Community 1 - "React Frontend App"
+Cohesion: 0.08
+Nodes (39): index.html (TANSAM 4.0), framer-motion, lucide-react, react, react-dom, react-icons, react-router-dom, App() (+31 more)
 
 ### Community 2 - "Flask Backend API"
 Cohesion: 0.06
@@ -104,41 +102,41 @@ Nodes (18): add_cors_headers(), preflight_handler(), main(), list_models(), publ
 Cohesion: 0.05
 Nodes (43): app, express, ffmpeg, fs, Jimp, path, rtsp, server (+35 more)
 
-### Community 4 - "SkillingPage.jsx"
-Cohesion: 0.14
-Nodes (33): lucide-react, react-router-dom, FaqAccordion(), Chevron(), icons, PathwayCards(), ContentGrid(), EnquiryPanel() (+25 more)
-
-### Community 5 - "LabDetailsPage.jsx"
+### Community 4 - "3D Hero Section Components"
 Cohesion: 0.13
-Nodes (32): @react-three/drei, @react-three/fiber, three, AboutSection(), DottedSphere(), DataPipe(), Benefit3D(), Document3D() (+24 more)
+Nodes (33): @react-three/drei, @react-three/fiber, three, AboutSection(), DottedSphere(), DataPipe(), HeroSection(), Benefit3D() (+25 more)
 
-### Community 6 - "TANSAM Home Page"
+### Community 5 - "TANSAM Website Pages"
 Cohesion: 0.11
 Nodes (37): Asset Performance Page, Research Centre for Asset Performance, Board of Directors Page, Contact Page, Features Page (iSTUDIO Template), TANSAM Home Page, TANSAM Internship Program, Industrial IoT & Equipment Page (+29 more)
 
-### Community 7 - "package.json"
+### Community 6 - "Frontend Package Dependencies"
 Cohesion: 0.06
-Nodes (31): dependencies, framer-motion, lucide-react, react, react-dom, react-icons, react-router-dom, @react-three/drei (+23 more)
+Nodes (30): dependencies, framer-motion, lucide-react, react, react-dom, react-icons, react-router-dom, @react-three/drei (+22 more)
 
-### Community 8 - "test1.js"
+### Community 7 - "Tea Leaf Image Analysis"
 Cohesion: 0.09
-Nodes (22): analyzeTexture(), assessTeaLeafQuality(), estimateLeafDensity(), interpretQualityScore(), loadImageAndExtractRGB(), sharp, axios, bluetooth (+14 more)
+Nodes (23): analyzeTexture(), assessTeaLeafQuality(), estimateLeafDensity(), interpretQualityScore(), loadImageAndExtractRGB(), sharp, analyzeTexture(), assessTeaLeafQuality() (+15 more)
 
-### Community 9 - "imageprocesstansam.js"
+### Community 8 - "Tea Leaf Quality Processing"
 Cohesion: 0.12
-Nodes (16): analyzeTexture(), assessTeaLeafQuality(), axios, bluetooth, estimateLeafDensity(), ExcelJS, fs, imagePath (+8 more)
+Nodes (17): determineTeaLeafQuality(), extractFeature1(), extractFeature2(), extractFeature3(), Jimp, meetsCriteriaA(), meetsCriteriaB(), processImage() (+9 more)
 
-### Community 10 - "3test.js"
+### Community 9 - "Tea Leaf Quality Test Script"
 Cohesion: 0.15
 Nodes (16): axios, bluetooth, determineTeaLeafQuality(), ExcelJS, extractFeature1(), extractFeature2(), extractFeature3(), fs (+8 more)
+
+### Community 10 - "RGB Image Comparison Test"
+Cohesion: 0.12
+Nodes (15): axios, bluetooth, constantRGB_A, constantRGB_B, constantRGB_C, ExcelJS, fs, identifyRGB() (+7 more)
 
 ### Community 11 - "TANSAM Static HTML Pages"
 Cohesion: 0.16
 Nodes (8): arvrxr.html (AR/VR/XR Lab), Gcc.html (Global Career Connect), Global Career Connect (GCC), Industry 4.0 / Digital Transformation, TANSAM Innovation Labs, Siemens–TIDCO Partnership, TANSAM Skilling Program, TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)
 
-### Community 12 - "run_mock.js"
-Cohesion: 0.17
-Nodes (8): ExcelJS, fs, Jimp, MockBluetoothSerialPort, MockImageReceiver, path, pipeStream(), serial
+### Community 12 - "Image Receiver Test Script"
+Cohesion: 0.16
+Nodes (11): axios, bluetooth, ExcelJS, fs, ImageReceiver, Jimp, path, pipeStream() (+3 more)
 
 ### Community 13 - "Minified Carousel & WOW Scripts"
 Cohesion: 0.20
@@ -148,35 +146,27 @@ Nodes (7): e(), f(), a(), c(), d(), e(), g()
 Cohesion: 0.20
 Nodes (6): _classCallCheck(), createEvent(), extend(), MutationObserver(), WeakMap(), WOW()
 
-### Community 15 - "test2.js"
-Cohesion: 0.18
-Nodes (10): axios, bluetooth, ExcelJS, fs, ImageReceiver, Jimp, path, pipeStream() (+2 more)
-
-### Community 16 - "testfinal.js"
+### Community 15 - "Image Brightness Test Script"
 Cohesion: 0.16
 Nodes (9): axios, bluetooth, ExcelJS, fs, ImageReceiver, Jimp, path, saveImage() (+1 more)
 
-### Community 17 - "imageProcessor.js"
-Cohesion: 0.22
-Nodes (10): ImageReceiver, pipeStream(), determineTeaLeafQuality(), extractFeature1(), extractFeature2(), extractFeature3(), Jimp, meetsCriteriaA() (+2 more)
-
-### Community 18 - "final.js"
+### Community 16 - "Final Image Receiver Script"
 Cohesion: 0.18
 Nodes (9): axios, bluetooth, ExcelJS, fs, ImageReceiver, Jimp, path, pipeStream() (+1 more)
 
-### Community 19 - "bluetooth.js"
-Cohesion: 0.25
-Nodes (7): bluetooth, ExcelJS, fs, ImageReceiver, serial, bluetooth-serial-port, exceljs
+### Community 17 - "Camera Image Capture Script"
+Cohesion: 0.20
+Nodes (7): axios, fs, ImageReceiver, Jimp, path, pipeStream(), path
 
-### Community 20 - "cam.js"
+### Community 18 - "Bluetooth Serial Image Receiver"
 Cohesion: 0.25
-Nodes (6): axios, fs, Jimp, path, jimp, path
+Nodes (6): bluetooth, ExcelJS, fs, ImageReceiver, serial, exceljs
 
-### Community 21 - "Sensor Snapshot Log (output_data_a9be6cb5)"
+### Community 19 - "Sensor Reading Data Logs"
 Cohesion: 0.29
 Nodes (7): Distance Reading 15cm, Distance Reading 85cm, Percentage Reading (38%), RGB Color Reading (119,154,53), Sensor Snapshot Log (output_data_a9be6cb5), Snapshot Event Type, Timestamp Field
 
-### Community 22 - ".oxlintrc.json"
+### Community 20 - "Oxlint Linter Configuration"
 Cohesion: 0.33
 Nodes (5): plugins, rules, react/only-export-components, react/rules-of-hooks, $schema
 
@@ -187,8 +177,8 @@ Nodes (5): plugins, rules, react/only-export-components, react/rules-of-hooks, $
   _old_archive/feature.html · relation: semantically_similar_to
 
 ## Knowledge Gaps
-- **170 isolated node(s):** `FLOATING_MESSAGES`, `SUGGESTIONS`, `defaultAcademicClients`, `defaultIndustryClients`, `newsItems` (+165 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 259 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **165 isolated node(s):** `FLOATING_MESSAGES`, `SUGGESTIONS`, `defaultAcademicClients`, `defaultIndustryClients`, `newsItems` (+160 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 253 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -196,15 +186,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `TANSAM App Setup Instructions` and `Sensor Output Data (Moisture/Distance/Sack Height)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)` connect `TANSAM Static HTML Pages` to `react`?**
-  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Why does `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)` connect `TANSAM Static HTML Pages` to `React Frontend App`?**
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **What connects `FLOATING_MESSAGES`, `SUGGESTIONS`, `defaultAcademicClients` to the rest of the system?**
-  _170 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _165 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Owl Carousel Plugin` be split into smaller, more focused modules?**
   _Cohesion score 0.0636193531141406 - nodes in this community are weakly interconnected._
 - **What is the exact relationship between `Features Page (iSTUDIO Template)` and `TANSAM Home Page`?**
   _Edge tagged AMBIGUOUS (relation: semantically_similar_to) - confidence is low._
-- **Why does `index.html (TANSAM 4.0)` connect `react` to `TANSAM Static HTML Pages`?**
-  _High betweenness centrality (0.046) - this node is a cross-community bridge._
-- **Should `react` be split into smaller, more focused modules?**
-  _Cohesion score 0.07219662058371736 - nodes in this community are weakly interconnected._
+- **Why does `react` connect `React Frontend App` to `3D Hero Section Components`, `Frontend Package Dependencies`?**
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+- **Should `React Frontend App` be split into smaller, more focused modules?**
+  _Cohesion score 0.08022598870056497 - nodes in this community are weakly interconnected._
