@@ -1,21 +1,21 @@
-# Graph Report - TANSAM_4.0  (2026-10-09)
+# Graph Report - TANSAM_4.0  (2026-10-12)
 
 ## Corpus Check
 - cluster-only mode — file stats not available
 
 ## Summary
-- 640 nodes · 1221 edges · 41 communities (23 shown, 18 thin omitted)
+- 649 nodes · 1243 edges · 41 communities (23 shown, 18 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 37 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `06bf290e`
+- Built from commit: `68f713a9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Owl Carousel Plugin
-- react
+- App.jsx
 - Flask Backend API
 - RTSP Video Streaming Server
 - SkillingPage.jsx
@@ -33,7 +33,7 @@
 - testfinal.js
 - imageProcessor.js
 - final.js
-- bluetooth.js
+- ref_fs
 - cam.js
 - Sensor Snapshot Log (output_data_a9be6cb5)
 - .oxlintrc.json
@@ -49,12 +49,12 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `Owl()` - 53 edges
-2. `react` - 27 edges
-3. `framer-motion` - 17 edges
-4. `TANSAM Home Page` - 16 edges
-5. `lucide-react` - 15 edges
-6. `App()` - 14 edges
-7. `react-router-dom` - 12 edges
+2. `react` - 29 edges
+3. `framer-motion` - 18 edges
+4. `lucide-react` - 16 edges
+5. `TANSAM Home Page` - 16 edges
+6. `App()` - 15 edges
+7. `react-router-dom` - 14 edges
 8. `AnimatedSection()` - 11 edges
 9. `Rotating3DIcon()` - 11 edges
 10. `jimp` - 11 edges
@@ -92,9 +92,9 @@
 Cohesion: 0.06
 Nodes (3): Owl(), prefixed(), test()
 
-### Community 1 - "react"
-Cohesion: 0.07
-Nodes (42): index.html (TANSAM 4.0), framer-motion, react, react-dom, react-icons, AcademiaSkillingPage, App(), ContactPage (+34 more)
+### Community 1 - "App.jsx"
+Cohesion: 0.06
+Nodes (47): index.html (TANSAM 4.0), framer-motion, react, react-dom, react-icons, AcademiaSkillingPage, App(), BoardDirectorsPage (+39 more)
 
 ### Community 2 - "Flask Backend API"
 Cohesion: 0.06
@@ -110,7 +110,7 @@ Nodes (33): lucide-react, react-router-dom, FaqAccordion(), Chevron(), icons, Pa
 
 ### Community 5 - "LabDetailsPage.jsx"
 Cohesion: 0.13
-Nodes (32): @react-three/drei, @react-three/fiber, three, AboutSection(), DottedSphere(), DataPipe(), Benefit3D(), Document3D() (+24 more)
+Nodes (32): @react-three/drei, @react-three/fiber, three, AboutSection(), DottedSphere(), DataPipe(), HeroSection(), Benefit3D() (+24 more)
 
 ### Community 6 - "TANSAM Home Page"
 Cohesion: 0.11
@@ -121,12 +121,12 @@ Cohesion: 0.06
 Nodes (31): dependencies, framer-motion, lucide-react, react, react-dom, react-icons, react-router-dom, @react-three/drei (+23 more)
 
 ### Community 8 - "test1.js"
-Cohesion: 0.09
-Nodes (22): analyzeTexture(), assessTeaLeafQuality(), estimateLeafDensity(), interpretQualityScore(), loadImageAndExtractRGB(), sharp, axios, bluetooth (+14 more)
+Cohesion: 0.12
+Nodes (15): axios, bluetooth, constantRGB_A, constantRGB_B, constantRGB_C, ExcelJS, fs, identifyRGB() (+7 more)
 
 ### Community 9 - "imageprocesstansam.js"
-Cohesion: 0.12
-Nodes (16): analyzeTexture(), assessTeaLeafQuality(), axios, bluetooth, estimateLeafDensity(), ExcelJS, fs, imagePath (+8 more)
+Cohesion: 0.09
+Nodes (23): analyzeTexture(), assessTeaLeafQuality(), estimateLeafDensity(), interpretQualityScore(), loadImageAndExtractRGB(), sharp, analyzeTexture(), assessTeaLeafQuality() (+15 more)
 
 ### Community 10 - "3test.js"
 Cohesion: 0.15
@@ -138,7 +138,7 @@ Nodes (8): arvrxr.html (AR/VR/XR Lab), Gcc.html (Global Career Connect), Global 
 
 ### Community 12 - "run_mock.js"
 Cohesion: 0.17
-Nodes (8): ExcelJS, fs, Jimp, MockBluetoothSerialPort, MockImageReceiver, path, pipeStream(), serial
+Nodes (9): ExcelJS, fs, Jimp, MockBluetoothSerialPort, MockImageReceiver, path, pipeStream(), serial (+1 more)
 
 ### Community 13 - "Minified Carousel & WOW Scripts"
 Cohesion: 0.20
@@ -157,20 +157,20 @@ Cohesion: 0.16
 Nodes (9): axios, bluetooth, ExcelJS, fs, ImageReceiver, Jimp, path, saveImage() (+1 more)
 
 ### Community 17 - "imageProcessor.js"
-Cohesion: 0.22
-Nodes (10): ImageReceiver, pipeStream(), determineTeaLeafQuality(), extractFeature1(), extractFeature2(), extractFeature3(), Jimp, meetsCriteriaA() (+2 more)
+Cohesion: 0.39
+Nodes (8): determineTeaLeafQuality(), extractFeature1(), extractFeature2(), extractFeature3(), Jimp, meetsCriteriaA(), meetsCriteriaB(), processImage()
 
 ### Community 18 - "final.js"
-Cohesion: 0.18
-Nodes (9): axios, bluetooth, ExcelJS, fs, ImageReceiver, Jimp, path, pipeStream() (+1 more)
+Cohesion: 0.16
+Nodes (10): axios, bluetooth, ExcelJS, fs, ImageReceiver, Jimp, path, pipeStream() (+2 more)
 
-### Community 19 - "bluetooth.js"
+### Community 19 - "ref_fs"
 Cohesion: 0.25
-Nodes (7): bluetooth, ExcelJS, fs, ImageReceiver, serial, bluetooth-serial-port, exceljs
+Nodes (6): bluetooth, ExcelJS, fs, ImageReceiver, serial, bluetooth-serial-port
 
 ### Community 20 - "cam.js"
-Cohesion: 0.25
-Nodes (6): axios, fs, Jimp, path, jimp, path
+Cohesion: 0.20
+Nodes (7): axios, fs, ImageReceiver, Jimp, path, pipeStream(), path
 
 ### Community 21 - "Sensor Snapshot Log (output_data_a9be6cb5)"
 Cohesion: 0.29
@@ -187,8 +187,8 @@ Nodes (5): plugins, rules, react/only-export-components, react/rules-of-hooks, $
   _old_archive/feature.html · relation: semantically_similar_to
 
 ## Knowledge Gaps
-- **170 isolated node(s):** `FLOATING_MESSAGES`, `SUGGESTIONS`, `defaultAcademicClients`, `defaultIndustryClients`, `newsItems` (+165 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 259 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **172 isolated node(s):** `FLOATING_MESSAGES`, `SUGGESTIONS`, `defaultAcademicClients`, `defaultIndustryClients`, `newsItems` (+167 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 262 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -196,15 +196,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `TANSAM App Setup Instructions` and `Sensor Output Data (Moisture/Distance/Sack Height)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)` connect `TANSAM Static HTML Pages` to `react`?**
-  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Why does `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)` connect `TANSAM Static HTML Pages` to `App.jsx`?**
+  _High betweenness centrality (0.049) - this node is a cross-community bridge._
 - **What connects `FLOATING_MESSAGES`, `SUGGESTIONS`, `defaultAcademicClients` to the rest of the system?**
-  _170 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _172 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Owl Carousel Plugin` be split into smaller, more focused modules?**
   _Cohesion score 0.0636193531141406 - nodes in this community are weakly interconnected._
 - **What is the exact relationship between `Features Page (iSTUDIO Template)` and `TANSAM Home Page`?**
   _Edge tagged AMBIGUOUS (relation: semantically_similar_to) - confidence is low._
-- **Why does `index.html (TANSAM 4.0)` connect `react` to `TANSAM Static HTML Pages`?**
-  _High betweenness centrality (0.046) - this node is a cross-community bridge._
-- **Should `react` be split into smaller, more focused modules?**
-  _Cohesion score 0.07219662058371736 - nodes in this community are weakly interconnected._
+- **Why does `index.html (TANSAM 4.0)` connect `App.jsx` to `TANSAM Static HTML Pages`?**
+  _High betweenness centrality (0.047) - this node is a cross-community bridge._
+- **Should `App.jsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.06259780907668232 - nodes in this community are weakly interconnected._

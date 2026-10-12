@@ -98,6 +98,7 @@
       "src_app",
       "src_app_academiaskillingpage",
       "src_app_app",
+      "src_app_boarddirectorspage",
       "src_app_contactpage",
       "src_app_corporateskillingpage",
       "src_app_homepage",
@@ -124,7 +125,9 @@
       "src_components_contactsection_contactsection",
       "src_components_footer",
       "src_components_footer_footer",
-      "src_components_herosection_herosection",
+      "src_components_labsgrid_labsgrid",
+      "src_components_navdropdown",
+      "src_components_navdropdown_navdropdown",
       "src_components_newsandevents",
       "src_components_newsandevents_newsandevents",
       "src_components_newsandevents_newsitems",
@@ -139,10 +142,16 @@
       "src_components_testimonialsandnewsletter",
       "src_components_testimonialsandnewsletter_testimonialsandnewsletter",
       "src_components_testimonialsandnewsletter_video_ids",
+      "src_data_boarddirectors",
+      "src_data_boarddirectors_boarddirectors",
       "src_index",
       "src_layouts_mainlayout",
+      "src_layouts_mainlayout_about_links",
+      "src_layouts_mainlayout_capabilities_links",
       "src_layouts_mainlayout_mainlayout",
       "src_main",
+      "src_pages_boarddirectorspage",
+      "src_pages_boarddirectorspage_boarddirectorspage",
       "src_pages_contactpage",
       "src_pages_contactpage_contactpage",
       "src_pages_homepage",
@@ -312,6 +321,7 @@
       "src_components_aboutsection_dottedsphere",
       "src_components_herosection",
       "src_components_herosection_datapipe",
+      "src_components_herosection_herosection",
       "src_components_labdetailsmodels",
       "src_components_labdetailsmodels_benefit3d",
       "src_components_labdetailsmodels_document3d",
@@ -328,7 +338,6 @@
       "src_components_labsgrid_gear3d",
       "src_components_labsgrid_labpanel",
       "src_components_labsgrid_labsdata",
-      "src_components_labsgrid_labsgrid",
       "src_components_labsgrid_lightbulb3d",
       "src_components_labsgrid_model_by_type",
       "src_components_labsgrid_network3d",
@@ -418,14 +427,6 @@
       "vite_config"
     ],
     "8": [
-      "old_archive_tansam_imageanalyzer",
-      "old_archive_tansam_imageanalyzer_analyzecolordistribution",
-      "old_archive_tansam_imageanalyzer_analyzetexture",
-      "old_archive_tansam_imageanalyzer_assesstealeafquality",
-      "old_archive_tansam_imageanalyzer_estimateleafdensity",
-      "old_archive_tansam_imageanalyzer_interpretqualityscore",
-      "old_archive_tansam_imageanalyzer_loadimageandextractrgb",
-      "old_archive_tansam_imageanalyzer_sharp",
       "old_archive_tansam_test1",
       "old_archive_tansam_test1_axios",
       "old_archive_tansam_test1_bluetooth",
@@ -444,10 +445,17 @@
       "old_archive_tansam_test1_path",
       "old_archive_tansam_test1_pipestream",
       "old_archive_tansam_test1_serial",
-      "old_archive_tansam_test1_sharp",
-      "ref_sharp"
+      "old_archive_tansam_test1_sharp"
     ],
     "9": [
+      "old_archive_tansam_imageanalyzer",
+      "old_archive_tansam_imageanalyzer_analyzecolordistribution",
+      "old_archive_tansam_imageanalyzer_analyzetexture",
+      "old_archive_tansam_imageanalyzer_assesstealeafquality",
+      "old_archive_tansam_imageanalyzer_estimateleafdensity",
+      "old_archive_tansam_imageanalyzer_interpretqualityscore",
+      "old_archive_tansam_imageanalyzer_loadimageandextractrgb",
+      "old_archive_tansam_imageanalyzer_sharp",
       "old_archive_tansam_imageprocesstansam",
       "old_archive_tansam_imageprocesstansam_analyzecolordistribution",
       "old_archive_tansam_imageprocesstansam_analyzetexture",
@@ -468,7 +476,8 @@
       "old_archive_tansam_imageprocesstansam_pipestream",
       "old_archive_tansam_imageprocesstansam_serial",
       "old_archive_tansam_imageprocesstansam_sharp",
-      "ref_excel"
+      "ref_excel",
+      "ref_sharp"
     ],
     "10": [
       "old_archive_tansam_3test",
@@ -525,7 +534,7 @@
       "old_archive_tansam_run_mock_path",
       "old_archive_tansam_run_mock_pipestream",
       "old_archive_tansam_run_mock_serial",
-      "ref_fs"
+      "ref_exceljs"
     ],
     "13": [
       "old_archive_lib_owlcarousel_owl_carousel_min",
@@ -592,10 +601,6 @@
       "old_archive_tansam_testfinal_serial"
     ],
     "17": [
-      "old_archive_tansam_cam_imagereceiver",
-      "old_archive_tansam_cam_imagereceiver_constructor",
-      "old_archive_tansam_cam_imagereceiver_receive",
-      "old_archive_tansam_cam_pipestream",
       "old_archive_tansam_imageprocessor",
       "old_archive_tansam_imageprocessor_determinetealeafquality",
       "old_archive_tansam_imageprocessor_extractfeature1",
@@ -619,7 +624,8 @@
       "old_archive_tansam_final_jimp",
       "old_archive_tansam_final_path",
       "old_archive_tansam_final_pipestream",
-      "old_archive_tansam_final_serial"
+      "old_archive_tansam_final_serial",
+      "ref_jimp"
     ],
     "19": [
       "old_archive_tansam_bluetooth",
@@ -629,16 +635,19 @@
       "old_archive_tansam_bluetooth_imagereceiver",
       "old_archive_tansam_bluetooth_serial",
       "ref_bluetooth_serial_port",
-      "ref_exceljs"
+      "ref_fs"
     ],
     "20": [
       "old_archive_tansam_cam",
       "old_archive_tansam_cam_axios",
       "old_archive_tansam_cam_fs",
+      "old_archive_tansam_cam_imagereceiver",
+      "old_archive_tansam_cam_imagereceiver_constructor",
+      "old_archive_tansam_cam_imagereceiver_receive",
       "old_archive_tansam_cam_jimp",
       "old_archive_tansam_cam_path",
+      "old_archive_tansam_cam_pipestream",
       "ref_axios",
-      "ref_jimp",
       "ref_path"
     ],
     "21": [
@@ -725,15 +734,15 @@
   },
   "cohesion": {
     "0": 0.0636193531141406,
-    "1": 0.07219662058371736,
+    "1": 0.06259780907668232,
     "2": 0.06485671191553545,
     "3": 0.04541062801932367,
     "4": 0.13742071881606766,
     "5": 0.12955465587044535,
     "6": 0.1111111111111111,
     "7": 0.0625,
-    "8": 0.08994708994708994,
-    "9": 0.12380952380952381,
+    "8": 0.12280701754385964,
+    "9": 0.0896551724137931,
     "10": 0.15204678362573099,
     "11": 0.15833333333333333,
     "12": 0.16666666666666666,
@@ -741,10 +750,10 @@
     "14": 0.1978021978021978,
     "15": 0.17582417582417584,
     "16": 0.16483516483516483,
-    "17": 0.21794871794871795,
-    "18": 0.1794871794871795,
+    "17": 0.3888888888888889,
+    "18": 0.16483516483516483,
     "19": 0.25,
-    "20": 0.25,
+    "20": 0.2,
     "21": 0.2857142857142857,
     "22": 0.3333333333333333,
     "23": 0.6666666666666666,
@@ -775,12 +784,17 @@
     {
       "id": "ref_react",
       "label": "react",
-      "degree": 27
+      "degree": 29
     },
     {
       "id": "ref_framer_motion",
       "label": "framer-motion",
-      "degree": 17
+      "degree": 18
+    },
+    {
+      "id": "ref_lucide_react",
+      "label": "lucide-react",
+      "degree": 16
     },
     {
       "id": "_old_archive_index",
@@ -788,19 +802,14 @@
       "degree": 16
     },
     {
-      "id": "ref_lucide_react",
-      "label": "lucide-react",
-      "degree": 15
-    },
-    {
       "id": "src_app_app",
       "label": "App()",
-      "degree": 14
+      "degree": 15
     },
     {
       "id": "ref_react_router_dom",
       "label": "react-router-dom",
-      "degree": 12
+      "degree": 14
     },
     {
       "id": "src_components_animatedsection_animatedsection",
@@ -883,13 +892,13 @@
     },
     {
       "type": "bridge_node",
-      "question": "Why does `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)` connect `TANSAM Static HTML Pages` to `react`?",
-      "why": "High betweenness centrality (0.048) - this node is a cross-community bridge."
+      "question": "Why does `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)` connect `TANSAM Static HTML Pages` to `App.jsx`?",
+      "why": "High betweenness centrality (0.049) - this node is a cross-community bridge."
     },
     {
       "type": "isolated_nodes",
       "question": "What connects `FLOATING_MESSAGES`, `SUGGESTIONS`, `defaultAcademicClients` to the rest of the system?",
-      "why": "170 weakly-connected nodes found - possible documentation gaps or missing edges."
+      "why": "172 weakly-connected nodes found - possible documentation gaps or missing edges."
     },
     {
       "type": "low_cohesion",
@@ -903,13 +912,13 @@
     },
     {
       "type": "bridge_node",
-      "question": "Why does `index.html (TANSAM 4.0)` connect `react` to `TANSAM Static HTML Pages`?",
-      "why": "High betweenness centrality (0.046) - this node is a cross-community bridge."
+      "question": "Why does `index.html (TANSAM 4.0)` connect `App.jsx` to `TANSAM Static HTML Pages`?",
+      "why": "High betweenness centrality (0.047) - this node is a cross-community bridge."
     },
     {
       "type": "low_cohesion",
-      "question": "Should `react` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.07219662058371736 - nodes in this community are weakly interconnected."
+      "question": "Should `App.jsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.06259780907668232 - nodes in this community are weakly interconnected."
     }
   ]
 }
