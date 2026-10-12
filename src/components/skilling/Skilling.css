@@ -158,7 +158,7 @@
 .sk-records-top p { font-size: .85rem; color: var(--sk-muted); }
 .sk-records-total { text-align: right; flex-shrink: 0; }
 .sk-records-total strong { display: block; font-size: 1.75rem; letter-spacing: -.025em; font-variant-numeric: tabular-nums; color: var(--sk-accent); }
-.sk-records-total span { color: var(--sk-muted); font-size: .7rem; }
+.sk-records-total > .sk-records-total-label { color: var(--sk-muted); font-size: .7rem; }
 .sk-table-filters { display: grid; grid-template-columns: 1.6fr 1fr 1fr auto; gap: 16px; align-items: end; padding: 0 28px 23px; }
 .sk-table-filters label { display: block; font-size: .74rem; color: var(--sk-muted); margin-bottom: 8px; }
 .sk-table-filters input, .sk-table-filters select { width: 100%; height: 43px; background: var(--sk-bg); color: var(--sk-ink); border: 1px solid var(--sk-line); border-radius: 9px; padding: 9px 11px; font: inherit; font-size: .85rem; }
@@ -262,7 +262,7 @@
   .sk-enquiry-icon { display: inline-flex; margin-bottom: 15px; }
   .sk-enquiry > a { margin-top: 22px; }
   .sk-program-bridge { padding: 22px; align-items: flex-start; }
-  .sk-records-total span { display: block; }
+  .sk-records-total > .sk-records-total-label { display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
   .skilling-page *, .skilling-page *::before, .skilling-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

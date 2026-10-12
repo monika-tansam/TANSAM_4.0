@@ -7,7 +7,7 @@ import { corporateFocus } from '../data/skillingContent';
 export default function CorporateSkillingPage() {
   return <SkillingLayout title="Corporate Skilling" variant="corporate">
     <SkillingHero title="Prepare your workforce for Industry 4.0." description="Connected systems, automation, and real-time data are changing manufacturing. Help your team build the knowledge and practical capabilities to work in this evolving industrial environment." image="/img/skilling/corporate.webp" imageAlt="Corporate skilling and connected manufacturing illustration">
-      <Link to="/contact" className="sk-button sk-button--primary">Discuss your training needs<ArrowUpRight size={17} aria-hidden="true" /></Link>
+      <Link to="/contact" className="btn btn-primary sk-pathway-cta">Discuss your training needs<ArrowUpRight size={17} aria-hidden="true" /></Link>
     </SkillingHero>
 
     <section className="sk-section" aria-labelledby="corporate-focus">

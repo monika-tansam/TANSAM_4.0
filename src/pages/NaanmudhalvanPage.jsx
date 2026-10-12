@@ -7,7 +7,7 @@ import { facultyRecords, studentRecords } from '../data/skillingTrainingData';
 export default function NaanmudhalvanPage() {
   return <SkillingLayout title="Naanmudhalvan" variant="naanmudhalvan">
     <SkillingHero title="Developing skills for Tamil Nadu’s future." description="Under the Government of Tamil Nadu’s Naanmudhalvan initiative, TANSAM connects faculty and students with advanced manufacturing, emerging technologies, and practical industrial exposure." image="/img/skilling/naanmudhalvan.webp" imageAlt="Naanmudhalvan faculty and student skilling illustration">
-      <a href="#student-development" className="sk-button sk-button--primary">Student development<ArrowDown size={17} aria-hidden="true" /></a>
+      <a href="#student-development" className="btn btn-primary sk-pathway-cta">Student development<ArrowDown size={17} aria-hidden="true" /></a>
       <a href="#faculty-development" className="sk-text-link">Faculty development<ArrowDown size={15} aria-hidden="true" /></a>
     </SkillingHero>
 

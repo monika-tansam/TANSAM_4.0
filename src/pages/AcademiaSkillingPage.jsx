@@ -8,7 +8,7 @@ import { academicOfferings, academicBenefits, academicLearning, academiaFaqs } f
 export default function AcademiaSkillingPage() {
   return <SkillingLayout title="Academia" variant="academia">
     <SkillingHero title="Bring industry-ready learning to your institution." description="Bridge classroom knowledge and industry needs. TANSAM works with engineering colleges, polytechnic institutions, and universities to connect theory with hands-on Industry 4.0 learning." image="/img/skilling/academia.webp" imageAlt="Academic learning and Industry 4.0 collaboration illustration" accent="ochre">
-      <Link to="/contact" className="sk-button sk-button--primary">Explore academic collaboration<ArrowUpRight size={17} aria-hidden="true" /></Link>
+      <Link to="/contact" className="btn btn-primary sk-pathway-cta">Explore academic collaboration<ArrowUpRight size={17} aria-hidden="true" /></Link>
     </SkillingHero>
 
     <section className="sk-section" aria-labelledby="academic-offerings"><SectionHeading id="academic-offerings" title="Connect your curriculum to industry." description="Explore five areas of advanced manufacturing education through TANSAM’s academic offerings." /><ContentGrid items={academicOfferings} className="sk-offerings" /></section>
