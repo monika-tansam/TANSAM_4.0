@@ -16,7 +16,6 @@ export default function PathwayCards({ exclude, compact = false }) {
           {!compact && <div className="sk-tags">{pathway.tags.map(tag => <span key={tag}>{tag}</span>)}</div>}
           <span className="sk-pathway-link">Explore {pathway.title}<Chevron aria-hidden="true" /></span>
         </div>
-        <span className="sk-edge-light" aria-hidden="true"><span /></span>
       </Link>;
     })}
   </div>;

@@ -10,13 +10,18 @@ const careerIcons = [Network, Wrench, Cpu, ShieldCheck];
 export default function SkillingPage() {
   return <SkillingLayout title="Skilling">
     <div className="sk-overview-opening">
-      <SkillingHero title="Build practical skills for Industry 4.0."
+      <SkillingHero title={<>Build Practical Skills for <span className="highlight-gradient">Industry 4.0</span></>}
         description="Bring learning closer to industry. Explore hands-on training in smart manufacturing, automation, IoT, AI, and immersive technologies with TANSAM, powered by Siemens.">
-        <a className="sk-button sk-button--primary" href="#skilling-pathways">Choose your pathway<ArrowDown size={17} aria-hidden="true" /></a>
+        <a className="btn btn-primary sk-pathway-cta" href="#skilling-pathways">Choose your pathway<ArrowDown size={17} aria-hidden="true" /></a>
         <Link className="sk-text-link" to="/contact">Talk to TANSAM<ArrowUpRight size={16} aria-hidden="true" /></Link>
       </SkillingHero>
       <div className="sk-learning-composition" aria-label="Three connected skilling pathways">
-        {skillingPathways.map(pathway => <Link key={pathway.id} to={pathway.path} className={`sk-composition-panel sk-composition-panel--${pathway.id}`}><img src={pathway.image} alt={`${pathway.title} learning illustration`} fetchPriority={pathway.id === 'corporate' ? 'high' : 'auto'} /><span>{pathway.title}<ArrowUpRight size={15} aria-hidden="true" /></span></Link>)}
+        {skillingPathways.map(pathway => <Link key={pathway.id} to={pathway.path} className={`sk-composition-panel sk-composition-panel--${pathway.id}`}>
+          <div className="sk-composition-surface">
+            <img src={pathway.image} alt={`${pathway.title} learning illustration`} fetchPriority={pathway.id === 'corporate' ? 'high' : 'auto'} />
+            <span>{pathway.title}<ArrowUpRight size={15} aria-hidden="true" /></span>
+          </div>
+        </Link>)}
         
       </div>
     </div>

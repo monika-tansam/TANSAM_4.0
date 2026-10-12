@@ -43,7 +43,7 @@ export default function Footer() {
             <ul className="footer-contact mt-4">
               <li className="flex gap-3 mb-4">
                 <MapPin size={20} className="text-cyan mt-1" color="#00ffff" />
-                <span>TIDEL Park, Rajiv Gandhi IT Expy, Tharamani, Chennai, Tamil Nadu 600113</span>
+                <span>Mechatronics Lab, Anna University, Kotturpuram, Chennai, Tamil Nadu 600025</span>
               </li>
               <li className="flex gap-3 mb-4">
                 <Phone size={20} className="text-cyan" color="#00ffff" />

@@ -13,6 +13,7 @@ const SkillingPage = lazy(() => import('./pages/SkillingPage'));
 const CorporateSkillingPage = lazy(() => import('./pages/CorporateSkillingPage'));
 const AcademiaSkillingPage = lazy(() => import('./pages/AcademiaSkillingPage'));
 const NaanmudhalvanPage = lazy(() => import('./pages/NaanmudhalvanPage'));
+const BoardDirectorsPage = lazy(() => import('./pages/BoardDirectorsPage'));
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -38,6 +39,7 @@ function App() {
               <Route path="contact" element={<ContactPage theme={theme} />} />
               <Route path="success" element={<StudentSuccessPage theme={theme} />} />
               <Route path="news" element={<NewsPage theme={theme} />} />
+              <Route path="board-directors" element={<BoardDirectorsPage />} />
               <Route path="skilling" element={<SkillingPage />} />
               <Route path="skilling/corporate" element={<CorporateSkillingPage />} />
               <Route path="skilling/academia" element={<AcademiaSkillingPage />} />

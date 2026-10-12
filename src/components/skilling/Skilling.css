@@ -7,6 +7,7 @@
   --sk-panel: rgba(20, 31, 43, .72);
   --sk-line: rgba(158, 194, 214, .16);
   --sk-ochre: #e4b279;
+  --sk-caption-bg: rgba(0, 245, 245, 0.493);
   background: radial-gradient(ellipse at 88% 5%, rgba(0, 153, 153, .08), transparent 32%), var(--sk-bg);
   color: var(--sk-ink);
   /* Leave room for the shared desktop social rail. */
@@ -22,6 +23,7 @@
   --sk-panel: rgba(255, 255, 255, .72);
   --sk-line: rgba(16, 45, 65, .13);
   --sk-ochre: #9a5f22;
+  --sk-caption-bg: rgba(255, 255, 255, .92);
 }
 .skilling-container { max-width: 1200px; margin: 0 auto; }
 .skilling-page a, .skilling-page button { -webkit-tap-highlight-color: transparent; }
@@ -35,6 +37,8 @@
 .sk-hero h1 { font-size: clamp(2.3rem, 4.7vw, 3.7rem); letter-spacing: -.045em; line-height: 1.08; font-weight: 800; max-width: 650px; margin-bottom: 25px; }
 .sk-hero-copy > p { color: var(--sk-muted); font-size: 1.08rem; line-height: 1.85; max-width: 580px; }
 .sk-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; margin-top: 30px; }
+.skilling-page .sk-pathway-cta { display: inline-flex; align-items: center; justify-content: center; gap: 12px; box-shadow: none; }
+.skilling-page .sk-pathway-cta:hover { box-shadow: none; }
 .sk-button { display: inline-flex; justify-content: center; align-items: center; gap: 12px; padding: 14px 21px; border-radius: 12px; border: 1px solid transparent; font-size: .91rem; font-weight: 750; font-family: inherit; cursor: pointer; line-height: 1.4; transition: background .2s, box-shadow .2s, transform .2s; }
 .sk-button:hover { transform: translateY(-2px); }
 .sk-button--primary { background: var(--sk-accent); color: var(--sk-bg); }
@@ -48,9 +52,11 @@
 .sk-overview-opening { display: grid; grid-template-columns: 1.08fr 1fr; gap: 50px; align-items: center; padding: 12px 0 35px; }
 .sk-overview-opening .sk-hero { display: block; }
 .sk-learning-composition { height: 390px; position: relative; isolation: isolate; }
-.sk-composition-panel { display: block; position: absolute; border-radius: 16px; overflow: hidden; border: 5px solid var(--sk-bg); box-shadow: 0 12px 45px rgba(0, 0, 0, .2); transition: transform .35s cubic-bezier(.22, 1, .36, 1); }
+.sk-composition-panel { display: block; position: absolute; border-radius: 16px; overflow: hidden; border: 0; box-shadow: 0 12px 45px rgba(0, 0, 0, .2); transition: transform .35s cubic-bezier(.22, 1, .36, 1); }
+.sk-composition-surface { position: relative; border-radius: inherit; overflow: hidden; clip-path: inset(0 round 16px); }
 .sk-composition-panel img { width: 100%; height: auto; display: block; }
-.sk-composition-panel > span { display: flex; align-items: center; justify-content: space-between; padding: 9px 13px; background: var(--sk-panel); color: var(--sk-ink); font-size: .8rem; font-weight: 700; }
+/* Neutralise photo colours; overlap the lower edge to avoid rotation seams. */
+.sk-composition-surface > span { position: absolute; inset: auto -1px -1px; z-index: 1; display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--sk-caption-bg); backdrop-filter: blur(12px) saturate(0); -webkit-backdrop-filter: blur(12px) saturate(0); color: var(--text-main); font-size: .8rem; font-weight: 700; }
 .sk-composition-panel--corporate { width: 85%; left: 0; top: 0; transform: rotate(-4deg); z-index: 1; }
 .sk-composition-panel--academia { width: 56%; right: 0; top: 120px; transform: rotate(7deg); z-index: 2; }
 .sk-composition-panel--naanmudhalvan { width: 44%; left: 12px; top: 200px; transform: rotate(-5deg); z-index: 3; }
@@ -63,7 +69,7 @@
 .sk-section-heading p { max-width: 680px; margin-top: 12px; color: var(--sk-muted); font-size: 1rem; line-height: 1.8; }
 .sk-pathways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 .sk-pathway { position: relative; display: flex; flex-direction: column; overflow: hidden; background: var(--sk-panel); border: 1px solid var(--sk-line); border-radius: 22px; transition: transform .3s, border-color .3s, box-shadow .3s; isolation: isolate; }
-.sk-pathway:hover { transform: translateY(-5px); border-color: var(--sk-accent); box-shadow: 0 15px 40px rgba(0, 0, 0, .09); }
+.sk-pathway:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0, 0, 0, .09); }
 .sk-pathway--academia { --pathway-accent: var(--sk-ochre); }
 .sk-pathway--corporate, .sk-pathway--naanmudhalvan { --pathway-accent: var(--sk-accent); }
 .sk-pathway-image { aspect-ratio: 1.76; overflow: hidden; }
@@ -79,12 +85,6 @@
 .sk-tags span { border: 1px solid var(--sk-line); border-radius: 7px; font-size: .7rem; padding: 5px 8px; color: var(--sk-muted); }
 .sk-pathway-link { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 15px; border-top: 1px solid var(--sk-line); font-size: .83rem; color: var(--pathway-accent); font-weight: 700; }
 .sk-pathways--compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-/* A border-tracing interaction informed by Magic UI's Border Beam pattern. */
-.sk-edge-light { position: absolute; inset: 0; pointer-events: none; border: 1px solid transparent; border-radius: inherit; mask: linear-gradient(transparent, transparent), linear-gradient(#000, #000); mask-clip: padding-box, border-box; mask-composite: intersect; opacity: 0; transition: opacity .3s; }
-.sk-edge-light > span { position: absolute; width: 90px; aspect-ratio: 1; background: linear-gradient(90deg, transparent, var(--pathway-accent)); offset-path: rect(0 auto auto 0 round 22px); animation: sk-edge-travel 6s linear infinite; animation-play-state: paused; }
-.sk-pathway:is(:hover, :focus-visible) .sk-edge-light { opacity: .8; }
-.sk-pathway:is(:hover, :focus-visible) .sk-edge-light > span { animation-play-state: running; }
-@keyframes sk-edge-travel { to { offset-distance: 100%; } }
 .sk-content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .sk-content-card { padding: 27px; border-top: 1px solid var(--sk-line); }
 .sk-content-card h3 { font-size: 1.13rem; margin-bottom: 10px; }
@@ -200,18 +200,6 @@
   .sk-table-filters { grid-template-columns: 1.3fr 1fr 1fr; }
   .sk-reset { grid-column: 1 / -1; justify-self: start; }
 }
-@media (min-width: 769px) and (max-width: 1100px) {
-  /* Compact the shared branding and menu only while viewing Skilling. */
-  html:has(.skilling-page) .header-left > a { margin-inline-start: 0; }
-  html:has(.skilling-page) .header-top img.logo-main { height: 70px; }
-  html:has(.skilling-page) .header-top img.logo-tidco { height: 55px; margin-inline-end: 0; }
-  html:has(.skilling-page) .header-center { min-width: 0; }
-  html:has(.skilling-page) .navbar-container .desktop-only { display: none !important; }
-  html:has(.skilling-page) .navbar-container .mobile-only { display: flex; }
-  html:has(.skilling-page) .header-bottom { justify-content: flex-end; padding: .5rem 1rem; }
-  html:has(.skilling-page) .mobile-controls { gap: 1rem; align-items: center; }
-  html:has(.skilling-page) .hamburger-btn { background: transparent; border: 0; color: var(--text-main); font-size: 1.8rem; cursor: pointer; }
-}
 @media (max-width: 768px) {
   .skilling-page { padding: 38px 22px 64px; }
   .sk-breadcrumbs { margin-bottom: 25px; }
@@ -279,5 +267,5 @@
 @media (prefers-reduced-motion: reduce) {
   .skilling-page *, .skilling-page *::before, .skilling-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   html:has(.skilling-page) { scroll-behavior: auto; }
-  .sk-pathway:hover, .sk-button:hover { transform: none; }
+  .sk-pathway:hover, .sk-button:hover, .skilling-page .sk-pathway-cta:hover { transform: none; }
 }

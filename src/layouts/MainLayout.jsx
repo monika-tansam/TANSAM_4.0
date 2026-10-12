@@ -1,8 +1,12 @@
 import React, { Suspense, useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import Footer from '../components/Footer';
+import NavDropdown from '../components/NavDropdown';
+
+const ABOUT_LINKS = [{ label: 'About Us', to: '/#about-us' }, { label: 'Board Directors', to: '/board-directors' }];
+const CAPABILITIES_LINKS = [{ label: 'Skilling', to: '/skilling' }, { label: 'Research & Projects', to: '/labs#projects' }];
 
 // Homepage gap before the card reaches navigation: larger = hide earlier.
 const HEADER_CARD_GAP = 25;
@@ -18,6 +22,8 @@ export default function MainLayout({ theme, toggleTheme }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSocialVisible, setIsSocialVisible] = useState(true);
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const reducedMotion = useReducedMotion();
   const tickerRef = useRef(null);
   const headerShellRef = useRef(null);
   const brandingRef = useRef(null);
@@ -25,6 +31,10 @@ export default function MainLayout({ theme, toggleTheme }) {
   const openingOffset = location.hash ? 0
     : location.pathname === '/labs' ? LABS_OPENING_OFFSET
     : location.pathname === '/success' ? INTERNSHIPS_OPENING_OFFSET : 0;
+
+  useEffect(() => {
+    setActiveDropdown(null);
+  }, [location.key]);
 
   // Inner pages open below branding; scrolling back to the top reveals it naturally.
   useLayoutEffect(() => {
@@ -39,14 +49,16 @@ export default function MainLayout({ theme, toggleTheme }) {
     }
   }, [location.pathname, location.hash, location.key, openingOffset]);
 
-  // Skilling's lazy CSS adjusts the compact header; align after it has mounted.
+  // Lazy page CSS adjusts the compact header; align after the page has mounted.
   useEffect(() => {
-    if (!location.pathname.startsWith('/skilling') || location.hash) return;
+    const pageSelector = location.pathname.startsWith('/skilling') ? '.skilling-page'
+      : location.pathname === '/board-directors' ? '.board-page' : null;
+    if (!pageSelector || location.hash) return;
     let cancelled = false;
     let scheduled = false;
     let frameId = null;
     const scheduleLanding = () => {
-      if (scheduled || !document.querySelector('.skilling-page')) return;
+      if (scheduled || !document.querySelector(pageSelector)) return;
       scheduled = true;
       observer.disconnect();
       document.fonts.ready.then(() => {
@@ -194,8 +206,7 @@ export default function MainLayout({ theme, toggleTheme }) {
       const scrollToTarget = () => {
         const element = document.getElementById(id);
         if (!element) return;
-        const scrollBehavior = location.pathname.startsWith('/skilling')
-          && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
+        const scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth';
 
         const aboutCard = id === 'about-us' ? element.querySelector('.about-content') : null;
         if (aboutCard) {
@@ -244,7 +255,8 @@ export default function MainLayout({ theme, toggleTheme }) {
   }, [location.pathname, location.hash, location.key]);
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setActiveDropdown(null);
+    setIsMobileMenuOpen(open => !open);
   };
 
   return (
@@ -303,19 +315,11 @@ export default function MainLayout({ theme, toggleTheme }) {
           <div className="nav-links desktop-only">
             <Link to="/" className="nav-link">Home</Link>
             
-            <Link to="/#about-us" className="nav-link">About Us</Link>
+            <NavDropdown id="about" label="About Us" items={ABOUT_LINKS} activeMenu={activeDropdown} onMenuChange={setActiveDropdown} />
 
             <Link to="/labs" className="nav-link">Labs</Link>
             
-            <div className="dropdown">
-              <button className="dropdown-btn">
-                Capabilities ▼
-              </button>
-              <div className="dropdown-content">
-                <Link to="/skilling">Skilling</Link>
-              <Link to="/labs#projects" className="nav-link">Research & Projects</Link>
-              </div>
-            </div>
+            <NavDropdown id="capabilities" label="Capabilities" items={CAPABILITIES_LINKS} activeMenu={activeDropdown} onMenuChange={setActiveDropdown} />
             
             <Link to="/news" className="nav-link">News & Events</Link>
             <Link to="/success" className="nav-link">Internships</Link>
@@ -351,18 +355,17 @@ export default function MainLayout({ theme, toggleTheme }) {
         {isMobileMenuOpen && (
           <motion.div 
             className="mobile-menu-overlay"
-            initial={{ x: '100%' }}
+            initial={reducedMotion ? false : { x: '100%' }}
             animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
+            exit={{ x: reducedMotion ? 0 : '100%' }}
+            transition={{ type: 'tween', duration: reducedMotion ? 0 : 0.3 }}
           >
             <button className="close-menu-btn" onClick={toggleMobileMenu}>✕</button>
             <div className="mobile-nav-links">
               <Link to="/" className="nav-link">Home</Link>
-              <Link to="/#about-us" className="nav-link">About Us</Link>
+              <NavDropdown id="mobile-about" label="About Us" items={ABOUT_LINKS} activeMenu={activeDropdown} onMenuChange={setActiveDropdown} inline onNavigate={() => setIsMobileMenuOpen(false)} />
               <Link to="/labs" className="nav-link">Labs</Link>
-              <Link to="/skilling" className="nav-link">Skilling</Link>
-              <Link to="/labs#projects" className="nav-link">Research & Projects</Link>
+              <NavDropdown id="mobile-capabilities" label="Capabilities" items={CAPABILITIES_LINKS} activeMenu={activeDropdown} onMenuChange={setActiveDropdown} inline onNavigate={() => setIsMobileMenuOpen(false)} />
               <Link to="/news" className="nav-link">News & Events</Link>
               <Link to="/success" className="nav-link">Internships</Link>
               <Link to="/contact" className="nav-link">Contact</Link>
