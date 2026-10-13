@@ -122,7 +122,7 @@ export default function AboutSection({ theme }) {
             </h1>
 
             <p className="about-text-lead" style={{ fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '20px' }}>
-              TANSAM (Tamil Nadu Smart and Advanced Manufacturing), powered by Siemens, is the state's arts Industry 4.0 Centre of Excellence. Located at Tidel Park, Chennai, TANSAM helps industries, MSMEs, and academic institutions adopt future-ready technologies such as IoT, digital twins, AI, AR/VR, and smart factory solutions.
+              TANSAM (Tamil Nadu Smart and Advanced Manufacturing), Powered by SIEMENS is the state's arts Industry 4.0 Centre of Excellence. Located at Anna University, Guindy, Chennai. TANSAM helps industries, MSMEs and academic institutions Adopt future-ready technologies such as IoT, digital twins, AI, AR/VR, and smart factory solutions.
             </p>
 
             <p className="about-text-sub" style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '30px', opacity: 0.8 }}>
