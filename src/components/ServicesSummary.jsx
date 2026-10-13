@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Lightbulb, Wrench, Monitor, Cuboid, GraduationCap } from 'lucide-react';
 
 export default function ServicesSummary() {
@@ -12,6 +13,7 @@ export default function ServicesSummary() {
 
   return (
     <div className="services-summary-container" id="skilling">
+      {/* <Link className="services-skilling-link" to="/skilling">Explore TANSAM skilling programmes →</Link> */}
       <div className="services-summary-grid">
         {services.map((service, index) => (
           <div key={index} className="service-card">

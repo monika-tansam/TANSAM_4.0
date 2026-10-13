@@ -1,0 +1,25 @@
+.participation-counter {
+  display: inline-flex;
+  vertical-align: top;
+  direction: ltr;
+  font: inherit;
+  color: inherit;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+}
+.participation-counter-digit {
+  position: relative;
+  width: 1ch;
+  height: 1.6em;
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+}
+.participation-counter-number {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.participation-counter-separator { display: inline-block; }

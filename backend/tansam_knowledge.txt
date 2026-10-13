@@ -5,7 +5,7 @@ TANSAM stands for Tamil Nadu Smart and Advanced Manufacturing Center.
 TANSAM is a Center of Excellence (CoE) powered by Siemens.
 It was established as a Section 8 company under TIDCO (Tamil Nadu Industrial Development Corporation) to drive industrial growth and serve as a global leader in smart manufacturing solutions.
 TANSAM was inaugurated on 8 November 2022 by the Honourable Chief Minister of Tamil Nadu, Thiru. M.K. Stalin.
-Location: TIDEL Park, Rajiv Gandhi IT Expy, Tharamani, Chennai, Tamil Nadu 600113.
+Location: Mechatronics Lab, Anna University, Kotturpuram, Chennai, Tamil Nadu 600025.
 TANSAM's goal is to help industries, MSMEs, startups, and academic institutions adopt future-ready Industry 4.0 technologies.
 
 CORE COLLABORATION AREAS
@@ -53,7 +53,7 @@ NEWS & LATEST EVENTS
 - AI & Robotics Summit: A one-day summit bringing together experts to showcase AI, robotics, and digital twin innovations with live demos.
 
 CONTACT INFORMATION
-- Office Address: TIDEL Park, Rajiv Gandhi IT Expy, Tharamani, Chennai, Tamil Nadu 600113.
+- Office Address: Mechatronics Lab, Anna University, Kotturpuram, Chennai, Tamil Nadu 600025.
 - Telephone / Phone: +91-98840 35145
 - Email: info@tansam.org
 - Website: https://tansam.org

@@ -1,13 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import NewsAndEvents from '../components/NewsAndEvents';
 import TestimonialsAndNewsletter from '../components/TestimonialsAndNewsletter';
 import AnimatedSection from '../components/AnimatedSection';
 
 export default function NewsPage() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div style={{ paddingTop: '80px', minHeight: '80vh' }}>
       <AnimatedSection>

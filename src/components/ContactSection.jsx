@@ -39,9 +39,9 @@ function ContactSection() {
                 📍 Location
               </h4>
               <p style={{ lineHeight: '1.6', opacity: 0.9 }}>
-                TIDEL Park, 1st Floor, Module No. 104, <br/>
-                No. 4, Rajiv Gandhi Salai, Taramani, <br/>
-                Chennai - 600 113, Tamil Nadu, India.
+                Mechatronics Lab, 2nd Floor, Anna University, <br/>
+                Sardar Patel Road, Guindy, <br/>
+                Chennai - 600 025, Tamil Nadu, India.
               </p>
             </div>
             
@@ -79,7 +79,7 @@ function ContactSection() {
             }}
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.6534571936353!2d80.24600101482226!3d12.99396269084128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267b36f11ffc1%3A0x6b8eb7cbb02e700f!2sTIDEL%20Park!5e0!3m2!1sen!2sin!4v1689255018047!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d288.19843605534646!2d80.2328095793514!3d13.012912331417507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d210ee3c88b%3A0xf5aa43e3900fcbf!2sTANSAM%20-%20Tamil%20Nadu%20Smart%20and%20Advanced%20Manufacturing%20Centre!5e1!3m2!1sen!2sin!4v1791792780675!5m2!1sen!2sin"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: '350px' }}
