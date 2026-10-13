@@ -1,21 +1,21 @@
-# Graph Report - TANSAM_4.0  (2026-10-12)
+# Graph Report - TANSAM_4.0  (2026-10-13)
 
 ## Corpus Check
 - cluster-only mode — file stats not available
 
 ## Summary
-- 649 nodes · 1243 edges · 41 communities (23 shown, 18 thin omitted)
+- 655 nodes · 1255 edges · 41 communities (23 shown, 18 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 37 edges (avg confidence: 0.84)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `68f713a9`
+- Built from commit: `e85c98bb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Owl Carousel Plugin
-- App.jsx
+- react
 - Flask Backend API
 - RTSP Video Streaming Server
 - SkillingPage.jsx
@@ -49,15 +49,15 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `Owl()` - 53 edges
-2. `react` - 29 edges
-3. `framer-motion` - 18 edges
+2. `react` - 31 edges
+3. `framer-motion` - 19 edges
 4. `lucide-react` - 16 edges
-5. `TANSAM Home Page` - 16 edges
-6. `App()` - 15 edges
-7. `react-router-dom` - 14 edges
-8. `AnimatedSection()` - 11 edges
-9. `Rotating3DIcon()` - 11 edges
-10. `jimp` - 11 edges
+5. `react-router-dom` - 16 edges
+6. `TANSAM Home Page` - 16 edges
+7. `App()` - 15 edges
+8. `Rotating3DIcon()` - 11 edges
+9. `jimp` - 11 edges
+10. `PathwayCards()` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `index.html (TANSAM 4.0)` --references--> `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)`  [INFERRED]
@@ -92,9 +92,9 @@
 Cohesion: 0.06
 Nodes (3): Owl(), prefixed(), test()
 
-### Community 1 - "App.jsx"
+### Community 1 - "react"
 Cohesion: 0.06
-Nodes (47): index.html (TANSAM 4.0), framer-motion, react, react-dom, react-icons, AcademiaSkillingPage, App(), BoardDirectorsPage (+39 more)
+Nodes (52): index.html (TANSAM 4.0), framer-motion, lucide-react, react, react-dom, react-icons, react-router-dom, AcademiaSkillingPage (+44 more)
 
 ### Community 2 - "Flask Backend API"
 Cohesion: 0.06
@@ -105,12 +105,12 @@ Cohesion: 0.05
 Nodes (43): app, express, ffmpeg, fs, Jimp, path, rtsp, server (+35 more)
 
 ### Community 4 - "SkillingPage.jsx"
-Cohesion: 0.14
-Nodes (33): lucide-react, react-router-dom, FaqAccordion(), Chevron(), icons, PathwayCards(), ContentGrid(), EnquiryPanel() (+25 more)
+Cohesion: 0.11
+Nodes (36): FaqAccordion(), Digit(), formatter, ParticipationCounter(), RollingNumber(), Chevron(), icons, PathwayCards() (+28 more)
 
 ### Community 5 - "LabDetailsPage.jsx"
-Cohesion: 0.13
-Nodes (32): @react-three/drei, @react-three/fiber, three, AboutSection(), DottedSphere(), DataPipe(), HeroSection(), Benefit3D() (+24 more)
+Cohesion: 0.15
+Nodes (29): @react-three/drei, @react-three/fiber, three, DataPipe(), Benefit3D(), Document3D(), MiniModelWrapper(), QuestionMark3D() (+21 more)
 
 ### Community 6 - "TANSAM Home Page"
 Cohesion: 0.11
@@ -187,8 +187,8 @@ Nodes (5): plugins, rules, react/only-export-components, react/rules-of-hooks, $
   _old_archive/feature.html · relation: semantically_similar_to
 
 ## Knowledge Gaps
-- **172 isolated node(s):** `FLOATING_MESSAGES`, `SUGGESTIONS`, `defaultAcademicClients`, `defaultIndustryClients`, `newsItems` (+167 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 262 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **174 isolated node(s):** `FLOATING_MESSAGES`, `SUGGESTIONS`, `defaultAcademicClients`, `defaultIndustryClients`, `newsItems` (+169 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 264 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **18 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
@@ -196,15 +196,15 @@ _Questions this graph is uniquely positioned to answer:_
 
 - **What is the exact relationship between `TANSAM App Setup Instructions` and `Sensor Output Data (Moisture/Distance/Sack Height)`?**
   _Edge tagged AMBIGUOUS (relation: conceptually_related_to) - confidence is low._
-- **Why does `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)` connect `TANSAM Static HTML Pages` to `App.jsx`?**
+- **Why does `TANSAM (Tamil Nadu Smart and Advanced Manufacturing Centre)` connect `TANSAM Static HTML Pages` to `react`?**
   _High betweenness centrality (0.049) - this node is a cross-community bridge._
 - **What connects `FLOATING_MESSAGES`, `SUGGESTIONS`, `defaultAcademicClients` to the rest of the system?**
-  _172 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _174 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Owl Carousel Plugin` be split into smaller, more focused modules?**
   _Cohesion score 0.0636193531141406 - nodes in this community are weakly interconnected._
 - **What is the exact relationship between `Features Page (iSTUDIO Template)` and `TANSAM Home Page`?**
   _Edge tagged AMBIGUOUS (relation: semantically_similar_to) - confidence is low._
-- **Why does `index.html (TANSAM 4.0)` connect `App.jsx` to `TANSAM Static HTML Pages`?**
-  _High betweenness centrality (0.047) - this node is a cross-community bridge._
-- **Should `App.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.06259780907668232 - nodes in this community are weakly interconnected._
+- **Why does `index.html (TANSAM 4.0)` connect `react` to `TANSAM Static HTML Pages`?**
+  _High betweenness centrality (0.048) - this node is a cross-community bridge._
+- **Should `react` be split into smaller, more focused modules?**
+  _Cohesion score 0.059720869847452125 - nodes in this community are weakly interconnected._
