@@ -6,6 +6,7 @@ import FaqAccordion from '../components/skilling/FaqAccordion';
 import { skillingPathways, sampleCourses, skillingBenefits, careerPathways, overviewFaqs } from '../data/skillingContent';
 
 const careerIcons = [Network, Wrench, Cpu, ShieldCheck];
+const careerIconTypes = ['iot', 'automation', 'ev', 'security'];
 
 export default function SkillingPage() {
   return <SkillingLayout title="Skilling">
@@ -43,7 +44,7 @@ export default function SkillingPage() {
 
     <section className="sk-section" aria-labelledby="sk-careers">
       <SectionHeading id="sk-careers" title="Where your skills could take you." description="Explore career directions connected to Industry 4.0 learning." />
-      <div className="sk-careers">{careerPathways.map(([title, description], index) => { const Icon = careerIcons[index]; return <article key={title}><Icon size={27} strokeWidth={1.5} aria-hidden="true" /><h3>{title}</h3><p>{description}</p></article>; })}</div>
+      <div className="sk-careers">{careerPathways.map(([title, description], index) => { const Icon = careerIcons[index]; return <article key={title} className={`sk-career sk-career--${careerIconTypes[index]}`}><Icon className="sk-career-icon" size={27} strokeWidth={1.5} aria-hidden="true" /><h3>{title}</h3><p>{description}</p></article>; })}</div>
     </section>
 
     <section className="sk-section sk-faq-section" aria-labelledby="sk-questions"><SectionHeading id="sk-questions" title="Before you get started." description="A few answers to help you choose your next step." /><FaqAccordion items={overviewFaqs} /></section>

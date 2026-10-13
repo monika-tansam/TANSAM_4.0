@@ -271,51 +271,6 @@
   right: 5%;
 }
 
-/* Corner reticle brackets */
-.lab-corner {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border: 1.5px solid var(--accent);
-  border-radius: 2px;
-  opacity: 0.4;
-  transition: width 0.35s ease, height 0.35s ease, opacity 0.35s ease;
-  pointer-events: none;
-}
-.lab-corner.tl { top: 6px; left: 6px; border-right: none; border-bottom: none; }
-.lab-corner.tr { top: 6px; right: 6px; border-left: none; border-bottom: none; }
-.lab-corner.bl { bottom: 6px; left: 6px; border-right: none; border-top: none; }
-.lab-corner.br { bottom: 6px; right: 6px; border-left: none; border-top: none; }
-
-.lab-panel:hover .lab-corner {
-  width: 20px;
-  height: 20px;
-  opacity: 0.9;
-}
-
-/* Scanline sweep on hover */
-.lab-scan {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1.5px;
-  top: 0;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.lab-panel:hover .lab-scan {
-  animation: labScan 1.6s ease-in-out infinite;
-}
-
-@keyframes labScan {
-  0% { top: 4%; opacity: 0; }
-  15% { opacity: 0.8; }
-  85% { opacity: 0.8; }
-  100% { top: 96%; opacity: 0; }
-}
-
 /* Badge for Lab index */
 .lab-index {
   display: inline-flex;
@@ -413,6 +368,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .lab-panel, .lab-corner, .lab-cta, .lab-cta svg { transition: none !important; }
-  .lab-panel:hover .lab-scan { animation: none !important; }
+  .lab-panel, .lab-cta, .lab-cta svg { transition: none !important; }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Points, PointMaterial, OrbitControls } from '@react-three/drei';
@@ -143,7 +144,7 @@ export default function AboutSection({ theme }) {
             </div>
 
             <div className="about-actions">
-              <a href="#labs" className="btn btn-primary">Discover More</a>
+              <Link to="/labs" className="btn btn-primary">Discover More</Link>
             </div>
           </motion.div>
         </div>

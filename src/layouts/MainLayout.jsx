@@ -24,10 +24,12 @@ export default function MainLayout({ theme, toggleTheme }) {
   const [isHeaderHidden, setIsHeaderHidden] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const reducedMotion = useReducedMotion();
+  const layoutRef = useRef(null);
   const tickerRef = useRef(null);
   const headerShellRef = useRef(null);
   const brandingRef = useRef(null);
   const location = useLocation();
+  const footerScroll = location.state?.footerScroll;
   const openingOffset = location.hash ? 0
     : location.pathname === '/labs' ? LABS_OPENING_OFFSET
     : location.pathname === '/success' ? INTERNSHIPS_OPENING_OFFSET : 0;
@@ -38,7 +40,13 @@ export default function MainLayout({ theme, toggleTheme }) {
 
   // Inner pages open below branding; scrolling back to the top reveals it naturally.
   useLayoutEffect(() => {
-    if (location.pathname !== '/') {
+    // Same-page footer navigation keeps the current position until the smooth scroll starts.
+    if (footerScroll) return;
+    if (location.pathname === '/contact' && !location.hash) {
+      headerShellRef.current?.style.setProperty('--header-scroll-offset', '0px');
+      setIsHeaderHidden(false);
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    } else if (location.pathname !== '/') {
       const brandingHeight = brandingRef.current?.getBoundingClientRect().height ?? 0;
       const tickerHeight = tickerRef.current?.offsetHeight ?? 0;
       headerShellRef.current?.style.setProperty('--header-scroll-offset', `${brandingHeight}px`);
@@ -47,13 +55,13 @@ export default function MainLayout({ theme, toggleTheme }) {
     } else if (!location.hash) {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
-  }, [location.pathname, location.hash, location.key, openingOffset]);
+  }, [location.pathname, location.hash, location.key, openingOffset, footerScroll]);
 
   // Lazy page CSS adjusts the compact header; align after the page has mounted.
   useEffect(() => {
     const pageSelector = location.pathname.startsWith('/skilling') ? '.skilling-page'
       : location.pathname === '/board-directors' ? '.board-page' : null;
-    if (!pageSelector || location.hash) return;
+    if (!pageSelector || location.hash || footerScroll) return;
     let cancelled = false;
     let scheduled = false;
     let frameId = null;
@@ -78,10 +86,10 @@ export default function MainLayout({ theme, toggleTheme }) {
       observer.disconnect();
       if (frameId !== null) window.cancelAnimationFrame(frameId);
     };
-  }, [location.pathname, location.hash, location.key]);
+  }, [location.pathname, location.hash, location.key, footerScroll]);
 
   useEffect(() => {
-    if (!['/labs', '/success'].includes(location.pathname) || location.hash) return;
+    if (!['/labs', '/success'].includes(location.pathname) || location.hash || footerScroll) return;
     const isLabs = location.pathname === '/labs';
     const titleSelector = isLabs ? '.labs-header' : '.internships-page h1';
     const panelSelector = isLabs ? '.lab-panel' : '.success-bento-grid > .bento-panel';
@@ -127,7 +135,7 @@ export default function MainLayout({ theme, toggleTheme }) {
       observer.disconnect();
       if (frameId !== null) window.cancelAnimationFrame(frameId);
     };
-  }, [location.pathname, location.hash, location.key]);
+  }, [location.pathname, location.hash, location.key, footerScroll]);
 
   useLayoutEffect(() => {
     let frameId = null;
@@ -170,9 +178,10 @@ export default function MainLayout({ theme, toggleTheme }) {
         || nextTickerHeight !== tickerHeight;
       brandingHeight = nextBrandingHeight;
       tickerHeight = nextTickerHeight;
+      layoutRef.current?.style.setProperty('--page-header-height', `${tickerHeight + (headerShellRef.current?.offsetHeight ?? 0)}px`);
       // Logos and fonts can finish loading after navigation; keep the compact landing aligned.
       // Observer's initial notification must not cancel a pending section scroll.
-      if (wasAtPageStart && sizeChanged && !location.hash) {
+      if (wasAtPageStart && sizeChanged && !location.hash && !footerScroll && location.pathname !== '/contact') {
         window.scrollTo({ top: Math.ceil(tickerHeight + brandingHeight + openingOffset), behavior: 'instant' });
       }
       updateHeader();
@@ -191,11 +200,19 @@ export default function MainLayout({ theme, toggleTheme }) {
       observer.disconnect();
       if (frameId !== null) window.cancelAnimationFrame(frameId);
     };
-  }, [location.pathname, location.hash, openingOffset]);
+  }, [location.pathname, location.hash, openingOffset, footerScroll]);
 
   // Close mobile menu on route change and handle hash scrolling
   useEffect(() => {
     setIsMobileMenuOpen(false);
+
+    if (footerScroll === 'top') {
+      window.scrollTo({
+        top: 0,
+        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+      });
+      return;
+    }
 
     if (location.hash) {
       const id = location.hash.replace('#', '');
@@ -252,7 +269,7 @@ export default function MainLayout({ theme, toggleTheme }) {
     } else if (location.pathname === '/') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-  }, [location.pathname, location.hash, location.key]);
+  }, [location.pathname, location.hash, location.key, footerScroll]);
 
   const toggleMobileMenu = () => {
     setActiveDropdown(null);
@@ -260,7 +277,7 @@ export default function MainLayout({ theme, toggleTheme }) {
   };
 
   return (
-    <div>
+    <div ref={layoutRef}>
       {/* Notification Bar */}
       <div className="notification-bar" ref={tickerRef}>
         <div className="marquee">

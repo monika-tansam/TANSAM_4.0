@@ -861,6 +861,13 @@ button, input, select, textarea {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 255, 255, 0.5);
 }
+
+.hero-section .btn-primary,
+.hero-section .btn-primary:hover,
+.about-section .btn-primary,
+.about-section .btn-primary:hover {
+  box-shadow: none;
+}
 .social-icon {
   display: flex;
   align-items: center;
@@ -1232,7 +1239,7 @@ button, input, select, textarea {
   z-index: 10;
   margin: 0 50px;
   background: #ffffff;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 255, 255, 0.5);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme='dark'] .client-logo-box:hover {
@@ -1398,6 +1405,29 @@ button, input, select, textarea {
   color: var(--text-muted);
   line-height: 1.6;
 }
+.footer-contact {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+.footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: .95rem;
+  line-height: 1.6;
+}
+.footer-contact li > span {
+  min-width: 0;
+}
+.footer-contact-icon {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  margin-top: 3px;
+  color: #117c7c;
+}
 .footer-links {
   list-style: none;
   padding: 0;
@@ -1414,7 +1444,7 @@ button, input, select, textarea {
   transition: 0.3s;
 }
 .footer-links a:hover {
-  color: #00ffff;
+  color: #36d8d8;
   transform: translateX(5px);
 }
 .footer-bottom {
@@ -1435,7 +1465,7 @@ button, input, select, textarea {
   text-decoration: none;
 }
 .footer-legal-links a:hover {
-  color: #00ffff;
+  color: #36d8d8;
 }
 
 /* RESPONSIVE UPDATES */
@@ -1611,13 +1641,9 @@ button, input, select, textarea {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.4);
+  box-shadow: none;
   transition: all 0.3s ease;
   position: relative;
-}
-
-.chatbot-toggle-btn:hover {
-  box-shadow: 0 15px 35px rgba(0, 255, 255, 0.6);
 }
 
 .chatbot-window {
@@ -1834,7 +1860,6 @@ button, input, select, textarea {
   color: #0b0f19;
   border-bottom-right-radius: 4px;
   font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.15);
 }
 
 /* Typing Indicator */
@@ -1985,7 +2010,6 @@ button, input, select, textarea {
 }
 .chatbot-send-btn:hover:not(:disabled) {
   transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
 }
 .chatbot-send-btn:disabled {
   opacity: 0.5;

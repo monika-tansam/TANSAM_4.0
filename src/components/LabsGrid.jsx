@@ -352,7 +352,7 @@ export const labsData = [
 ];
 
 /* ============================================================
-   Panel — corner reticle, cursor spotlight, tilt, 3D icon
+   Panel — cursor spotlight, tilt, 3D icon
    ============================================================ */
 
 const LabPanel = ({ lab, index, theme }) => {
@@ -404,12 +404,6 @@ const LabPanel = ({ lab, index, theme }) => {
       transition={{ duration: 0.55, delay: (index % 3) * 0.08, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -4 }}
     >
-      <span className="lab-corner tl" />
-      <span className="lab-corner tr" />
-      <span className="lab-corner bl" />
-      <span className="lab-corner br" />
-      <span className="lab-scan" />
-
       <div className="lab-index">LAB · {String(index + 1).padStart(2, '0')}</div>
 
       <div className="lab-icon-3d">

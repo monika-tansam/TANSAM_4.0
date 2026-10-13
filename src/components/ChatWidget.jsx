@@ -243,7 +243,6 @@ export default function ChatWidget() {
               fontSize: '0.9rem',
               fontWeight: '500',
               pointerEvents: 'none',
-              boxShadow: '0 4px 15px rgba(0, 255, 255, 0.2)',
               whiteSpace: 'nowrap',
               zIndex: 9999
             }}
@@ -260,12 +259,7 @@ export default function ChatWidget() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         animate={!isOpen ? {
-          scale: [1, 1.15, 1],
-          boxShadow: [
-            "0px 0px 0px rgba(0, 255, 255, 0)",
-            "0px 0px 20px rgba(0, 255, 255, 0.6)",
-            "0px 0px 0px rgba(0, 255, 255, 0)"
-          ]
+          scale: [1, 1.15, 1]
         } : {}}
         transition={!isOpen ? {
           duration: 2,
@@ -295,7 +289,7 @@ export default function ChatWidget() {
                 </div>
                 <div>
                   <h4>TANSY</h4>
-                  <span className="online-badge">online</span>
+                  <span className=""></span>
                 </div>
               </div>
               <button className="chatbot-close-btn" onClick={() => setIsOpen(false)}>
