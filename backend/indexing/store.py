@@ -22,8 +22,9 @@ class VectorStore:
         if self.client.get_version() != expected:
             raise IndexingError('chroma_version', 'Unsupported Chroma server protocol version')
 
-    def create(self, name):
-        self.client.create_collection(name, embedding_function=None, metadata={'hnsw:space': 'cosine'})
+    def create(self, name, deadline=None):
+        with self.bounded(deadline):
+            self.client.create_collection(name, embedding_function=None, metadata={'hnsw:space': 'cosine'})
 
     @contextmanager
     def bounded(self, deadline):
@@ -40,6 +41,10 @@ class VectorStore:
         return self._collection(name).count()
 
     def write(self, name, rows, deadline=None):
+        with self.bounded(deadline):
+            return self._write(name, rows, deadline)
+
+    def _write(self, name, rows, deadline):
         collection = self._collection(name)
         bound = min(self.settings.batch_size, self.client.get_max_batch_size())
         for offset in range(0, len(rows), bound):

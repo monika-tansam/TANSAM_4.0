@@ -47,6 +47,8 @@ tests/
 !backend/tests/
 !backend/tests/**
 backend/index_data/
+backend/backups/
+backend/knowledge/
 backend/.venv/
 .superpowers/
 **/__pycache__/

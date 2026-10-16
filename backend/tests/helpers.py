@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib
 import json
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
-from threading import Thread
+from threading import Thread, Event
 from contextlib import contextmanager
 import tempfile
 
@@ -27,11 +27,16 @@ class EmbeddingServer:
         self.digest='a'*64
         self.inputs=[]
         self.failure=None
+        self.entered=Event()
+        self.release=Event()
         fixture=self
         class Handler(BaseHTTPRequestHandler):
             def log_message(self,*args): pass
             def send(self,value,status=200):
-                raw=json.dumps(value).encode(); self.send_response(status); self.send_header('Content-Type','application/json'); self.send_header('Content-Length',str(len(raw))); self.end_headers(); self.wfile.write(raw)
+                raw=json.dumps(value).encode()
+                try:
+                    self.send_response(status); self.send_header('Content-Type','application/json'); self.send_header('Content-Length',str(len(raw))); self.end_headers(); self.wfile.write(raw)
+                except (BrokenPipeError,ConnectionResetError): pass  # Expected when the crash-test client is killed.
             def do_GET(self):
                 self.send({'models':[{'name':'nomic-embed-text:latest','digest':fixture.digest}]})
             def do_POST(self):
@@ -39,6 +44,8 @@ class EmbeddingServer:
                 if self.path=='/api/show': return self.send({'model_info':{'nomic-bert.embedding_length':4}})
                 fixture.inputs.append(value)
                 failure=fixture.failure
+                if failure=='block':
+                    fixture.entered.set(); fixture.release.wait(20)
                 if self.path=='/api/embeddings':
                     return self.send({'embedding':[1.,0.,0.,0.]})
                 if failure=='transient':
@@ -54,6 +61,7 @@ class EmbeddingServer:
         self.url='http://127.0.0.1:'+str(self.server.server_port)
         return self
     def __exit__(self,*args):
+        self.release.set()
         self.server.shutdown(); self.server.server_close(); self.thread.join()
 
 

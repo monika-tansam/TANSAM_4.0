@@ -22,9 +22,15 @@ Ruling: Chroma 1.5.9's SDK HTTP transport sets timeout=None. The production adap
 
 Ruling: Windows sandbox restrictions deny atomic temporary-file renames, while the same isolated tests pass outside the sandbox. Subsequent filesystem/network integration tests run with escalation; no unsafe production fallback replaces atomic writes.
 
-Tasks 5–6: complete — 31 tests passed (one opt-in real-server test skipped in the default run). CLI/app missing-index 503, no import side effects, source/cache repair, legacy unchanged-vector copy, portable backup/restore and damaged-backup rejection covered. The real Chroma HTTP round trip separately passed.
+Tasks 5–6: complete — 31 tests ran successfully (30 passed; one opt-in real-server test skipped in the default run). CLI/app missing-index 503, no import side effects, source/cache repair, legacy unchanged-vector copy, portable backup/restore and damaged-backup rejection covered. The real Chroma HTTP round trip separately passed.
 
 Ruling: Use one root-wide writer lock instead of per-KB locks, so cross-KB backups cannot race builds/publications. Cost: indexing separate knowledge bases is serialized on this single VPS.
 
 Ruling: The pinned Chroma 1.5.9 Rust image reports protocol version 1.0.0; validate that value plus real protocol integration and pin the image digest. Cost: upgrades require explicit adapter compatibility validation; equating this endpoint with the Python package version would reject the supported server.
 
+
+Task 7 evidence before final review: 35/35 Python tests passed on Windows (28.751s) and the non-root read-only Linux container (22.525s), both with real Chroma HTTP and live Ollama. Lost-upsert acknowledgement, killed worker, recovery, hot publication, rollback, portable restore and contact retrieval passed. A separate real-model build survived restart of the disposable Chroma container and a fresh reader. Approved source/non-contact hashes and the untouched legacy 16-record SQLite store passed integrity checks.
+
+Additional RED/GREEN: heading-only sections, unchanged-source cache repair, operator status payload, persisted retirement reasons, HTTP construction and remaining write deadlines. Production WSGI smoke test exposed Gunicorn control socket writing to a read-only home; --no-control-socket resolves this container-only default.
+
+Frontend: npm test 17/17 pass; npm run build pass. Existing Vite port-24678, large-bundle and plugin timing warnings remain. Python AST parse and Compose config checks pass. No live migration, production deployment or public network exposure performed.

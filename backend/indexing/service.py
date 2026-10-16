@@ -100,9 +100,9 @@ class IndexingService:
                     raise IndexingError('storage_capacity', 'Insufficient free space for staging vectors and cache')
                 revision = {'id': rid, 'kb': kb, 'owner': manifest['owner'], 'state': 'staging', 'collection': 'tansy-' + digest(kb)[:12] + '-' + rid[:24],
                             'base_generation': base['generation'], 'fingerprint': fingerprint, 'profile': profile, 'processing': processing,
-                            'sources': summaries, 'records': [], 'created_at': now()}
+                            'sources': summaries, 'retirements': manifest['retirements'], 'records': [], 'created_at': now()}
                 self.catalog.save_revision(revision)
-                self.store.create(revision['collection'])
+                self.store.create(revision['collection'], deadline)
                 for offset in range(0, len(chunks), self.settings.batch_size):
                     remaining(deadline)
                     batch = chunks[offset:offset + self.settings.batch_size]

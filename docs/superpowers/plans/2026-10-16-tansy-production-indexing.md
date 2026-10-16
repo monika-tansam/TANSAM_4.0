@@ -32,49 +32,49 @@
 
 **Files:** `backend/indexing/{__init__,errors,settings,catalog}.py`, `backend/config.py`, `backend/tests/test_settings_catalog.py`.
 **Interfaces:** `Settings.from_env(env=None)`, `Catalog(settings)`, `Catalog.active(kb)`, `Catalog.activate(kb, revision, expected_generation, operation_id, actor, reason, action)`.
-- [ ] RED: configuration is independent of launch directory; invalid production storage/client settings fail; repeated activation IDs are safe and stale generations fail.
-- [ ] Run `python -m unittest discover -s backend/tests -p test_settings_catalog.py -v`; inspect expected failures before implementation.
-- [ ] Implement anchored configuration, typed errors, SQLite FULL/WAL schema, durable jobs/revisions, transactionally audited activation.
-- [ ] Run the focused suite green and commit this behavior.
+- [x] RED: configuration is independent of launch directory; invalid production storage/client settings fail; repeated activation IDs are safe and stale generations fail.
+- [x] Run `python -m unittest discover -s backend/tests -p test_settings_catalog.py -v`; inspect expected failures before implementation.
+- [x] Implement anchored configuration, typed errors, SQLite FULL/WAL schema, durable jobs/revisions, transactionally audited activation.
+- [x] Run the focused suite green and commit this behavior.
 
 ### Task 2: Approved immutable sources and deterministic chunks
 
 **Files:** `backend/indexing/documents.py`, `backend/tests/test_documents.py`.
 **Interfaces:** `load_manifest(path, settings) -> dict`, `prepare_sources(manifest, settings) -> list[dict]`, `chunks_for_sources(sources, settings) -> list[dict]`.
-- [ ] RED: hash/approval/format/size checks; copied source bytes; Unicode/section/page coverage; empty/encrypted/scanned PDFs; extraction deadline.
-- [ ] Implement strict admission and atomic artifacts, isolated PDF extraction, bounded deterministic section-aware chunks.
-- [ ] Run focused tests green and commit.
+- [x] RED: hash/approval/format/size checks; copied source bytes; Unicode/section/page coverage; empty/encrypted/scanned PDFs; extraction deadline.
+- [x] Implement strict admission and atomic artifacts, isolated PDF extraction, bounded deterministic section-aware chunks.
+- [x] Run focused tests green and commit.
 
 ### Task 3: Bounded embeddings and vector store
 
 **Files:** `backend/indexing/{embedding,store}.py`, `backend/tests/test_embedding_store.py`.
 **Interfaces:** `OllamaEmbeddings(settings).profile()`, `.embed(texts, profile, query=False, deadline=None)`, `VectorStore(settings)` with create/get/write/read/verify operations.
-- [ ] RED: batch/document/query policies, malformed and nonfinite vectors, changed digest, disabled truncation, transient-only retry, write retry idempotence.
-- [ ] Implement explicit embeddings and digest checks, bounded HTTP retries, real Chroma adapters without implicit model downloads.
-- [ ] Run focused tests green against real temporary Chroma and local HTTP fixtures; commit.
+- [x] RED: batch/document/query policies, malformed and nonfinite vectors, changed digest, disabled truncation, transient-only retry, write retry idempotence.
+- [x] Implement explicit embeddings and digest checks, bounded HTTP retries, real Chroma adapters without implicit model downloads.
+- [x] Run focused tests green against real temporary Chroma and local HTTP fixtures; commit.
 
 ### Task 4: Build, verify, publish, recovery and reader
 
 **Files:** `backend/indexing/service.py`, `backend/tests/test_service.py`, `backend/tests/helpers.py`.
 **Interfaces:** `IndexingService(settings, embedder=None, store=None)` exposing validate/build/status/verify/publish/recover/rollback/read; all operations return dictionaries or typed errors.
-- [ ] RED first vertical slice: a ready build is invisible until explicit publication; embedding failure leaves the old published document readable.
-- [ ] Add one RED/GREEN cycle per remaining behavior: noop/cache, readback tampering, retirement, process lock, CAS, operation IDs, interruption, drift, rollback, process restart.
-- [ ] Implement writer coordination and immutable snapshots with reports/cache; never write published collections.
-- [ ] Run full Python suite green and commit.
+- [x] RED first vertical slice: a ready build is invisible until explicit publication; embedding failure leaves the old published document readable.
+- [x] Add one RED/GREEN cycle per remaining behavior: noop/cache, readback tampering, retirement, process lock, CAS, operation IDs, interruption, drift, rollback, process restart.
+- [x] Implement writer coordination and immutable snapshots with reports/cache; never write published collections.
+- [x] Run full Python suite green and commit.
 
 ### Task 5: CLI and application integration
 
 **Files:** `backend/indexing/cli.py`, `backend/ingest_tansam.py`, `backend/services/rag.py`, `backend/routes/chat.py`, `backend/tests/test_cli_chat.py`.
-- [ ] RED: CLI JSON and exit codes; no implicit publication; successful reader sees a new active revision without restart; unavailable knowledge yields 503 and no generation call.
-- [ ] Implement thin safe entrypoint and minimal published-reader integration; retain existing chat stream format and prompt policy.
-- [ ] Run CLI/Flask tests and all existing tests green; commit.
+- [x] RED: CLI JSON and exit codes; no implicit publication; successful reader sees a new active revision without restart; unavailable knowledge yields 503 and no generation call.
+- [x] Implement thin safe entrypoint and minimal published-reader integration; retain existing chat stream format and prompt policy.
+- [x] Run CLI/Flask tests and all existing tests green; commit.
 
 ### Task 6: Migration, backup and restore
 
 **Files:** `backend/indexing/operations.py`, CLI subcommands, `backend/tests/test_operations.py`, approved source manifest.
-- [ ] RED: read-only legacy inventory/copy preserves original store and labels missing historical identity; backup restores a verified publication to a different temporary data root.
-- [ ] Implement explicit migration and consistent backup/restore under the writer lock; no automatic startup migration.
-- [ ] Run migration/restore checks and full Python suite green; commit.
+- [x] RED: read-only legacy inventory/copy preserves original store and labels missing historical identity; backup restores a verified publication to a different temporary data root.
+- [x] Implement explicit migration and consistent backup/restore under the writer lock; no automatic startup migration.
+- [x] Run migration/restore checks and full Python suite green; commit.
 
 ### Task 7: Deployment, integration and final review
 

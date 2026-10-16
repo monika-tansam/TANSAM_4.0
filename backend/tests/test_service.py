@@ -93,7 +93,9 @@ class ServiceTests(unittest.TestCase):
             path=manifest(root,source_id='replacement')
             with self.assertRaises(ValueError): service.build(path)
             value=json.loads(path.read_text()); value['retirements']=[{'source_id':'profile','reason':'superseded'}]; path.write_text(json.dumps(value))
-            self.assertEqual(service.build(path)['state'],'ready')
+            replacement=service.build(path)
+            self.assertEqual(replacement['state'],'ready')
+            self.assertEqual(service.catalog.revision(replacement['revision'])['retirements'],value['retirements'])
             value['owner']='another'; path.write_text(json.dumps(value))
             with self.assertRaises(ValueError): service.build(path)
 

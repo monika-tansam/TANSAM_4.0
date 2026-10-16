@@ -1,0 +1,83 @@
+name: tansy
+x-app: &app
+  image: tansy-backend:local
+  build: .
+  environment: &environment
+    TANSY_ENV: production
+    TANSY_DATA_ROOT: /var/lib/tansy
+    TANSY_CHROMA_MODE: http
+    TANSY_CHROMA_URL: http://chroma:8000
+    TANSY_OLLAMA_URL: ${TANSY_OLLAMA_URL:-http://ollama:11434}
+    TANSY_CHAT_OLLAMA_URL: ${TANSY_CHAT_OLLAMA_URL:-http://ollama:11434}
+    TANSY_MODEL: ${TANSY_MODEL:-nomic-embed-text:latest}
+    TANSY_CHROMA_TOKEN: ${TANSY_CHROMA_TOKEN:-}
+    TANSY_OLLAMA_TOKEN: ${TANSY_OLLAMA_TOKEN:-}
+  volumes:
+    - catalog:/var/lib/tansy
+  read_only: true
+  tmpfs:
+    - /tmp:size=256m,mode=1777
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  mem_limit: 2g
+  cpus: 1.0
+  logging:
+    driver: json-file
+    options: {max-size: "10m", max-file: "3"}
+  networks: [backend]
+
+services:
+  api:
+    <<: *app
+    restart: unless-stopped
+    ports: ["127.0.0.1:5001:5001"]
+    depends_on: [chroma]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5001/api/models',timeout=5)"]
+      interval: 30s
+      timeout: 8s
+      retries: 3
+      start_period: 20s
+  indexer:
+    <<: *app
+    profiles: [operations]
+    entrypoint: [python, ingest_tansam.py]
+    command: [status, --kb, tansam]
+    volumes:
+      - catalog:/var/lib/tansy
+      - ${TANSY_KNOWLEDGE_DIR:-./knowledge}:/knowledge:ro
+      - ${TANSY_BACKUP_DIR:-./backups}:/backups
+    depends_on: [chroma]
+  chroma:
+    image: chromadb/chroma:1.5.9@sha256:1e0b73a187a28757c572acba508c46f48c9e8b0acaf5c20e6d95cdedce1acdf6
+    restart: unless-stopped
+    environment:
+      IS_PERSISTENT: "TRUE"
+      ANONYMIZED_TELEMETRY: "FALSE"
+    volumes: [vectors:/data]
+    networks: [backend]
+    mem_limit: 2g
+    cpus: 1.0
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
+  ollama:
+    image: ollama/ollama:0.40.4@sha256:926d40fd6eeeebd346b5c358a63de2a10ec995371cd93dd22f1843200694b1a6
+    profiles: [local-llm]
+    restart: unless-stopped
+    volumes: [models:/root/.ollama]
+    networks: [backend]
+    mem_limit: ${TANSY_LLM_MEMORY:-8g}
+    cpus: ${TANSY_LLM_CPUS:-4.0}
+    logging:
+      driver: json-file
+      options: {max-size: "10m", max-file: "3"}
+
+networks:
+  backend:
+volumes:
+  catalog:
+  vectors:
+  models:

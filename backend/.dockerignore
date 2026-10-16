@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+chroma_db
+index_data
+backups
+knowledge
+__pycache__
+**/__pycache__
+*.pyc
+.venv
+*.log

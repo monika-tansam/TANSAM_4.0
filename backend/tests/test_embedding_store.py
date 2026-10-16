@@ -56,6 +56,32 @@ class EmbeddingTests(unittest.TestCase):
 
 
 class StoreTests(unittest.TestCase):
+    def test_write_honors_remaining_build_deadline(self):
+        from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+        from threading import Thread
+        import json,time
+        from indexing.store import VectorStore
+        class Delayed(BaseHTTPRequestHandler):
+            def log_message(self,*args): pass
+            def send(self,value):
+                try:
+                    self.send_response(200); self.end_headers(); self.wfile.write(json.dumps(value).encode())
+                except OSError: pass
+            def do_GET(self):
+                self.send('1.0.0' if self.path.endswith('/version') else {'max_batch_size':16} if self.path.endswith('/pre-flight-checks') else {'id':'fake-id'})
+            def do_POST(self):
+                time.sleep(3); self.send({})
+        server=ThreadingHTTPServer(('127.0.0.1',0),Delayed)
+        thread=Thread(target=server.serve_forever,daemon=True); thread.start()
+        try:
+            with tempfile.TemporaryDirectory() as directory:
+                settings=replace(Settings(Path(directory)),chroma_mode='http',chroma_url='http://127.0.0.1:'+str(server.server_port),request_timeout=10,attempts=1)
+                store=VectorStore(settings); started=time.monotonic()
+                with self.assertRaises(ValueError):
+                    store.write('test',[{'id':'one','text':'test','metadata':{'source':'test'},'vector':[1.,0.,0.,0.]}],deadline=started+1)
+                self.assertLess(time.monotonic()-started,2.)
+        finally: server.shutdown(); server.server_close(); thread.join()
+
     @unittest.skipUnless(__import__('os').environ.get('TANSY_TEST_CHROMA_URL'), 'Isolated Chroma URL not configured')
     def test_real_pinned_http_server_round_trip(self):
         import os,uuid
