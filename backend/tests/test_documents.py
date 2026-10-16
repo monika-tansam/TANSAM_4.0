@@ -12,6 +12,15 @@ from helpers import manifest
 
 
 class DocumentTests(unittest.TestCase):
+    def test_heading_only_sections_are_preserved(self):
+        from indexing import documents
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory); settings=Settings(root/'data')
+            path=manifest(root,'# First heading\n# Second heading')
+            sources=documents.prepare_sources(documents.load_manifest(path,settings),settings)
+            chunks=documents.chunks_for_sources(sources,settings)
+            self.assertEqual([chunk['section'] for chunk in chunks],['First heading','Second heading'])
+
     def test_real_pdf_pages_and_encrypted_or_empty_pdf_rejection(self):
         from indexing import documents
         from pypdf import PdfWriter

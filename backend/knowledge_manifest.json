@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "kb": "tansam",
+  "owner": "TANSAM_SYSTEM_USER",
+  "sources": [
+    {
+      "source_id": "tansam-profile",
+      "path": "tansam_knowledge.txt",
+      "format": "txt",
+      "name": "tansam_knowledge.txt",
+      "sha256": "569c271aad5f732a2990577361d4e8a7395aca7c002ad30dfbda92208223a592",
+      "approved_by": "TANSAM project owner (conversation approval)",
+      "approved_at": "2026-10-16T09:00:00+05:30"
+    }
+  ],
+  "retirements": []
+}

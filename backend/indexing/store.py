@@ -1,10 +1,11 @@
 """Explicit Chroma adapter; no implicit collections or embedding downloads."""
-from urllib.parse import urlsplit
 import chromadb
+from contextlib import contextmanager
 from chromadb.config import Settings as ChromaSettings
 
 from .embedding import retry
 from .errors import IndexingError
+from .http_store import HTTPChromaClient
 
 
 class VectorStore:
@@ -14,13 +15,22 @@ class VectorStore:
         if settings.chroma_mode == 'embedded':
             self.client = chromadb.PersistentClient(path=str(settings.data_root / 'vectors'), settings=options)
         else:
-            headers = {'Authorization': 'Bearer ' + settings.chroma_token} if settings.chroma_token else None
-            self.client = chromadb.HttpClient(host=settings.chroma_url, headers=headers, settings=options)
-        if self.client.get_version() != chromadb.__version__:
-            raise IndexingError('chroma_version', 'Chroma client/server versions must match')
+            self.client = HTTPChromaClient(settings)
+        # The pinned chromadb/chroma:1.5.9 Rust image reports 1.0.0 here;
+        # this is its protocol version, not the Python package version.
+        expected = chromadb.__version__ if settings.chroma_mode == 'embedded' else '1.0.0'
+        if self.client.get_version() != expected:
+            raise IndexingError('chroma_version', 'Unsupported Chroma server protocol version')
 
     def create(self, name):
         self.client.create_collection(name, embedding_function=None, metadata={'hnsw:space': 'cosine'})
+
+    @contextmanager
+    def bounded(self, deadline):
+        token = self.client.deadline.set(deadline) if isinstance(self.client, HTTPChromaClient) else None
+        try: yield
+        finally:
+            if token is not None: self.client.deadline.reset(token)
 
     def _collection(self, name):
         try: return self.client.get_collection(name, embedding_function=None)

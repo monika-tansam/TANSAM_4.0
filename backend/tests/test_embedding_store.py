@@ -47,8 +47,50 @@ class EmbeddingTests(unittest.TestCase):
             reader=self.client(replace(settings,model='different:latest'))
             self.assertEqual(len(reader.embed(['question'],profile,query=True)),1)
 
+    def test_legacy_query_uses_original_api_and_preserves_normalization(self):
+        with tempfile.TemporaryDirectory() as directory,EmbeddingServer() as server:
+            client=self.client(replace(Settings(Path(directory)),ollama_url=server.url))
+            profile={**client.profile(),'api':'/api/embeddings','document_prefix':'','query_prefix':'','normalization':'legacy-unmodified','historical_digest':'unknown'}
+            client.embed(['legacy question'],profile,query=True)
+            self.assertEqual(server.inputs[-1].get('prompt'),'legacy question')
+
 
 class StoreTests(unittest.TestCase):
+    @unittest.skipUnless(__import__('os').environ.get('TANSY_TEST_CHROMA_URL'), 'Isolated Chroma URL not configured')
+    def test_real_pinned_http_server_round_trip(self):
+        import os,uuid
+        from indexing.store import VectorStore
+        with tempfile.TemporaryDirectory() as directory:
+            store=VectorStore(replace(Settings(Path(directory)),chroma_mode='http',chroma_url=os.environ['TANSY_TEST_CHROMA_URL']))
+            name='integration-'+uuid.uuid4().hex
+            store.create(name)
+            rows=[{'id':'one','text':'Approved email','metadata':{'source':'profile','user_id':'owner'},'vector':[1.,0.,0.,0.]}]
+            store.write(name,rows); store.write(name,rows)
+            self.assertEqual(store.count(name),1)
+            self.assertEqual(store.read(name)[0]['text'],rows[0]['text'])
+            self.assertEqual(store.query(name,rows[0]['vector'],'owner',1)[0]['text'],rows[0]['text'])
+
+    def test_http_constructor_has_a_bounded_failure_deadline(self):
+        from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+        from threading import Thread
+        import time
+        from indexing.store import VectorStore
+        class Delayed(BaseHTTPRequestHandler):
+            def log_message(self,*args): pass
+            def do_GET(self):
+                time.sleep(3)
+                try:
+                    self.send_response(200); self.end_headers(); self.wfile.write(b'{}')
+                except OSError: pass
+        server=ThreadingHTTPServer(('127.0.0.1',0),Delayed)
+        thread=Thread(target=server.serve_forever,daemon=True); thread.start()
+        try:
+            with tempfile.TemporaryDirectory() as directory:
+                settings=replace(Settings(Path(directory)),chroma_mode='http',chroma_url='http://127.0.0.1:'+str(server.server_port),request_timeout=1,connect_timeout=1,attempts=1)
+                started=time.monotonic()
+                with self.assertRaises(ValueError): VectorStore(settings)
+                self.assertLess(time.monotonic()-started,2.0,'Server initialization waited beyond the configured request bound')
+        finally: server.shutdown(); server.server_close(); thread.join()
     def test_retry_after_ack_loss_does_not_duplicate_real_records(self):
         try:
             from indexing.store import VectorStore

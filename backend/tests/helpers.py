@@ -39,6 +39,8 @@ class EmbeddingServer:
                 if self.path=='/api/show': return self.send({'model_info':{'nomic-bert.embedding_length':4}})
                 fixture.inputs.append(value)
                 failure=fixture.failure
+                if self.path=='/api/embeddings':
+                    return self.send({'embedding':[1.,0.,0.,0.]})
                 if failure=='transient':
                     fixture.failure=None
                     return self.send({'error':'temporarily unavailable'},503)

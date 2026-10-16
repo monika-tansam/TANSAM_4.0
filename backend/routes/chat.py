@@ -1,5 +1,5 @@
 import json
-from flask import Blueprint, request, jsonify, Response, stream_with_context
+from flask import Blueprint, request, jsonify, Response, stream_with_context, current_app
 import config
 from services.cognitive import get_installed_models, ollama_chat_stream
 from services.rag import retrieve, format_rag_context
@@ -22,7 +22,11 @@ def public_chat():
 
     system_user_id = "TANSAM_SYSTEM_USER"
 
-    rag_chunks = retrieve(user_msg, system_user_id)
+    try:
+        rag_chunks = retrieve(user_msg, system_user_id)
+    except Exception:
+        current_app.logger.error('knowledge_retrieval_unavailable')
+        return jsonify({'error': 'knowledge_unavailable', 'message': 'TANSAM knowledge is temporarily unavailable.'}), 503
 
     TANSAM_SYSTEM_PROMPT = """You are TANSY, the virtual assistant for TANSAM (Tamil Nadu Smart and Advanced Manufacturing Center), a Center of Excellence powered by Siemens.
 Your task is to answer user queries accurately by integrating two key knowledge domains:

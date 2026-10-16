@@ -40,7 +40,8 @@ class IndexingService:
         identifier(kb)
         directory = self.settings.data_root / 'locks'
         directory.mkdir(parents=True, exist_ok=True)
-        lock = FileLock(directory / (digest(kb) + '.lock'))
+        # One root-wide writer also coordinates cross-KB backup and restore.
+        lock = FileLock(directory / 'writer.lock')
         try: lock.acquire(timeout=0)
         except Timeout as error: raise IndexingError('busy', 'Another indexing operation holds the writer lock') from error
         try: yield
@@ -88,7 +89,10 @@ class IndexingService:
                 fingerprint = digest({'kb': kb, 'owner': manifest['owner'], 'sources': sorted(summaries, key=lambda value: value['source_id']), 'profile': profile, 'processing': processing})
                 for prior in self.catalog.list('revisions', kb):
                     if prior.get('fingerprint') == fingerprint and prior['state'] == 'ready' and (prior['id'] == base['revision'] or prior['base_generation'] == base['generation']):
-                        self.verify(prior['id'], deadline)
+                        try: self.verify(prior['id'], deadline)
+                        except IndexingError as error:
+                            if error.code in ('embedding_vector', 'verification'): continue
+                            raise
                         self._progress(job, 'complete', state='unchanged', revision=prior['id'], source_count=len(sources), chunk_count=len(prior['records']))
                         return job
                 chunks = chunks_for_sources(sources, self.settings)
@@ -145,6 +149,11 @@ class IndexingService:
                 raise IndexingError(code, 'Build failed; published knowledge was preserved', job['id']) from error
 
     def verify(self, revision_id, deadline=None, allow_staging=False):
+        deadline = deadline or time.monotonic() + self.settings.build_timeout
+        with self.store.bounded(deadline):
+            return self._verify(revision_id, deadline, allow_staging)
+
+    def _verify(self, revision_id, deadline, allow_staging):
         revision = self.catalog.revision(revision_id)
         if revision['state'] != 'ready' and not (allow_staging and revision['state'] == 'staging'):
             raise IndexingError('not_ready', 'Revision is not verified')
@@ -199,7 +208,11 @@ class IndexingService:
     def status(self, kb):
         identifier(kb)
         active = self.catalog.active(kb)
-        return {'kb': kb, 'active': active, 'revision': self.catalog.revision(active['revision']) if active['revision'] else None,
+        revision = self.catalog.revision(active['revision']) if active['revision'] else None
+        if revision:
+            revision['chunk_count'] = len(revision['records'])
+            del revision['records']
+        return {'kb': kb, 'active': active, 'revision': revision,
                 'jobs': self.catalog.list('jobs', kb)}
 
     def read(self, kb, question, owner, top_k=6):
@@ -210,8 +223,10 @@ class IndexingService:
             raise IndexingError('knowledge_unavailable', 'Published knowledge is unavailable for this owner')
         deadline = time.monotonic() + self.settings.request_timeout
         vector = self.embedder.embed([question], revision['profile'], query=True, deadline=deadline)[0]
-        if self.store.count(revision['collection']) != len(revision['records']):
-            raise IndexingError('knowledge_unavailable', 'Published index integrity check failed')
-        try: return self.store.query(revision['collection'], vector, owner, top_k)
+        try:
+            with self.store.bounded(deadline):
+                if self.store.count(revision['collection']) != len(revision['records']):
+                    raise IndexingError('knowledge_unavailable', 'Published index integrity check failed')
+                return self.store.query(revision['collection'], vector, owner, top_k)
         except IndexingError: raise
         except Exception as error: raise IndexingError('knowledge_unavailable', 'Published vector service is unavailable') from error

@@ -44,14 +44,12 @@ def validate_vectors(vectors, count, dimension):
 class OllamaEmbeddings:
     def __init__(self, settings):
         self.settings = settings
-        self.session = requests.Session()
-        if settings.ollama_token:
-            self.session.headers['Authorization'] = 'Bearer ' + settings.ollama_token
 
     def _request(self, method, path, data=None, deadline=None):
         def perform():
             left = remaining(deadline)
-            with self.session.request(method, self.settings.ollama_url + path, json=data,
+            headers = {'Authorization': 'Bearer ' + self.settings.ollama_token} if self.settings.ollama_token else {}
+            with requests.Session() as session, session.request(method, self.settings.ollama_url + path, json=data, headers=headers,
                                       timeout=(min(self.settings.connect_timeout, left), min(self.settings.request_timeout, left)),
                                       allow_redirects=False, stream=True) as response:
                 if not 200 <= response.status_code < 300:
@@ -100,6 +98,12 @@ class OllamaEmbeddings:
 
     def embed(self, texts, profile, query=False, deadline=None):
         vectors = []
+        if profile['api'] == '/api/embeddings':
+            for text in texts:
+                self.check(profile, deadline)
+                result = self._request('POST', '/api/embeddings', {'model': profile['model'], 'prompt': profile['query_prefix' if query else 'document_prefix'] + text}, deadline)
+                vectors.extend(validate_vectors([result.get('embedding')], 1, profile['dimension']))
+            return vectors
         for offset in range(0, len(texts), self.settings.batch_size):
             self.check(profile, deadline)
             batch = texts[offset:offset + self.settings.batch_size]

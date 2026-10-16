@@ -124,10 +124,10 @@ def chunks_for_sources(sources, settings):
                 heading = re.match(r'^#{1,6}\s+(.+)', line)
                 is_upper = line.strip().isupper() and len(line.strip()) < 160 and not line.lstrip().startswith(('-', '*'))
                 if heading or is_upper:
-                    if lines: sections.append((section, '\n'.join(lines).strip()))
+                    if lines or section: sections.append((section, '\n'.join(lines).strip()))
                     section, lines = (heading.group(1).strip() if heading else line.strip()), []
                 else: lines.append(line)
-            if lines: sections.append((section, '\n'.join(lines).strip()))
+            if lines or section: sections.append((section, '\n'.join(lines).strip()))
             for section, body in sections:
                 if not body and not section: continue
                 # Headings are retained even for heading-only sections.

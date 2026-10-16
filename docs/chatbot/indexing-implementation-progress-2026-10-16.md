@@ -21,3 +21,10 @@ Tasks 2–4: RED failures observed for absent source preparation, embedding/stor
 Ruling: Chroma 1.5.9's SDK HTTP transport sets timeout=None. The production adapter will use the same pinned Chroma HTTP protocol through a small bounded HTTP transport, rather than allowing unbounded SDK requests. This is a necessary reliability adjustment to the literal HttpClient choice; real server integration will verify compatibility.
 
 Ruling: Windows sandbox restrictions deny atomic temporary-file renames, while the same isolated tests pass outside the sandbox. Subsequent filesystem/network integration tests run with escalation; no unsafe production fallback replaces atomic writes.
+
+Tasks 5–6: complete — 31 tests passed (one opt-in real-server test skipped in the default run). CLI/app missing-index 503, no import side effects, source/cache repair, legacy unchanged-vector copy, portable backup/restore and damaged-backup rejection covered. The real Chroma HTTP round trip separately passed.
+
+Ruling: Use one root-wide writer lock instead of per-KB locks, so cross-KB backups cannot race builds/publications. Cost: indexing separate knowledge bases is serialized on this single VPS.
+
+Ruling: The pinned Chroma 1.5.9 Rust image reports protocol version 1.0.0; validate that value plus real protocol integration and pin the image digest. Cost: upgrades require explicit adapter compatibility validation; equating this endpoint with the Python package version would reject the supported server.
+

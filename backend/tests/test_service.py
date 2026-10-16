@@ -9,6 +9,26 @@ import json
 
 
 class ServiceTests(unittest.TestCase):
+    def test_unchanged_source_with_damaged_cache_is_rebuilt_safely(self):
+        with isolated_root() as root, EmbeddingServer() as server:
+            service=self.service(replace(Settings(root/'data'),ollama_url=server.url,min_free_bytes=0))
+            path=manifest(root); first=service.build(path)
+            service.publish('tansam',first['revision'],0,'one','owner','first')
+            with service.catalog.connection() as con: con.execute("UPDATE cache SET payload='{}'")
+            repaired=service.build(path)
+            self.assertEqual(repaired['state'],'ready')
+            self.assertNotEqual(repaired['revision'],first['revision'])
+            self.assertEqual(service.status('tansam')['active']['revision'],first['revision'])
+            self.assertTrue(service.verify(repaired['revision'])['verified'])
+
+    def test_status_excludes_full_document_records(self):
+        with isolated_root() as root, EmbeddingServer() as server:
+            service=self.service(replace(Settings(root/'data'),ollama_url=server.url,min_free_bytes=0))
+            job=service.build(manifest(root)); service.publish('tansam',job['revision'],0,'one','owner','first')
+            status=service.status('tansam')
+            self.assertNotIn('records',status['revision'])
+            self.assertEqual(status['revision']['chunk_count'],job['chunk_count'])
+
     def test_committed_publication_retry_uses_audit_even_when_model_is_down(self):
         with isolated_root() as root, EmbeddingServer() as server:
             service=self.service(replace(Settings(root/'data'),ollama_url=server.url,min_free_bytes=0))
