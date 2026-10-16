@@ -3,6 +3,7 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 import json
 import sqlite3
+import hashlib
 
 from .errors import IndexingError
 
@@ -103,8 +104,32 @@ class Catalog:
     def cached(self, key):
         with self.connection() as con:
             row = con.execute('SELECT payload FROM cache WHERE key=?', (key,)).fetchone()
-        return json.loads(row[0]) if row else None
+        if not row: return None
+        try:
+            value = json.loads(row[0])
+            vector = value['vector']
+            if value['sha256'] != hashlib.sha256(canonical(vector).encode()).hexdigest(): return None
+            return vector
+        except (ValueError, TypeError, KeyError): return None
 
     def cache(self, key, vector):
+        payload = {'vector': vector, 'sha256': hashlib.sha256(canonical(vector).encode()).hexdigest()}
         with self.connection() as con:
-            con.execute('INSERT OR REPLACE INTO cache VALUES(?,?)', (key, canonical(vector)))
+            con.execute('INSERT OR REPLACE INTO cache VALUES(?,?)', (key, canonical(payload)))
+
+    def recorded_activation(self, kb, revision, expected_generation, operation_id, actor, reason, action):
+        if not isinstance(expected_generation, int) or isinstance(expected_generation, bool) or expected_generation < 0:
+            raise IndexingError('arguments', 'Expected generation must be a nonnegative integer')
+        if any(not isinstance(value, str) or not value.strip() for value in (operation_id, actor, reason)):
+            raise IndexingError('arguments', 'Operation ID, actor, and reason are required')
+        request = canonical([kb, revision, expected_generation, operation_id, actor, reason, action])
+        with self.connection() as con:
+            row = con.execute('SELECT request,result FROM events WHERE operation_id=?', (operation_id,)).fetchone()
+        if row and row[0] != request:
+            raise IndexingError('operation_conflict', 'Operation ID already used with different arguments')
+        return json.loads(row[1]) if row else None
+
+    def was_published(self, kb, revision):
+        with self.connection() as con:
+            rows = con.execute('SELECT result FROM events').fetchall()
+        return any(value.get('kb') == kb and value.get('revision') == revision for value in (json.loads(row[0]) for row in rows))
