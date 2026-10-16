@@ -44,3 +44,10 @@ docs/
 
 # Tests
 tests/
+!backend/tests/
+!backend/tests/**
+backend/index_data/
+backend/.venv/
+.superpowers/
+**/__pycache__/
+*.py[cod]
