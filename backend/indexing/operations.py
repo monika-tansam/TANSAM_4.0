@@ -153,12 +153,12 @@ class Operations:
                         vector = staged.catalog.cached(row['cache_key'])
                         validate_vectors([vector], 1, revision['profile']['dimension'])
                         rows.append({**row, 'vector': vector})
-                    try: self.service.store._collection(revision['collection'])
-                    except IndexingError: self.service.store.create(revision['collection'])
-                    else:
-                        # Existing collections are never overwritten during restore.
-                        staged.verify(revision['id'])
-                        continue
+                    # Each attempt owns fresh collections. A prior partial restore
+                    # cannot strand a retry or overwrite another catalog's data.
+                    revision['restored_from_collection'] = revision['collection']
+                    revision['collection'] = 'tansy-restore-' + uuid.uuid4().hex
+                    staged.catalog.save_revision(revision)
+                    self.service.store.create(revision['collection'])
                     self.service.store.write(revision['collection'], rows)
                     staged.verify(revision['id'])
                 with staged.catalog.connection() as con:

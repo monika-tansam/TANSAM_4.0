@@ -4,8 +4,10 @@ import random
 import time
 import requests
 import httpx
+import httpcore
 
 from .errors import IndexingError
+from .transport import request_json
 
 
 def remaining(deadline):
@@ -17,7 +19,7 @@ def remaining(deadline):
 def transient(error):
     response = getattr(error, 'response', None)
     status = getattr(response, 'status_code', getattr(error, 'status_code', None))
-    return isinstance(error, (requests.ConnectionError, requests.Timeout, httpx.TransportError, ConnectionError, TimeoutError)) or status in (429, 500, 502, 503, 504)
+    return isinstance(error, (requests.ConnectionError, requests.Timeout, httpx.TransportError, httpcore.NetworkError, httpcore.TimeoutException, httpcore.RemoteProtocolError, ConnectionError, TimeoutError)) or status in (429, 500, 502, 503, 504)
 
 
 def retry(operation, settings, deadline=None):
@@ -46,23 +48,10 @@ class OllamaEmbeddings:
         self.settings = settings
 
     def _request(self, method, path, data=None, deadline=None):
+        deadline = min(deadline or float('inf'), time.monotonic() + self.settings.request_timeout)
         def perform():
-            left = remaining(deadline)
             headers = {'Authorization': 'Bearer ' + self.settings.ollama_token} if self.settings.ollama_token else {}
-            with requests.Session() as session, session.request(method, self.settings.ollama_url + path, json=data, headers=headers,
-                                      timeout=(min(self.settings.connect_timeout, left), min(self.settings.request_timeout, left)),
-                                      allow_redirects=False, stream=True) as response:
-                if not 200 <= response.status_code < 300:
-                    response.raise_for_status()
-                    raise IndexingError('embedding_protocol', 'Unexpected embedding service redirect')
-                raw = bytearray()
-                for part in response.iter_content(65536):
-                    remaining(deadline)
-                    raw.extend(part)
-                    if len(raw) > 16 * 1024 * 1024: raise IndexingError('embedding_protocol', 'Embedding response exceeds size limit')
-                import json
-                try: return json.loads(raw)
-                except (ValueError, TypeError) as error: raise IndexingError('embedding_protocol', 'Malformed embedding response') from error
+            return request_json(method, self.settings.ollama_url + path, data, headers, self.settings, deadline, 16 * 1024 * 1024)
         try: return retry(perform, self.settings, deadline)
         except IndexingError: raise
         except Exception as error: raise IndexingError('embedding_unavailable', 'Embedding service request failed') from error

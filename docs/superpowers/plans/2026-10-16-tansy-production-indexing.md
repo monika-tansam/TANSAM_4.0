@@ -79,7 +79,7 @@
 ### Task 7: Deployment, integration and final review
 
 **Files:** backend Docker/Compose configuration, pinned requirements, `.github/workflows`, operator runbook, integration tests.
-- [ ] Test explicit production configuration and Compose wiring; run real Chroma HTTP + Ollama integration in isolated storage, including restart and rollback.
-- [ ] Run `python -m unittest discover -s backend/tests -v`, `npm test`, scoped static/compile checks, build, whitespace checks; record inherited warnings.
-- [ ] Obtain a fresh whole-change review under requesting-code-review; reproduce and fix important findings through RED/GREEN tests.
-- [ ] Commit completed implementation and record local versus Linux/VPS acceptance evidence without claiming unperformed deployment.
+- [x] Test explicit production configuration and Compose wiring; run real Chroma HTTP + Ollama integration in isolated storage, including restart and rollback.
+- [x] Run `python -m unittest discover -s backend/tests -v`, `npm test`, scoped static/compile checks, build, whitespace checks; record inherited warnings.
+- [x] Obtain a fresh whole-change review under requesting-code-review; reproduce and fix important findings through RED/GREEN tests.
+- [x] Commit completed implementation and record local versus Linux/VPS acceptance evidence without claiming unperformed deployment.

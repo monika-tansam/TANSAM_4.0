@@ -3,15 +3,13 @@
 The 1.5.9 SDK sets timeout=None, including during client construction.
 Keep this adapter small and exercise it against the matching real server.
 """
-import json
 import time
 from contextvars import ContextVar
 from urllib.parse import quote
 
-import requests
-
-from .embedding import remaining, retry
+from .embedding import retry
 from .errors import IndexingError
+from .transport import request_json
 
 
 class HTTPChromaClient:
@@ -25,23 +23,8 @@ class HTTPChromaClient:
         bounds = [time.monotonic() + self.settings.request_timeout, deadline, self.deadline.get()]
         deadline = min(value for value in bounds if value is not None)
         def perform():
-            left = remaining(deadline)
             headers = {'Authorization': 'Bearer ' + self.settings.chroma_token} if self.settings.chroma_token else {}
-            # A separate session per call avoids sharing mutable pools across Flask threads.
-            with requests.Session() as session, session.request(method, self.base + path, json=data, headers=headers,
-                    timeout=(min(self.settings.connect_timeout, left), min(self.settings.request_timeout, left)),
-                    allow_redirects=False, stream=True) as response:
-                if not 200 <= response.status_code < 300:
-                    response.raise_for_status()
-                    raise IndexingError('vector_protocol', 'Unexpected vector service redirect')
-                raw = bytearray()
-                for part in response.iter_content(65536):
-                    remaining(deadline)
-                    raw.extend(part)
-                    if len(raw) > 64 * 1024 * 1024:
-                        raise IndexingError('vector_protocol', 'Vector response exceeds the size limit')
-                try: return json.loads(raw) if raw else None
-                except ValueError as error: raise IndexingError('vector_protocol', 'Malformed vector service response') from error
+            return request_json(method, self.base + path, data, headers, self.settings, deadline, 64 * 1024 * 1024)
         try: return retry(perform, self.settings, deadline) if retryable else perform()
         except IndexingError: raise
         except Exception as error: raise IndexingError('vector_unavailable', 'Vector service request failed') from error

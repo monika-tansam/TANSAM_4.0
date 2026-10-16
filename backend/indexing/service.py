@@ -76,17 +76,18 @@ class IndexingService:
                     old = {source['source_id'] for source in previous['sources']}
                     current = {source['source_id'] for source in manifest['sources']}
                     retired = {entry['source_id'] for entry in manifest['retirements']}
-                    if previous['owner'] != manifest['owner'] or old - current != retired:
+                    known = old | self.catalog.published_source_ids(kb)
+                    if previous['owner'] != manifest['owner'] or not old - current <= retired or not retired <= known:
                         raise IndexingError('source_set', 'Owner changes or omitted sources require an explicit reviewed retirement')
                 elif manifest['retirements']:
                     raise IndexingError('source_set', 'Cannot retire sources without a published baseline')
-                sources = prepare_sources(manifest, self.settings)
+                sources = prepare_sources(manifest, self.settings, deadline)
                 remaining(deadline)
                 profile = self.embedder.profile(deadline)
                 processing = {'parser': 'source-v1', 'pdf': importlib.metadata.version('pypdf'), 'chunker': 'sections-v1',
                               'chunk_size': self.settings.chunk_size, 'overlap': self.settings.chunk_overlap}
                 summaries = [{key: source[key] for key in ('source_id', 'name', 'format', 'sha256', 'approved_by', 'approved_at', 'text_sha256')} for source in sources]
-                fingerprint = digest({'kb': kb, 'owner': manifest['owner'], 'sources': sorted(summaries, key=lambda value: value['source_id']), 'profile': profile, 'processing': processing})
+                fingerprint = digest({'kb': kb, 'owner': manifest['owner'], 'sources': sorted(summaries, key=lambda value: value['source_id']), 'retirements': manifest['retirements'], 'profile': profile, 'processing': processing})
                 for prior in self.catalog.list('revisions', kb):
                     if prior.get('fingerprint') == fingerprint and prior['state'] == 'ready' and (prior['id'] == base['revision'] or prior['base_generation'] == base['generation']):
                         try: self.verify(prior['id'], deadline)

@@ -34,3 +34,29 @@ Task 7 evidence before final review: 35/35 Python tests passed on Windows (28.75
 Additional RED/GREEN: heading-only sections, unchanged-source cache repair, operator status payload, persisted retirement reasons, HTTP construction and remaining write deadlines. Production WSGI smoke test exposed Gunicorn control socket writing to a read-only home; --no-control-socket resolves this container-only default.
 
 Frontend: npm test 17/17 pass; npm run build pass. Existing Vite port-24678, large-bundle and plugin timing warnings remain. Python AST parse and Compose config checks pass. No live migration, production deployment or public network exposure performed.
+
+Final review: one independent fresh-context reviewer inspected c320bd0..30a2831. No Critical or Minor findings; four Important findings were reproduced in isolated fixtures before fixes. No second review is substituted for the regression and full-suite gate.
+
+Final: fixed HTTP slow-header/body deadline escape — test_trickled_and_stalled_headers_and_bodies_obey_deadline RED to GREEN; plain HTTP and certificate-verified HTTPS, stalled/trickled headers/bodies and three-attempt shared budgets covered. Shared transport now uses httpcore public network-backend interfaces and per-socket monotonic budgets without stranded worker threads.
+
+Final: fixed partial-restore retry — test_partial_restore_retry_uses_fresh_unpublished_collections RED to GREEN. Every attempt stages fresh collection names in its disposable catalog, leaving active pointers and other catalogs' collections untouched.
+
+Final: fixed replay of published source retirements — test_retirement_manifest_replays_after_publish_update_and_rollback RED to GREEN. Historical published source IDs permit audited replay while unknown retirements and omitted active sources remain rejected. Retirement reasons now participate in the revision fingerprint.
+
+Final: fixed cumulative PDF extraction overrun — test_pdf_preparation_consumes_one_shared_build_budget RED to GREEN. Source preparation receives the absolute build deadline; each PDF worker gets only the remaining extraction budget.
+
+Final: Ruling: Retrieval ranking, relevance thresholds, prompts and answer-grounding quality remain the user's next stage, as requested. Cost: this indexing implementation alone does not establish final answer-quality acceptance.
+
+Final: Ruling: Frontend/admin UI and broader public API security remain subsequent work; the new management interface is private CLI/service only. Cost: operators currently use commands, and public production exposure still needs the later API/security acceptance.
+
+Final: Ruling: Treat supplied TANSAM corrections and the existing approved source as the factual authority. Cost: this engineering work does not independently certify every organizational fact.
+
+Final: Ruling: Actual VPS sizing, TLS/firewall, production cutover and live migration acceptance require the deployment environment. Cost: no production traffic switch or deployment certification is implied by local validation.
+
+Final: minor (deferred): none.
+
+Final Windows locked-dependency validation: 39/39 tests pass in a clean ignored backend/.venv (42.641s), including live Ollama and real isolated Chroma. Final Linux verification is recorded below after completion.
+
+Final Linux hash-locked image: 39/39 tests pass as UID 10001 on a read-only filesystem with temporary test storage (34.963s), including HTTP/HTTPS deadline regressions, live Ollama, isolated Chroma and portable restore. All four final-review fixes have green full-suite evidence; no deferred findings.
+
+Task 7 complete: tests, deployment artifacts, runbook and fresh review/fix pass are committed locally. Existing feature branch is retained; no merge or push requested. Runtime integration containers are stopped after validation. The ignored Windows validation environment and Docker image remain available for local follow-up.

@@ -133,3 +133,9 @@ class Catalog:
         with self.connection() as con:
             rows = con.execute('SELECT result FROM events').fetchall()
         return any(value.get('kb') == kb and value.get('revision') == revision for value in (json.loads(row[0]) for row in rows))
+
+    def published_source_ids(self, kb):
+        with self.connection() as con:
+            events = (json.loads(row[0]) for row in con.execute('SELECT result FROM events'))
+            revisions = {event['revision'] for event in events if event['kb'] == kb}
+        return {source['source_id'] for rid in revisions for source in self.revision(rid)['sources']}

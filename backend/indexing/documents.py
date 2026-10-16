@@ -8,9 +8,11 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 
 from .catalog import canonical
 from .errors import IndexingError
+from .embedding import remaining
 
 
 def digest(value):
@@ -77,9 +79,11 @@ def load_manifest(path, settings):
         raise IndexingError('manifest', 'Invalid manifest, approval, or unsupported source format') from error
 
 
-def prepare_sources(manifest, settings):
+def prepare_sources(manifest, settings, deadline=None):
+    deadline = deadline or time.monotonic() + settings.build_timeout
     prepared, total = [], 0
     for item in manifest['sources']:
+        remaining(deadline)
         path = Path(manifest['_base']) / item['path']
         try:
             if not path.is_file(): raise OSError('not a regular file')
@@ -93,12 +97,13 @@ def prepare_sources(manifest, settings):
             raise IndexingError('approval_hash', 'Source bytes do not match the approved revision')
         archive = settings.data_root / 'sources' / (item['sha256'] + '.' + item['format'])
         atomic_write(archive, raw)
+        remaining(deadline)
         if item['format'] == 'pdf':
             with tempfile.TemporaryDirectory(dir=settings.data_root) as temporary:
                 output = Path(temporary) / 'extracted.json'
                 try:
                     result = subprocess.run([sys.executable, str(Path(__file__).with_name('pdf_worker.py')), str(archive), str(output), str(settings.max_pdf_pages), str(settings.max_characters)],
-                                            capture_output=True, timeout=settings.extraction_timeout, check=False)
+                                            capture_output=True, timeout=min(settings.extraction_timeout, remaining(deadline)), check=False)
                 except subprocess.TimeoutExpired as error:
                     raise IndexingError('extraction_timeout', 'Document extraction exceeded its deadline') from error
                 if result.returncode or not output.is_file():
@@ -108,6 +113,7 @@ def prepare_sources(manifest, settings):
             try: pages = [raw.decode('utf-8-sig').replace('\r\n', '\n').replace('\r', '\n')]
             except UnicodeDecodeError as error: raise IndexingError('encoding', 'Text sources must use valid UTF-8') from error
         text = '\n'.join(pages)
+        remaining(deadline)
         if not text.strip(): raise IndexingError('empty_source', 'Source contains no usable text; scanned PDFs require OCR')
         if len(text) > settings.max_characters: raise IndexingError('text_limit', 'Extracted text exceeds the configured limit')
         prepared.append({**item, 'archive': str(archive), 'text': text, 'pages': pages, 'text_sha256': digest(text.encode('utf-8'))})
