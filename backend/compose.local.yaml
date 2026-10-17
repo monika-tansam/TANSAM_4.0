@@ -1,0 +1,11 @@
+# Local Windows/Docker Desktop activation. Keep the installed host Ollama models.
+# Use with compose.yaml and --project-name tansy-local to isolate persistent data.
+services:
+  api:
+    environment:
+      TANSY_OLLAMA_URL: http://host.docker.internal:11434
+      TANSY_CHAT_OLLAMA_URL: http://host.docker.internal:11434
+  indexer:
+    environment:
+      TANSY_OLLAMA_URL: http://host.docker.internal:11434
+      TANSY_CHAT_OLLAMA_URL: http://host.docker.internal:11434

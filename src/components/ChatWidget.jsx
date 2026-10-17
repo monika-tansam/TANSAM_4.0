@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { MessageSquare, X, Send, Bot, Sparkles, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { CHAT_UNAVAILABLE_MESSAGE, readChatResponse } from '../services/chatStream';
 
 const SUGGESTIONS = [
   "What labs does TANSAM have?",
@@ -119,6 +120,7 @@ export default function ChatWidget() {
   }, [isOpen]);
 
   const handleSend = async (textToSend) => {
+    if (isTyping) return;
     const query = textToSend || inputValue.trim();
     if (!query) return;
 
@@ -150,54 +152,22 @@ export default function ChatWidget() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to connect to TANSAM RAG service.');
+        throw new Error(CHAT_UNAVAILABLE_MESSAGE);
       }
 
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder('utf-8');
-      let done = false;
       let assistantResponse = '';
 
       // Add placeholder assistant message
       setMessages(prev => [...prev, { role: 'assistant', content: '' }]);
-      setIsTyping(false);
-
-      while (!done) {
-        const { value, done: readerDone } = await reader.read();
-        done = readerDone;
-        if (value) {
-          const chunk = decoder.decode(value, { stream: !done });
-          
-          // Split Server-Sent Events stream lines
-          const lines = chunk.split('\n');
-          for (const line of lines) {
-            if (line.startsWith('data: ')) {
-              try {
-                const data = JSON.parse(line.slice(6));
-                
-                // If it streams token
-                if (data.token) {
-                  assistantResponse += data.token;
-                  setMessages(prev => {
-                    const newMsgs = [...prev];
-                    newMsgs[newMsgs.length - 1].content = assistantResponse;
-                    return newMsgs;
-                  });
-                }
-                
-                if (data.error) {
-                  throw new Error(data.error);
-                }
-              } catch (parseErr) {
-                // Ignore parsing errors for empty chunks or incomplete lines
-              }
-            }
-          }
-        }
-      }
+      await readChatResponse(response, token => {
+        assistantResponse += token;
+        setMessages(prev => prev.map((msg, index) => index === prev.length - 1
+          ? { ...msg, content: assistantResponse }
+          : msg));
+      });
     } catch (err) {
       console.error(err);
-      setError('Connection to local RAG server failed. Make sure the backend is running.');
+      setError(CHAT_UNAVAILABLE_MESSAGE);
       setMessages(prev => {
         // Remove the empty loader bubble if exists
         const lastMsg = prev[prev.length - 1];

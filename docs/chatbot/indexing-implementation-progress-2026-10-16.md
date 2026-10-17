@@ -60,3 +60,78 @@ Final Windows locked-dependency validation: 39/39 tests pass in a clean ignored 
 Final Linux hash-locked image: 39/39 tests pass as UID 10001 on a read-only filesystem with temporary test storage (34.963s), including HTTP/HTTPS deadline regressions, live Ollama, isolated Chroma and portable restore. All four final-review fixes have green full-suite evidence; no deferred findings.
 
 Task 7 complete: tests, deployment artifacts, runbook and fresh review/fix pass are committed locally. Existing feature branch is retained; no merge or push requested. Runtime integration containers are stopped after validation. The ignored Windows validation environment and Docker image remain available for local follow-up.
+
+
+## 2026-10-17: local activation and actual chatbot checks (uncommitted)
+
+Owner instruction: do not create local commits until explicit approval. HEAD remains `6d0db0e`; the six earlier outgoing commits are unchanged. All changes from this activation are left unstaged/uncommitted for review.
+
+Local runtime: `docker compose -f backend/compose.yaml -f backend/compose.local.yaml --project-name tansy-local up -d --build api`. Existing Windows Ollama 0.40.5 supplies `llama3.2:latest` and `nomic-embed-text:latest`. The override preserves those installed models. API: `http://127.0.0.1:5001`; existing website: `http://localhost:5173`. Private Chroma and the catalog persist in the separate `tansy-local_vectors` / `tansy-local_catalog` Docker volumes. The original legacy directory is not mounted into either service.
+
+The approved source hash remains `569c271aad5f732a2990577361d4e8a7395aca7c002ad30dfbda92208223a592`. Built and verified 9 chunks in revision `cd8903b787b6484cbe7761a3adfb9120`; published at generation 1. Before publication the actual API returned 503 and the actual widget displayed its then-existing connection error rather than generating an answer.
+
+Operational checks passed:
+- Hot-published `f99f6df596a34c768edaac96a7245525`, a 900-character chunk profile using exactly the same approved source bytes, at generation 2. The running API served the HR email without restart.
+- Rolled back to the original 1,000-character profile/revision at generation 3. Office-hours answers continued working. The API container start timestamp stayed unchanged throughout publication/rollback.
+- Stale-generation publication rejected; retrying the exact original operation returned its recorded result without changing the current generation.
+- Rebuilding the original approved manifest returned `unchanged` and reused the active revision.
+- Restarted both local API and Chroma; the active revision/generation and verified records persisted, and a fresh actual request returned both approved emails.
+- Empty-message HTTP request returned 400. A real missing-model generation request displayed a friendly UI error, removed the empty assistant bubble and re-enabled input after the stream-handling fix.
+- Original legacy SQLite integrity remains `ok`, with its 16 records preserved.
+
+Backups on the host: `backend/backups/local-before-publish-20261017-8be3d0f7/` and `backend/backups/local-active-20261017-cd8903b7/`. These are local recovery copies, not off-VPS disaster-recovery acceptance. No production deployment or Git push/commit occurred.
+
+Live answer probe (real API/LLM; fact-pattern checks require human review):
+
+| Case | Result | Seconds |
+| --- | --- | ---: |
+| official-email | Pass | 46.172 |
+| hr-email | Pass | 0.828 |
+| office-hours | Pass | 3.562 |
+| consultation | Needs answer-quality work | 1.36 |
+| address | Pass | 0.875 |
+| phones | Pass | 0.812 |
+| labs | Pass | 0.922 |
+| internship | Pass | 1.328 |
+| inauguration | Pass | 1.032 |
+| unknown-fee | Pass | 0.906 |
+| unknown-ceo | Pass | 0.829 |
+
+10/11 fact-pattern cases passed. Unsupported current internship fees and CEO name were declined rather than invented. The first cold generation took 46.172s; subsequent calls were about 0.8–3.6s on this machine. These timings are observations, not a production latency guarantee.
+
+Open answer-quality finding: the consultation question produced a documentation disclaimer and a general-knowledge interpretation instead of explicitly explaining 24-hour official consultation versus 9 AM–6 PM office opening. Retrieval diagnostics confirmed both approved statements were present in the selected six chunks, so this is not a missing/empty index. Keep the failed check unchanged for the next retrieval/answer-grounding stage. Manual review also noticed source-style citations in one internship answer despite the existing prompt asking for none; that belongs to the same answer-policy follow-up. Knowledge content and the answer prompt were not changed during this activation.
+
+Narrow frontend integration fix, reproduced before changing code: SSE `error` was swallowed by the JSON parse catch and left a blank reply; partial JSON/UTF-8 network chunks could also be discarded. Added `src/services/chatStream.js`, wired the widget to it, surfaced a nontechnical error, and kept input disabled for the entire response. Six focused tests were RED before implementation and GREEN afterward. Actual browser checks confirmed a real missing-model failure is visible, fragmented Tamil text survives, input/send stay disabled while streaming, completion re-enables them, and a fresh real conversation after restart displays both emails and office hours. This does not redesign the widget or retrieval architecture.
+
+Verification this run: `npm test` 23/23 pass; `npm run build` pass; Python suite 39 run with 35 passed and 4 opt-in disposable-server tests skipped. The actual activated runtime was tested separately as described above. Existing Vite port-24678 and bundle/plugin warnings remain. No new commit was made.
+
+Evidence: ignored `backend/index_data/local-activation-2026-10-17/` contains `before-publication.json`, `chatbot-before-review.json`, `publication-rollback.json`, `restart-and-diagnostics.json`, and browser screenshots. `backend/tests/check_local_chatbot.py` is the repeatable, opt-in loopback-only live answer probe; it is not automatically run in the default suite because it targets an activated local service and a live LLM.
+
+Scoped frontend lint: zero errors; three inherited warnings in ChatWidget.jsx (unused MessageSquare import and two pre-existing regex escapes). No unrelated lint cleanup was included. Local API and Chroma remain running for owner testing; the dedicated automated-browser session is closed after evidence capture.
+
+
+## 2026-10-17: owner-approved inauguration and relocation correction (uncommitted)
+
+Authority: the owner's direct correction in this conversation. The source now records inauguration at Tidel Park, Chennai, by Thiru. M.K. Stalin, described as former Chief Minister of Tamil Nadu, followed by relocation to Anna University, Chennai, in 2026. The existing approved inauguration date of 8 November 2022 is retained. Anna University remains the current location/contact address. All bytes from CORE COLLABORATION AREAS onward, including labs, internships, news and contact details, were preserved.
+
+Updated approval timestamp: `2026-10-17T08:46:20.822017+00:00`. Source SHA-256: `f59fc3f91551d6a6e7d98e6a071c03fc939caf58fe2554699863325320ea5075`. The manifest hash and approval time were refreshed after this explicit content approval.
+
+Extended the live probe to require Tidel Park and the former-Chief-Minister wording for inauguration, plus a new 2026 relocation case. Before the update, both history checks failed: the old active chatbot incorrectly answered Anna University as the inauguration venue and did not know the relocation year. After the correction, all six targeted pattern checks passed (inauguration, relocation, current address, official email, HR email and opening hours). Manual review noted a spelling variation of Mechatronics in one generated address answer; the approved source itself retains the exact correct spelling. This remains part of the existing answer-fidelity follow-up, not a reason to alter approved facts.
+
+Used the mounted `/knowledge/knowledge_manifest.json` input so no backend/image rebuild or API restart was required. Validated and built revision `d4b125475f6b4cf5b1e6dfbe52568d6c`, 9 chunks with 8 embedding-cache hits. Readback verification passed, then published against generation 3 with operation `local-history-correction-20261017`. Current local generation is 4; the preceding generation/revision remains retained.
+
+Backups: `backend/backups/history-correction-before-20261017-g3/` and `backend/backups/history-correction-active-20261017-g4/`. Live evidence is in ignored `backend/index_data/local-activation-2026-10-17/history-correction-before.json`, `history-correction-after.json` and `history-correction-active.json`.
+
+No new Git commit, staging, push or production deployment. Existing pending source changes remain untouched. Verification scope was source/hash integrity, preservation of unrelated sections, pipeline validation/readback, publication and targeted live answers; application implementation code did not change in this correction.
+
+## 2026-10-17: pre-commit file review and Graphify refresh
+
+Reviewed the pending files and the outgoing file list relative to the upstream branch. The review set contains source, the approved knowledge/manifest, the local Compose override, tests, operational documentation and current Graphify artifacts. Runtime Chroma/catalog data, local mounted knowledge copies, backups, Python environments, dependencies, build output, logs and screenshots are excluded. A targeted credential-pattern scan found no unexpected credentials in the reviewed files; this is not a comprehensive security audit. The previously committed localhost certificate/private key are documented public HTTPS test fixtures and remain required by the deadline regressions. The pre-existing tracked `backend/.env` contains comments only and has no pending change.
+
+Added ignore rules for new `graphify-out/cache/` entries and automatic dated Graphify backups. Previously tracked caches and old dated snapshots are unchanged; ignore rules do not untrack historical files. Restored only the tracked stat-index cache that this refresh changed, using its verified clean pre-refresh bytes. The new dated backup and extraction cache remain local.
+
+Ran `graphify update .`, then `graphify cluster-only . --no-label` because the update left the old analysis membership in place. Final graph: 950 nodes, 2,202 edges and 63 communities. Verified exact graph/analysis membership, no duplicate membership or invalid edge endpoints, labels for all communities, a nonempty HTML visualization, coverage of the new stream-reader/live-probe and indexing code, and no runtime-storage/environment paths in graph sources. The seven current generated files are `.graphify_analysis.json`, `.graphify_labels.json`, `.graphify_labels.json.sig`, `GRAPH_REPORT.md`, `graph.html`, `graph.json` and `manifest.json`.
+
+Fresh checks: frontend 23/23 tests pass; production build passes; backend 39 tests run, 35 passed and four opt-in disposable-server integrations skipped. The initial sandboxed backend run was prevented by Windows file-replace/socket permissions; the same suite passed outside that restriction without code changes. Scoped frontend lint has zero errors and the same three inherited warnings. Local Compose configuration validation and source/manifest hash validation pass. Existing bundle-size and test HMR-port warnings remain.
+
+No `git add`, reset, commit, push or history rewrite was performed by this review. Ten files became staged while checks were running; that staging was preserved. Graphify refreshes, these review notes and the new ignore-rule additions are left unstaged for owner review. HEAD remains `6d0db0e`, with the same six earlier outgoing commits. The known consultation-answer and proper-name fidelity findings remain open for the next retrieval/answer-grounding stage.

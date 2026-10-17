@@ -54,6 +54,33 @@ For restore: stop API and all workers, use a **fresh** data root and preferably 
 
 ## Compose deployment
 
+### Local activation on Windows / Docker Desktop
+
+The local override uses the already installed Windows Ollama at `host.docker.internal:11434`; it does not download or replace models. Start Docker Desktop's Linux engine and local Ollama with `nomic-embed-text:latest` and `llama3.2:latest` available. From the repository root:
+
+```
+docker compose -f backend/compose.yaml -f backend/compose.local.yaml --project-name tansy-local up -d --build api
+docker compose -f backend/compose.yaml -f backend/compose.local.yaml --project-name tansy-local run --rm indexer status --kb tansam
+```
+
+The API is at `http://127.0.0.1:5001`; run `npm run dev` for the website at `http://localhost:5173`. The `tansy-local_catalog` and `tansy-local_vectors` Docker volumes persist catalog and vectors across container restart. Chroma has no published host port. These volumes are independent of `backend/chroma_db`; never use `docker compose down --volumes` against the activated local project unless its data is explicitly being retired and backed up.
+
+On a new machine, follow validate/build/verify/publish above through `run --rm indexer`; `up` alone deliberately does not publish knowledge. On this machine the approved source was published on 2026-10-17, and the original 1,000-character chunk profile was restored after a hot-update/rollback test. Subsequent owner-approved corrections are published as new revisions. Use `status` to read the current generation rather than copying an old publication command.
+
+For updates without rebuilding the backend, copy the approved `backend/tansam_knowledge.txt` and its updated `backend/knowledge_manifest.json` into the ignored `backend/knowledge/` directory, then validate/build using `--manifest /knowledge/knowledge_manifest.json`. Verify and explicitly publish the returned revision at the current generation. The `/app/knowledge_manifest.json` file is an image-build snapshot intended for initial setup; it does not automatically follow later host-file corrections. The 2026-10-17 inauguration/relocation correction was activated through the mounted `/knowledge` path without restarting the API.
+
+Repeat the opt-in real-answer probe with a Python environment containing `requests`:
+
+```
+python backend/tests/check_local_chatbot.py --output backend/index_data/local-chat-check.json
+```
+
+This probe only targets a loopback API. It records actual streamed answers, source metadata, timings and pattern checks for approved-fact/unknown-information cases. Results need human review; passing patterns do not guarantee factual correctness. The first local run passed 10/11 cases; inauguration-venue and relocation-year coverage was subsequently expanded for the owner's correction. The consultation-versus-office-hours answer was insufficiently grounded even though retrieval included both approved statements; retain this finding for the retrieval/answer-quality stage. Do not change the approved source or weaken that check to conceal it. Scanned documents, new retrieval ranking and an admin UI remain outside this activation.
+
+Local evidence is under ignored `backend/index_data/local-activation-2026-10-17/`. Backups before publication and after activation are under ignored `backend/backups/`. Knowledge, runtime databases, logs and local backups are not source changes to commit. The local override, stream-reader fix/tests and documentation remain uncommitted pending owner approval.
+
+### VPS deployment
+
 From `backend/`, copy `deploy.env.example` to a private operator configuration, create the knowledge/backup bind directories and grant UID 10001 access (e.g. on Linux `install -d -o 10001 -g 10001 knowledge backups`). Review CPU/RAM/disk allocations for the actual VPS. The supplied values are bounds to validate, not measured sizing guarantees. Container images and Python dependencies are pinned; upgrades need compatibility tests.
 
 ```

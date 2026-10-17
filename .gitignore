@@ -44,6 +44,9 @@ docs/
 
 # Tests
 tests/
+!tests/
+tests/*
+!tests/chat-stream.test.js
 !backend/tests/
 !backend/tests/**
 backend/index_data/
@@ -53,3 +56,7 @@ backend/.venv/
 .superpowers/
 **/__pycache__/
 *.py[cod]
+
+# Graphify rebuild caches and automatic dated backups stay local.
+/graphify-out/cache/
+/graphify-out/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/
